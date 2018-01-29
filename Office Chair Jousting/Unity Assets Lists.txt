@@ -1,4 +1,4 @@
-
+Last updated - Jan.26, 2018
 
 
 [Standard Assets]
@@ -6,4 +6,8 @@
 
 [Unity Asset store]
 
-TextMesh pro	-	UI text
+TextMesh pro				-	UI text
+
+Invector-3rdPersonController		-	TPS camera and Characters
+
+BulletUnity				-	Physics
