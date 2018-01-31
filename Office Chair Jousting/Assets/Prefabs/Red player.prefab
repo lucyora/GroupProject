@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4484138569022502}
   m_Layer: 0
-  m_Name: EthanHead
+  m_Name: RedHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4638333613355694}
   m_Layer: 0
-  m_Name: EthanRightCorner
+  m_Name: RedRightCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4821016014033220}
   m_Layer: 0
-  m_Name: EthanNeck
+  m_Name: RedNeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4343738742879334}
   m_Layer: 0
-  m_Name: EthanUpperLip
+  m_Name: RedUpperLip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4744538890236744}
   m_Layer: 0
-  m_Name: EthanLeftBlink
+  m_Name: RedLeftBlink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4935871982296968}
   m_Layer: 0
-  m_Name: EthanLeftArm
+  m_Name: RedLeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,7 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4017892837042544}
   m_Layer: 0
-  m_Name: EthanRightBlink
+  m_Name: RedRightBlink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4515456267510852}
   m_Layer: 0
-  m_Name: EthanSpine1
+  m_Name: RedSpine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,7 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4002086764907814}
   m_Layer: 0
-  m_Name: EthanJaw
+  m_Name: RedJaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4683725625830182}
   m_Layer: 0
-  m_Name: EthanRightEye
+  m_Name: RedRightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4692708147517134}
   m_Layer: 0
-  m_Name: EthanRightUpLeg
+  m_Name: RedRightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4271484261462558}
   m_Layer: 0
-  m_Name: EthanHead1
+  m_Name: RedHead1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,7 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4823169821876358}
   m_Layer: 0
-  m_Name: EthanRightShoulder
+  m_Name: RedRightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 4502819595690710}
   - component: {fileID: 137078500202362954}
   m_Layer: 0
-  m_Name: EthanGlasses
+  m_Name: RedGlasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,7 +567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4978370144931170}
   m_Layer: 0
-  m_Name: EthanHips
+  m_Name: RedHips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,7 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4630066728258610}
   m_Layer: 0
-  m_Name: EthanRightBrow
+  m_Name: RedRightBrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4075091096130960}
   m_Layer: 0
-  m_Name: EthanLeftCorner
+  m_Name: RedLeftCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,7 +687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4407371264098958}
   m_Layer: 0
-  m_Name: EthanLeftEye
+  m_Name: RedLeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4881717977180166}
   m_Layer: 0
-  m_Name: EthanSpine
+  m_Name: RedSpine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4880286779822034}
   m_Layer: 0
-  m_Name: EthanRightUpperLip
+  m_Name: RedRightUpperLip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -867,7 +867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4863882196737768}
   m_Layer: 0
-  m_Name: EthanSpine2
+  m_Name: RedSpine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,7 +882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4943584229249346}
   m_Layer: 0
-  m_Name: EthanLeftUpperLip
+  m_Name: RedLeftUpperLip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,7 +990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4262842017570102}
   m_Layer: 0
-  m_Name: EthanLeftShoulder
+  m_Name: RedLeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,7 +1086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4725331179260406}
   m_Layer: 0
-  m_Name: EthanSkeleton
+  m_Name: RedSkeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1176,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4971574790141178}
   m_Layer: 0
-  m_Name: EthanLeftBrow
+  m_Name: RedLeftBrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1314,7 +1314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4242519642690234}
   m_Layer: 0
-  m_Name: EthanLeftUpLeg
+  m_Name: RedLeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1408,7 +1408,7 @@ GameObject:
   - component: {fileID: 4473511678849482}
   - component: {fileID: 137628889990491280}
   m_Layer: 0
-  m_Name: EthanBody
+  m_Name: RedBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2986,7 +2986,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: f4814f254c93ef946b6259760dcc9a3b, type: 3}
