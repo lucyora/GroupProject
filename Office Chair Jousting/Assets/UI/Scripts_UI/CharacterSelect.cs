@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 
 public class CharacterSelect : MonoBehaviour {
+    public bool powerUpSelect = false;
     public float strenght;
     public float speed;
     public float stability;
     public Image image;
+    public Image powerUp;
     public Sprite[] sprite;
+    public Sprite[] powersprite;
     public Slider[] slider;
     public int index =1;
+    public int powerIndex = 1;
     public string[] names;
     public GameObject panel;
     public bool[] Ai;
+    public bool[] characterSelReady;
     void Start()
     {
         Ai = new bool[] { true, true, true, true};
@@ -23,51 +28,72 @@ public class CharacterSelect : MonoBehaviour {
     }
     void Update()
     {
-         names = Input.GetJoystickNames();
+        names = Input.GetJoystickNames();
         for (int i = 0; i < names.Length; i++)
         {
             if(!string.IsNullOrEmpty(names[i]))
             {
                 Ai[i] = false;
-                playerControl();
+                playerControl(i);
             }
             else if(string.IsNullOrEmpty(names[i]))
             {
                 Ai[i] = true;
-                Debug.Log(names[i]+"Is not Connected");
             }
         }
-       // toggleLeft();
-       // toggleRight();
     }
 
-   /* void toggleLeft()
+    /* void toggleLeft()
+     {
+
+         if(Input.GetKeyDown(KeyCode.LeftArrow))
+         {
+             index--;
+             if(index < 1)
+             {
+                 index = 5;
+             }
+             CharacterDisplay();
+             Characterstats();
+         }
+     }
+     void toggleRight()
+     {
+         if (Input.GetKeyDown(KeyCode.RightArrow))
+         {
+             index++;
+             if (index > 5)
+             {
+                 index = 1;
+             }
+             CharacterDisplay();
+             Characterstats();
+         }
+     }*/
+
+    void powerupSelect()
     {
-       
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if (index == 1)
         {
-            index--;
-            if(index < 1)
-            {
-                index = 5;
-            }
-            CharacterDisplay();
-            Characterstats();
+            powerUp.sprite = powersprite[0];
+        }
+        if (index == 2)
+        {
+            powerUp.sprite = powersprite[1];
+        }
+        if (index == 3)
+        {
+            powerUp.sprite = powersprite[2];
+        }
+        if (index == 4)
+        {
+            powerUp.sprite = powersprite[3];
+        }
+        if (index == 5)
+        {
+            powerUp.sprite = powersprite[4];
         }
     }
-    void toggleRight()
-    {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            index++;
-            if (index > 5)
-            {
-                index = 1;
-            }
-            CharacterDisplay();
-            Characterstats();
-        }
-    }*/
     void Characterstats()
     {
         slider[0].value = strenght / 100;
@@ -134,11 +160,11 @@ public class CharacterSelect : MonoBehaviour {
         image.sprite = sprite[4];
     }
 
-    void playerControl()
+    void playerControl(int i)
     {
-        if (Mathf.Abs(Input.GetAxis("Joy" + 0 + "X")) > 0.2F && panel == GameObject.Find("Character1"))
+        if (Mathf.Abs(Input.GetAxis("Joy" + i + "X")) > 0.2F && panel == GameObject.Find("Character"+i) && powerUp == false)
         {
-            Debug.Log(Input.GetJoystickNames()[0] + " is moved");
+            Debug.Log(Input.GetJoystickNames()[i] + " is moved");
             index++;
             if (index > 5)
             {
@@ -147,39 +173,10 @@ public class CharacterSelect : MonoBehaviour {
             CharacterDisplay();
             Characterstats();
         }
-        else if (Mathf.Abs(Input.GetAxis("Joy" + 1 + "X")) > 0.2F && panel == GameObject.Find("Character2"))
+        else if(Mathf.Abs(Input.GetAxis("Joy" + i + "X")) > 0.2F && panel == GameObject.Find("Character" + i) && powerUp == true)
         {
-            Debug.Log(Input.GetJoystickNames()[1] + " is moved");
-            index++;
-            if (index > 5)
-            {
-                index = 1;
-            }
-            CharacterDisplay();
-            Characterstats();
+            powerIndex++;
+            powerupSelect();
         }
-        else if (Mathf.Abs(Input.GetAxis("Joy" + 2 + "X")) > 0.2F /*|| Mathf.Abs(Input.GetAxis("Joy" + 0 + "Y")) > 0.2F*/ && panel == GameObject.Find("Character3"))
-        {
-            Debug.Log(Input.GetJoystickNames()[2] + " is moved");
-            index++;
-            if (index > 5)
-            {
-                index = 1;
-            }
-            CharacterDisplay();
-            Characterstats();
-        }
-        else if (Mathf.Abs(Input.GetAxis("Joy" + 3 + "X")) > 0.2F /*|| Mathf.Abs(Input.GetAxis("Joy" + 0 + "Y")) > 0.2F*/ && panel == GameObject.Find("Character4"))
-        {
-            Debug.Log(Input.GetJoystickNames()[3] + " is moved");
-            index++;
-            if (index > 5)
-            {
-                index = 1;
-            }
-            CharacterDisplay();
-            Characterstats();
-        }
-
     }
 }
