@@ -2,39 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class CharacterSelect : MonoBehaviour {
-    public bool powerUpSelect = false;
-    public float strenght;
-    public float speed;
-    public float stability;
+
+    private float strenght;
+    private float speed;
+    private float stability;
     public Image image;
     public Image powerUp;
     public Sprite[] sprite;
     public Sprite[] powersprite;
     public Slider[] slider;
-    public int index =1;
-    public int powerIndex = 1;
-    public string[] names;
     public GameObject panel;
+    public TextMeshProUGUI powerstats;
+    public TextMeshProUGUI powerName;
+    public TextMeshProUGUI StartText;
+
+    public int[] index;
+    public int[] powerIndex;
+    public string[] names;
     public bool[] Ai;
-    public bool[] characterSelReady;
+    public bool[] characterChosen;
+    public bool[] powerChosen;
+    public bool[] playerReady;
+
     void Start()
     {
-        Ai = new bool[] { true, true, true, true};
-        CharacterDisplay();
+        index = new int[5] { 1, 1, 1, 1, 1 };
+        powerIndex = new int[6] { 1, 1, 1, 1, 1, 1 };
+        characterChosen = new bool[4] { false, false, false, false };
+        powerChosen = new bool[4] { false, false, false, false };
+        playerReady = new bool[4] { false, false, false, false };
+        Ai = new bool[4] { true, true, true, true};
+        CharacterDisplay(1);
+        powerindex(1);
         Characterstats();
     }
     void Update()
     {
         names = Input.GetJoystickNames();
+        //loop for individual controller inputs
         for (int i = 0; i < names.Length; i++)
         {
             if(!string.IsNullOrEmpty(names[i]))
             {
                 Ai[i] = false;
                 playerControl(i);
+                checkPlayerReady(i);
             }
             else if(string.IsNullOrEmpty(names[i]))
             {
@@ -42,88 +57,78 @@ public class CharacterSelect : MonoBehaviour {
             }
         }
     }
-
-    /* void toggleLeft()
-     {
-
-         if(Input.GetKeyDown(KeyCode.LeftArrow))
-         {
-             index--;
-             if(index < 1)
-             {
-                 index = 5;
-             }
-             CharacterDisplay();
-             Characterstats();
-         }
-     }
-     void toggleRight()
-     {
-         if (Input.GetKeyDown(KeyCode.RightArrow))
-         {
-             index++;
-             if (index > 5)
-             {
-                 index = 1;
-             }
-             CharacterDisplay();
-             Characterstats();
-         }
-     }*/
-
-    void powerupSelect()
+     //power index
+    void powerindex(int i)
     {
-        if (index == 1)
+        if (powerIndex[i] == 1)
         {
             powerUp.sprite = powersprite[0];
+            powerName.text = "Donut";
+            powerstats.text = "Strenght + \n speed---\nStability++";
         }
-        if (index == 2)
+        else if (powerIndex[i] == 2)
         {
             powerUp.sprite = powersprite[1];
+            powerName.text = "Promotion";
+            powerstats.text = "Strenght +++ \n speed---\nStability+++";
         }
-        if (index == 3)
+        else if (powerIndex[i] == 3)
         {
             powerUp.sprite = powersprite[2];
+            powerName.text = "WD-40";
+            powerstats.text = "Strenght \n speed++\nStability+++";
         }
-        if (index == 4)
+        else if (powerIndex[i] == 4)
         {
             powerUp.sprite = powersprite[3];
+            powerName.text = "Coffee";
+            powerstats.text = "Strenght  \n speed+++\nStability--";
         }
-        if (index == 5)
+        else if (powerIndex[i] == 5)
         {
             powerUp.sprite = powersprite[4];
+            powerName.text = "Rocket Booster";
+            powerstats.text = "Strenght+  \n speed+++\nStability---";
+        }
+        else if (powerIndex[i] == 6)
+        {
+            powerUp.sprite = powersprite[5];
+            powerName.text = "Kale";
+            powerstats.text = "Strenght+++  \n speed\nStability-";
         }
     }
+    //stats to slider
     void Characterstats()
     {
         slider[0].value = strenght / 100;
         slider[1].value = speed / 100;
         slider[2].value = stability / 100;
     }
-    void CharacterDisplay()
+    //character index
+    void CharacterDisplay(int i)
     {
-        if (index ==1)
+        if (index[i] ==1)
         {
             character1Stats();
         }
-        if (index == 2)
+        else if (index[i] == 2)
         {
             character2Stats();
         }
-        if (index == 3)
+        else if (index[i] == 3)
         {
             character3Stats();
         }
-        if (index == 4)
+        else if (index[i] == 4)
         {
             character4Stats();
         }
-        if (index == 5)
+        else if (index[i] == 5)
         {
             character5Stats();
         }
     }
-
+    //charcter stats to display
     void character1Stats()
     {
         strenght = 25;
@@ -162,21 +167,83 @@ public class CharacterSelect : MonoBehaviour {
 
     void playerControl(int i)
     {
-        if (Mathf.Abs(Input.GetAxis("Joy" + i + "X")) > 0.2F && panel == GameObject.Find("Character"+i) && powerUp == false)
+        //character select move left and right
+        if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character"+i) && characterChosen[i] == false)
         {
-            Debug.Log(Input.GetJoystickNames()[i] + " is moved");
-            index++;
-            if (index > 5)
+            index[i]++;
+            if (index[i] > 5)
             {
-                index = 1;
+                index[i] = 1;
             }
-            CharacterDisplay();
+            CharacterDisplay(i);
             Characterstats();
         }
-        else if(Mathf.Abs(Input.GetAxis("Joy" + i + "X")) > 0.2F && panel == GameObject.Find("Character" + i) && powerUp == true)
+        else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
         {
-            powerIndex++;
-            powerupSelect();
+            index[i]--;
+            if (index[i] < 1)
+            {
+                index[i] = 5;
+            }
+            CharacterDisplay(i);
+            Characterstats();
+        }
+        //power select move left and right
+        if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i] == false)
+        {
+            powerIndex[i]++;
+            if(powerIndex[i] > 6)
+            {
+                powerIndex[i] = 1;
+            }
+            powerindex(i);
+        }
+        else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i]== false)
+        {
+            powerIndex[i]--;
+            if (powerIndex[i] < 1)
+            {
+                powerIndex[i] = 6;
+            }
+            powerindex(i);
+        }
+    }
+    void checkPlayerReady(int i)
+    {
+        if (panel == GameObject.Find(("Character" + i)))
+        {
+            //select playable character
+            if (Input.GetButtonDown("JoyA" + i) && characterChosen[i] == false && powerChosen[i] == false)
+            {
+                characterChosen[i] = true;
+            }
+            //back to select playable character
+            else if (Input.GetButtonDown("JoyB" + i) && characterChosen[i] == true && powerChosen[i] == false)
+            {
+                characterChosen[i] = false;
+            }
+            //select power
+            else if (Input.GetButtonDown("JoyA" + i) && characterChosen[i] == true && powerChosen[i] == false)
+            {
+                powerChosen[i] = true;
+                StartText.gameObject.SetActive(true);
+            }
+            //back to select power
+            else if (Input.GetButtonDown("JoyB" + i) && characterChosen[i] == true && powerChosen[i] == true)
+            {
+                powerChosen[i] = false;
+            }
+            //check if player has selected power and player
+            if (characterChosen[i] == false || powerChosen[i] == false)
+            {
+                StartText.gameObject.SetActive(false);
+                playerReady[i] = false;
+            }
+            //indicates player is ready
+            else if (characterChosen[i] == true && powerChosen[i] == true && Input.GetButtonDown("JoyStart" + i))
+            {
+                playerReady[i] = true;
+            }
         }
     }
 }
