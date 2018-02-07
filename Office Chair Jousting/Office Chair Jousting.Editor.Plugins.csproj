@@ -229,6 +229,9 @@
     <Reference Include="UnityEditor.UIAutomation">
       <HintPath>Library\UnityAssemblies\UnityEditor.UIAutomation.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>Library\UnityAssemblies\UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
       <HintPath>Library\UnityAssemblies\UnityEngine.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
@@ -240,6 +243,9 @@
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
       <HintPath>Library\UnityAssemblies\UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.VR">
       <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
@@ -277,9 +283,6 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>Library\FacebookSDK\Facebook.Unity.Settings.dll</HintPath>
-    </Reference>
     <Reference Include="TextMeshPro-2017.1-1.0.56-Editor">
       <HintPath>Assets\UnityStore Assets\TextMesh Pro\Plugins\Editor DLL\TextMeshPro-2017.1-1.0.56-Editor.dll</HintPath>
     </Reference>
@@ -300,13 +303,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Office Chair Jousting.csproj">
-      <Project>{4D171EFE-B4E8-FE5E-207A-051DC926540B}</Project>
-      <Name>Office Chair Jousting</Name>
-    </ProjectReference>
     <ProjectReference Include="Office Chair Jousting.Plugins.csproj">
       <Project>{E1836106-A2CE-2603-D072-74EC7E4F7816}</Project>
       <Name>Office Chair Jousting.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="Office Chair Jousting.csproj">
+      <Project>{4D171EFE-B4E8-FE5E-207A-051DC926540B}</Project>
+      <Name>Office Chair Jousting</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
