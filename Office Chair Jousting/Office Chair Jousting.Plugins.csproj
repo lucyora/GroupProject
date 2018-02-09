@@ -289,18 +289,6 @@
     <Reference Include="TextMeshPro-2017.1-1.0.56-Runtime">
       <HintPath>Assets\UnityStore Assets\TextMesh Pro\Plugins\Editor DLL\TextMeshPro-2017.1-1.0.56-Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xbox.Services.UnityEditor.CSharp">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Microsoft.Xbox.Services.UnityEditor.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Compat">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Unity.Compat.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Tasks">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Unity.Tasks.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
@@ -374,19 +362,6 @@
     <None Include="Assets\UnityStore Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\UnityStore Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\UnityStore Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Xbox Live\GameSave\README.txt" />
-    <None Include="Assets\Xbox Live\Readme.txt" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Caliburn.Micro.Platform.Core.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Caliburn.Micro.Platform.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Caliburn.Micro.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Microsoft.IdentityModel.Clients.ActiveDirectory.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Newtonsoft.Json.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.AttributedModel.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.Convention.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.Hosting.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.Runtime.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.TypedParts.xml" />
     <Content Include="XboxServices.config">
        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

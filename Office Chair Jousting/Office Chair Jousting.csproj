@@ -289,18 +289,6 @@
     <Reference Include="TextMeshPro-2017.1-1.0.56-Runtime">
       <HintPath>Assets\UnityStore Assets\TextMesh Pro\Plugins\Editor DLL\TextMeshPro-2017.1-1.0.56-Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xbox.Services.UnityEditor.CSharp">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Microsoft.Xbox.Services.UnityEditor.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Compat">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Unity.Compat.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Tasks">
-      <HintPath>Assets\Xbox Live\Libs\UnityEditor\NET35\Unity.Tasks.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Office Chair Jousting.Plugins.csproj">
@@ -309,6 +297,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Elevator.cs" />
     <Compile Include="Assets\Scripts\Controller.cs" />
     <Compile Include="Assets\Scripts\MultiPlayerCamera.cs" />
     <Compile Include="Assets\Scripts\Raycast.cs" />
@@ -356,29 +345,6 @@
     <Compile Include="Assets\UnityStore Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\UnityStore Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\UnityStore Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\AvailabilityCheck.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Leaderboard.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\LeaderboardEntry.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\LeaderboardTypes.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\ObjectPool.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Singleton.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Social.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\SocialManagerComponent.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\DoubleStat.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\IntegerStat.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\StatBase.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\StatEventArgs.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\StatPanel.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\StatsManagerComponent.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\StringStat.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\Stats\XboxLiveUserEventArgs.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\UnityComponentExtensions.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\UnityTaskExtensions.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\UserProfile.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\XboxLiveServicesSettings.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\XboxLiveUserInfo.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\XboxLiveUserManager.cs" />
-    <Compile Include="Assets\Xbox Live\Scripts\XboxSocialUserEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
@@ -406,19 +372,6 @@
     <None Include="Assets\UnityStore Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\UnityStore Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\UnityStore Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Xbox Live\GameSave\README.txt" />
-    <None Include="Assets\Xbox Live\Readme.txt" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Caliburn.Micro.Platform.Core.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Caliburn.Micro.Platform.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Caliburn.Micro.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Microsoft.IdentityModel.Clients.ActiveDirectory.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\Newtonsoft.Json.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.AttributedModel.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.Convention.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.Hosting.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.Runtime.xml" />
-    <None Include="Assets\Xbox Live\Tools\AssociationWizard\System.Composition.TypedParts.xml" />
     <Content Include="XboxServices.config">
        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
