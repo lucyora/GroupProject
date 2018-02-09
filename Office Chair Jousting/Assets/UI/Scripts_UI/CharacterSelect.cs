@@ -9,6 +9,10 @@ public class CharacterSelect : MonoBehaviour {
     private float strenght;
     private float speed;
     private float stability;
+    public AudioSource selectSound; // sounds DEBUG
+    public AudioSource confirmSound; // sounds DEBUG
+    public AudioSource deselectSound; // sounds DEBUG
+    public AudioSource readySound; //sounds DEBUG
     public Image image;
     public Image powerUp;
     public Sprite[] sprite;
@@ -29,6 +33,8 @@ public class CharacterSelect : MonoBehaviour {
     public bool[] playerReady;
     private float time;
 
+    
+
     void Start()
     {
         names = new string[4];
@@ -41,6 +47,8 @@ public class CharacterSelect : MonoBehaviour {
         CharacterDisplay(1);
         powerindex(1);
         Characterstats();
+
+
     }
     void Update()
     {
@@ -179,6 +187,7 @@ public class CharacterSelect : MonoBehaviour {
             //character select move left and right
             if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
+                selectSound.Play();
                 index[i]++;
                 if (index[i] > 5)
                 {
@@ -189,6 +198,7 @@ public class CharacterSelect : MonoBehaviour {
             }
             else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
+                selectSound.Play();
                 index[i]--;
                 if (index[i] < 1)
                 {
@@ -200,6 +210,7 @@ public class CharacterSelect : MonoBehaviour {
             //power select move left and right
             if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
+                selectSound.Play();
                 powerIndex[i]++;
                 if (powerIndex[i] > 6)
                 {
@@ -209,6 +220,7 @@ public class CharacterSelect : MonoBehaviour {
             }
             else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
+                selectSound.Play();
                 powerIndex[i]--;
                 if (powerIndex[i] < 1)
                 {
@@ -225,6 +237,7 @@ public class CharacterSelect : MonoBehaviour {
             //select playable character
             if (Input.GetButtonDown("JoyA" +i ) && characterChosen[i] == false && powerChosen[i] == false)
             {
+                confirmSound.Play();
                 characterChosen[i] = true;
                 image.color = Color.grey;
             }
@@ -232,11 +245,13 @@ public class CharacterSelect : MonoBehaviour {
             else if (Input.GetButtonDown("JoyB" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
                 characterChosen[i] = false;
+                deselectSound.Play();
                 image.color = Color.white;
             }
             //select power
             else if (Input.GetButtonDown("JoyA" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
+                confirmSound.Play();
                 powerChosen[i] = true;
                 StartText.gameObject.SetActive(true);
                 powerUp.color = Color.grey;
@@ -246,6 +261,7 @@ public class CharacterSelect : MonoBehaviour {
             {
                 powerChosen[i] = false;
                 powerUp.color = Color.white;
+                deselectSound.Play();
             }
             //check if player has selected powerUp and player
             if (characterChosen[i] == false || powerChosen[i] == false)
@@ -257,6 +273,7 @@ public class CharacterSelect : MonoBehaviour {
             //indicates player is ready
             else if (characterChosen[i] == true && powerChosen[i] == true && Input.GetButtonDown("JoyStart" + i))
             {
+                readySound.Play();
                 playerReady[i] = true;
                 readyPanel.gameObject.SetActive(true);
             }
