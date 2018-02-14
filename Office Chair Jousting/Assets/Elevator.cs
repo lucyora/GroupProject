@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Elevator : MonoBehaviour
-{ 
-    public GameObject Position;
-    void OnCollisionEnter(Collision other)
+{
+    public GameObject Destination;
+     void OnTriggerEnter(Collider other)    // once the trigger on the collider activates 
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player") // and the other object's tag is "Player"
         {
-            other.transform.position = Position.transform.position;
+            other.gameObject.transform.position = Destination.transform.position; // set the player's position to the destination item's.
         }
     }
 }
+
