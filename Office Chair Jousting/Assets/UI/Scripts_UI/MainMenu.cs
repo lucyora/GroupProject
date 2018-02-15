@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void PlayGame(int SceneIndex)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneIndex);
     }
 
-    public void MatchGame()
+  /*  public void MatchGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-    }
+    }*/
 
     public void QuitGame()
     {
