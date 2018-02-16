@@ -10,7 +10,7 @@ public class CharacterSelect : MonoBehaviour {
     private float speed;
     private float stability;
     public Button ToMap;
-    public AudioSource selectSound; // sounds DEBUG
+    //public AudioSource selectSound; // sounds DEBUG
     public AudioSource confirmSound; // sounds DEBUG
     public AudioSource deselectSound; // sounds DEBUG
     public AudioSource readySound; //sounds DEBUG
@@ -115,7 +115,9 @@ public class CharacterSelect : MonoBehaviour {
             //character select move left and right
             if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
-                selectSound.Play();
+                SoundManager.instance.selectSound.Play();
+
+                //selectSound.Play();
                 menuAnim.Play("CharacterMoveRight");
                 index[i]++;
                 if (index[i] > 5)
@@ -127,7 +129,8 @@ public class CharacterSelect : MonoBehaviour {
             }
             else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
-                selectSound.Play();
+                SoundManager.instance.selectSound.Play();
+                //selectSound.Play();
                 menuAnim.Play("CharacterMoveLeft");
                 index[i]--;
                 if (index[i] < 1)
@@ -140,7 +143,9 @@ public class CharacterSelect : MonoBehaviour {
             //power select move left and right
             if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
-                selectSound.Play();
+                SoundManager.instance.selectSound.Play();
+
+                //selectSound.Play();
                 menuAnim.Play("PowerMoveRight");
                 powerIndex[i]++;
                 if (powerIndex[i] > 6)
@@ -151,7 +156,9 @@ public class CharacterSelect : MonoBehaviour {
             }
             else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
-                selectSound.Play();
+                SoundManager.instance.selectSound.Play();
+
+                //selectSound.Play();
                 menuAnim.Play("PowerMoveLeft");
                 powerIndex[i]--;
                 if (powerIndex[i] < 1)
