@@ -8,13 +8,24 @@ public class MapSelect : MonoBehaviour {
     public RectTransform[] slots = new RectTransform[4];
     private float controlDelay;
     int navPos = 0;
+    public Button back_btn;
+    public CharacterSelect charSelect;
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        charSelect = GameObject.Find("Character0").GetComponent<CharacterSelect>();
         MoveNav(0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        //fix for all players are ready
+        if(charSelect.playerReady[0]==true && Input.GetButtonDown("JoyB0"))
+        {
+            back_btn.onClick.Invoke();
+            charSelect.toMap = false;
+            charSelect.playerReady[0] = false;
+        }
         navControl();
     }
 

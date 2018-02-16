@@ -34,7 +34,7 @@ public class CharacterSelect : MonoBehaviour {
     public bool[] powerChosen;
     public bool[] playerReady;
     Animator menuAnim;
-    private bool toMap = false;
+    public bool toMap = false;
 
     void Start()
     {
@@ -225,6 +225,7 @@ public class CharacterSelect : MonoBehaviour {
             if (Ai[i] == false && playerReady[i] == false)
             {
                 Debug.Log("All Players are not Ready");
+                readyPanel.SetActive(false);
             }
             else if (Ai[i] == false && playerReady[i] == true)
             {
