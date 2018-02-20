@@ -9,7 +9,8 @@ public class CharacterSelect : MonoBehaviour {
     private float strenght;
     private float speed;
     private float stability;
-    public Button ToMap;
+    public Button ToMap_btn;
+    public Button ToGameMode_btn;
     //public AudioSource selectSound; // sounds DEBUG
     public AudioSource confirmSound; // sounds DEBUG
     public AudioSource deselectSound; // sounds DEBUG
@@ -20,6 +21,7 @@ public class CharacterSelect : MonoBehaviour {
     public Sprite[] powersprite;
     public Slider[] slider;
     public GameObject panel;
+    public RectTransform charpanel;
     public GameObject readyPanel;
     public TextMeshProUGUI powerstats;
     public TextMeshProUGUI powerName;
@@ -39,41 +41,21 @@ public class CharacterSelect : MonoBehaviour {
     void Start()
     {
         menuAnim = GetComponent<Animator>();
-        names = new string[4];
-        index = new int[5] { 1, 1, 1, 1, 1 };
-        powerIndex = new int[6] { 1, 1, 1, 1, 1, 1 };
-        Ai = new bool[4] { true, true, true, true };
+        names = new string[4];        names = Input.GetJoystickNames();
+        index = new int[4] { 1, 1, 1, 1 };
+        powerIndex = new int[4] { 1, 1, 1, 1, };
+        Ai = new bool[4] { false, true, true, true };
         characterChosen = new bool[4] { false, false, false, false };
         powerChosen = new bool[4] { false, false, false, false };
         playerReady = new bool[4] { false, false, false, false };
         CharacterDisplay(1);
         powerindex(1);
         Characterstats();
-
     }
     void Update()
     {
-        names = Input.GetJoystickNames();
-        //loop for individual controller inputs
-        for (int i = 0; i < names.Length; i++)
-        {
-            if(!string.IsNullOrEmpty(names[i]))
-            {
-                Ai[i] = false;
-                if(toMap == false)
-                {
-                    playerControl(i);
-                    checkPlayerReady(i);
-                    AllPlayerReadyCheck(i);
-                }
-            }
-            else if(string.IsNullOrEmpty(names[i]))
-            {   
-                Ai[i] = true;              
-            }
-        }
+
     }
-    
     //stats to slider
     void Characterstats()
     {
@@ -105,8 +87,8 @@ public class CharacterSelect : MonoBehaviour {
             character5Stats();
         }
     }
-
-    void playerControl(int i)
+    //Character Selection Screen Player cycles through characters and powers
+   public void playerControl(int i)
     {
         time += Time.deltaTime;
         if (time > 0.1)
@@ -169,7 +151,8 @@ public class CharacterSelect : MonoBehaviour {
             }
         }
     }
-    void checkPlayerReady(int i)
+    //Character Selection Screen Player chooses character and power
+    public void checkPlayerReady(int i)
     {
         if (panel == GameObject.Find(("Character" + i)))
         {
@@ -195,7 +178,7 @@ public class CharacterSelect : MonoBehaviour {
                 confirmSound.Play();
                 powerChosen[i] = true;
                 menuAnim.Play("PowerAPress");
-                menuAnim.Play("PressWhenReadyFlash");
+                menuAnim.Play("PressWhenReady");
                 StartText.gameObject.SetActive(true);
                 powerUp.color = Color.grey;
             }
@@ -223,36 +206,31 @@ public class CharacterSelect : MonoBehaviour {
             }
         }
     }
-    void AllPlayerReadyCheck(int i)
+    //Hides none player Panels from screen until players join with Start button
+    public void AiCharSet(int i)
     {
-  //      for (int j = 0; j <= playerReady.Length; j++)
-  //      {
-         //  bool ready = isReady(playerReady);
-            Debug.Log("J is: " + i);
-            if (Ai[i] == false && playerReady[i] == false)
-            {
-                Debug.Log("All Players are not Ready");
-                readyPanel.SetActive(false);
-            }
-            else if (Ai[i] == false && playerReady[i] == true)
-            {
-                Debug.Log("All Players Ready");
-                ToMap.onClick.Invoke();
-                toMap = true;
-            }
-       // }
-    }
-  /*  bool isReady(bool[] playerred)
-    {
-        for (int i = 0; i < playerred.Length; i++)
+        if (panel == GameObject.Find("Character" + i))
         {
-            if (playerred[i] == false)
+            if (Input.GetButtonDown("JoyStart" + i) && Ai[i] == true)
             {
-                return false;
+                characterChosen[i] = false;
+                powerChosen[i] = false;
+                playerReady[i] = false;
+                panel.transform.localScale = new Vector3(1, 1, 1);
+                Ai[i] = false;
+            }
+            else if (Ai[i] == true)
+            {
+                panel.transform.localScale = new Vector3(0, 0, 0);
+                index[i] = Random.Range(1, 6);
+                characterChosen[i] = true;
+                powerIndex[i] = Random.Range(1, 7);
+                powerChosen[i] = true;
+                playerReady[i] = true;
             }
         }
-        return true;
-    }*/
+    }
+
 
     //charcter stats to display
     void character1Stats()
@@ -291,7 +269,7 @@ public class CharacterSelect : MonoBehaviour {
         image.sprite = sprite[4];
     }
 
-    //power index
+    //sets power index
     void powerindex(int i)
     {
         if (powerIndex[i] == 1)
