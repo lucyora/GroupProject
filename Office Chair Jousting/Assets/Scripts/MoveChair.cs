@@ -9,7 +9,6 @@ public class MoveChair : MonoBehaviour {
     //public Transform Wheel3;
     //public Transform Wheel4;
     //public Transform Wheel5;
-    public float torque;
     public float speed;
     private float velocitycap = 100.0f;
 
@@ -25,9 +24,6 @@ public class MoveChair : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
-        steerAngle = Input.GetAxis("Horizontal") ;
-
         //rb.AddForce(transform.forward * speed);
         transform.Translate(speed * Input.GetAxis("Horizontal") * Time.deltaTime, 0.0f, speed * Input.GetAxis("Vertical") * Time.deltaTime);
         //GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Clamp((GetComponent<Rigidbody>().velocity.x - Input.GetAxis("Vertical")), -velocitycap, velocitycap), GetComponent<Rigidbody>().velocity.y, Mathf.Clamp((GetComponent<Rigidbody>().velocity.z - Input.GetAxis("Horizontal")), -velocitycap, velocitycap));
