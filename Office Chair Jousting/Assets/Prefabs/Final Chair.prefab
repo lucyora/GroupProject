@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 138689145818107164}
   m_Layer: 0
   m_Name: Final Chair
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1149,7 +1149,7 @@ Transform:
   m_GameObject: {fileID: 1732165445916702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -28.33}
-  m_LocalScale: {x: 11.259881, y: 0.7376393, z: 11.259882}
+  m_LocalScale: {x: 2, y: 0.15, z: 2}
   m_Children:
   - {fileID: 4658205102808336}
   m_Father: {fileID: 0}
@@ -2582,7 +2582,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.49999905, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.18386735, y: 1.449945, z: 0.015433057}
+  m_ConnectedAnchor: {x: 0.18386735, y: 1.4499443, z: 0.015436875}
   m_UseSpring: 0
   m_Spring:
     spring: 0
