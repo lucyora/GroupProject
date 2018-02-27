@@ -18,8 +18,8 @@ public class UICameraMove : MonoBehaviour {
 	void Update ()
     {
         //go between Current Camera Position and next Camera Position
-        cam.transform.position = Vector3.Lerp(transform.position, CurrentPosition.position, cameraSpeed); // set position
-        cam.transform.rotation = Quaternion.Slerp(transform.rotation, CurrentPosition.rotation, cameraSpeed); // set rotation
+        cam.transform.position = Vector3.Lerp(transform.position, CurrentPosition.position, cameraSpeed);
+        cam.transform.rotation = Quaternion.Slerp(transform.rotation, CurrentPosition.rotation, cameraSpeed);
         float velocity = Vector3.Magnitude(transform.position - lastPossition);
         cam.fieldOfView = 60 + velocity * cameraZoom;
         lastPossition = transform.position;
