@@ -17,7 +17,7 @@ public class VRToggle : MonoBehaviour {
 
     void ToggleVR()
     {
-        if(UnityEngine.XR.XRSettings.loadedDeviceName == "Oculus")
+        if(UnityEngine.VR.VRSettings.loadedDeviceName == "Oculus")
         {
             StartCoroutine(LoadDevice("None"));
             Debug.Log("None");
@@ -31,8 +31,8 @@ public class VRToggle : MonoBehaviour {
 
     IEnumerator LoadDevice(string newDevice)
     {
-        UnityEngine.XR.XRSettings.LoadDeviceByName(newDevice);
+        UnityEngine.VR.VRSettings.LoadDeviceByName(newDevice);
         yield return null;
-        UnityEngine.XR.XRSettings.enabled = true;
+        UnityEngine.VR.VRSettings.enabled = true;
     }
 }

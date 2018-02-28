@@ -43,14 +43,15 @@ public class Controller : MonoBehaviour {
  
     private string SelectedP_RX;
     private string SelectedP_RY;
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         switch (Current_Player)
         {
             case current_player.Player_1:
@@ -85,30 +86,26 @@ public class Controller : MonoBehaviour {
                 isAI = true;
                 break;
         }
-       
     }
    
     // Update is called once per frame
-    void Update () {
-        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
+    void Update()
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Clamp((GetComponent<Rigidbody>().velocity.x - Input.GetAxis(SelectedP_LY)), -velocitycap, velocitycap), GetComponent<Rigidbody>().velocity.y, Mathf.Clamp((GetComponent<Rigidbody>().velocity.z - Input.GetAxis(SelectedP_LX)), -velocitycap, velocitycap));
+            if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
+            {
+                GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Clamp((GetComponent<Rigidbody>().velocity.x + Input.GetAxis(SelectedP_LX)), -velocitycap, velocitycap), GetComponent<Rigidbody>().velocity.y, Mathf.Clamp((GetComponent<Rigidbody>().velocity.z - Input.GetAxis(SelectedP_LY)), -velocitycap, velocitycap));
+
+            }
+            if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
+            {
+                //If the distance between 0,0 and the joysticks current axis does not equal 0 set a new rotation
+                storedrotation = Math.Atan2(-Input.GetAxis(SelectedP_RY), -Input.GetAxis(SelectedP_RX)) * 180 / Math.PI;
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, transform.eulerAngles.z);
+
+            }
+
+            Debug.Log(GetComponent<Rigidbody>().velocity);
 
         }
-        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
-        {
-            //If the distance between 0,0 and the joysticks current axis does not equal 0 set a new rotation
-            storedrotation = Math.Atan2(-Input.GetAxis(SelectedP_RY), -Input.GetAxis(SelectedP_RX)) * 180 / Math.PI;
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, transform.eulerAngles.z);
 
-
-        }
-
-        Debug.Log(GetComponent<Rigidbody>().velocity);
-
-
-
-
-
-    }
 }
