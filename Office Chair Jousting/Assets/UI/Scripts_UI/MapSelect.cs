@@ -36,7 +36,7 @@ public class MapSelect : MonoBehaviour {
             if (controlDelay >= 0.5)
             {
                 Debug.Log("Music");
-
+				SoundManager.instance.selectSound.Play();
                 MoveNav(-1);
                 controlDelay = 0;
             }
@@ -46,7 +46,8 @@ public class MapSelect : MonoBehaviour {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
             {
-                MoveNav(1);
+				SoundManager.instance.selectSound.Play();
+				MoveNav(1);
                 controlDelay = 0;
             }
         }
@@ -56,8 +57,8 @@ public class MapSelect : MonoBehaviour {
             if (controlDelay >= 0.5)
             {
                 Debug.Log("Music");
-
-                MoveNav(2);
+				SoundManager.instance.selectSound.Play();
+				MoveNav(2);
                 controlDelay = 0;
             }
         }
@@ -66,7 +67,8 @@ public class MapSelect : MonoBehaviour {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
             {
-                MoveNav(-2);
+				SoundManager.instance.selectSound.Play();
+				MoveNav(-2);
                 controlDelay = 0;
             }
         }

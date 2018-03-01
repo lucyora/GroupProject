@@ -13,12 +13,12 @@ public class UICameraMove : MonoBehaviour {
     {
         lastPossition = transform.position;
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
     {
-        //go between Current Camera Position and next Camera Position
-        cam.transform.position = Vector3.Lerp(transform.position, CurrentPosition.position, cameraSpeed); // set position
+		//go between Current Camera Position and next Camera Position
+		cam.transform.position = Vector3.Lerp(transform.position, CurrentPosition.position, cameraSpeed); // set position
         cam.transform.rotation = Quaternion.Slerp(transform.rotation, CurrentPosition.rotation, cameraSpeed); // set rotation
         float velocity = Vector3.Magnitude(transform.position - lastPossition);
         cam.fieldOfView = 60 + velocity * cameraZoom;
@@ -27,7 +27,8 @@ public class UICameraMove : MonoBehaviour {
 
     public void SetPosition(Transform newPossition)
     {
-        //set current camera position to new camera position
-        CurrentPosition = newPossition;
-    }
+		//set current camera position to new camera position
+		CurrentPosition = newPossition;
+		SoundManager.instance.transitionSound.Play();
+	}
 }
