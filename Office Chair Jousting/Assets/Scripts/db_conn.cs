@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class db_conn{
 
@@ -30,7 +31,18 @@ public class db_conn{
         WWW dataResult = new WWW(url, form);
         yield return dataResult;
         string data = dataResult.text;
-        Debug.Log(data);
+        //Debug.Log(data);
+        RootDBResult results = JsonUtility.FromJson<RootDBResult>(data);
+        Debug.Log(results.dbresults[0].playerdisplayname);
+        Debug.Log(results.dbresults[0].value);
+        Debug.Log(results.dbresults[0].platform);
+        Debug.Log(results.dbresults[1].playerdisplayname);
+        Debug.Log(results.dbresults[1].value);
+        Debug.Log(results.dbresults[1].platform);
+        Debug.Log(results.dbresults[2].playerdisplayname);
+        Debug.Log(results.dbresults[2].value);
+        Debug.Log(results.dbresults[2].platform);
+
     }
     public IEnumerator getPlayerLargestHit(string playerid)
     {
@@ -83,4 +95,16 @@ public class db_conn{
     }
 
 
+}
+[System.Serializable]
+public class dbresult
+{
+    public string playerdisplayname;
+    public string value;
+    public string platform;
+}
+[System.Serializable]
+public class RootDBResult
+{
+    public List<dbresult> dbresults;
 }
