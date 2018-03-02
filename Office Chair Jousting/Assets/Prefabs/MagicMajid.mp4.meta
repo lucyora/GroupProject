@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: e5e9ddc277318494eb3007fcaf331aee
-timeCreated: 1518795726
-licenseType: Free
 VideoClipImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,9 +14,8 @@ VideoClipImporter:
   encodeAlpha: 0
   flipVertical: 0
   flipHorizontal: 0
-  importAudio: 0
+  importAudio: 1
   targetSettings: {}
-      resizeFormat: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
