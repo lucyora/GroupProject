@@ -10,6 +10,9 @@ public class Player : Raycast {
     public float Mass;
     public float MaxSpeed;
 
+    //private double storedrotation;
+    public double storedrotation { get; private set; }
+
     // Use this for initialization
     void Start () {
         GetComponent<Rigidbody>().mass = Mass;

@@ -10,7 +10,7 @@ public class MoveChair : MonoBehaviour {
     //public Transform Wheel4;
     //public Transform Wheel5;
     public float speed;
-    private float velocitycap = 100.0f;
+
 
     public float steerAngle { get; private set; }
 
