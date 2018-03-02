@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raycast : MonoBehaviour {
+public class Raycast : Controller {
     private float downlength = 2;
     private float leftlength = 2;
     private float fwdlength = 2;
     private float backlength = 2;
     private float rightlength = 2;
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
-	void Update () {
+	public bool isOBJAlive () {
 
         RaycastHit dhit;
         RaycastHit lhit;
@@ -42,10 +38,10 @@ public class Raycast : MonoBehaviour {
         if (Physics.Raycast(downRay, out dhit, downlength))
         {
             if (dhit.collider.tag == "Ground")
-                Debug.Log("Alive");
+                return true;
             else
             {
-                Debug.Log("Dead");
+                return false;
             }
 
         }
@@ -53,17 +49,18 @@ public class Raycast : MonoBehaviour {
         {
             if (dhit.collider == null)
             {
-                Debug.Log("Dead");
+                return false;
             }
 
             else if (dhit.collider != null)
             {
                 if (dhit.collider.tag != "Ground" && lhit.collider == true || rhit.collider == true || fhit.collider == true || bhit.collider == true)
                 {
-                    Debug.Log("Dead");
+                    return false;
                 }
 
             }
-        }     
+        }
+        return true;     
 	}
 }
