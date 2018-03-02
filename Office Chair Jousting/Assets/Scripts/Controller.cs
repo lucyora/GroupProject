@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour {
     public enum current_player {Player_1,Player_2,Player_3,Player_4,AI};
     public current_player Current_Player;
     private double storedrotation = 0.0;
-    private float velocitycap = 10;
+    private float velocitycap = 3;
     private bool isAI;
 
     private string P1_LX = "Horizontal";
