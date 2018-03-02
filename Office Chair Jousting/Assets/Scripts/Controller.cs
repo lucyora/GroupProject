@@ -8,7 +8,6 @@ public class Controller : MonoBehaviour {
     //Set sensitivity to one
     public enum current_player {Player_1,Player_2,Player_3,Player_4,AI};
     public current_player Current_Player;
-    public double storedrotation = 0.0;
     private bool isAI;
 
     private string P1_LX = "Horizontal";
