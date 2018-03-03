@@ -6,6 +6,17 @@ using TMPro;
 
 public class CharacterSelect : MonoBehaviour {
 
+    public int power1RequiredCoins = 100;                   // required amount of coins 
+    public int power2RequiredCoins = 200;
+    public int power3RequiredCoins = 300;
+    public int power4RequiredCoins = 400;
+    public int power5RequiredCoins = 500;
+    public int playerCoins = 0;                             // coins collected by hitting someone will be stored in this variable
+    private bool power1Unlocked = false;                    // boolean for power up unlocks
+    private bool power2Unlocked = false;
+    private bool power3Unlocked = false;
+    private bool power4Unlocked = false;
+    private bool power5Unlocked = false;
     private float strenght;
     private float speed;
     private float stability;
@@ -175,12 +186,160 @@ public class CharacterSelect : MonoBehaviour {
             //select power
             else if (Input.GetButtonDown("JoyA" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
-                confirmSound.Play();
-                powerChosen[i] = true;
+                if (powerIndex[i] == 1 && playerCoins >= 0) // first power up will be unlocked by default
+                {
+                    powerUp.sprite = powersprite[0];        // loads powerup 0 sprite
+                    powerChosen[i] = true;                  // changes boolean for future reference
+                    powerUp.color = Color.grey;             // visual feedback upon selection
+                    confirmSound.Play();                    // audio feedback upon selection
+
+                }
+                else if (powerIndex[i] == 2)
+                {
+                    if (power1Unlocked)                     // carry out following segment of code if power is already unlocked and ignores the rest
+                    {
+                        powerUp.sprite = powersprite[1];
+                        powerChosen[i] = true;
+                        powerUp.color = Color.grey;
+                        confirmSound.Play();
+                    }
+                    else
+                    {
+                        if (playerCoins >= power1RequiredCoins)     // if player has more coins than required, it unlocks powerup
+                        {
+                            playerCoins -= 100;
+                            powerUp.sprite = powersprite[1];
+                            power1Unlocked = true;
+                            powerChosen[i] = true;
+                            powerUp.color = Color.grey;
+                            confirmSound.Play();
+                        }                                           // if not shows visual message with audio feedback
+                        else
+                        {
+                            powerUp.sprite = powersprite[11];
+                            powerUp.color = Color.white;
+                            deselectSound.Play();                     
+                        }
+                    }  
+                }
+                // Following code works same as above
+                else if (powerIndex[i] == 3)
+                {
+                    if (power2Unlocked)
+                    {
+                        powerUp.sprite = powersprite[2];
+                        powerChosen[i] = true;
+                        powerUp.color = Color.grey;
+                        confirmSound.Play();
+                    }
+                    else
+                    {
+                        if (playerCoins >= power2RequiredCoins)
+                        {
+                            playerCoins -= 200;
+                            powerUp.sprite = powersprite[2];
+                            power2Unlocked = true;
+                            powerChosen[i] = true;
+                            powerUp.color = Color.grey;
+                            confirmSound.Play();
+                        }
+                        else
+                        {
+                            powerUp.sprite = powersprite[11];
+                            powerUp.color = Color.white;
+                            deselectSound.Play();
+                        }
+                    }
+                }
+                else if (powerIndex[i] == 4)
+                {
+                    if (power3Unlocked)
+                    {
+                        powerUp.sprite = powersprite[3];
+                        powerChosen[i] = true;
+                        powerUp.color = Color.grey;
+                        confirmSound.Play();
+                    }
+                    else
+                    {
+                        if (playerCoins >= power3RequiredCoins)
+                        {
+                            playerCoins -= 300;
+                            powerUp.sprite = powersprite[3];
+                            power3Unlocked = true;
+                            powerChosen[i] = true;
+                            powerUp.color = Color.grey;
+                            confirmSound.Play();
+                        }
+                        else
+                        {
+                            powerUp.sprite = powersprite[11];
+                            powerUp.color = Color.white;
+                            deselectSound.Play();
+                        }
+                    }
+                }
+                else if (powerIndex[i] == 5)
+                {
+                    if (power4Unlocked)
+                    {
+                        powerUp.sprite = powersprite[4];
+                        powerChosen[i] = true;
+                        powerUp.color = Color.grey;
+                        confirmSound.Play();
+                    }
+                    else
+                    {
+                        if (playerCoins >= power4RequiredCoins)
+                        {
+                            playerCoins -= 400;
+                            powerUp.sprite = powersprite[4];
+                            power4Unlocked = true;
+                            powerChosen[i] = true;
+                            powerUp.color = Color.grey;
+                            confirmSound.Play();
+                        }
+                        else
+                        {
+                            powerUp.sprite = powersprite[11];
+                            powerUp.color = Color.white;
+                            deselectSound.Play();
+                        }
+                    }
+                }
+                else if (powerIndex[i] == 6)
+                {
+                    if (power5Unlocked)
+                    {
+                        powerUp.sprite = powersprite[5];
+                        powerChosen[i] = true;
+                        powerUp.color = Color.grey;
+                        confirmSound.Play();
+                    }
+                    else
+                    {
+                        if (playerCoins >= power5RequiredCoins)
+                        {
+                            playerCoins -= 500;
+                            powerUp.sprite = powersprite[5];
+                            power5Unlocked = true;
+                            powerChosen[i] = true;
+                            powerUp.color = Color.grey;
+                            confirmSound.Play();
+                        }
+                        else
+                        {
+                            powerUp.sprite = powersprite[11];
+                            powerUp.color = Color.white;
+                            deselectSound.Play();
+                        }
+                    }
+                }
+              
+                
                 menuAnim.Play("PowerAPress");
                 menuAnim.Play("PressWhenReady");
                 StartText.gameObject.SetActive(true);
-                powerUp.color = Color.grey;
             }
             //back to select powerUp
             else if (Input.GetButtonDown("JoyB" + i) && characterChosen[i] == true && powerChosen[i] == true)
@@ -273,38 +432,73 @@ public class CharacterSelect : MonoBehaviour {
     void powerindex(int i)
     {
         if (powerIndex[i] == 1)
-        {
+        { 
             powerUp.sprite = powersprite[0];
             powerName.text = "Donut";
             powerstats.text = "Strenght + \n speed---\nStability++";
         }
         else if (powerIndex[i] == 2)
         {
-            powerUp.sprite = powersprite[1];
+            if (powerIndex[i] == 2 && power1Unlocked)
+            {
+                powerUp.sprite = powersprite[1];
+            }
+            else
+            {
+                powerUp.sprite = powersprite[6];
+            }
             powerName.text = "Promotion";
             powerstats.text = "Strenght +++ \n speed---\nStability+++";
         }
         else if (powerIndex[i] == 3)
         {
-            powerUp.sprite = powersprite[2];
+            if (powerIndex[i] == 3 && power2Unlocked)
+            {
+                powerUp.sprite = powersprite[2];
+            }
+            else
+            {
+                powerUp.sprite = powersprite[7];
+            }
             powerName.text = "WD-40";
             powerstats.text = "Strenght \n speed++\nStability+++";
         }
         else if (powerIndex[i] == 4)
         {
-            powerUp.sprite = powersprite[3];
+            if (powerIndex[i] == 4 && power3Unlocked)
+            {
+                powerUp.sprite = powersprite[3];
+            }
+            else
+            {
+                powerUp.sprite = powersprite[8];
+            }
             powerName.text = "Coffee";
             powerstats.text = "Strenght  \n speed+++\nStability--";
         }
         else if (powerIndex[i] == 5)
         {
-            powerUp.sprite = powersprite[4];
+            if (powerIndex[i] == 5 && power4Unlocked)
+            {
+                powerUp.sprite = powersprite[4];
+            }
+            else
+            {
+                powerUp.sprite = powersprite[9];
+            }
             powerName.text = "Rocket Booster";
             powerstats.text = "Strenght+  \n speed+++\nStability---";
         }
         else if (powerIndex[i] == 6)
         {
-            powerUp.sprite = powersprite[5];
+            if (powerIndex[i] == 6 && power5Unlocked)
+            {
+                powerUp.sprite = powersprite[5];
+            }
+            else
+            {
+                powerUp.sprite = powersprite[10];
+            }
             powerName.text = "Kale";
             powerstats.text = "Strenght+++  \n speed\nStability-";
         }
