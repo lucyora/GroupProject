@@ -11,10 +11,10 @@ public class VRToggle : MonoBehaviour {
     {
         if(Input.GetMouseButtonDown(0))
         {
-            ToggleVR();
+    //        ToggleVR();
         }        
     }
-
+/*
     void ToggleVR()
     {
         if(UnityEngine.XR.XRSettings.loadedDeviceName == "Oculus")
@@ -35,4 +35,5 @@ public class VRToggle : MonoBehaviour {
         yield return null;
         UnityEngine.XR.XRSettings.enabled = true;
     }
+	*/
 }

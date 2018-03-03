@@ -22,10 +22,6 @@ public class CharacterSelect : MonoBehaviour {
     private float stability;
     public Button ToMap_btn;
     public Button ToGameMode_btn;
-    //public AudioSource selectSound; // sounds DEBUG
-    public AudioSource confirmSound; // sounds DEBUG
-    public AudioSource deselectSound; // sounds DEBUG
-    public AudioSource readySound; //sounds DEBUG
     public Image image;
     public Image powerUp;
     public Sprite[] sprite;
@@ -108,9 +104,7 @@ public class CharacterSelect : MonoBehaviour {
             //character select move left and right
             if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
-                SoundManager.instance.selectSound.Play();
-
-                //selectSound.Play();
+				SoundManager.instance.selectSound.Play();
                 menuAnim.Play("CharacterMoveRight");
                 index[i]++;
                 if (index[i] > 5)
@@ -123,7 +117,6 @@ public class CharacterSelect : MonoBehaviour {
             else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
                 SoundManager.instance.selectSound.Play();
-                //selectSound.Play();
                 menuAnim.Play("CharacterMoveLeft");
                 index[i]--;
                 if (index[i] < 1)
@@ -137,8 +130,6 @@ public class CharacterSelect : MonoBehaviour {
             if (Input.GetAxis("Joy" + i + "X") > 0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
                 SoundManager.instance.selectSound.Play();
-
-                //selectSound.Play();
                 menuAnim.Play("PowerMoveRight");
                 powerIndex[i]++;
                 if (powerIndex[i] > 6)
@@ -150,8 +141,6 @@ public class CharacterSelect : MonoBehaviour {
             else if (Input.GetAxis("Joy" + i + "X") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
                 SoundManager.instance.selectSound.Play();
-
-                //selectSound.Play();
                 menuAnim.Play("PowerMoveLeft");
                 powerIndex[i]--;
                 if (powerIndex[i] < 1)
@@ -170,7 +159,7 @@ public class CharacterSelect : MonoBehaviour {
             //select playable character
             if (Input.GetButtonDown("JoyA" +i ) && characterChosen[i] == false && powerChosen[i] == false)
             {
-                confirmSound.Play();
+				SoundManager.instance.confirmSound.Play();
                 menuAnim.Play("CharacterAPress");
                 characterChosen[i] = true;
                 image.color = Color.grey;
@@ -180,7 +169,7 @@ public class CharacterSelect : MonoBehaviour {
             {
                 characterChosen[i] = false;
                 menuAnim.Play("CharacterIdle");
-                deselectSound.Play();
+				SoundManager.instance.deselectSound.Play();
                 image.color = Color.white;
             }
             //select power
@@ -191,19 +180,19 @@ public class CharacterSelect : MonoBehaviour {
                     powerUp.sprite = powersprite[0];        // loads powerup 0 sprite
                     powerChosen[i] = true;                  // changes boolean for future reference
                     powerUp.color = Color.grey;             // visual feedback upon selection
-                    confirmSound.Play();                    // audio feedback upon selection
+					SoundManager.instance.confirmSound.Play();// audio feedback upon selection
 
-                }
-                else if (powerIndex[i] == 2)
+				}
+				else if (powerIndex[i] == 2)
                 {
                     if (power1Unlocked)                     // carry out following segment of code if power is already unlocked and ignores the rest
                     {
                         powerUp.sprite = powersprite[1];
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
-                        confirmSound.Play();
-                    }
-                    else
+						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+					}
+					else
                     {
                         if (playerCoins >= power1RequiredCoins)     // if player has more coins than required, it unlocks powerup
                         {
@@ -212,15 +201,15 @@ public class CharacterSelect : MonoBehaviour {
                             power1Unlocked = true;
                             powerChosen[i] = true;
                             powerUp.color = Color.grey;
-                            confirmSound.Play();
-                        }                                           // if not shows visual message with audio feedback
-                        else
+							SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+						}                                           // if not shows visual message with audio feedback
+						else
                         {
                             powerUp.sprite = powersprite[11];
                             powerUp.color = Color.white;
-                            deselectSound.Play();                     
-                        }
-                    }  
+							SoundManager.instance.deselectSound.Play();
+						}
+					}  
                 }
                 // Following code works same as above
                 else if (powerIndex[i] == 3)
@@ -230,9 +219,9 @@ public class CharacterSelect : MonoBehaviour {
                         powerUp.sprite = powersprite[2];
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
-                        confirmSound.Play();
-                    }
-                    else
+						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+					}
+					else
                     {
                         if (playerCoins >= power2RequiredCoins)
                         {
@@ -241,15 +230,15 @@ public class CharacterSelect : MonoBehaviour {
                             power2Unlocked = true;
                             powerChosen[i] = true;
                             powerUp.color = Color.grey;
-                            confirmSound.Play();
-                        }
-                        else
+							SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+						}
+						else
                         {
                             powerUp.sprite = powersprite[11];
                             powerUp.color = Color.white;
-                            deselectSound.Play();
-                        }
-                    }
+							SoundManager.instance.deselectSound.Play();
+						}
+					}
                 }
                 else if (powerIndex[i] == 4)
                 {
@@ -258,9 +247,9 @@ public class CharacterSelect : MonoBehaviour {
                         powerUp.sprite = powersprite[3];
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
-                        confirmSound.Play();
-                    }
-                    else
+						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+					}
+					else
                     {
                         if (playerCoins >= power3RequiredCoins)
                         {
@@ -269,15 +258,15 @@ public class CharacterSelect : MonoBehaviour {
                             power3Unlocked = true;
                             powerChosen[i] = true;
                             powerUp.color = Color.grey;
-                            confirmSound.Play();
-                        }
-                        else
+							SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+						}
+						else
                         {
                             powerUp.sprite = powersprite[11];
                             powerUp.color = Color.white;
-                            deselectSound.Play();
-                        }
-                    }
+							SoundManager.instance.deselectSound.Play();
+						}
+					}
                 }
                 else if (powerIndex[i] == 5)
                 {
@@ -286,9 +275,9 @@ public class CharacterSelect : MonoBehaviour {
                         powerUp.sprite = powersprite[4];
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
-                        confirmSound.Play();
-                    }
-                    else
+						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+					}
+					else
                     {
                         if (playerCoins >= power4RequiredCoins)
                         {
@@ -297,15 +286,15 @@ public class CharacterSelect : MonoBehaviour {
                             power4Unlocked = true;
                             powerChosen[i] = true;
                             powerUp.color = Color.grey;
-                            confirmSound.Play();
-                        }
-                        else
+							SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+						}
+						else
                         {
                             powerUp.sprite = powersprite[11];
                             powerUp.color = Color.white;
-                            deselectSound.Play();
-                        }
-                    }
+							SoundManager.instance.deselectSound.Play();
+						}
+					}
                 }
                 else if (powerIndex[i] == 6)
                 {
@@ -314,9 +303,9 @@ public class CharacterSelect : MonoBehaviour {
                         powerUp.sprite = powersprite[5];
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
-                        confirmSound.Play();
-                    }
-                    else
+						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+					}
+					else
                     {
                         if (playerCoins >= power5RequiredCoins)
                         {
@@ -325,15 +314,15 @@ public class CharacterSelect : MonoBehaviour {
                             power5Unlocked = true;
                             powerChosen[i] = true;
                             powerUp.color = Color.grey;
-                            confirmSound.Play();
-                        }
-                        else
+							SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+						}
+						else
                         {
                             powerUp.sprite = powersprite[11];
                             powerUp.color = Color.white;
-                            deselectSound.Play();
-                        }
-                    }
+							SoundManager.instance.deselectSound.Play();
+						}
+					}
                 }
               
                 
@@ -346,8 +335,8 @@ public class CharacterSelect : MonoBehaviour {
             {
                 powerChosen[i] = false;
                 powerUp.color = Color.white;
-                deselectSound.Play();
-                menuAnim.Play("PowerIdle");
+				SoundManager.instance.deselectSound.Play();
+				menuAnim.Play("PowerIdle");
             }
             //check if player has selected powerUp and player
             if (characterChosen[i] == false || powerChosen[i] == false)
@@ -359,7 +348,7 @@ public class CharacterSelect : MonoBehaviour {
             //indicates player is ready
             else if (characterChosen[i] == true && powerChosen[i] == true && Input.GetButtonDown("JoyStart" + i))
             {
-                readySound.Play();
+				SoundManager.instance.readySound.Play();
                 playerReady[i] = true;
                 readyPanel.gameObject.SetActive(true);
             }
