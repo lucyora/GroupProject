@@ -21,8 +21,10 @@ public class UICom : MonoBehaviour {
 
     void Update()
     {
+        GameMode();
         for (int i = 0; i < 4; i++)
         {
+
             CharacterToMode(i); // from game mode selection to character selection
             if (charSelect[i].toMap == false && gameMode.doneWithMenu == true)
             {
@@ -51,7 +53,7 @@ public class UICom : MonoBehaviour {
     // bool function to determine if all array elements are true
     private bool allReady()
     {
-        for(int i = 0; i < charSelect.Length; i ++)
+        for(int i = 0; i < charSelect.Length; i++)
         {
             if(charSelect[i].playerReady[i] == false)
             {
@@ -63,7 +65,7 @@ public class UICom : MonoBehaviour {
     //go from map select back to character select with B button
     void MaptoCharSelect(int i)
     {
-        if (charSelect[i].playerReady[i] == true && Input.GetButtonDown("JoyB" + i))
+        if (charSelect[i].playerReady[i] == true && charSelect[i].toMap == true && gameMode.doneWithMenu == true && Input.GetButtonDown("JoyB0"))
         {
             map.back_btn.onClick.Invoke();
             charSelect[i].toMap = false;
@@ -75,7 +77,7 @@ public class UICom : MonoBehaviour {
 
     void CharacterToMode(int i)
     {
-        if(charSelect[i].characterChosen[i] == false && Input.GetButtonDown("JoyB" + i))
+        if(charSelect[i].characterChosen[i] == false &&  Input.GetButtonDown("JoyB" + i))
         {
             gameMode.doneWithMenu = false;
             charSelect[i].ToGameMode_btn.onClick.Invoke();
@@ -95,10 +97,23 @@ public class UICom : MonoBehaviour {
             }
         }
     }
+    //GameMode Move Controls
+    void GameMode()
+    {
+        if(gameMode.doneWithMenu == false)
+        {
+            gameMode.navControl();
+            if(Input.GetButtonUp("JoyA0"))
+            {
+                gameMode.ToChar_btn.onClick.Invoke();
+                gameMode.doneWithMenu = true;
+            }
+        }
+    }
 
     void Save()
     {
-        PlayerPrefs.SetInt("GameMode", gameMode.gameMode);
+        PlayerPrefs.SetInt("GameMode", gameMode.gameModeIndex);
         PlayerPrefs.SetInt("Character1", charSelect[0].index[0]);
         PlayerPrefs.SetInt("Character2", charSelect[1].index[1]);
         PlayerPrefs.SetInt("Character3", charSelect[2].index[2]);

@@ -12,6 +12,7 @@ public class MapSelect : MonoBehaviour {
     public Button back_btn;
     public Transform[] mapPosition = new Transform[4];
 
+
     void Start ()
     {
         mapCamPos = GameObject.Find("Camera").GetComponent<UICameraMove>();
@@ -36,7 +37,7 @@ public class MapSelect : MonoBehaviour {
             if (controlDelay >= 0.5)
             {
                 Debug.Log("Music");
-				SoundManager.instance.selectSound.Play();
+//				SoundManager.instance.selectSound.Play();
 				MoveNav(-1);
                 controlDelay = 0;
             }
@@ -46,18 +47,18 @@ public class MapSelect : MonoBehaviour {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
             {
-				SoundManager.instance.selectSound.Play();
+//				SoundManager.instance.selectSound.Play();
 				MoveNav(1);
                 controlDelay = 0;
             }
         }
-        if (Input.GetAxis("Joy0Y") <= -1)
+        if (Input.GetAxis("Joy0Y") <= -0.8)
         {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
             {
                 Debug.Log("Music");
-				SoundManager.instance.selectSound.Play();
+//				SoundManager.instance.selectSound.Play();
 				MoveNav(2);
                 controlDelay = 0;
             }
@@ -67,7 +68,7 @@ public class MapSelect : MonoBehaviour {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
             {
-				SoundManager.instance.selectSound.Play();
+//				SoundManager.instance.selectSound.Play();
 				MoveNav(-2);
                 controlDelay = 0;
             }

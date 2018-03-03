@@ -324,8 +324,6 @@ public class CharacterSelect : MonoBehaviour {
 						}
 					}
                 }
-              
-                
                 menuAnim.Play("PowerAPress");
                 menuAnim.Play("PressWhenReady");
                 StartText.gameObject.SetActive(true);

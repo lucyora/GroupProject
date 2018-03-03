@@ -23,11 +23,15 @@ public class UICameraMove : MonoBehaviour {
         float velocity = Vector3.Magnitude(transform.position - lastPossition);
         cam.fieldOfView = 60 + velocity * cameraZoom;
         lastPossition = transform.position;
-	}
+    }
 
     public void SetPosition(Transform newPossition)
     {
         //set current camera position to new camera position
+        if(newPossition != CurrentPosition)
+        {
+            SoundManager.instance.transitionSound.Play();
+        }
         CurrentPosition = newPossition;
     }
 }
