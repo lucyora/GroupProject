@@ -36,11 +36,10 @@ public class Controller : MonoBehaviour {
     //
 
     //Strings to be used once player is determined
-     public string SelectedP_LX;
-     public string SelectedP_LY;
-
-    [HideInInspector]    public string SelectedP_RX;
-    [HideInInspector]    public string SelectedP_RY;
+    [HideInInspector] public string SelectedP_LX;
+    [HideInInspector] public string SelectedP_LY;
+    [HideInInspector] public string SelectedP_RX;
+    [HideInInspector] public string SelectedP_RY;
     
     // Use this for initialization
     public void InitController()

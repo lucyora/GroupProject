@@ -16,6 +16,7 @@ public class Player : Raycast {
     // Use this for initialization
     void Start () {
         GetComponent<Rigidbody>().mass = Mass;
+        InitController();
     }
 
     // Update is called once per frame
