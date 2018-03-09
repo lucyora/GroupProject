@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3016,6 +3016,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114001262470312086, guid: 4d8e29b8cd23d794798fa239ef10c731,
+        type: 2}
+      propertyPath: Current_Player
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d8e29b8cd23d794798fa239ef10c731, type: 2}
   m_IsPrefabParent: 0
@@ -3126,6 +3131,8 @@ MonoBehaviour:
   Strength: 0
   Mass: 0
   MaxSpeed: 0
+  CenterofGravity: {x: 0, y: 0, z: 0}
+  detect: 0
 --- !u!1 &1142860503
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,6 +3444,11 @@ Prefab:
     - target: {fileID: 4892219042471090, guid: de26ee0582cbfcf45b4441a9bc12e79e, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114571455219085376, guid: de26ee0582cbfcf45b4441a9bc12e79e,
+        type: 2}
+      propertyPath: Current_Player
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de26ee0582cbfcf45b4441a9bc12e79e, type: 2}
@@ -4431,7 +4443,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114807660700613652, guid: f635159dadfe3384f932dbbb96fc85b9,
+        type: 2}
+      propertyPath: Current_Player
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114408392560664398, guid: f635159dadfe3384f932dbbb96fc85b9,
+        type: 2}
+      propertyPath: Current_Player
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114408392560664398, guid: f635159dadfe3384f932dbbb96fc85b9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f635159dadfe3384f932dbbb96fc85b9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1610173911

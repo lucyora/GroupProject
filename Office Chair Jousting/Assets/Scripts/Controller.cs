@@ -10,29 +10,29 @@ public class Controller : MonoBehaviour {
     public current_player Current_Player;
     private bool isAI;
 
-    private string P1_LX = "Horizontal";
-    private string P1_LY = "Vertical";
+    private string P1_LX = "Joy0XL";
+    private string P1_LY = "Joy0YL";
  
-    private string P1_RX = "Horizontal2";
-    private string P1_RY = "Vertical2";
+    private string P1_RX = "Joy0XR";
+    private string P1_RY = "Joy0YR";
     //Placeholder Values. Fill in with appropriate axis labels later
-    private string P2_LX = "2Horizontal";
-    private string P2_LY = "2Vertical";
+    private string P2_LX = "Joy1XL";
+    private string P2_LY = "Joy1YL";
  
-    private string P2_RX = "2Horizontal2";
-    private string P2_RY = "2Vertical2";
+    private string P2_RX = "Joy1XR";
+    private string P2_RY = "Joy1YR";
  
-    private string P3_LX = "3Horizontal";
-    private string P3_LY = "3Vertical";
+    private string P3_LX = "Joy2XL";
+    private string P3_LY = "Joy2YL";
  
-    private string P3_RX = "3Horizontal2";
-    private string P3_RY = "3Vertical2";
+    private string P3_RX = "Joy2XR";
+    private string P3_RY = "Joy2YR";
  
-    private string P4_LX = "4Horizontal";
-    private string P4_LY = "4Vertical";
+    private string P4_LX = "Joy3XL";
+    private string P4_LY = "Joy3YL";
  
-    private string P4_RX = "4Horizontal2";
-    private string P4_RY = "4Vertical2";
+    private string P4_RX = "Joy3XR";
+    private string P4_RY = "Joy3YR";
     //
 
     //Strings to be used once player is determined

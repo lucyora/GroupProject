@@ -14,7 +14,7 @@ public class SetModeType : MonoBehaviour {
 
     public void navControl()
     {
-        if (Input.GetAxis("Joy0X") <= -0.2)
+        if (Input.GetAxis("Joy0XL") <= -0.2)
         {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.1)
@@ -25,7 +25,7 @@ public class SetModeType : MonoBehaviour {
                 controlDelay = 0;
             }
         }
-        if (Input.GetAxis("Joy0X") >= 0.2)
+        if (Input.GetAxis("Joy0XL") >= 0.2)
         {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.1)
