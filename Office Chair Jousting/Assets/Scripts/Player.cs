@@ -9,6 +9,7 @@ public class Player : Raycast {
     public float Strength;//Can only be implemented once we're at the point of hit detection
     public float Mass;
     public float MaxSpeed;
+    public Vector3 CenterofGravity;
 
     //private double storedrotation;
     public double storedrotation { get; private set; }
@@ -16,6 +17,8 @@ public class Player : Raycast {
     // Use this for initialization
     void Start () {
         GetComponent<Rigidbody>().mass = Mass;
+        GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
+        InitController();
     }
 
     // Update is called once per frame
@@ -44,7 +47,6 @@ public class Player : Raycast {
 
         }                                            
 
-        Debug.Log(GetComponent<Rigidbody>().velocity);
     }
 
 }
