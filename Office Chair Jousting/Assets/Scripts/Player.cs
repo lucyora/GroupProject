@@ -9,6 +9,8 @@ public class Player : Raycast {
     public float Strength;//Can only be implemented once we're at the point of hit detection
     public float Mass;
     public float MaxSpeed;
+    public Vector3 CenterofGravity;
+    public bool detect;
 
     //private double storedrotation;
     public double storedrotation { get; private set; }
@@ -16,6 +18,7 @@ public class Player : Raycast {
     // Use this for initialization
     void Start () {
         GetComponent<Rigidbody>().mass = Mass;
+        GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
         InitController();
     }
 
@@ -23,18 +26,18 @@ public class Player : Raycast {
     void Update()
     {
         isAlive = isOBJAlive();
-        if (isAlive)
-        {
+     
             UpdatePosition();
-        }
+        
     }
 
     void UpdatePosition()
     {
+        
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
         {
             //GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Clamp((GetComponent<Rigidbody>().velocity.x + Input.GetAxis(SelectedP_LX)), -MaxSpeed, MaxSpeed), GetComponent<Rigidbody>().velocity.y, Mathf.Clamp((GetComponent<Rigidbody>().velocity.z - Input.GetAxis(SelectedP_LY)), -MaxSpeed, MaxSpeed));
-            transform.position = new Vector3(Mathf.Clamp((transform.position.x - (Input.GetAxis(SelectedP_LY) /MaxSpeed)), -MaxSpeed, MaxSpeed), transform.position.y, Mathf.Clamp((transform.position.z - (Input.GetAxis(SelectedP_LX)/ MaxSpeed)), -MaxSpeed, MaxSpeed));
+            transform.position = new Vector3((transform.position.x - (Input.GetAxis(SelectedP_LY) /MaxSpeed)), transform.position.y, (transform.position.z - (Input.GetAxis(SelectedP_LX)/ MaxSpeed)));
 
         }
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
@@ -45,7 +48,14 @@ public class Player : Raycast {
 
         }                                            
 
-        Debug.Log(GetComponent<Rigidbody>().velocity);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (detect)
+        {
+            Debug.Log(collision.relativeVelocity);
+        }
+        
     }
 
 }
