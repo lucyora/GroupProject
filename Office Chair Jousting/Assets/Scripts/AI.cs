@@ -28,16 +28,16 @@ public class AI : MonoBehaviour
 	void Update ()
     {
        
-        if(raycastInstance.isOBJAlive() == true)
-        { 
+    //    if(raycastInstance.isOBJAlive() == true)
+    //    { 
             Vector3 direction = playerTransform.position - this.transform.position;
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
             nav.enabled = true;
             Debug.Log("I AM MOVING");
-        }
-        else
-        {
-            nav.enabled = false;
-        }
+     //   }
+     //   else
+      //  {
+     //       nav.enabled = false;
+     //   }
 	}
 }
