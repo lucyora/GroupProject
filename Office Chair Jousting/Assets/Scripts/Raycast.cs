@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Raycast : Controller {
-    private float downlength = 2;
+    private float downlength = 5;
     private float leftlength = 2;
     private float fwdlength = 2;
     private float backlength = 2;
@@ -38,12 +38,9 @@ public class Raycast : Controller {
         if (Physics.Raycast(downRay, out dhit, downlength))
         {
             if (dhit.collider.tag == "Ground")
-                return true;
-            else
             {
-                return false;
-            }
-
+                return true;
+            }             
         }
         else
         {
@@ -51,15 +48,18 @@ public class Raycast : Controller {
             {
                 return false;
             }
-
-            else if (dhit.collider != null)
+            else
             {
-                if (dhit.collider.tag != "Ground" && lhit.collider == true || rhit.collider == true || fhit.collider == true || bhit.collider == true)
+                if (dhit.collider.tag != "Ground" || lhit.collider.tag == "Ground" || rhit.collider.tag == "Ground" || fhit.collider.tag == "Ground" || bhit.collider.tag == "Ground")
                 {
                     return false;
                 }
-
             }
+            if (dhit.collider.tag == null && lhit.collider.tag == null && rhit.collider.tag == null && fhit.collider.tag == null && bhit.collider.tag == null)
+            {
+                return false;
+            }
+
         }
         return true;     
 	}
