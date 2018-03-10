@@ -4,40 +4,28 @@ using UnityEngine.AI;
 using UnityEngine;
 
 
-public class AI : MonoBehaviour
+public class AI : Player
 {
 
-
-    public static Controller controllerInstance;
-    public static Raycast raycastInstance;
-    public static Controller controller;
     public GameObject player;
-    private Transform playerTransform;
     private NavMeshAgent nav;
-
 
 	// Use this for initialization
 	void Awake ()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        Current_Player = current_player.AI;//Stops any controller from being set to this player
+        //player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
         Debug.Log("I AM AWAKE");
-	}
+        nav.enabled = true;
+        isAlive = true;
+    }
 	
 	// Update is called once per frame
-	void Update ()
+	public override void UpdatePosition()//Overrides the player UpdatePosition function that handles player input. Raycasting for death is handled in player.cs
     {
-       
-    //    if(raycastInstance.isOBJAlive() == true)
-    //    { 
-            Vector3 direction = playerTransform.position - this.transform.position;
+            Vector3 direction = player.transform.position - this.transform.position;
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-            nav.enabled = true;
-            Debug.Log("I AM MOVING");
-     //   }
-     //   else
-      //  {
-     //       nav.enabled = false;
-     //   }
+            //Debug.Log("I AM MOVING");
 	}
 }

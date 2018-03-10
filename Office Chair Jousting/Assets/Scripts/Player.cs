@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
-    public bool isAlive;
+    [HideInInspector] public bool isAlive;
     public float Strength;//TODO. Implement This
     public float Mass;
     public float MaxSpeed;
@@ -44,7 +44,7 @@ public class Player : Raycast {
         }
     }
 
-    void UpdatePosition()
+    public virtual void UpdatePosition()
     {
         //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
         
