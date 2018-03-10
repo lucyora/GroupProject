@@ -1,5 +1,6 @@
 <?php 
 include 'db.php';
+$results = "";
 if ($_GET["key"] == "12345678910") {
 	$database = new db();
 	switch ($_GET["action"]) {
@@ -25,9 +26,22 @@ if ($_GET["key"] == "12345678910") {
 			echo $json;
 			break;
 		case 'PLH':
-			$results = $db->getPlayerLH($_GET["playerid"]);
-			$results = json_encode($results);
-			echo $results;			
+			$dbresults = $database->getPlayerLH($_GET["playerid"]);
+			$json = $json.'{"dbresults": [';
+			foreach ($dbresults as $player) 
+			{ 
+				$json = $json.'{';
+				$json = $json.'"playerdisplayname":'.'"'.$player["playerdisplayname"].'",';
+				$json = $json.'"value":'.'"'.$player["value"].'",';
+				$json = $json.'"platform":'.'"'.$player["platform"].'"';
+				$json = $json.'}';
+				if (!($player === end($dbresults))) 
+				{
+					$json = $json.",";
+				}
+			}
+			$json = $json."]}";
+			echo $json;		
 			break;
 		case 'newLH':
 			$database->newInsertLH($_GET["playerid"],$_GET["displayname"],$_GET["value"],$_GET["platform"]);
@@ -36,14 +50,40 @@ if ($_GET["key"] == "12345678910") {
 			$database->InsertLH($_GET["playerid"],$_GET["value"]);
 			break;			
 		case 'T10OTTO':	
-			$results = $database->getTop10OTTO();
-			$results = json_encode($results);
-			echo $results;
+			$dbresults = $database->getTop10OTTO();
+			$json = $json.'{"dbresults": [';
+			foreach ($dbresults as $player) 
+			{ 
+				$json = $json.'{';
+				$json = $json.'"playerdisplayname":'.'"'.$player["playerdisplayname"].'",';
+				$json = $json.'"value":'.'"'.$player["value"].'",';
+				$json = $json.'"platform":'.'"'.$player["platform"].'"';
+				$json = $json.'}';
+				if (!($player === end($dbresults))) 
+				{
+					$json = $json.",";
+				}
+			}
+			$json = $json."]}";
+			echo $json;
 			break;
 		case 'PLOTTO':
-			$results = $database->getPlayerOTTO($_GET["playerid"]);
-			//$results = json_encode($results);
-			echo $results;			
+			$dbresults = $database->getPlayerOTTO($_GET["playerid"]);
+			$json = $json.'{"dbresults": [';
+			foreach ($dbresults as $player) 
+			{ 
+				$json = $json.'{';
+				$json = $json.'"playerdisplayname":'.'"'.$player["playerdisplayname"].'",';
+				$json = $json.'"value":'.'"'.$player["value"].'",';
+				$json = $json.'"platform":'.'"'.$player["platform"].'"';
+				$json = $json.'}';
+				if (!($player === end($dbresults))) 
+				{
+					$json = $json.",";
+				}
+			}
+			$json = $json."]}";
+			echo $json;			
 			break;			
 		case 'newOTTO':
 			$database->newInsetOTTO($_GET["playerid"],$_GET["displayname"],$_GET["value"],$_GET["platform"]);

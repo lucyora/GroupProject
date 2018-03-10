@@ -1,4 +1,3 @@
-
 <?php
 //The File containing all queries to the database. The connection is done in a seperate file for the sake of reusability
 	include 'db_conn.php';
@@ -63,16 +62,16 @@
 		public function getPlayerLH($playerid)
 		{
 			$db_con = new db_conn();
-			$query = $db_con->_conn->query("SELECT * FROM `Largesthit` WHERE `playerid`=".$playerid);
-			$results = $query->fetch();
+			$query = $db_con->_conn->query("SELECT * FROM `Largesthit` WHERE `playerid`='".$playerid."'");
+			$results = $query->fetchAll();
 			return $results;
 
 		}
 		public function getPlayerOTTO($playerid)
 		{
 			$db_con = new db_conn();
-			$query = $db_con->_conn->query("SELECT * FROM `Ottoman` WHERE `playerid`=".$playerid);
-			$results = $query->fetch();
+			$query = $db_con->_conn->query("SELECT * FROM `Ottoman` WHERE `playerid`='".$playerid."'");
+			$results = $query->fetchAll();
 			return $results;
 
 		}		
