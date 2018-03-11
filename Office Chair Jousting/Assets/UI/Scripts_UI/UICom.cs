@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UICom : MonoBehaviour {
 
@@ -103,10 +104,14 @@ public class UICom : MonoBehaviour {
         if(gameMode.doneWithMenu == false)
         {
             gameMode.navControl();
-            if(Input.GetButtonUp("JoyA0"))
+            if (Input.GetButtonUp("JoyA0"))
             {
                 gameMode.ToChar_btn.onClick.Invoke();
                 gameMode.doneWithMenu = true;
+            }
+            else if (Input.GetButtonDown("JoyB0"))
+            {
+                SceneManager.LoadScene("MainMenu");
             }
         }
     }

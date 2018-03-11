@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class MapSelect : MonoBehaviour {
     private float controlDelay;
     public int mapIndex =0;
-    UICameraMove mapCamPos;
-    public Button back_btn;
     public Transform[] mapPosition = new Transform[4];
     public GameObject world;
     public GameObject Load;
-
+    UICameraMove mapCamPos;
+    public Button back_btn;
 
     void Start ()
     {
