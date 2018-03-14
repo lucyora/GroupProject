@@ -5,13 +5,15 @@ using UnityEngine;
 public class NavScript : MonoBehaviour {
 
     private float controlDelay;
-    public int Index = 0;
+    public int Index;
     public Transform[] mapPosition;
     public float ControllerDelayBy;
     public float HorizontalInput;
     public float VerticalInput;
     public int HorizontalJump;
     public int VerticalJump;
+
+
     public void navControl()
     {
         if (Input.GetAxis("Joy0XL") <= -HorizontalInput)

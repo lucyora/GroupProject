@@ -7,7 +7,8 @@ public class OptionsNav : NavScript{
     public bool toMain = false;
     public bool toVolume = false;
     public bool toLanguages = false;
-    
+
+
     void Awake()
     {
         ControllerDelayBy = 0.15f;
@@ -45,6 +46,7 @@ public class OptionsNav : NavScript{
                 optionsAnim.Play("BackHighlight");
                 if(Input.GetButtonUp("JoyA0"))
                 {
+                    optionsAnim.Play("BackPress");
                     toMain = true;
                 }
                 break;

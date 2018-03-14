@@ -7,6 +7,8 @@ public class MainMenuNav : NavScript
 {
     public Animator menuAnim;
     public bool onMainMenu = true;
+    public GameObject menu;
+    public GameObject loading; 
 
     void Awake()
     {
@@ -30,10 +32,12 @@ public class MainMenuNav : NavScript
         switch(Index)
         {
             case 0:
-                menuAnim.Play("PlayHighlightbtn");
+                menuAnim.Play("PlayHighlight");
                 if(Input.GetButtonUp("JoyA0"))
                 {
                     menuAnim.Play("PlayPress");
+                    menu.SetActive(false);
+                    loading.SetActive(true);
                     SceneManager.LoadSceneAsync("CharacterSelect");
                 }
                 break;
@@ -44,6 +48,7 @@ public class MainMenuNav : NavScript
                     menuAnim.Play("OptionsPress");
                     menuAnim.Play("ToOptionsMenu");
                     onMainMenu = false;
+                    Index = 0;
                 }
                 break;
             case 2:
