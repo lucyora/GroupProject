@@ -16,7 +16,7 @@ public class Player : Raycast {
     public GameObject[] RagdollCharacters;
     private float rotationoffsetx;
     private float rotationoffsetz;
-    private float rotationincrement = 0.00001f;
+    private float rotationincrement = 0.001f;
     public double storedrotation;
 
     // Use this for initialization
@@ -62,22 +62,9 @@ public class Player : Raycast {
             //Tilt control. Gives the player a chance to re orient themselves
             if (Input.GetAxis(SelectedP_LX) < 0)
             {
-                rotationoffsetx = -rotationincrement;
-            }
-            else if (Input.GetAxis(SelectedP_LX) > 0)
-            {
-                rotationoffsetx = rotationincrement;
-            }
-            else
-            {
-                rotationoffsetx = 0;
-            }
-
-            if (Input.GetAxis(SelectedP_LY) < 0)
-            {
                 rotationoffsetz = -rotationincrement;
             }
-            else if (Input.GetAxis(SelectedP_LY) > 0)
+            else if (Input.GetAxis(SelectedP_LX) > 0)
             {
                 rotationoffsetz = rotationincrement;
             }
@@ -85,7 +72,22 @@ public class Player : Raycast {
             {
                 rotationoffsetz = 0;
             }
-            transform.rotation = new Quaternion((transform.rotation.x + rotationoffsetx), (float)storedrotation, (transform.rotation.z + rotationoffsetz), 1.0f);
+
+            if (Input.GetAxis(SelectedP_LY) < 0)
+            {
+                rotationoffsetx = -rotationincrement;
+            }
+            else if (Input.GetAxis(SelectedP_LY) > 0)
+            {
+                rotationoffsetx = rotationincrement;
+            }
+            else
+            {
+                rotationoffsetx = 0;
+            }
+            //transform.rotation = new Quaternion((transform.rotation.x + rotationoffsetx), (float)storedrotation, (transform.rotation.z + rotationoffsetz), 1.0f);
+            transform.eulerAngles = new Vector3((transform.eulerAngles.x+rotationoffsetx), (float)storedrotation, (transform.eulerAngles.z+rotationoffsetz));
+
             ////////
 
         }
