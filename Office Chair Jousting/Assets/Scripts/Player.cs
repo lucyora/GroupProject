@@ -17,9 +17,7 @@ public class Player : Raycast {
     private float rotationoffsetx;
     private float rotationoffsetz;
     private float rotationincrement = 0.00001f;
-
-    //private double storedrotation;
-    public double storedrotation { get; private set; }
+    public double storedrotation;
 
     // Use this for initialization
     void Start () {
@@ -46,17 +44,25 @@ public class Player : Raycast {
 
     public virtual void UpdatePosition()
     {
+        /////TODO Cheat rotation speed by not checking every frame?
+        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
+        {
+            //If the distance between 0,0 and the joysticks current axis does not equal 0 set a new rotation
+            storedrotation = Math.Atan2(-Input.GetAxis(SelectedP_RY), Input.GetAxis(SelectedP_RX)) * 180 / Math.PI;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, transform.eulerAngles.z);
+        }
+
         //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
-        
+
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
         {
             //GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Clamp((GetComponent<Rigidbody>().velocity.x + Input.GetAxis(SelectedP_LX)), -MaxSpeed, MaxSpeed), GetComponent<Rigidbody>().velocity.y, Mathf.Clamp((GetComponent<Rigidbody>().velocity.z - Input.GetAxis(SelectedP_LY)), -MaxSpeed, MaxSpeed));
-            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) /MaxSpeed)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY)/ MaxSpeed)));
+            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / MaxSpeed)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / MaxSpeed)));
 
             //Tilt control. Gives the player a chance to re orient themselves
             if (Input.GetAxis(SelectedP_LX) < 0)
             {
-                rotationoffsetx =  -rotationincrement;
+                rotationoffsetx = -rotationincrement;
             }
             else if (Input.GetAxis(SelectedP_LX) > 0)
             {
@@ -77,20 +83,12 @@ public class Player : Raycast {
             }
             else
             {
-                rotationoffsetz =0;
+                rotationoffsetz = 0;
             }
-            transform.rotation = new Quaternion((transform.rotation.x + rotationoffsetx), transform.rotation.y, (transform.rotation.z + rotationoffsetz),1.0f);
+            transform.rotation = new Quaternion((transform.rotation.x + rotationoffsetx), (float)storedrotation, (transform.rotation.z + rotationoffsetz), 1.0f);
             ////////
+
         }
-
-        /////TODO Cheat rotation speed by not checking every frame?
-        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
-        {
-            //If the distance between 0,0 and the joysticks current axis does not equal 0 set a new rotation
-            storedrotation = Math.Atan2(-Input.GetAxis(SelectedP_RY), Input.GetAxis(SelectedP_RX)) * 180 / Math.PI;
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, transform.eulerAngles.z);
-
-        }                                            
 
     }
     private void OnCollisionEnter(Collision collision)
