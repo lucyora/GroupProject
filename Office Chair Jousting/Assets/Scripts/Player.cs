@@ -11,15 +11,13 @@ public class Player : Raycast {
     public float Mass;
     public float MaxSpeed;
     public Vector3 CenterofGravity;
+    [SerializeField]
+    private float RotationSnapRange;
     public bool detect;
     public GameObject[] SolidCharacters;
     public GameObject[] RagdollCharacters;
-    private float rotationoffsetx;
-    private float rotationoffsetz;
-    private float rotationincrement = 0.001f;
-    public double storedrotation;
+    private double storedrotation;
 
-    // Use this for initialization
     void Start () {
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
@@ -27,7 +25,6 @@ public class Player : Raycast {
         InitController();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isAlive)
@@ -39,11 +36,24 @@ public class Player : Raycast {
         {
             SolidCharacters[(int)Character].SetActive(false);
             RagdollCharacters[(int)Character].SetActive(true);
+            this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+
         }
     }
 
     public virtual void UpdatePosition()
     {
+       
+
+        //Player Movement
+        //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
+        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
+        {
+            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / MaxSpeed)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / MaxSpeed)));         
+        }
+
+        //Joust Rotation
         /////TODO Cheat rotation speed by not checking every frame?
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
         {
@@ -52,50 +62,39 @@ public class Player : Raycast {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, transform.eulerAngles.z);
         }
 
-        //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
 
-        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
+        //Tilt Correction
+        if (Math.Round(transform.eulerAngles.x) != 0 || Math.Round(transform.eulerAngles.z) != 0)
         {
-            //GetComponent<Rigidbody>().velocity = new Vector3(Mathf.Clamp((GetComponent<Rigidbody>().velocity.x + Input.GetAxis(SelectedP_LX)), -MaxSpeed, MaxSpeed), GetComponent<Rigidbody>().velocity.y, Mathf.Clamp((GetComponent<Rigidbody>().velocity.z - Input.GetAxis(SelectedP_LY)), -MaxSpeed, MaxSpeed));
-            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / MaxSpeed)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / MaxSpeed)));
-
-            //Tilt control. Gives the player a chance to re orient themselves
-            if (Input.GetAxis(SelectedP_LX) < 0)
+            if (Math.Round(Input.GetAxis(SelectedP_LX)) !=0)
             {
-                rotationoffsetz = -rotationincrement;
+                //transform.eulerAngles = new Vector3((transform.eulerAngles.x + Input.GetAxis(SelectedP_LX)), (float)storedrotation,transform.eulerAngles.z); 
+                transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LX), 0.0f, 0.0f), Space.World);
             }
-            else if (Input.GetAxis(SelectedP_LX) > 0)
+            if (Math.Round(Input.GetAxis(SelectedP_LY)) != 0)
             {
-                rotationoffsetz = rotationincrement;
+                //transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, (transform.eulerAngles.z - Input.GetAxis(SelectedP_LY))); 
+                transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LY)), Space.World);
             }
-            else
-            {
-                rotationoffsetz = 0;
-            }
-
-            if (Input.GetAxis(SelectedP_LY) < 0)
-            {
-                rotationoffsetx = -rotationincrement;
-            }
-            else if (Input.GetAxis(SelectedP_LY) > 0)
-            {
-                rotationoffsetx = rotationincrement;
-            }
-            else
-            {
-                rotationoffsetx = 0;
-            }
-            //transform.rotation = new Quaternion((transform.rotation.x + rotationoffsetx), (float)storedrotation, (transform.rotation.z + rotationoffsetz), 1.0f);
-            transform.eulerAngles = new Vector3((transform.eulerAngles.x+rotationoffsetx), (float)storedrotation, (transform.eulerAngles.z+rotationoffsetz));
-
-            ////////
-
         }
+
+        //Snapping Tilt when angles are within range
+        if ((transform.eulerAngles.x < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.x))
+        {
+            transform.eulerAngles = new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z);
+            //transform.Rotate(new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z),Space.World);
+        }
+        if ((transform.eulerAngles.z < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.z))
+        {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f);
+            //transform.Rotate(new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f), Space.World);
+        }
+
 
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //TODO Either ignore collision with self and the floor
+        //TODO ignore collision with self and the floor
         if (detect)
         {
             Debug.Log(collision.relativeVelocity.magnitude);

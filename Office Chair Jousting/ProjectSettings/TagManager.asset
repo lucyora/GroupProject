@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - PowerUpButton
+  - SpawnArea
   layers:
   - Default
   - TransparentFX

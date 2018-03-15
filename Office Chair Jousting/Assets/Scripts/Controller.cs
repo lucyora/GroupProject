@@ -15,7 +15,7 @@ public class Controller : MonoBehaviour {
  
     private string P1_RX = "Joy0XR";
     private string P1_RY = "Joy0YR";
-    //Placeholder Values. Fill in with appropriate axis labels later
+
     private string P2_LX = "Joy1XL";
     private string P2_LY = "Joy1YL";
  
