@@ -12762,7 +12762,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479901460764470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11, y: 2.59, z: -1.49}
+  m_LocalPosition: {x: 25.649456, y: 5.13, z: -28.555294}
   m_LocalScale: {x: 2.0365696, y: 3.9077373, z: 2.0975955}
   m_Children:
   - {fileID: 4028770038515780}
@@ -16187,6 +16187,7 @@ MonoBehaviour:
   Mass: 136
   MaxSpeed: 5
   CenterofGravity: {x: 0, y: 0, z: 0}
+  RotationSnapRange: 0
   detect: 0
   SolidCharacters:
   - {fileID: 1418540627510290}
@@ -16198,7 +16199,6 @@ MonoBehaviour:
   - {fileID: 1473899663925262}
   - {fileID: 1187296345078274}
   - {fileID: 1643166473316032}
-  storedrotation: 0
 --- !u!135 &135651266335687232
 SphereCollider:
   m_ObjectHideFlags: 1
