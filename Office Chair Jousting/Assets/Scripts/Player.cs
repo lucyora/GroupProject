@@ -9,7 +9,7 @@ public class Player : Raycast {
     [HideInInspector] public bool isAlive;
     public float Strength;//TODO. Implement This
     public float Mass;
-    public float MaxSpeed;
+    public float SpeedLimiter;
     public Vector3 CenterofGravity;
     [SerializeField]
     private float RotationSnapRange;
@@ -50,7 +50,7 @@ public class Player : Raycast {
         //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
         {
-            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / MaxSpeed)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / MaxSpeed)));         
+            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / SpeedLimiter)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / SpeedLimiter)));         
         }
 
         //Joust Rotation
