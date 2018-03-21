@@ -107,8 +107,7 @@ public class MapSelect : MonoBehaviour {
         {
             world.gameObject.SetActive(false);
             Load.gameObject.SetActive(true);
-            Debug.Log("No Level Currently Added for Map");
-            SceneManager.LoadSceneAsync("add level");
+            SceneManager.LoadSceneAsync("Ice Ice Baby");
         }
         if (level == 2)
         {
