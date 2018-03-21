@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             Players.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
             PlayersOptions.Add(new PlayerOptions(true,1));
-            //SetPlayerOptions(PlayersOptions[0], ref Players[0].GetComponent<Player>());
+            SetPlayerOptions(PlayersOptions[0],0);
 
 
         }
@@ -116,12 +116,12 @@ public class GameManager : MonoBehaviour
         Vector3 spawnposition = new Vector3(Random.Range(-max, max), SpawnArea.transform.position.y, Random.Range(-max, max));
         Instantiate(player, spawnposition,Quaternion.identity);
     }
-    void SetPlayerOptions(PlayerOptions playeroptions, ref Player player)
+    void SetPlayerOptions(PlayerOptions playeroptions, int index)
     {
-        player.Character = playeroptions.PlayerCharacter;
-        player.Strength = playeroptions.Strength;
-        player.SpeedLimiter = playeroptions.SpeedLimiter;
-        player.CenterofGravity = playeroptions.CenterOfGravity;
-        player.RotationSnapRange = playeroptions.RotationSnapRange;
+        Players[index].GetComponent<Player>().Character = playeroptions.PlayerCharacter;
+        Players[index].GetComponent<Player>().Strength = playeroptions.Strength;
+        Players[index].GetComponent<Player>().SpeedLimiter = playeroptions.SpeedLimiter;
+        Players[index].GetComponent<Player>().CenterofGravity = playeroptions.CenterOfGravity;
+        Players[index].GetComponent<Player>().RotationSnapRange = playeroptions.RotationSnapRange;
     }
 }
