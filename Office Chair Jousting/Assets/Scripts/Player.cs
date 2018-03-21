@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
-    [HideInInspector] public bool isAlive;
+    public bool isAlive;
     public float Strength;//TODO. Implement This
     public float Mass;
     public float SpeedLimiter;
@@ -17,6 +17,7 @@ public class Player : Raycast {
     public GameObject[] RagdollCharacters;
     private double storedrotation;
     public int InternalPlayerIndex;
+    public float Score;
 
     void Start () {
         SolidCharacters[(int)Character].SetActive(true);
@@ -38,6 +39,7 @@ public class Player : Raycast {
             RagdollCharacters[(int)Character].SetActive(true);
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            
 
         }
     }
