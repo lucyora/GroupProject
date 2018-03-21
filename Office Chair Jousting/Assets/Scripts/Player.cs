@@ -7,17 +7,18 @@ using UnityEngine;
 public class Player : Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
-    [HideInInspector] public bool isAlive;
+    public bool isAlive;
     public float Strength;//TODO. Implement This
     public float Mass;
     public float SpeedLimiter;
     public Vector3 CenterofGravity;
-    [SerializeField]
-    private float RotationSnapRange;
+    public float RotationSnapRange;
     public bool detect;
     public GameObject[] SolidCharacters;
     public GameObject[] RagdollCharacters;
     private double storedrotation;
+    public int InternalPlayerIndex;
+    public float Score;
 
     void Start ()
     {
@@ -49,6 +50,10 @@ public class Player : Raycast {
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
             
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c8896e859877f6e5c3b57d6b6cf48f9f5b7c69d
         }
 
     }

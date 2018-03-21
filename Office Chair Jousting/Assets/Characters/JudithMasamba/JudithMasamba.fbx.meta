@@ -1,0 +1,243 @@
+fileFormatVersion: 2
+guid: e36b9a5f2d557d6449efe75e82f1688d
+timeCreated: 1521638361
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ball_l
+    100002: ball_r
+    100004: calf_l
+    100006: calf_r
+    100008: clavicle_l
+    100010: clavicle_r
+    100012: crudeglovesMesh
+    100014: crudehatMesh
+    100016: eyebrow001Mesh
+    100018: eyelashes02Mesh
+    100020: fem_suitMesh
+    100022: foot_l
+    100024: foot_r
+    100026: Game_engine
+    100028: hand_l
+    100030: hand_r
+    100032: head
+    100034: index_01_l
+    100036: index_01_r
+    100038: index_02_l
+    100040: index_02_r
+    100042: index_03_l
+    100044: index_03_r
+    100046: //RootNode
+    100048: judithmasambaMesh
+    100050: low-polyMesh
+    100052: lowerarm_l
+    100054: lowerarm_r
+    100056: middle_01_l
+    100058: middle_01_r
+    100060: middle_02_l
+    100062: middle_02_r
+    100064: middle_03_l
+    100066: middle_03_r
+    100068: neck_01
+    100070: pelvis
+    100072: pinky_01_l
+    100074: pinky_01_r
+    100076: pinky_02_l
+    100078: pinky_02_r
+    100080: pinky_03_l
+    100082: pinky_03_r
+    100084: ring_01_l
+    100086: ring_01_r
+    100088: ring_02_l
+    100090: ring_02_r
+    100092: ring_03_l
+    100094: ring_03_r
+    100096: Root
+    100098: shoes_oxford_femaleMesh
+    100100: short04Mesh
+    100102: spine_01
+    100104: spine_02
+    100106: spine_03
+    100108: thigh_l
+    100110: thigh_r
+    100112: thumb_01_l
+    100114: thumb_01_r
+    100116: thumb_02_l
+    100118: thumb_02_r
+    100120: thumb_03_l
+    100122: thumb_03_r
+    100124: upperarm_l
+    100126: upperarm_r
+    400000: ball_l
+    400002: ball_r
+    400004: calf_l
+    400006: calf_r
+    400008: clavicle_l
+    400010: clavicle_r
+    400012: crudeglovesMesh
+    400014: crudehatMesh
+    400016: eyebrow001Mesh
+    400018: eyelashes02Mesh
+    400020: fem_suitMesh
+    400022: foot_l
+    400024: foot_r
+    400026: Game_engine
+    400028: hand_l
+    400030: hand_r
+    400032: head
+    400034: index_01_l
+    400036: index_01_r
+    400038: index_02_l
+    400040: index_02_r
+    400042: index_03_l
+    400044: index_03_r
+    400046: //RootNode
+    400048: judithmasambaMesh
+    400050: low-polyMesh
+    400052: lowerarm_l
+    400054: lowerarm_r
+    400056: middle_01_l
+    400058: middle_01_r
+    400060: middle_02_l
+    400062: middle_02_r
+    400064: middle_03_l
+    400066: middle_03_r
+    400068: neck_01
+    400070: pelvis
+    400072: pinky_01_l
+    400074: pinky_01_r
+    400076: pinky_02_l
+    400078: pinky_02_r
+    400080: pinky_03_l
+    400082: pinky_03_r
+    400084: ring_01_l
+    400086: ring_01_r
+    400088: ring_02_l
+    400090: ring_02_r
+    400092: ring_03_l
+    400094: ring_03_r
+    400096: Root
+    400098: shoes_oxford_femaleMesh
+    400100: short04Mesh
+    400102: spine_01
+    400104: spine_02
+    400106: spine_03
+    400108: thigh_l
+    400110: thigh_r
+    400112: thumb_01_l
+    400114: thumb_01_r
+    400116: thumb_02_l
+    400118: thumb_02_r
+    400120: thumb_03_l
+    400122: thumb_03_r
+    400124: upperarm_l
+    400126: upperarm_r
+    2100000: judithmasamba
+    2100002: short04
+    2100004: low-poly
+    2100006: eyebrow001
+    2100008: eyelashes02
+    2100010: crudegloves
+    2100012: fem_suit
+    2100014: shoes_oxford_female
+    2100016: crudehat
+    4300000: judithmasambaMesh
+    4300002: short04Mesh
+    4300004: low-polyMesh
+    4300006: eyebrow001Mesh
+    4300008: eyelashes02Mesh
+    4300010: crudeglovesMesh
+    4300012: fem_suitMesh
+    4300014: shoes_oxford_femaleMesh
+    4300016: crudehatMesh
+    9500000: //RootNode
+    13700000: crudeglovesMesh
+    13700002: crudehatMesh
+    13700004: eyebrow001Mesh
+    13700006: eyelashes02Mesh
+    13700008: fem_suitMesh
+    13700010: judithmasambaMesh
+    13700012: low-polyMesh
+    13700014: shoes_oxford_femaleMesh
+    13700016: short04Mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

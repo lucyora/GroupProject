@@ -24,6 +24,7 @@ public class CharacterSelect : MonoBehaviour {
     public Button ToGameMode_btn;
     public Image image;
     public Image powerUp;
+    public Text bottxt;
     public Sprite[] sprite;
     public Sprite[] powersprite;
     public Slider[] slider;
@@ -34,11 +35,12 @@ public class CharacterSelect : MonoBehaviour {
     public TextMeshProUGUI powerName;
     public TextMeshProUGUI StartText;
 
+    public int botCount = 0;
     private float time;
     public int[] index;
     public int[] powerIndex;
     public string[] names;
-    public bool[] Ai;
+    public bool[] IsPlayer;
     public bool[] characterChosen;
     public bool[] powerChosen;
     public bool[] playerReady;
@@ -47,11 +49,13 @@ public class CharacterSelect : MonoBehaviour {
 
     void Start()
     {
+        bottxt = GameObject.Find("PostItBotText").GetComponent<Text>();
+        bottxt.text = "Employee Count " +botCount;
         menuAnim = GetComponent<Animator>();
         names = new string[4];      names = Input.GetJoystickNames();
         index = new int[4] { 1, 1, 1, 1 };
         powerIndex = new int[4] { 1, 1, 1, 1, };
-        Ai = new bool[4] { false, true, true, true };
+        IsPlayer = new bool[4] { false, true, true, true };
         characterChosen = new bool[4] { false, false, false, false };
         powerChosen = new bool[4] { false, false, false, false };
         playerReady = new bool[4] { false, false, false, false };
@@ -110,6 +114,26 @@ public class CharacterSelect : MonoBehaviour {
                 }
                 CharacterDisplay(i);
                 Characterstats();
+            }
+            else if((Input.GetAxis("Joy0YL") > 0.99F))
+            {
+                SoundManager.instance.selectSound.Play();
+                botCount += 1;
+                if(botCount >= 9)
+                {
+                    botCount = 9;
+                }
+                bottxt.text = "Employee Count " + botCount;
+            }
+            else if ((Input.GetAxis("Joy0YL") < -0.99F))
+            {
+                SoundManager.instance.selectSound.Play();
+                botCount -= 1;
+                if(botCount <= 0)
+                {
+                    botCount = 0;
+                }
+                bottxt.text = "Employee Count " + botCount;
             }
             else if (Input.GetAxis("Joy" + i + "XL") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
@@ -372,15 +396,15 @@ public class CharacterSelect : MonoBehaviour {
     {
         if (panel == GameObject.Find("Character" + i))
         {
-            if (Input.GetButtonDown("JoyStart" + i) && Ai[i] == true)
+            if (Input.GetButtonDown("JoyStart" + i) && IsPlayer[i] == true)
             {
                 characterChosen[i] = false;
                 powerChosen[i] = false;
                 playerReady[i] = false;
                 panel.transform.localScale = new Vector3(1, 1, 1);
-                Ai[i] = false;
+                IsPlayer[i] = false;
             }
-            else if (Ai[i] == true)
+            else if (IsPlayer[i] == true)
             {
                 panel.transform.localScale = new Vector3(0, 0, 0);
                 index[i] = Random.Range(1, 6);
