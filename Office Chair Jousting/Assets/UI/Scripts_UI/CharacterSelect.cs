@@ -17,9 +17,9 @@ public class CharacterSelect : MonoBehaviour {
     private bool power3Unlocked = false;
     private bool power4Unlocked = false;
     private bool power5Unlocked = false;
-    public float strenght;
+    public float strength;
     public float speed;
-    public float stability = 0;
+    public float stability;
     public Button ToMap_btn;
     public Button ToGameMode_btn;
     public Image image;
@@ -67,7 +67,7 @@ public class CharacterSelect : MonoBehaviour {
     //stats to slider
     void Characterstats()
     {
-        slider[0].value = strenght / 100;
+        slider[0].value = strength / 100;
         slider[1].value = speed / 100;
         slider[2].value = stability / 100;
     }
@@ -202,7 +202,7 @@ public class CharacterSelect : MonoBehaviour {
                     powerChosen[i] = true;                  // changes boolean for future reference
                     powerUp.color = Color.grey;             // visual feedback upon selection
 					SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-                    strenght = 10.0f;
+                    strength = 10.0f;
                     speed = -30.0f;
                     stability = 20.0f;
 
@@ -215,7 +215,7 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-                        strenght = 30.0f;
+                        strength = 30.0f;
                         speed = -30.0f;
                         stability = 30.0f;
                     }
@@ -247,7 +247,7 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-                        strenght = 0.0f;
+                        strength = 0.0f;
                         speed = 20.0f;
                         stability = 30.0f;
                     }
@@ -278,7 +278,7 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-                        strenght = 0.0f;
+                        strength = 0.0f;
                         speed = 30.0f;
                         stability = -20.0f;
                     }
@@ -309,7 +309,7 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-                        strenght = 10.0f;
+                        strength = 10.0f;
                         speed = 30.0f;
                         stability = -30.0f;
                     }
@@ -340,7 +340,7 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-                        strenght = 30.0f;
+                        strength = 30.0f;
                         speed = 0.0f;
                         stability = -30.0f;
                     }
@@ -418,59 +418,57 @@ public class CharacterSelect : MonoBehaviour {
 
     public struct Stats
     {
-        public float strenght;
-        public float speed;
-        public float stability;
+        public float strengthStats;
+        public float speedStats;
+        public float stabilityStats;
     }
 
     static int NUM_CHARACTERS = 5;
     static int NUM_POWERUPS = 6;
 
     public static Stats[] CharStats = new Stats[NUM_CHARACTERS];
-    public static Stats[] PowerUpStatsStats = new Stats[NUM_POWERUPS];
+    public static Stats[] PowerUpStats = new Stats[NUM_POWERUPS];
 
-    public static Stats GetCharacterStats(int characterIndex, int PowerupIndex)
+    public Stats GetCharacterStats(int characterIndex, int PowerupIndex)
     {
         Stats retStats = new Stats();
-        retStats.strenght = CharStats[characterIndex].strenght + PowerUpStatsStats[PowerupIndex].strenght;
-        retStats.speed = CharStats[characterIndex].speed + PowerUpStatsStats[PowerupIndex].speed;
-        retStats.stability = CharStats[characterIndex].stability + PowerUpStatsStats[PowerupIndex].stability;
-
+        retStats.strengthStats = CharStats[characterIndex - 1].strengthStats + PowerUpStats[PowerupIndex-1].strengthStats;
+        retStats.speedStats = CharStats[characterIndex-1].speedStats + PowerUpStats[PowerupIndex-1].speedStats;
+        retStats.stabilityStats = CharStats[characterIndex-1].stabilityStats + PowerUpStats[PowerupIndex-1].stabilityStats;
         return retStats;
     }
-
     //charcter stats to display
     void character1Stats()
     {
-        strenght = 25;
+        strength = 25;
         speed = 75;
         stability = 45;
         image.sprite = sprite[0];
     }
     void character2Stats()
     {
-        strenght = 85;
+        strength = 85;
         speed = 20;
         stability = 7;
         image.sprite = sprite[1];
     }
     void character3Stats()
     {
-        strenght = 52;
+        strength = 52;
         speed = 98;
         stability = 10;
         image.sprite = sprite[2];
     }
     void character4Stats()
     {
-        strenght = 10;
+        strength = 10;
         speed = 86;
         stability = 45;
         image.sprite = sprite[3];
     }
     void character5Stats()
     {
-        strenght = 25;
+        strength = 25;
         speed = 32;
         stability = 87;
         image.sprite = sprite[4];

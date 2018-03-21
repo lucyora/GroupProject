@@ -26,9 +26,10 @@ public class Player : Raycast {
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
         CharacterSelect.Stats playerStats = CharacterSelect.GetCharacterStats(PlayerPrefs.GetInt("Character1"), PlayerPrefs.GetInt("Char1Power"));
-        float stabilityOfPlayer = playerStats.stability;
-        float strengthOfPlayer = playerStats.strenght;
-        float speedOfPlayer = playerStats.speed;
+
+        float stabilityOfPlayer = playerStats.stabilityStats;
+        float strengthOfPlayer = playerStats.strengthStats;
+        float speedOfPlayer = playerStats.speedStats;
         CenterofGravity.y = stabilityOfPlayer;
         Mass = strengthOfPlayer;
         SpeedLimiter = speedOfPlayer;
@@ -49,11 +50,6 @@ public class Player : Raycast {
             RagdollCharacters[(int)Character].SetActive(true);
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
-            
-<<<<<<< HEAD
-=======
-
->>>>>>> 4c8896e859877f6e5c3b57d6b6cf48f9f5b7c69d
         }
 
     }
