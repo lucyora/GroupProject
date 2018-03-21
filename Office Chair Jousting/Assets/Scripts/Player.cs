@@ -11,12 +11,12 @@ public class Player : Raycast {
     public float Mass;
     public float SpeedLimiter;
     public Vector3 CenterofGravity;
-    [SerializeField]
-    private float RotationSnapRange;
+    public float RotationSnapRange;
     public bool detect;
     public GameObject[] SolidCharacters;
     public GameObject[] RagdollCharacters;
     private double storedrotation;
+    public int InternalPlayerIndex;
 
     void Start () {
         SolidCharacters[(int)Character].SetActive(true);
