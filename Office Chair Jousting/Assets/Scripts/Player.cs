@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
@@ -18,10 +19,19 @@ public class Player : Raycast {
     public GameObject[] RagdollCharacters;
     private double storedrotation;
 
-    void Start () {
+    void Start ()
+    {
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
+        CharacterSelect.Stats playerStats = CharacterSelect.GetCharacterStats(PlayerPrefs.GetInt("Character1"), PlayerPrefs.GetInt("Char1Power"));
+        float stabilityOfPlayer = playerStats.stability;
+        float strengthOfPlayer = playerStats.strenght;
+        float speedOfPlayer = playerStats.speed;
+        CenterofGravity.y = stabilityOfPlayer;
+        Mass = strengthOfPlayer;
+        SpeedLimiter = speedOfPlayer;
+
         InitController();
     }
 
@@ -38,8 +48,9 @@ public class Player : Raycast {
             RagdollCharacters[(int)Character].SetActive(true);
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
-
+            
         }
+
     }
 
     public virtual void UpdatePosition()
