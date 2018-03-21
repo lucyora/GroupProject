@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 4375803344246416}
   - component: {fileID: 95612890302565156}
   m_Layer: 0
-  m_Name: JudithMasamba
+  m_Name: JudithMasambaRagdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

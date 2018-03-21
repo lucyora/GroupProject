@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 4679273921970226}
   - component: {fileID: 95915582929980440}
   m_Layer: 0
-  m_Name: HarryCopper (1)
+  m_Name: HarryCopperScar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
