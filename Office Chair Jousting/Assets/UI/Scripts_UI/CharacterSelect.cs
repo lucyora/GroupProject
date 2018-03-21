@@ -17,9 +17,9 @@ public class CharacterSelect : MonoBehaviour {
     private bool power3Unlocked = false;
     private bool power4Unlocked = false;
     private bool power5Unlocked = false;
-    private float strenght;
-    private float speed;
-    private float stability;
+    public float strenght;
+    public float speed;
+    public float stability = 0;
     public Button ToMap_btn;
     public Button ToGameMode_btn;
     public Image image;
@@ -52,7 +52,7 @@ public class CharacterSelect : MonoBehaviour {
         bottxt = GameObject.Find("PostItBotText").GetComponent<Text>();
         bottxt.text = "Employee Count " +botCount;
         menuAnim = GetComponent<Animator>();
-        names = new string[4];        names = Input.GetJoystickNames();
+        names = new string[4];      names = Input.GetJoystickNames();
         index = new int[4] { 1, 1, 1, 1 };
         powerIndex = new int[4] { 1, 1, 1, 1, };
         IsPlayer = new bool[4] { false, true, true, true };
@@ -202,6 +202,9 @@ public class CharacterSelect : MonoBehaviour {
                     powerChosen[i] = true;                  // changes boolean for future reference
                     powerUp.color = Color.grey;             // visual feedback upon selection
 					SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+                    strenght = 10.0f;
+                    speed = -30.0f;
+                    stability = 20.0f;
 
 				}
 				else if (powerIndex[i] == 2)
@@ -212,7 +215,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strenght = 30.0f;
+                        speed = -30.0f;
+                        stability = 30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power1RequiredCoins)     // if player has more coins than required, it unlocks powerup
@@ -241,7 +247,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strenght = 0.0f;
+                        speed = 20.0f;
+                        stability = 30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power2RequiredCoins)
@@ -269,7 +278,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strenght = 0.0f;
+                        speed = 30.0f;
+                        stability = -20.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power3RequiredCoins)
@@ -297,7 +309,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strenght = 10.0f;
+                        speed = 30.0f;
+                        stability = -30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power4RequiredCoins)
@@ -325,7 +340,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strenght = 30.0f;
+                        speed = 0.0f;
+                        stability = -30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power5RequiredCoins)
@@ -398,6 +416,28 @@ public class CharacterSelect : MonoBehaviour {
         }
     }
 
+    public struct Stats
+    {
+        public float strenght;
+        public float speed;
+        public float stability;
+    }
+
+    static int NUM_CHARACTERS = 5;
+    static int NUM_POWERUPS = 6;
+
+    public static Stats[] CharStats = new Stats[NUM_CHARACTERS];
+    public static Stats[] PowerUpStatsStats = new Stats[NUM_POWERUPS];
+
+    public static Stats GetCharacterStats(int characterIndex, int PowerupIndex)
+    {
+        Stats retStats = new Stats();
+        retStats.strenght = CharStats[characterIndex].strenght + PowerUpStatsStats[PowerupIndex].strenght;
+        retStats.speed = CharStats[characterIndex].speed + PowerUpStatsStats[PowerupIndex].speed;
+        retStats.stability = CharStats[characterIndex].stability + PowerUpStatsStats[PowerupIndex].stability;
+
+        return retStats;
+    }
 
     //charcter stats to display
     void character1Stats()

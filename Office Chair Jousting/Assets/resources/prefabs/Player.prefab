@@ -16185,7 +16185,7 @@ MonoBehaviour:
   isAlive: 1
   Strength: 0
   Mass: 136
-  SpeedLimiter: 0
+  SpeedLimiter: 5
   CenterofGravity: {x: 0, y: 0, z: 0}
   RotationSnapRange: 0
   detect: 0
@@ -16200,6 +16200,7 @@ MonoBehaviour:
   - {fileID: 1683247601198296}
   - {fileID: 1074763289595668}
   InternalPlayerIndex: 0
+  Score: 0
 --- !u!135 &135159103077132556
 SphereCollider:
   m_ObjectHideFlags: 1
