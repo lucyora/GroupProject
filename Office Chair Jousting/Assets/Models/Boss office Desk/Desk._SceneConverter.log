@@ -1,0 +1,11 @@
+Performing scene check  for invalid nodes, materials, maps etc. on the : 
+2018-03-22 - 1:37:02 PM
+Invalid map : "Map #44" found on node : "Box289".
+Invalid map : "Map #45" found on node : "Box289".
+Invalid map : "Map #44" found on node : "Box287".
+Invalid map : "Map #45" found on node : "Box287".
+Invalid map : "Map #44" found on node : "Box286".
+Invalid map : "Map #45" found on node : "Box286".
+Invalid map : "Map #44" found on node : "Box288".
+Invalid map : "Map #45" found on node : "Box288".
+Scene contains : 8 invalid features.
