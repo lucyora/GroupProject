@@ -25,15 +25,6 @@ public class Player : Raycast {
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
-        CharacterSelect.Stats playerStats = CharacterSelect.GetCharacterStats(PlayerPrefs.GetInt("Character1"), PlayerPrefs.GetInt("Char1Power"));
-
-        float stabilityOfPlayer = playerStats.stabilityStats;
-        float strengthOfPlayer = playerStats.strengthStats;
-        float speedOfPlayer = playerStats.speedStats;
-        CenterofGravity.y = stabilityOfPlayer;
-        Mass = strengthOfPlayer;
-        SpeedLimiter = speedOfPlayer;
-
         InitController();
     }
 
@@ -50,6 +41,7 @@ public class Player : Raycast {
             RagdollCharacters[(int)Character].SetActive(true);
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
+            Invoke("Death",8.0f);
         }
 
     }
@@ -103,6 +95,10 @@ public class Player : Raycast {
         }
 
 
+    }
+    public void Death()
+    {
+        Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {

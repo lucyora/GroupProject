@@ -162,8 +162,10 @@ public class GameManager : MonoBehaviour
                 if (!player.GetComponent<Player>().isAlive)
                 {
                     //PlayerList.Remove(PlayerList[index]);
-                    Destroy(PlayerList[index]);
-                    PlayerList.Insert(index, (GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
+                    //Destroy(PlayerList[index]);
+                    //PlayerList.Insert(index, (GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
+                    PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
+
                     SetPlayerOptions(PlayersOptions[index], index);
                     SpawnPlayer(index);
                     
