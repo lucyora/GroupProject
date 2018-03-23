@@ -14,7 +14,8 @@ public class AI : Player
 	// Use this for initialization
 	void Awake ()
     {
-        Current_Player = current_player.AI;//Stops any controller from being set to this player
+        //Stops any controller from being set to this player
+        Current_Player = current_player.AI;
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
         Debug.Log("I AM AWAKE");

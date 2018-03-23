@@ -756,6 +756,25 @@ Prefab:
       propertyPath: distanceUntilChase
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114262182377848296, guid: 6c6ec6b4d7308454aa4c66da0de42a26,
+        type: 2}
+      propertyPath: Character
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262182377848296, guid: 6c6ec6b4d7308454aa4c66da0de42a26,
+        type: 2}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048781270756660, guid: 6c6ec6b4d7308454aa4c66da0de42a26, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262182377848296, guid: 6c6ec6b4d7308454aa4c66da0de42a26,
+        type: 2}
+      propertyPath: Mass
+      value: 136
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c6ec6b4d7308454aa4c66da0de42a26, type: 2}
   m_IsPrefabParent: 0
