@@ -40,7 +40,7 @@ public class CharacterSelect : MonoBehaviour {
     public int[] index;
     public int[] powerIndex;
     public string[] names;
-    public int[] IsAi;
+    public bool[] IsPlayer;
     public bool[] characterChosen;
     public bool[] powerChosen;
     public bool[] playerReady;
@@ -55,8 +55,7 @@ public class CharacterSelect : MonoBehaviour {
         names = new string[4];      names = Input.GetJoystickNames();
         index = new int[4] { 1, 1, 1, 1 };
         powerIndex = new int[4] { 1, 1, 1, 1, };
-        //IsAi = new bool[4] { false, true, true, true };
-        IsAi = new int[4] { 1, 0, 0, 0 };
+        IsPlayer = new bool[4] { false, true, true, true };
         characterChosen = new bool[4] { false, false, false, false };
         powerChosen = new bool[4] { false, false, false, false };
         playerReady = new bool[4] { false, false, false, false };
@@ -397,15 +396,15 @@ public class CharacterSelect : MonoBehaviour {
     {
         if (panel == GameObject.Find("Character" + i))
         {
-            if (Input.GetButtonDown("JoyStart" + i) && IsAi[i] == 0)
+            if (Input.GetButtonDown("JoyStart" + i) && IsPlayer[i] == true)
             {
                 characterChosen[i] = false;
                 powerChosen[i] = false;
                 playerReady[i] = false;
                 panel.transform.localScale = new Vector3(1, 1, 1);
-                IsAi[i] = 1;
+                IsPlayer[i] = false;
             }
-            else if (IsAi[i] == 0)
+            else if (IsPlayer[i] == true)
             {
                 panel.transform.localScale = new Vector3(0, 0, 0);
                 index[i] = Random.Range(1, 6);
