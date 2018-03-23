@@ -1089,15 +1089,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4710892073599470, guid: 66e57007ef191014d9b0a3aeff44925a, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-<<<<<<< HEAD
-      value: 1
-=======
       value: 5
->>>>>>> decec41b929e19e68aa3e1329cd210710dd86240
-=======
-      value: 4
->>>>>>> parent of b068f976... Jello world animations
       objectReference: {fileID: 0}
     - target: {fileID: 4856459341189158, guid: 66e57007ef191014d9b0a3aeff44925a, type: 2}
       propertyPath: m_LocalRotation.x
