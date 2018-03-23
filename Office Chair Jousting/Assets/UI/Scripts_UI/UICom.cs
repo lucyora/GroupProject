@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UICom : MonoBehaviour {
 
-    CharacterSelect[] charSelect;
+    public CharacterSelect[] charSelect;
     MapSelect map;
     SetModeType gameMode;
 
@@ -119,6 +119,12 @@ public class UICom : MonoBehaviour {
     void Save()
     {
         PlayerPrefs.SetInt("GameMode", gameMode.gameModeIndex);
+
+        PlayerPrefs.SetInt("Player1isAI", charSelect[0].IsAi[0]);
+        PlayerPrefs.SetInt("Player2isAI", charSelect[1].IsAi[1]);
+        PlayerPrefs.SetInt("Player3isAI", charSelect[2].IsAi[2]);
+        PlayerPrefs.SetInt("Player4isAI", charSelect[3].IsAi[3]);
+
         PlayerPrefs.SetInt("Character1", charSelect[0].index[0]);
         PlayerPrefs.SetInt("Character2", charSelect[1].index[1]);
         PlayerPrefs.SetInt("Character3", charSelect[2].index[2]);

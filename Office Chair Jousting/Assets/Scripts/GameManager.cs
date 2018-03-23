@@ -55,10 +55,10 @@ public class GameManager : MonoBehaviour
     public List<GameObject> PlayerList;
     public List<PlayerOptions> PlayersOptions;
     /// Fill in with values from UI
-    public bool Player1isHuman;
-    public bool Player2isHuman;
-    public bool Player3isHuman;
-    public bool Player4isHuman;
+    public int Player1isAI;
+    public int Player2isAI;
+    public int Player3isAI;
+    public int Player4isAI;
     public int botcount;
     ///
     public int TotalPlayerCount;     
@@ -66,8 +66,13 @@ public class GameManager : MonoBehaviour
     public gamemode GameMode;
     void Start()
     {
+        Player1isAI = PlayerPrefs.GetInt("Player1isAI");
+        Player2isAI = PlayerPrefs.GetInt("Player2isAI");
+        Player3isAI = PlayerPrefs.GetInt("Player3isAI");
+        Player4isAI = PlayerPrefs.GetInt("Player4isAI");
+
         SpawnArea = GameObject.FindGameObjectWithTag("SpawnArea");
-        if (Player1isHuman)
+        if (Player1isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
             PlayersOptions.Add(new PlayerOptions(true, 1, Controller.current_player.Player_1));
@@ -75,7 +80,7 @@ public class GameManager : MonoBehaviour
             SpawnPlayer(0);
             TotalPlayerCount += 1;
 
-            if (Player2isHuman)
+            if (Player2isAI == 1)
             {
                 PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
                 PlayersOptions.Add(new PlayerOptions(true, 1,Controller.current_player.Player_2));
@@ -83,7 +88,7 @@ public class GameManager : MonoBehaviour
                 SpawnPlayer(1);
                 TotalPlayerCount += 1;
 
-                if (Player3isHuman)
+                if (Player3isAI == 1)
                 {
                     PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
                     PlayersOptions.Add(new PlayerOptions(true, 1,Controller.current_player.Player_3));
@@ -91,7 +96,7 @@ public class GameManager : MonoBehaviour
                     SpawnPlayer(2);
                     TotalPlayerCount += 1;
 
-                    if (Player4isHuman)
+                    if (Player4isAI == 1)
                     {
                         PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
                         PlayersOptions.Add(new PlayerOptions(true, 1,Controller.current_player.Player_4));
@@ -143,6 +148,8 @@ public class GameManager : MonoBehaviour
             PlayerList[index].GetComponent<Player>().CenterofGravity = playeroptions.CenterOfGravity;
             PlayerList[index].GetComponent<Player>().RotationSnapRange = playeroptions.RotationSnapRange;
             PlayerList[index].GetComponent<Player>().Score = playeroptions.Score;
+            PlayerList[index].GetComponent<Player>().PlayerIndex = playeroptions.PlayerIndex;
+            PlayerList[index].GetComponent<Player>().InternalPlayerIndex = playeroptions.PlayerIndex;
         }
         else
         {
@@ -150,6 +157,10 @@ public class GameManager : MonoBehaviour
 
         }
 
+    }
+    public void SetScore(int InternalPlayerIndex, float value)
+    {
+        PlayersOptions[InternalPlayerIndex].Score = value;
     }
     void DeathWatch()
     {

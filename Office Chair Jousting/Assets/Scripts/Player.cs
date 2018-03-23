@@ -17,11 +17,29 @@ public class Player : Raycast {
     public GameObject[] SolidCharacters;
     public GameObject[] RagdollCharacters;
     private double storedrotation;
+    public int PlayerIndex;
     public int InternalPlayerIndex;
     public float Score;
 
     void Start ()
     {
+        switch (PlayerIndex)
+        {
+            case 0:
+                Strength = PlayerPrefs.GetFloat("Character1");
+                //speed = 20.0f;
+
+                break;
+            case 1:
+                break;
+
+            case 2:
+                break;
+
+            case 3:
+                break;
+          
+        }
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
@@ -43,6 +61,7 @@ public class Player : Raycast {
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
             Invoke("Death",8.0f);
         }
+        //GameManager.SetScore(InternalPlayerIndex, Score);
 
     }
 
