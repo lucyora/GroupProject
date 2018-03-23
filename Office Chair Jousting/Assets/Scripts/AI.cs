@@ -9,12 +9,14 @@ public class AI : Player
 
     public GameObject player;
     public float speed;
+    float timer = 0.0f;
     private NavMeshAgent nav;
 
 	// Use this for initialization
 	void Awake ()
     {
-        Current_Player = current_player.AI;//Stops any controller from being set to this player
+        //Stops any controller from being set to this player
+        Current_Player = current_player.AI;
         player = GameObject.FindGameObjectWithTag("Player");
         nav = GetComponent<NavMeshAgent>();
         Debug.Log("I AM AWAKE");
@@ -27,12 +29,21 @@ public class AI : Player
     // Update is called once per frame
     public override void UpdatePosition()//Overrides the player UpdatePosition function that handles player input. Raycasting for death is handled in player.cs
     {
+        timer += Time.deltaTime;
         Vector3 target = player.transform.position;// this.transform.position;
-        //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-//        Quaternion offset = Quaternion.Euler(0, -45, 0);
         transform.LookAt(target);
        //transform.rotation = Quaternion.LookRotation(direction) * offset;
         transform.position += transform.forward * speed * Time.deltaTime;
+
+
+        if (timer > 2)
+        { 
+            // timer resets at 2, allowing .5 s to do the rotating
+            transform.rotation *= Quaternion.Euler(0, Random.Range(-180, 180), 0);
+            timer = 0.0f;
+        }
+
+
         transform.rotation *= Quaternion.Euler(0, -90, 0);
         //Debug.Log(direction);
 
