@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
-    [HideInInspector] public bool isAlive;
+    public bool isAlive;
     public float Strength;//TODO. Implement This
     public float Mass;
     public float SpeedLimiter;
@@ -17,8 +18,10 @@ public class Player : Raycast {
     public GameObject[] RagdollCharacters;
     private double storedrotation;
     public int InternalPlayerIndex;
+    public float Score;
 
-    void Start () {
+    void Start ()
+    {
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
@@ -38,8 +41,9 @@ public class Player : Raycast {
             RagdollCharacters[(int)Character].SetActive(true);
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
-
+            Invoke("Death",8.0f);
         }
+
     }
 
     public virtual void UpdatePosition()
@@ -91,6 +95,10 @@ public class Player : Raycast {
         }
 
 
+    }
+    public void Death()
+    {
+        Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {

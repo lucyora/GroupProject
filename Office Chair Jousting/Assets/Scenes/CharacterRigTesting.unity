@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -413,7 +413,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1018499385}
   m_LocalRotation: {x: 0.4217322, y: 0, z: 0, w: 0.90672046}
-  m_LocalPosition: {x: -0.8, y: 22.2, z: -26.38}
+  m_LocalPosition: {x: -0.8, y: 43.59, z: -73.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -446,16 +446,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0246b1a0c834814e992d02d91c86def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Players: []
+  PlayerList: []
   PlayersOptions: []
-  Player1isHuman: 0
+  Player1isHuman: 1
   Player2isHuman: 0
   Player3isHuman: 0
   Player4isHuman: 0
   botcount: 0
   TotalPlayerCount: 0
   GameMode: 0
-  Spawn: 0
 --- !u!4 &1707494028
 Transform:
   m_ObjectHideFlags: 0

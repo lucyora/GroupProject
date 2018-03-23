@@ -107,7 +107,7 @@ public class MapSelect : MonoBehaviour {
         {
             world.gameObject.SetActive(false);
             Load.gameObject.SetActive(true);
-            SceneManager.LoadSceneAsync("Ice Ice Baby");
+            SceneManager.LoadSceneAsync("Jello World");
         }
         if (level == 2)
         {

@@ -27,5 +27,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 61c93c6a00b72894c9b4958ecefbe0e4
   - enabled: 1
-    path: Assets/Scenes/Ice Ice Baby.unity
-    guid: fb48c9d74b2b5de4b9d91550e468dd45
+    path: Assets/Scenes/Jello World.unity
+    guid: 8ee17a377d0fe624db02d21ccf9dacea
