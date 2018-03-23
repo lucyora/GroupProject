@@ -17,13 +17,14 @@ public class CharacterSelect : MonoBehaviour {
     private bool power3Unlocked = false;
     private bool power4Unlocked = false;
     private bool power5Unlocked = false;
-    private float strenght;
-    private float speed;
-    private float stability;
+    public float strength;
+    public float speed;
+    public float stability;
     public Button ToMap_btn;
     public Button ToGameMode_btn;
     public Image image;
     public Image powerUp;
+    public Text bottxt;
     public Sprite[] sprite;
     public Sprite[] powersprite;
     public Slider[] slider;
@@ -34,11 +35,12 @@ public class CharacterSelect : MonoBehaviour {
     public TextMeshProUGUI powerName;
     public TextMeshProUGUI StartText;
 
+    public int botCount = 0;
     private float time;
     public int[] index;
     public int[] powerIndex;
     public string[] names;
-    public bool[] Ai;
+    public bool[] IsPlayer;
     public bool[] characterChosen;
     public bool[] powerChosen;
     public bool[] playerReady;
@@ -47,11 +49,13 @@ public class CharacterSelect : MonoBehaviour {
 
     void Start()
     {
+        bottxt = GameObject.Find("PostItBotText").GetComponent<Text>();
+        bottxt.text = "Employee Count " +botCount;
         menuAnim = GetComponent<Animator>();
-        names = new string[4];        names = Input.GetJoystickNames();
+        names = new string[4];      names = Input.GetJoystickNames();
         index = new int[4] { 1, 1, 1, 1 };
         powerIndex = new int[4] { 1, 1, 1, 1, };
-        Ai = new bool[4] { false, true, true, true };
+        IsPlayer = new bool[4] { false, true, true, true };
         characterChosen = new bool[4] { false, false, false, false };
         powerChosen = new bool[4] { false, false, false, false };
         playerReady = new bool[4] { false, false, false, false };
@@ -63,7 +67,7 @@ public class CharacterSelect : MonoBehaviour {
     //stats to slider
     void Characterstats()
     {
-        slider[0].value = strenght / 100;
+        slider[0].value = strength / 100;
         slider[1].value = speed / 100;
         slider[2].value = stability / 100;
     }
@@ -110,6 +114,26 @@ public class CharacterSelect : MonoBehaviour {
                 }
                 CharacterDisplay(i);
                 Characterstats();
+            }
+            else if((Input.GetAxis("Joy0YL") > 0.99F))
+            {
+                SoundManager.instance.selectSound.Play();
+                botCount += 1;
+                if(botCount >= 9)
+                {
+                    botCount = 9;
+                }
+                bottxt.text = "Employee Count " + botCount;
+            }
+            else if ((Input.GetAxis("Joy0YL") < -0.99F))
+            {
+                SoundManager.instance.selectSound.Play();
+                botCount -= 1;
+                if(botCount <= 0)
+                {
+                    botCount = 0;
+                }
+                bottxt.text = "Employee Count " + botCount;
             }
             else if (Input.GetAxis("Joy" + i + "XL") < -0.2F && panel == GameObject.Find("Character" + i) && characterChosen[i] == false)
             {
@@ -178,6 +202,9 @@ public class CharacterSelect : MonoBehaviour {
                     powerChosen[i] = true;                  // changes boolean for future reference
                     powerUp.color = Color.grey;             // visual feedback upon selection
 					SoundManager.instance.confirmSound.Play();// audio feedback upon selection
+                    strength = 10.0f;
+                    speed = -30.0f;
+                    stability = 20.0f;
 
 				}
 				else if (powerIndex[i] == 2)
@@ -188,7 +215,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strength = 30.0f;
+                        speed = -30.0f;
+                        stability = 30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power1RequiredCoins)     // if player has more coins than required, it unlocks powerup
@@ -217,7 +247,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strength = 0.0f;
+                        speed = 20.0f;
+                        stability = 30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power2RequiredCoins)
@@ -245,7 +278,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strength = 0.0f;
+                        speed = 30.0f;
+                        stability = -20.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power3RequiredCoins)
@@ -273,7 +309,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strength = 10.0f;
+                        speed = 30.0f;
+                        stability = -30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power4RequiredCoins)
@@ -301,7 +340,10 @@ public class CharacterSelect : MonoBehaviour {
                         powerChosen[i] = true;
                         powerUp.color = Color.grey;
 						SoundManager.instance.confirmSound.Play();// audio feedback upon selection
-					}
+                        strength = 30.0f;
+                        speed = 0.0f;
+                        stability = -30.0f;
+                    }
 					else
                     {
                         if (playerCoins >= power5RequiredCoins)
@@ -354,15 +396,15 @@ public class CharacterSelect : MonoBehaviour {
     {
         if (panel == GameObject.Find("Character" + i))
         {
-            if (Input.GetButtonDown("JoyStart" + i) && Ai[i] == true)
+            if (Input.GetButtonDown("JoyStart" + i) && IsPlayer[i] == true)
             {
                 characterChosen[i] = false;
                 powerChosen[i] = false;
                 playerReady[i] = false;
                 panel.transform.localScale = new Vector3(1, 1, 1);
-                Ai[i] = false;
+                IsPlayer[i] = false;
             }
-            else if (Ai[i] == true)
+            else if (IsPlayer[i] == true)
             {
                 panel.transform.localScale = new Vector3(0, 0, 0);
                 index[i] = Random.Range(1, 6);
@@ -374,39 +416,59 @@ public class CharacterSelect : MonoBehaviour {
         }
     }
 
+    public struct Stats
+    {
+        public float strengthStats;
+        public float speedStats;
+        public float stabilityStats;
+    }
 
+    static int NUM_CHARACTERS = 5;
+    static int NUM_POWERUPS = 6;
+
+    public static Stats[] CharStats = new Stats[NUM_CHARACTERS];
+    public static Stats[] PowerUpStats = new Stats[NUM_POWERUPS];
+
+    public Stats GetCharacterStats(int characterIndex, int PowerupIndex)
+    {
+        Stats retStats = new Stats();
+        retStats.strengthStats = CharStats[characterIndex - 1].strengthStats + PowerUpStats[PowerupIndex-1].strengthStats;
+        retStats.speedStats = CharStats[characterIndex-1].speedStats + PowerUpStats[PowerupIndex-1].speedStats;
+        retStats.stabilityStats = CharStats[characterIndex-1].stabilityStats + PowerUpStats[PowerupIndex-1].stabilityStats;
+        return retStats;
+    }
     //charcter stats to display
     void character1Stats()
     {
-        strenght = 25;
+        strength = 25;
         speed = 75;
         stability = 45;
         image.sprite = sprite[0];
     }
     void character2Stats()
     {
-        strenght = 85;
+        strength = 85;
         speed = 20;
         stability = 7;
         image.sprite = sprite[1];
     }
     void character3Stats()
     {
-        strenght = 52;
+        strength = 52;
         speed = 98;
         stability = 10;
         image.sprite = sprite[2];
     }
     void character4Stats()
     {
-        strenght = 10;
+        strength = 10;
         speed = 86;
         stability = 45;
         image.sprite = sprite[3];
     }
     void character5Stats()
     {
-        strenght = 25;
+        strength = 25;
         speed = 32;
         stability = 87;
         image.sprite = sprite[4];

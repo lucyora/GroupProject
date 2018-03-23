@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Raycast : Controller {
-    private float downlength = 10;
+    private float downlength = 30;
     private float leftlength = 2;
     private float fwdlength = 2;
     private float backlength = 2;
