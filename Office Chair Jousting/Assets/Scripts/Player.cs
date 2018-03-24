@@ -8,9 +8,9 @@ public class Player : Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
     public bool isAlive;
-    public float Strength;//TODO. Implement This
-    public float Mass;
-    public float SpeedLimiter;
+    public float Strength= 0;//TODO. Implement This
+    public float Mass = 0;
+    public float SpeedLimiter = 100;
     public Vector3 CenterofGravity;
     public float RotationSnapRange;
     public bool detect;
@@ -19,19 +19,33 @@ public class Player : Raycast {
     private double storedrotation;
     public int InternalPlayerIndex;
     public float Score;
+    private GameManager gamemanager;
+
 
     void Start ()
     {
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
+        Character = (character)PlayerPrefs.GetInt("Character"+ (InternalPlayerIndex + 1));
+        CharacterStats stats = new CharacterStats(Character);
+
+        Strength += (powerup.Strength + stats.Strength);
+        SpeedLimiter = stats.SpeedLimiter;
+        SpeedLimiter -= powerup.Speed;
+        RotationSnapRange += (powerup.Stability + stats.RotationSnapRange);
+
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
         InitController();
+
     }
 
     void Update()
     {
         if (isAlive)
         {
+            gamemanager.UpdateScore(InternalPlayerIndex,Score);
             isAlive = isOBJAlive();
             UpdatePosition();
         }
@@ -102,7 +116,7 @@ public class Player : Raycast {
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //TODO ignore collision with self and the floor
+        //TODO ignore collision with self and the floor for this value
         if (detect)
         {
             Debug.Log(collision.relativeVelocity.magnitude);

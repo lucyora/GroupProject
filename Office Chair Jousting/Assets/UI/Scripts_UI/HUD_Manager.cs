@@ -5,6 +5,11 @@ using TMPro;
 
 public class HUD_Manager : MonoBehaviour
 {
+
+    private GameManager gamemanager;
+    private List<float> Scores = new List<float>();
+
+
     Player playerClass;
     private float sec, min;
     private float startTime;
@@ -16,6 +21,8 @@ public class HUD_Manager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        
         playerClass = GetComponent<Player>();
 
     }
@@ -27,6 +34,7 @@ public class HUD_Manager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        Scores = gamemanager.getScores();
         //TODO: grap and use player status on screen
 
         timeleft -= Time.deltaTime;
