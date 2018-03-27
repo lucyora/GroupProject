@@ -119,11 +119,17 @@ public class UICom : MonoBehaviour {
     void Save()
     {
         PlayerPrefs.SetInt("GameMode", gameMode.gameModeIndex);
+
         PlayerPrefs.SetInt("Character1", charSelect[0].index[0]);
         PlayerPrefs.SetInt("Character2", charSelect[1].index[1]);
         PlayerPrefs.SetInt("Character3", charSelect[2].index[2]);
         PlayerPrefs.SetInt("Character4", charSelect[3].index[3]);
-   
+
+        PlayerPrefs.SetInt("Player1isAI", charSelect[0].index[0]);
+        PlayerPrefs.SetInt("Player2isAI", charSelect[1].index[1]);
+        PlayerPrefs.SetInt("Player3isAI", charSelect[2].index[2]);
+        PlayerPrefs.SetInt("Player4isAI", charSelect[3].index[3]);
+
         PlayerPrefs.SetInt("Char1Power", charSelect[0].powerIndex[0]);
         PlayerPrefs.SetInt("Char2Power", charSelect[1].powerIndex[1]);
         PlayerPrefs.SetInt("Char3Power", charSelect[2].powerIndex[2]);
