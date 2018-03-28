@@ -67,7 +67,9 @@ public class GameManager : MonoBehaviour
         //Player Spawning. This assumes Player 2 can only be a human is player 1 human and player 3 can only be human if player 2 is human, etc.
         if (Player1isAI == 1)
         {
+            
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
+            
             PlayersOptions.Add(new PlayerOptions(true, 1, Controller.current_player.Player_1));
             SetPlayerOptions(PlayersOptions[0], 0);
             SpawnPlayer(0);
@@ -140,6 +142,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerList[index].GetComponent<Player>().Character = playeroptions.PlayerCharacter;
             PlayerList[index].GetComponent<Player>().Current_Player = playeroptions.Current_Player;
+            //PlayerList[index].GetComponent<Player>().Current_Player = Controller.current_player.Player_1;
             PlayerList[index].GetComponent<Player>().Score = playeroptions.Score;
             PlayerList[index].GetComponent<Player>().InternalPlayerIndex = playeroptions.PlayerIndex;
         }

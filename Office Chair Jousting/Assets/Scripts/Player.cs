@@ -24,16 +24,17 @@ public class Player : Raycast {
 
     void Start ()
     {
-        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        //gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
-        Character = (character)PlayerPrefs.GetInt("Character"+ (InternalPlayerIndex + 1));
-        CharacterStats stats = new CharacterStats(Character);
+        //Character = (character)PlayerPrefs.GetInt("Character"+ (InternalPlayerIndex + 1));
+        //CharacterStats stats = new CharacterStats(Character);
 
-        Strength += (powerup.Strength + stats.Strength);
+        /*Strength += (powerup.Strength + stats.Strength);
         SpeedLimiter = stats.SpeedLimiter;
         SpeedLimiter -= powerup.Speed;
         RotationSnapRange += (powerup.Stability + stats.RotationSnapRange);
-
+        */
+        Debug.Log((int)Character);
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
@@ -43,9 +44,10 @@ public class Player : Raycast {
 
     void Update()
     {
+
         if (isAlive)
         {
-            gamemanager.UpdateScore(InternalPlayerIndex,Score);
+//            gamemanager.UpdateScore(InternalPlayerIndex,Score);
             isAlive = isOBJAlive();
             UpdatePosition();
         }
@@ -62,15 +64,16 @@ public class Player : Raycast {
 
     public virtual void UpdatePosition()
     {
-       
+
 
         //Player Movement
         //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
+        
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
         {
             transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / SpeedLimiter)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / SpeedLimiter)));         
         }
-
+        Debug.Log(SelectedP_LX);
         //Joust Rotation
         /////TODO Cheat rotation speed by not checking every frame?
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
