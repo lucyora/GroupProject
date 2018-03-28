@@ -53,8 +53,8 @@ public class CharacterSelect : MonoBehaviour {
         bottxt.text = "Employee Count " +botCount;
         menuAnim = GetComponent<Animator>();
         names = new string[4];      names = Input.GetJoystickNames();
-        index = new int[4] { 1, 1, 1, 1 };
-        powerIndex = new int[4] { 1, 1, 1, 1, };
+        index = new int[4] { 0, 0, 0, 0 };
+        powerIndex = new int[4] { 0, 0, 0, 0 };
         IsPlayer = new int[4] { 1, 0, 0, 0 };
         characterChosen = new bool[4] { false, false, false, false };
         powerChosen = new bool[4] { false, false, false, false };
@@ -74,23 +74,23 @@ public class CharacterSelect : MonoBehaviour {
     //character index
     void CharacterDisplay(int i)
     {
-        if (index[i] ==1)
+        if (index[i] ==0)
         {
             character1Stats();
         }
-        else if (index[i] == 2)
+        else if (index[i] == 1)
         {
             character2Stats();
         }
-        else if (index[i] == 3)
+        else if (index[i] == 2)
         {
             character3Stats();
         }
-        else if (index[i] == 4)
+        else if (index[i] == 3)
         {
             character4Stats();
         }
-        else if (index[i] == 5)
+        else if (index[i] == 4)
         {
             character5Stats();
         }
@@ -108,9 +108,9 @@ public class CharacterSelect : MonoBehaviour {
 				SoundManager.instance.selectSound.Play();
                 menuAnim.Play("CharacterMoveRight");
                 index[i]++;
-                if (index[i] > 5)
+                if (index[i] > 4)
                 {
-                    index[i] = 1;
+                    index[i] = 0;
                 }
                 CharacterDisplay(i);
                 Characterstats();
@@ -140,9 +140,9 @@ public class CharacterSelect : MonoBehaviour {
                 SoundManager.instance.selectSound.Play();
                 menuAnim.Play("CharacterMoveLeft");
                 index[i]--;
-                if (index[i] < 1)
+                if (index[i] < 0)
                 {
-                    index[i] = 5;
+                    index[i] = 4;
                 }
                 CharacterDisplay(i);
                 Characterstats();
@@ -153,9 +153,9 @@ public class CharacterSelect : MonoBehaviour {
                 SoundManager.instance.selectSound.Play();
                 menuAnim.Play("PowerMoveRight");
                 powerIndex[i]++;
-                if (powerIndex[i] > 6)
+                if (powerIndex[i] > 5)
                 {
-                    powerIndex[i] = 1;
+                    powerIndex[i] = 0;
                 }
                 powerindex(i);
             }
@@ -164,9 +164,9 @@ public class CharacterSelect : MonoBehaviour {
                 SoundManager.instance.selectSound.Play();
                 menuAnim.Play("PowerMoveLeft");
                 powerIndex[i]--;
-                if (powerIndex[i] < 1)
+                if (powerIndex[i] < 0)
                 {
-                    powerIndex[i] = 6;
+                    powerIndex[i] = 5;
                 }
                 powerindex(i);
             }
@@ -196,7 +196,7 @@ public class CharacterSelect : MonoBehaviour {
             //select power
             else if (Input.GetButtonDown("JoyA" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
-                if (powerIndex[i] == 1 && playerCoins >= 0) // first power up will be unlocked by default
+                if (powerIndex[i] == 0 && playerCoins >= 0) // first power up will be unlocked by default
                 {
                     powerUp.sprite = powersprite[0];        // loads powerup 0 sprite
                     powerChosen[i] = true;                  // changes boolean for future reference
@@ -207,7 +207,7 @@ public class CharacterSelect : MonoBehaviour {
                     stability = 20.0f;
 
 				}
-				else if (powerIndex[i] == 2)
+				else if (powerIndex[i] == 1)
                 {
                     if (power1Unlocked)                     // carry out following segment of code if power is already unlocked and ignores the rest
                     {
@@ -239,7 +239,7 @@ public class CharacterSelect : MonoBehaviour {
 					}  
                 }
                 // Following code works same as above
-                else if (powerIndex[i] == 3)
+                else if (powerIndex[i] == 2)
                 {
                     if (power2Unlocked)
                     {
@@ -270,7 +270,7 @@ public class CharacterSelect : MonoBehaviour {
 						}
 					}
                 }
-                else if (powerIndex[i] == 4)
+                else if (powerIndex[i] == 3)
                 {
                     if (power3Unlocked)
                     {
@@ -301,7 +301,7 @@ public class CharacterSelect : MonoBehaviour {
 						}
 					}
                 }
-                else if (powerIndex[i] == 5)
+                else if (powerIndex[i] == 4)
                 {
                     if (power4Unlocked)
                     {
@@ -332,7 +332,7 @@ public class CharacterSelect : MonoBehaviour {
 						}
 					}
                 }
-                else if (powerIndex[i] == 6)
+                else if (powerIndex[i] == 5)
                 {
                     if (power5Unlocked)
                     {
@@ -407,9 +407,9 @@ public class CharacterSelect : MonoBehaviour {
             else if (IsPlayer[i] == 0)
             {
                 panel.transform.localScale = new Vector3(0, 0, 0);
-                index[i] = Random.Range(1, 6);
+                index[i] = Random.Range(0, 5);
                 characterChosen[i] = true;
-                powerIndex[i] = Random.Range(1, 7);
+                powerIndex[i] = Random.Range(0, 6);
                 powerChosen[i] = true;
                 playerReady[i] = true;
             }
@@ -477,15 +477,15 @@ public class CharacterSelect : MonoBehaviour {
     //sets power index
     void powerindex(int i)
     {
-        if (powerIndex[i] == 1)
+        if (powerIndex[i] == 0)
         { 
             powerUp.sprite = powersprite[0];
             powerName.text = "Donut";
             powerstats.text = "Strenght + \n speed---\nStability++";
         }
-        else if (powerIndex[i] == 2)
+        else if (powerIndex[i] == 1)
         {
-            if (powerIndex[i] == 2 && power1Unlocked)
+            if (powerIndex[i] == 1 && power1Unlocked)
             {
                 powerUp.sprite = powersprite[1];
             }
@@ -496,9 +496,9 @@ public class CharacterSelect : MonoBehaviour {
             powerName.text = "Promotion";
             powerstats.text = "Strenght +++ \n speed---\nStability+++";
         }
-        else if (powerIndex[i] == 3)
+        else if (powerIndex[i] == 2)
         {
-            if (powerIndex[i] == 3 && power2Unlocked)
+            if (powerIndex[i] == 2 && power2Unlocked)
             {
                 powerUp.sprite = powersprite[2];
             }
@@ -509,9 +509,9 @@ public class CharacterSelect : MonoBehaviour {
             powerName.text = "WD-40";
             powerstats.text = "Strenght \n speed++\nStability+++";
         }
-        else if (powerIndex[i] == 4)
+        else if (powerIndex[i] == 3)
         {
-            if (powerIndex[i] == 4 && power3Unlocked)
+            if (powerIndex[i] == 3 && power3Unlocked)
             {
                 powerUp.sprite = powersprite[3];
             }
@@ -522,9 +522,9 @@ public class CharacterSelect : MonoBehaviour {
             powerName.text = "Coffee";
             powerstats.text = "Strenght  \n speed+++\nStability--";
         }
-        else if (powerIndex[i] == 5)
+        else if (powerIndex[i] == 4)
         {
-            if (powerIndex[i] == 5 && power4Unlocked)
+            if (powerIndex[i] == 4 && power4Unlocked)
             {
                 powerUp.sprite = powersprite[4];
             }
@@ -535,9 +535,9 @@ public class CharacterSelect : MonoBehaviour {
             powerName.text = "Rocket Booster";
             powerstats.text = "Strenght+  \n speed+++\nStability---";
         }
-        else if (powerIndex[i] == 6)
+        else if (powerIndex[i] == 5)
         {
-            if (powerIndex[i] == 6 && power5Unlocked)
+            if (powerIndex[i] == 5 && power5Unlocked)
             {
                 powerUp.sprite = powersprite[5];
             }
