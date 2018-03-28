@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: a167fdaefdd98344db439709f8750ecd, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0c44a9f326866424ea11bd4952517cec, type: 2}
 --- !u!1001 &235897619
 Prefab:
   m_ObjectHideFlags: 0
@@ -178,6 +178,11 @@ Prefab:
         type: 2}
       propertyPath: SpeedLimiter
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114545888515256652, guid: ba80c2412c2c7834f9de374ba6661f32,
+        type: 2}
+      propertyPath: Mass
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba80c2412c2c7834f9de374ba6661f32, type: 2}
@@ -352,7 +357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &806832895
 GameObject:
@@ -436,7 +441,7 @@ Transform:
   m_LocalScale: {x: 109.2, y: 100, z: 95.9}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &819366708
 GameObject:
@@ -615,7 +620,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 49.888, y: 0, z: 0}
 --- !u!1 &1124525018
 GameObject:
@@ -764,7 +769,7 @@ Prefab:
     - target: {fileID: 114262182377848296, guid: 6c6ec6b4d7308454aa4c66da0de42a26,
         type: 2}
       propertyPath: speed
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4048781270756660, guid: 6c6ec6b4d7308454aa4c66da0de42a26, type: 2}
       propertyPath: m_LocalPosition.x
@@ -774,6 +779,25 @@ Prefab:
         type: 2}
       propertyPath: Mass
       value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 195759909355096398, guid: 6c6ec6b4d7308454aa4c66da0de42a26,
+        type: 2}
+      propertyPath: m_BaseOffset
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 195759909355096398, guid: 6c6ec6b4d7308454aa4c66da0de42a26,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048781270756660, guid: 6c6ec6b4d7308454aa4c66da0de42a26, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114262182377848296, guid: 6c6ec6b4d7308454aa4c66da0de42a26,
+        type: 2}
+      propertyPath: SpeedLimiter
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c6ec6b4d7308454aa4c66da0de42a26, type: 2}

@@ -24,7 +24,7 @@ public class Player : Raycast {
 
     void Start ()
     {
-        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        //gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
         Character = (character)PlayerPrefs.GetInt("Character"+ (InternalPlayerIndex + 1));
         CharacterStats stats = new CharacterStats(Character);
@@ -45,9 +45,10 @@ public class Player : Raycast {
     {
         if (isAlive)
         {
-            gamemanager.UpdateScore(InternalPlayerIndex,Score);
-            isAlive = isOBJAlive();
+            //gamemanager.UpdateScore(InternalPlayerIndex,Score);
+            //isAlive = isOBJAlive();
             UpdatePosition();
+            isAlive = isOBJAlive(); // moved for order of operations
         }
         else
         {
