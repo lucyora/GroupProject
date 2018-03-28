@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public int TotalPlayerCount;     
     public enum gamemode { DeathMatch, TeamDeathMatch, OttomanEmpire, LastManSitting };
     public gamemode GameMode;
+    public bool Debug;
 
     public void UpdateScore(int index, float value)
     {
@@ -53,10 +54,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        Player1isAI = PlayerPrefs.GetInt("Player1isAI");
-        Player2isAI = PlayerPrefs.GetInt("Player2isAI");
-        Player3isAI = PlayerPrefs.GetInt("Player3isAI");
-        Player4isAI = PlayerPrefs.GetInt("Player4isAI");
+        if (!Debug)
+        {
+            Player1isAI = PlayerPrefs.GetInt("Player1isAI");
+            Player2isAI = PlayerPrefs.GetInt("Player2isAI");
+            Player3isAI = PlayerPrefs.GetInt("Player3isAI");
+            Player4isAI = PlayerPrefs.GetInt("Player4isAI");
+        }
+
         SpawnArea = GameObject.FindGameObjectWithTag("SpawnArea");
 
         //Player Spawning. This assumes Player 2 can only be a human is player 1 human and player 3 can only be human if player 2 is human, etc.
