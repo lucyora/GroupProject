@@ -13,8 +13,12 @@ public class splish : MonoBehaviour
         GetComponent<AudioSource>().clip = sploosh;
     }
 
-    void OnCollisionEnter()  //Plays Sound Whenever collision detected
+    void OnCollisionEnter(Collision other)  //Plays Sound Whenever collision detected
     {
-        GetComponent<AudioSource>().Play();
+        if (other.collider.tag == "Player")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        
     }
 }
