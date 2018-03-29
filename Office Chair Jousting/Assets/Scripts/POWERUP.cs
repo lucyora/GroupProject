@@ -55,6 +55,11 @@ public class POWERUP
                 Speed = 0;
                 Stability = 0;
                 break;
+            default:
+                Strength = 0;
+                Speed = 0;
+                Stability = 0;
+                break;
         }
     }
 }

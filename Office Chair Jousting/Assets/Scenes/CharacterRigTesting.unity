@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 1707494027}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -448,13 +448,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerList: []
   PlayersOptions: []
-  Player1isHuman: 1
-  Player2isHuman: 0
-  Player3isHuman: 0
-  Player4isHuman: 0
+  Player1isAI: 1
+  Player2isAI: 1
+  Player3isAI: 1
+  Player4isAI: 0
   botcount: 0
   TotalPlayerCount: 0
   GameMode: 0
+  DebugMode: 1
 --- !u!4 &1707494028
 Transform:
   m_ObjectHideFlags: 0

@@ -34,10 +34,11 @@ public class GameManager : MonoBehaviour
     public int TotalPlayerCount;     
     public enum gamemode { DeathMatch, TeamDeathMatch, OttomanEmpire, LastManSitting };
     public gamemode GameMode;
-    public bool Debug;
+    public bool DebugMode;
 
     public void UpdateScore(int index, float value)
     {
+
         PlayersOptions[index].Score = value;
     }
 
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        if (!Debug)
+        if (!DebugMode)
         {
             Player1isAI = PlayerPrefs.GetInt("Player1isAI");
             Player2isAI = PlayerPrefs.GetInt("Player2isAI");
@@ -67,10 +68,8 @@ public class GameManager : MonoBehaviour
         //Player Spawning. This assumes Player 2 can only be a human is player 1 human and player 3 can only be human if player 2 is human, etc.
         if (Player1isAI == 1)
         {
-            
-            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            
             PlayersOptions.Add(new PlayerOptions(true, 1, Controller.current_player.Player_1));
+            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject))); 
             SetPlayerOptions(PlayersOptions[0], 0);
             SpawnPlayer(0);
             TotalPlayerCount += 1;
@@ -78,7 +77,7 @@ public class GameManager : MonoBehaviour
             if (Player2isAI == 1)
             {
                 PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-                PlayersOptions.Add(new PlayerOptions(true, 1,Controller.current_player.Player_2));
+                PlayersOptions.Add(new PlayerOptions(true, 2,Controller.current_player.Player_2));
                 SetPlayerOptions(PlayersOptions[1], 1);
                 SpawnPlayer(1);
                 TotalPlayerCount += 1;
@@ -86,7 +85,7 @@ public class GameManager : MonoBehaviour
                 if (Player3isAI == 1)
                 {
                     PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-                    PlayersOptions.Add(new PlayerOptions(true, 1,Controller.current_player.Player_3));
+                    PlayersOptions.Add(new PlayerOptions(true, 3,Controller.current_player.Player_3));
                     SetPlayerOptions(PlayersOptions[2], 2);
                     SpawnPlayer(2);
                     TotalPlayerCount += 1;
@@ -94,7 +93,7 @@ public class GameManager : MonoBehaviour
                     if (Player4isAI == 1)
                     {
                         PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-                        PlayersOptions.Add(new PlayerOptions(true, 1,Controller.current_player.Player_4));
+                        PlayersOptions.Add(new PlayerOptions(true, 4,Controller.current_player.Player_4));
                         SetPlayerOptions(PlayersOptions[3], 3);
                         SpawnPlayer(3);
                         TotalPlayerCount += 1;
@@ -137,7 +136,6 @@ public class GameManager : MonoBehaviour
     
     void SetPlayerOptions(PlayerOptions playeroptions, int index)
     {
-
         if (PlayerList[index].GetComponent<Player>() != null)
         {
             PlayerList[index].GetComponent<Player>().Character = playeroptions.PlayerCharacter;
@@ -156,6 +154,10 @@ public class GameManager : MonoBehaviour
     void DeathWatch()
     {
         int index = 0;
+        if (PlayerList[0] == null)
+        {
+            return;
+        }
         foreach (var player in PlayerList)
         {
             

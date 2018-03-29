@@ -7267,7 +7267,7 @@ GameObject:
   - component: {fileID: 195759909355096398}
   m_Layer: 0
   m_Name: AI
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16174,6 +16174,8 @@ MonoBehaviour:
   - {fileID: 1037313225484734}
   - {fileID: 1987101543954718}
   InternalPlayerIndex: 0
+  Score: 0
+  DebugMode: 0
   player: {fileID: 0}
   speed: 0
 --- !u!135 &135055938027592688
