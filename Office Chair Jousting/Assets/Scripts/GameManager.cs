@@ -21,7 +21,7 @@ public class PlayerOptions
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject SpawnArea;
+    public GameObject[] SpawnPoints;
     public List<GameObject> PlayerList;
     public List<PlayerOptions> PlayersOptions;
     /// Fill in with values from UI
@@ -62,9 +62,6 @@ public class GameManager : MonoBehaviour
             Player3isAI = PlayerPrefs.GetInt("Player3isAI");
             Player4isAI = PlayerPrefs.GetInt("Player4isAI");
         }
-
-        SpawnArea = GameObject.FindGameObjectWithTag("SpawnArea");
-
         //Player Spawning. This assumes Player 2 can only be a human is player 1 human and player 3 can only be human if player 2 is human, etc.
         if (Player1isAI == 1)
         {
@@ -127,10 +124,12 @@ public class GameManager : MonoBehaviour
 
     void SpawnPlayer(int index)
     {
-        Vector3 Center = SpawnArea.GetComponent<BoxCollider>().center;
-        float max = SpawnArea.GetComponent<BoxCollider>().bounds.max.x;
-        Vector3 spawnposition = new Vector3(Random.Range(-max, max), SpawnArea.transform.position.y, Random.Range(-max, max));
-        PlayerList[index] = Instantiate(PlayerList[index], spawnposition,Quaternion.identity);
+        if (SpawnPoints.Length == 0)
+        {
+            Debug.LogError("SpawnPoints array in Game Manager has no Spawn Points. Please fill this variable in with game objects");
+        }
+        int SpawnPointIndex = Random.Range(0, SpawnPoints.Length);
+        PlayerList[index] = Instantiate(PlayerList[index], SpawnPoints[SpawnPointIndex].transform.position,Quaternion.identity);
     }
 
     

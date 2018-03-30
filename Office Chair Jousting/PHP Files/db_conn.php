@@ -1,6 +1,6 @@
 <?php 
-	class db_conn{
-    	public function __construct()
+    class db_conn{
+        public function __construct()
         {
             $dbHost = "localhost";
             $dbUser = "ocjsession";
@@ -16,8 +16,6 @@
             {
                 die("Error: " . $e->getMessage());
             }
-
         }
     }
-
 ?>
