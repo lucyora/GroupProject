@@ -19,7 +19,10 @@ public class Player : Raycast {
     private double storedrotation;
     public int InternalPlayerIndex;
     public float Score;
+    public bool DebugMode;
     private GameManager gamemanager;
+    public bool TiltCorrection;
+    public string LastPlayerHit;
 
 
     void Start ()
@@ -30,19 +33,20 @@ public class Player : Raycast {
         if (charint < 0)
         {
             charint = 0;
+            Debug.LogWarning("Character index was set below 0");
         }
-        else if (charint > 4)
+        else if (charint > 3)
         {
-            charint = 4;
-        }
-        Character = (character)(charint -1);
-        CharacterStats stats = new CharacterStats(Character);
+            charint = 3;
+            Debug.LogWarning("Character index was set above 3. It cannot be above 3");
 
+        }
+        Character = (character)(charint);
+        CharacterStats stats = new CharacterStats(Character);
         Strength += (powerup.Strength + stats.Strength);
         SpeedLimiter = stats.SpeedLimiter;
         SpeedLimiter -= powerup.Speed;
-        RotationSnapRange += (powerup.Stability + stats.RotationSnapRange);
-        
+        RotationSnapRange += (powerup.Stability + stats.RotationSnapRange);        
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
@@ -54,9 +58,7 @@ public class Player : Raycast {
     {
 
         if (isAlive)
-        {
-            gamemanager.UpdateScore((InternalPlayerIndex-1),Score);
-            
+        {            
             UpdatePosition();
             isAlive = isOBJAlive();
         }
@@ -66,7 +68,12 @@ public class Player : Raycast {
             RagdollCharacters[(int)Character].SetActive(true);
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
-            Invoke("Death",8.0f);
+            this.gameObject.tag = "DeadPlayer";
+            this.gameObject.transform.GetChild(0).tag = "DeadPlayer";
+            this.gameObject.transform.GetChild(1).tag = "DeadPlayer";
+            this.gameObject.transform.GetChild(2).tag = "DeadPlayer";
+
+            Invoke("Death",3.0f);
         }
 
     }
@@ -91,33 +98,36 @@ public class Player : Raycast {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, transform.eulerAngles.z);
         }
 
-
-        //Tilt Correction
-        if (Math.Round(transform.eulerAngles.x) != 0 || Math.Round(transform.eulerAngles.z) != 0)
+        if (TiltCorrection)
         {
-            if (Math.Round(Input.GetAxis(SelectedP_LX)) !=0)
+            //Tilt Correction
+            if (Math.Round(transform.eulerAngles.x) != 0 || Math.Round(transform.eulerAngles.z) != 0)
             {
-                //transform.eulerAngles = new Vector3((transform.eulerAngles.x + Input.GetAxis(SelectedP_LX)), (float)storedrotation,transform.eulerAngles.z); 
-                transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LX), 0.0f, 0.0f), Space.World);
+                if (Math.Round(Input.GetAxis(SelectedP_LX)) !=0)
+                {
+                    //transform.eulerAngles = new Vector3((transform.eulerAngles.x + Input.GetAxis(SelectedP_LX)), (float)storedrotation,transform.eulerAngles.z); 
+                    transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LX), 0.0f, 0.0f), Space.Self);
+                }
+                if (Math.Round(Input.GetAxis(SelectedP_LY)) != 0)
+                {
+                    //transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, (transform.eulerAngles.z - Input.GetAxis(SelectedP_LY))); 
+                    transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LY)), Space.Self);
+                }
             }
-            if (Math.Round(Input.GetAxis(SelectedP_LY)) != 0)
+
+            //Snapping Tilt when angles are within range
+            if ((transform.eulerAngles.x < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.x))
             {
-                //transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, (transform.eulerAngles.z - Input.GetAxis(SelectedP_LY))); 
-                transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LY)), Space.World);
+                transform.eulerAngles = new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z);
+                //transform.Rotate(new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z),Space.World);
+            }
+            if ((transform.eulerAngles.z < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.z))
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f);
+                //transform.Rotate(new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f), Space.World);
             }
         }
 
-        //Snapping Tilt when angles are within range
-        if ((transform.eulerAngles.x < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.x))
-        {
-            transform.eulerAngles = new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z);
-            //transform.Rotate(new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z),Space.World);
-        }
-        if ((transform.eulerAngles.z < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.z))
-        {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f);
-            //transform.Rotate(new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f), Space.World);
-        }
 
 
     }
@@ -128,11 +138,22 @@ public class Player : Raycast {
     private void OnCollisionEnter(Collision collision)
     {
         //TODO ignore collision with self and the floor for this value
+        if (collision.gameObject.tag != "Ground" && collision.gameObject.tag != "Untagged")
+        {
+            LastPlayerHit = collision.gameObject.tag;
+            Invoke("ClearPlayerHit", 5.0f);
+        }
+        
+         
         if (detect)
         {
             Debug.Log(collision.relativeVelocity.magnitude);
         }
         
+    }
+    private void ClearPlayerHit()
+    {
+        LastPlayerHit = "";
     }
 
 }

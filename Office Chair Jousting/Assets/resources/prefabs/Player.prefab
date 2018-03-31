@@ -16175,7 +16175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072388d5055dea24fbe552afaad228ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Current_Player: 0
+  Current_Player: 2
   isAI: 0
   SelectedP_LX: 
   SelectedP_LY: 
@@ -16199,8 +16199,10 @@ MonoBehaviour:
   - {fileID: 1475112156663620}
   - {fileID: 1236218686409708}
   - {fileID: 1341148390951562}
-  InternalPlayerIndex: 1
+  InternalPlayerIndex: 3
   Score: 0
+  DebugMode: 0
+  TiltCorrection: 1
 --- !u!135 &135454042477146242
 SphereCollider:
   m_ObjectHideFlags: 1

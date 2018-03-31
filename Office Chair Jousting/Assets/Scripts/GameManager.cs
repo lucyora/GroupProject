@@ -8,13 +8,11 @@ public class PlayerOptions
     public Controller.current_player Current_Player;
     public bool isPlayer;
     public int PlayerIndex;
-    public float Score;
     public PlayerOptions(bool isplayer, int playerindex, Controller.current_player current_player)
     {
         isPlayer = isplayer;
         PlayerIndex = playerindex;
         Current_Player = current_player;
-        Score = 0;
     }
 
 }
@@ -31,30 +29,16 @@ public class GameManager : MonoBehaviour
     public int Player4isAI;
     public int botcount;
     ///
-    public int TotalPlayerCount;     
+    public int TotalPlayerCount;
+    public float[] score;
     public enum gamemode { DeathMatch, TeamDeathMatch, OttomanEmpire, LastManSitting };
     public gamemode GameMode;
     public bool DebugMode;
 
-    public void UpdateScore(int index, float value)
-    {
-
-        PlayersOptions[index].Score = value;
-    }
-
-    public List<float> getScores()
-    {
-        List<float> ScoresList = new List<float>();
-        foreach (PlayerOptions PlayerOption in PlayersOptions)
-        {
-            ScoresList.Add(PlayerOption.Score);
-        }
-        return ScoresList;
-    }
-
     void Start()
     {
 
+        score = new float[4];
         if (!DebugMode)
         {
             Player1isAI = PlayerPrefs.GetInt("Player1isAI");
@@ -65,7 +49,7 @@ public class GameManager : MonoBehaviour
         //Player Spawning. This assumes Player 2 can only be a human is player 1 human and player 3 can only be human if player 2 is human, etc.
         if (Player1isAI == 1)
         {
-            PlayersOptions.Add(new PlayerOptions(true, 1, Controller.current_player.Player_1));
+            PlayersOptions.Add(new PlayerOptions(true, 0, Controller.current_player.Player_1));
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject))); 
             SetPlayerOptions(PlayersOptions[0], 0);
             SpawnPlayer(0);
@@ -74,7 +58,7 @@ public class GameManager : MonoBehaviour
             if (Player2isAI == 1)
             {
                 PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-                PlayersOptions.Add(new PlayerOptions(true, 2,Controller.current_player.Player_2));
+                PlayersOptions.Add(new PlayerOptions(true, 1,Controller.current_player.Player_2));
                 SetPlayerOptions(PlayersOptions[1], 1);
                 SpawnPlayer(1);
                 TotalPlayerCount += 1;
@@ -82,7 +66,7 @@ public class GameManager : MonoBehaviour
                 if (Player3isAI == 1)
                 {
                     PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-                    PlayersOptions.Add(new PlayerOptions(true, 3,Controller.current_player.Player_3));
+                    PlayersOptions.Add(new PlayerOptions(true, 2,Controller.current_player.Player_3));
                     SetPlayerOptions(PlayersOptions[2], 2);
                     SpawnPlayer(2);
                     TotalPlayerCount += 1;
@@ -90,7 +74,7 @@ public class GameManager : MonoBehaviour
                     if (Player4isAI == 1)
                     {
                         PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-                        PlayersOptions.Add(new PlayerOptions(true, 4,Controller.current_player.Player_4));
+                        PlayersOptions.Add(new PlayerOptions(true, 3,Controller.current_player.Player_4));
                         SetPlayerOptions(PlayersOptions[3], 3);
                         SpawnPlayer(3);
                         TotalPlayerCount += 1;
@@ -140,8 +124,26 @@ public class GameManager : MonoBehaviour
             PlayerList[index].GetComponent<Player>().Character = playeroptions.PlayerCharacter;
             PlayerList[index].GetComponent<Player>().Current_Player = playeroptions.Current_Player;
             //PlayerList[index].GetComponent<Player>().Current_Player = Controller.current_player.Player_1;
-            PlayerList[index].GetComponent<Player>().Score = playeroptions.Score;
-            PlayerList[index].GetComponent<Player>().InternalPlayerIndex = playeroptions.PlayerIndex;
+            PlayerList[index].GetComponent<Player>().InternalPlayerIndex = index;
+            PlayerList[index].tag = "Player" + index;
+
+            PlayerList[index].gameObject.transform.GetChild(0).tag = "Player" + index;
+            PlayerList[index].gameObject.transform.GetChild(1).tag = "Player" + index;
+            PlayerList[index].gameObject.transform.GetChild(2).tag = "Player" + index;
+            foreach (Transform child in PlayerList[index].gameObject.transform)
+            {
+                child.gameObject.tag = "Player" + index;
+                foreach (Transform grandChild in child)
+                {
+                    grandChild.gameObject.tag = "Player" + index;
+                    foreach (Transform greatgrandChild in grandChild)
+                    {
+                        greatgrandChild.gameObject.tag = "Player" + index;
+                    }
+                }
+                    
+            }
+
         }
         else
         {
@@ -164,6 +166,7 @@ public class GameManager : MonoBehaviour
             {
                 if (!player.GetComponent<Player>().isAlive)
                 {
+                    UpdateScores(player.GetComponent<Player>().LastPlayerHit);
                     PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
                     SetPlayerOptions(PlayersOptions[index], index);
                     SpawnPlayer(index);
@@ -179,6 +182,27 @@ public class GameManager : MonoBehaviour
 
         }
 
+    }
+    void UpdateScores(string Striker)
+    {
+        Debug.Log("Score Updating");
+        Debug.Log(Striker);
+        switch (Striker)
+        {
+            case("Player0"):
+                score[0] += 1;
+                break;
+            case ("Player1"):
+                score[1] += 1;
+                break;
+            case ("Player2"):
+                score[2] += 1;
+                break;
+            case ("Player3"):
+                score[3] += 1;
+                break;
+
+        }
     }
 
 }

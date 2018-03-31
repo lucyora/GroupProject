@@ -57,7 +57,6 @@ public class HUD_Manager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Scores = gamemanager.getScores();
 
         //Timer
         TimeLeft -= Time.deltaTime;

@@ -56,6 +56,7 @@ public class POWERUP
                 Stability = 0;
                 break;
             default:
+                Debug.LogWarning("Powerup index is either too high or too low. Powerup value is "+powerindex);
                 Strength = 0;
                 Speed = 0;
                 Stability = 0;
