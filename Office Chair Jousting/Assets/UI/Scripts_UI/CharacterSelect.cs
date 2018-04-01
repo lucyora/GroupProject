@@ -108,7 +108,7 @@ public class CharacterSelect : MonoBehaviour {
 				SoundManager.instance.selectSound.Play();
                 menuAnim.Play("CharacterMoveRight");
                 index[i]++;
-                if (index[i] > 4)
+                if (index[i] > 3)
                 {
                     index[i] = 0;
                 }
@@ -142,7 +142,7 @@ public class CharacterSelect : MonoBehaviour {
                 index[i]--;
                 if (index[i] < 0)
                 {
-                    index[i] = 4;
+                    index[i] = 3;
                 }
                 CharacterDisplay(i);
                 Characterstats();

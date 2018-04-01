@@ -6959,11 +6959,10 @@ MonoBehaviour:
   powerUp: {fileID: 351699308}
   bottxt: {fileID: 0}
   sprite:
-  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: 5eb12016d8fb3bd4fae33f5e8c280848, type: 3}
-  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
+  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: df8e362f71d4e0f42b1a3116afb0f708, type: 3}
-  - {fileID: 21300000, guid: 7f0068c1fdfd43842a0be5b10698e58a, type: 3}
+  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
   powersprite:
   - {fileID: 21300000, guid: 4303a4c0909b39547a828e0943304098, type: 3}
   - {fileID: 21300000, guid: baf4f6af572f0494fbcb1181c8b63309, type: 3}
@@ -7864,11 +7863,10 @@ MonoBehaviour:
   powerUp: {fileID: 125016540}
   bottxt: {fileID: 0}
   sprite:
-  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: 5eb12016d8fb3bd4fae33f5e8c280848, type: 3}
-  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
+  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: df8e362f71d4e0f42b1a3116afb0f708, type: 3}
-  - {fileID: 21300000, guid: 7f0068c1fdfd43842a0be5b10698e58a, type: 3}
+  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
   powersprite:
   - {fileID: 21300000, guid: 4303a4c0909b39547a828e0943304098, type: 3}
   - {fileID: 21300000, guid: baf4f6af572f0494fbcb1181c8b63309, type: 3}
@@ -9570,11 +9568,10 @@ MonoBehaviour:
   powerUp: {fileID: 2060872876}
   bottxt: {fileID: 0}
   sprite:
-  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: 5eb12016d8fb3bd4fae33f5e8c280848, type: 3}
-  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
+  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: df8e362f71d4e0f42b1a3116afb0f708, type: 3}
-  - {fileID: 21300000, guid: 7f0068c1fdfd43842a0be5b10698e58a, type: 3}
+  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
   powersprite:
   - {fileID: 21300000, guid: 4303a4c0909b39547a828e0943304098, type: 3}
   - {fileID: 21300000, guid: baf4f6af572f0494fbcb1181c8b63309, type: 3}
@@ -14277,11 +14274,10 @@ MonoBehaviour:
   powerUp: {fileID: 1198329133}
   bottxt: {fileID: 0}
   sprite:
-  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: 5eb12016d8fb3bd4fae33f5e8c280848, type: 3}
-  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
+  - {fileID: 21300000, guid: e98444d143b58764f8917499c7f6b84f, type: 3}
   - {fileID: 21300000, guid: df8e362f71d4e0f42b1a3116afb0f708, type: 3}
-  - {fileID: 21300000, guid: 7f0068c1fdfd43842a0be5b10698e58a, type: 3}
+  - {fileID: 21300000, guid: 3ac154f1f52442b4fa4a3edf60e28ca8, type: 3}
   powersprite:
   - {fileID: 21300000, guid: 4303a4c0909b39547a828e0943304098, type: 3}
   - {fileID: 21300000, guid: baf4f6af572f0494fbcb1181c8b63309, type: 3}
