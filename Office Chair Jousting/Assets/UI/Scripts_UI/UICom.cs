@@ -28,7 +28,7 @@ public class UICom : MonoBehaviour {
 
             CharacterToMode(i); // from game mode selection to character selection
             if (charSelect[i].toMap == false && gameMode.doneWithMenu == true)
-            {
+            {            teamset(i);
                 //character selection Screen
                 charSelect[i].AiCharSet(i);
                 charSelect[i].playerControl(i);
@@ -37,8 +37,8 @@ public class UICom : MonoBehaviour {
             }
             MapScreen(i); // map Screen Controls
             MaptoCharSelect(i);//go to character select from map
-        }
 
+        }
     }
     //when all players are ready go to map selection screen
     void AllPlayersReady(int i)
@@ -46,7 +46,6 @@ public class UICom : MonoBehaviour {
         bool ready = allReady();
         if ( ready == true)
         {
-            Debug.Log("All Players Ready");
             charSelect[i].ToMap_btn.onClick.Invoke();
             charSelect[i].toMap = true;
         }
@@ -116,9 +115,28 @@ public class UICom : MonoBehaviour {
         }
     }
 
+    void teamset(int i)
+    {
+        Debug.Log(charSelect[i].teamindex[i]);
+        Debug.Log(charSelect[i].teamNames.text);
+        if (charSelect[i].teamindex[i] == 0)
+        {
+            charSelect[i].teamNames.text = "Intern";
+        }
+        else if(charSelect[i].teamindex[i] == 1)
+        {
+            charSelect[i].teamNames.text = "Boss";
+        }
+    }
+
     void Save()
     {
         PlayerPrefs.SetInt("GameMode", gameMode.gameModeIndex);
+
+        PlayerPrefs.SetInt("Player1Team", charSelect[0].teamindex[0]);
+        PlayerPrefs.SetInt("Player2Team", charSelect[1].teamindex[1]);
+        PlayerPrefs.SetInt("Player3Team", charSelect[2].teamindex[2]);
+        PlayerPrefs.SetInt("Player4Team", charSelect[3].teamindex[3]);
 
         PlayerPrefs.SetInt("Character1", charSelect[0].index[0]);
         PlayerPrefs.SetInt("Character2", charSelect[1].index[1]);

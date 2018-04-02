@@ -34,7 +34,8 @@ public class CharacterSelect : MonoBehaviour {
     public TextMeshProUGUI powerstats;
     public TextMeshProUGUI powerName;
     public TextMeshProUGUI StartText;
-
+    public TextMeshProUGUI teamNames;
+    public int[] teamindex;
     public int botCount = 0;
     private float time;
     public int[] index;
@@ -50,15 +51,18 @@ public class CharacterSelect : MonoBehaviour {
     void Start()
     {
         bottxt = GameObject.Find("PostItBotText").GetComponent<Text>();
+        teamNames = GameObject.Find("Team_txt").GetComponent<TextMeshProUGUI>();
         bottxt.text = "Employee Count " +botCount;
         menuAnim = GetComponent<Animator>();
         names = new string[4];      names = Input.GetJoystickNames();
         index = new int[4] { 0, 0, 0, 0 };
         powerIndex = new int[4] { 0, 0, 0, 0 };
         IsPlayer = new int[4] { 1, 0, 0, 0 };
+        teamindex = new int[4] { 0, 0, 0, 0 };
         characterChosen = new bool[4] { false, false, false, false };
         powerChosen = new bool[4] { false, false, false, false };
         playerReady = new bool[4] { false, false, false, false };
+
         CharacterDisplay(1);
         powerindex(1);
         Characterstats();
@@ -382,13 +386,25 @@ public class CharacterSelect : MonoBehaviour {
                 readyPanel.gameObject.SetActive(false);
                 playerReady[i] = false;
             }
-            //indicates player is ready
-            else if (characterChosen[i] == true && powerChosen[i] == true && Input.GetButtonDown("JoyStart" + i))
+            if(characterChosen[i] == true && powerChosen[i] == true)
             {
-				SoundManager.instance.readySound.Play();
-                playerReady[i] = true;
-                readyPanel.gameObject.SetActive(true);
+                if (Input.GetAxis("Joy" + i + "XL") > 0.8)
+                {
+                    teamindex[i] = 1;
+                }
+                else if (Input.GetAxis("Joy" + i + "XL") < -0.8)
+                {
+                    teamindex[i] = 0;
+                }
+                //indicates player is ready
+                if (characterChosen[i] == true && powerChosen[i] == true && Input.GetButtonDown("JoyStart" + i))
+                {
+                    SoundManager.instance.readySound.Play();
+                    playerReady[i] = true;
+                    readyPanel.gameObject.SetActive(true);
+                }
             }
+
         }
     }
     //Hides none player Panels from screen until players join with Start button
