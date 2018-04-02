@@ -23,6 +23,7 @@ public class Player : Raycast {
     private GameManager gamemanager;
     public bool TiltCorrection;
     public string LastPlayerHit;
+    private GameOverManager gameOverManager;
 
 
     void Start ()
@@ -73,7 +74,12 @@ public class Player : Raycast {
             this.gameObject.transform.GetChild(1).tag = "DeadPlayer";
             this.gameObject.transform.GetChild(2).tag = "DeadPlayer";
 
-            Invoke("Death",3.0f);
+            Invoke("Death", 3.0f);
+            //if(timesup)
+            //{
+            //    gameOverManager.isGameOver = true;             // Add different conditions for different game modes to end the game by setting isGameOver bool to true
+            //}
+            
         }
 
     }

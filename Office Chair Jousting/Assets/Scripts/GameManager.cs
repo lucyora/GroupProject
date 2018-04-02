@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [System.Serializable]
 public class PlayerOptions
 {
@@ -81,7 +82,6 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-            
         }
 
         /* Bot spawning code goes here
