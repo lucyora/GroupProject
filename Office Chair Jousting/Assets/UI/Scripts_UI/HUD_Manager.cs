@@ -9,39 +9,48 @@ public class HUD_Manager : MonoBehaviour
     private GameManager gamemanager;
     private List<float> Scores = new List<float>();
 
+//    Player playerClass;
 
-    Player playerClass;
+    //Timer
     private float sec, min;
     private float startTime;
 
     public float TimeLeft;
     public bool SurvivalMode;
 
+    //TODO: Add player data on NHUD
+    private int[] PlayerInfo;
+
     public TextMeshProUGUI TimerText;
     public TextMeshProUGUI GameStatusText;
-    public TextMeshProUGUI P1score;
-    public TextMeshProUGUI P2score;
-    public TextMeshProUGUI P3score;
-    public TextMeshProUGUI P4score;
+    public TextMeshProUGUI[] PlayerScoresHUD;
 
-    public GameObject Testplayer;
+    [SerializeField]
+    private GameObject[] PlayerHUD;
+
+
+    //public GameObject Testplayer;
 
     public int GameStatus;
 
     public enum MatchMode { MatchDone, DeathMatch, Team, Survival };
 
+
     // Use this for initialization
     void Start ()
     {
+        PlayerInfo = new int[4] { 0, 0, 0, 0 };
+        //PlayerScoresHUD = new TextMeshProUGUI[4];
+
+
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         
-        playerClass = GetComponent<Player>();
+        //playerClass = GetComponent<Player>();
         InitHudTxt();
 
 
         //Test get player hud object
         //Testplayer = GameObject.Find("HUDCanvas/HUDManager/Player1");
-
     }
 
     private void Awake()
@@ -116,10 +125,11 @@ public class HUD_Manager : MonoBehaviour
         float ps3 = gamemanager.score[2];
         float ps4 = gamemanager.score[3];
 
-        P1score.text = "Score : " + ps1; 
-        P2score.text = "Score : " + ps2;
-        P3score.text = "Score : " + ps3;
-        P4score.text = "Score : " + ps4;
+        PlayerScoresHUD[0].text = "Score : " + ps1;
+        PlayerScoresHUD[1].text = "Score : " + ps2;
+        PlayerScoresHUD[2].text = "Score : " + ps3;
+        PlayerScoresHUD[3].text = "Score : " + ps4;
+
     }
 
     void GameOver()
@@ -127,12 +137,36 @@ public class HUD_Manager : MonoBehaviour
         GameStatusText.enabled = true;
 
     }
-    void InitHudTxt() //
+    void InitHudTxt()
     {
         GameStatusText.enabled = false;
+
+        //TODO: Only active players get HUD
+
+        if(gamemanager.Player1isAI == 1)
+        {
+            PlayerHUD[0].SetActive(false);
+        }
+
+        if (gamemanager.Player2isAI == 1)
+        {
+            PlayerHUD[1].SetActive(false);
+        }
+
+        if (gamemanager.Player3isAI == 1)
+        {
+            PlayerHUD[2].SetActive(false);
+        }
+
+        if (gamemanager.Player4isAI == 1)
+        {
+            PlayerHUD[3].SetActive(false);
+        }
+
+
     }
 
-    void subMenu()
+    void SubMenu()
     {
         //Restart
         //Back to main menu  
