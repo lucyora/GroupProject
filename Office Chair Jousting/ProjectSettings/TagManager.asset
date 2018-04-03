@@ -13,6 +13,8 @@ TagManager:
   - Player3
   - Player4
   - GameManager
+  - DeadPlayer
+  - Player0
   layers:
   - Default
   - TransparentFX
