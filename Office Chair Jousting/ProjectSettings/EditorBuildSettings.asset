@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterRigTesting.unity
     guid: 231ad9c306afb154796f0c7e74652bdf
+  - enabled: 1
+    path: Assets/Scenes/Jello World_hud.unity
+    guid: 08cf9048570b5c6488668ac3e03f5124

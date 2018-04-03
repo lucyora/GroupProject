@@ -24,12 +24,14 @@ public class Player : Raycast {
     public bool TiltCorrection;
     public string LastPlayerHit;
     private GameOverManager gameOverManager;
+    public AudioSource maleScreams;
 
 
     void Start ()
     {
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
+        maleScreams = GameObject.Find("MaleScream").GetComponent<AudioSource>();
         int charint = PlayerPrefs.GetInt("Character"+ (InternalPlayerIndex + 1));
         if (charint < 0)
         {
@@ -64,9 +66,10 @@ public class Player : Raycast {
             isAlive = isOBJAlive();
         }
         else
-        {
+        {           
             SolidCharacters[(int)Character].SetActive(false);
             RagdollCharacters[(int)Character].SetActive(true);
+            maleScreams.Play();
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
             this.gameObject.tag = "DeadPlayer";

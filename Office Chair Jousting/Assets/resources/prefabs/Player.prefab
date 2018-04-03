@@ -2701,6 +2701,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4567255890744080}
+  - component: {fileID: 65526258254329060}
+  - component: {fileID: 114786292422944498}
   m_Layer: 0
   m_Name: Lance
   m_TagString: Player1
@@ -12555,7 +12557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160011053928270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11, y: 2.59, z: -1.49}
+  m_LocalPosition: {x: 10.586134, y: 4.09, z: -19.217281}
   m_LocalScale: {x: 2.0365696, y: 3.9077373, z: 2.0975955}
   m_Children:
   - {fileID: 4295003557627704}
@@ -16060,6 +16062,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65526258254329060
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366254377849024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.25, z: 0.25}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!65 &65768913814906786
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -16164,6 +16178,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114786292422944498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366254377849024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e117092e7534c7441a055872c65f4565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  malegrunts: {fileID: 0}
+  hits: {fileID: 0}
 --- !u!114 &114950737284837416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16175,7 +16202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072388d5055dea24fbe552afaad228ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Current_Player: 1
+  Current_Player: 0
   isAI: 0
   SelectedP_LX: 
   SelectedP_LY: 
@@ -16199,11 +16226,12 @@ MonoBehaviour:
   - {fileID: 1475112156663620}
   - {fileID: 1236218686409708}
   - {fileID: 1341148390951562}
-  InternalPlayerIndex: 1
+  InternalPlayerIndex: 0
   Score: 0
   DebugMode: 0
   TiltCorrection: 1
   LastPlayerHit: 
+  maleScreams: {fileID: 0}
 --- !u!135 &135454042477146242
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class HUD_Manager : MonoBehaviour
@@ -24,9 +25,12 @@ public class HUD_Manager : MonoBehaviour
     public TextMeshProUGUI TimerText;
     public TextMeshProUGUI GameStatusText;
     public TextMeshProUGUI[] PlayerScoresHUD;
+  //  public GameObject[] playersHUD;
+    public Image[] playerImage;
+    public Sprite[] playerSprite = new Sprite[4];
 
-    [SerializeField]
-    private GameObject[] PlayerHUD;
+    //[SerializeField]
+    public GameObject[] PlayerHUD;
 
 
     //public GameObject Testplayer;
@@ -40,8 +44,29 @@ public class HUD_Manager : MonoBehaviour
     void Start ()
     {
         PlayerInfo = new int[4] { 0, 0, 0, 0 };
-        //PlayerScoresHUD = new TextMeshProUGUI[4];
+        playerImage = new Image[4] {GameObject.Find("P1img").GetComponent<Image>(),
+                                    GameObject.Find("P2img").GetComponent<Image>(),
+                                    GameObject.Find("P3img").GetComponent<Image>(),
+                                    GameObject.Find("P4img").GetComponent<Image>()
+                                   };
 
+        PlayerScoresHUD = new TextMeshProUGUI[4] {GameObject.Find("P1score").GetComponent<TextMeshProUGUI>(),
+                                                  GameObject.Find("P2score").GetComponent<TextMeshProUGUI>(),
+                                                  GameObject.Find("P3score").GetComponent<TextMeshProUGUI>(),
+                                                  GameObject.Find("P4score").GetComponent<TextMeshProUGUI>()
+                                                 };
+        PlayerHUD = new GameObject[4] {GameObject.Find("Player1").GetComponent<GameObject>(),
+                                       GameObject.Find("Player2").GetComponent<GameObject>(),
+                                       GameObject.Find("Player3").GetComponent<GameObject>(),
+                                       GameObject.Find("Player4").GetComponent<GameObject>()
+                                      };
+        for (int i = 0; i<4; i++)
+        {
+            if(PlayerPrefs.GetInt("Character" + i) == i)
+            {
+                playerImage[i].sprite = playerSprite[i];
+            }
+        }
 
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         
@@ -68,10 +93,6 @@ public class HUD_Manager : MonoBehaviour
         //Timer
         TimeLeft -= Time.deltaTime;
 
-        if (TimeLeft < 0)
-        {
-            GameOver();
-        }
 
         //count goes up for survival mode
         //Up count
@@ -95,7 +116,6 @@ public class HUD_Manager : MonoBehaviour
         if (TimeLeft < 0 || GameStatus == (int)MatchMode.MatchDone) //Time out or match done
         {
             TimeLeft = 0;
-            GameOver();
         }
 
         //Test for checking player death
@@ -132,35 +152,45 @@ public class HUD_Manager : MonoBehaviour
 
     }
 
-    void GameOver()
-    {
-        GameStatusText.enabled = true;
 
-    }
-    void InitHudTxt()
+    public void InitHudTxt()
     {
-        GameStatusText.enabled = false;
-
         //TODO: Only active players get HUD
 
-        if(gamemanager.Player1isAI == 1)
+        if(PlayerPrefs.GetInt("Player1isAI") == 1)
         {
-            PlayerHUD[0].SetActive(false);
+            PlayerHUD[0].gameObject.SetActive(true);
+        }
+        else
+        {
+            PlayerHUD[0].gameObject.SetActive(false);
         }
 
-        if (gamemanager.Player2isAI == 1)
+        if (PlayerPrefs.GetInt("Player2isAI") == 1)
         {
-            PlayerHUD[1].SetActive(false);
+            PlayerHUD[1].gameObject.SetActive(true);
+        }
+        else
+        {
+            PlayerHUD[1].gameObject.SetActive(false);
         }
 
-        if (gamemanager.Player3isAI == 1)
+        if (PlayerPrefs.GetInt("Player3isAI") == 1)
         {
-            PlayerHUD[2].SetActive(false);
+            PlayerHUD[2].gameObject.SetActive(true);
+        }
+        else
+        {
+            PlayerHUD[2].gameObject.SetActive(false);
         }
 
-        if (gamemanager.Player4isAI == 1)
+        if (PlayerPrefs.GetInt("Player4isAI") == 1)
         {
-            PlayerHUD[3].SetActive(false);
+            PlayerHUD[3].gameObject.SetActive(true);
+        }
+        else
+        {
+            PlayerHUD[3].gameObject.SetActive(false);
         }
 
 

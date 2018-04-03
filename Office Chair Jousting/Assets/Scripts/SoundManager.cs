@@ -12,7 +12,9 @@ public class SoundManager : MonoBehaviour
 	public AudioSource deselectSound;
 	public AudioSource readySound;
 	public AudioSource transitionSound;
-	public static SoundManager instance = null;
+    public AudioSource maleGrunts;
+    public AudioSource femaleGrunts;
+    public static SoundManager instance = null;
 
 	public float sfxVol;
 	public float musicVol;
