@@ -34,7 +34,7 @@ public class CharacterSelect : MonoBehaviour {
     public TextMeshProUGUI powerstats;
     public TextMeshProUGUI powerName;
     public TextMeshProUGUI StartText;
-    public TextMeshProUGUI teamNames;
+    public Text teamNames;
     public int[] teamindex;
     public int botCount = 0;
     private float time;
@@ -51,7 +51,7 @@ public class CharacterSelect : MonoBehaviour {
     void Start()
     {
         bottxt = GameObject.Find("PostItBotText").GetComponent<Text>();
-        teamNames = GameObject.Find("Team_txt").GetComponent<TextMeshProUGUI>();
+        teamNames.text = "Intern";
         bottxt.text = "Employee Count " +botCount;
         menuAnim = GetComponent<Animator>();
         names = new string[4];      names = Input.GetJoystickNames();
@@ -391,10 +391,12 @@ public class CharacterSelect : MonoBehaviour {
                 if (Input.GetAxis("Joy" + i + "XL") > 0.8)
                 {
                     teamindex[i] = 1;
+                    teamNames.text = "Boss";
                 }
                 else if (Input.GetAxis("Joy" + i + "XL") < -0.8)
                 {
                     teamindex[i] = 0;
+                    teamNames.text = "Intern";
                 }
                 //indicates player is ready
                 if (characterChosen[i] == true && powerChosen[i] == true && Input.GetButtonDown("JoyStart" + i))
@@ -497,7 +499,7 @@ public class CharacterSelect : MonoBehaviour {
         { 
             powerUp.sprite = powersprite[0];
             powerName.text = "Donut";
-            powerstats.text = "Strenght + \n speed---\nStability++";
+            powerstats.text = "Strength + \n speed---\nStability++";
         }
         else if (powerIndex[i] == 1)
         {
@@ -510,7 +512,7 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[6];
             }
             powerName.text = "Promotion";
-            powerstats.text = "Strenght +++ \n speed---\nStability+++";
+            powerstats.text = "Strength +++ \n speed---\nStability+++";
         }
         else if (powerIndex[i] == 2)
         {
@@ -523,7 +525,7 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[7];
             }
             powerName.text = "WD-40";
-            powerstats.text = "Strenght \n speed++\nStability+++";
+            powerstats.text = "Strength \n speed++\nStability+++";
         }
         else if (powerIndex[i] == 3)
         {
@@ -536,7 +538,7 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[8];
             }
             powerName.text = "Coffee";
-            powerstats.text = "Strenght  \n speed+++\nStability--";
+            powerstats.text = "Strength  \n speed+++\nStability--";
         }
         else if (powerIndex[i] == 4)
         {
@@ -549,7 +551,7 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[9];
             }
             powerName.text = "Rocket Booster";
-            powerstats.text = "Strenght+  \n speed+++\nStability---";
+            powerstats.text = "Strength+  \n speed+++\nStability---";
         }
         else if (powerIndex[i] == 5)
         {
@@ -562,7 +564,7 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[10];
             }
             powerName.text = "Kale";
-            powerstats.text = "Strenght+++  \n speed\nStability-";
+            powerstats.text = "Strength+++  \n speed\nStability-";
         }
     }
 }

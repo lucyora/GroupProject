@@ -38,6 +38,7 @@ public class SetModeType : MonoBehaviour {
     }
      void MoveNav(int change)
     {
+        Debug.Log("This is Game Mode: " + gameModeIndex);
         if (change > 0)
         {
             if (gameModeIndex + change < gameModePosition.Length - 1)

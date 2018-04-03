@@ -44,11 +44,39 @@ public class UICom : MonoBehaviour {
     void AllPlayersReady(int i)
     {
         bool ready = allReady();
+        int teams = DifferentTeams();
+        if (gameMode.gameModeIndex == 0)
+        {
+            if(charSelect[1].IsPlayer[1] == 0)
+            {
+                return;
+            }
+            else if(charSelect[1].IsPlayer[1] == 1)
+            {
+                // INPUT CODE TO CHECK IF ALL PLAYERS ARE ON THE SAME TEAM
+            }
+        }
         if ( ready == true)
         {
             charSelect[i].ToMap_btn.onClick.Invoke();
             charSelect[i].toMap = true;
         }
+    }
+
+    private int DifferentTeams()
+    {
+        for (int i = 0; i < charSelect.Length; i++)
+        {
+            if(charSelect[i].teamindex[i] == 0)
+            {
+                return 0;
+            }
+            else if(charSelect[i].teamindex[i] == 1)
+            {
+                return 1;
+            }
+        }
+        return 2;
     }
     // bool function to determine if all array elements are true
     private bool allReady()
@@ -117,15 +145,13 @@ public class UICom : MonoBehaviour {
 
     void teamset(int i)
     {
-        Debug.Log(charSelect[i].teamindex[i]);
-        Debug.Log(charSelect[i].teamNames.text);
-        if (charSelect[i].teamindex[i] == 0)
+        if(gameMode.gameModeIndex == 0)
         {
-            charSelect[i].teamNames.text = "Intern";
+            charSelect[i].teamNames.gameObject.SetActive(true);
         }
-        else if(charSelect[i].teamindex[i] == 1)
+        else
         {
-            charSelect[i].teamNames.text = "Boss";
+            charSelect[i].teamNames.gameObject.SetActive(false);
         }
     }
 
