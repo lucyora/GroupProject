@@ -16,14 +16,14 @@ public class HUD_Manager : MonoBehaviour
     private float sec, min;
     private float startTime;
 
-    public float TimeLeft;
+    private float TimeLeft;
     public bool SurvivalMode;
 
     //TODO: Add player data on NHUD
     private int[] PlayerInfo;
 
     public TextMeshProUGUI TimerText;
-    public TextMeshProUGUI GameStatusText;
+    //public TextMeshProUGUI GameStatusText;
     public TextMeshProUGUI[] PlayerScoresHUD;
   //  public GameObject[] playersHUD;
     public Image[] playerImage;
@@ -32,7 +32,7 @@ public class HUD_Manager : MonoBehaviour
     //[SerializeField]
     public GameObject[] PlayerHUD;
 
-
+    public GameObject gameOverCanvas;
     //public GameObject Testplayer;
 
     public int GameStatus;
@@ -44,27 +44,14 @@ public class HUD_Manager : MonoBehaviour
     void Start ()
     {
         PlayerInfo = new int[4] { 0, 0, 0, 0 };
-        playerImage = new Image[4] {GameObject.Find("P1img").GetComponent<Image>(),
-                                    GameObject.Find("P2img").GetComponent<Image>(),
-                                    GameObject.Find("P3img").GetComponent<Image>(),
-                                    GameObject.Find("P4img").GetComponent<Image>()
-                                   };
-
-        PlayerScoresHUD = new TextMeshProUGUI[4] {GameObject.Find("P1score").GetComponent<TextMeshProUGUI>(),
-                                                  GameObject.Find("P2score").GetComponent<TextMeshProUGUI>(),
-                                                  GameObject.Find("P3score").GetComponent<TextMeshProUGUI>(),
-                                                  GameObject.Find("P4score").GetComponent<TextMeshProUGUI>()
-                                                 };
-        PlayerHUD = new GameObject[4] {GameObject.Find("Player1").GetComponent<GameObject>(),
-                                       GameObject.Find("Player2").GetComponent<GameObject>(),
-                                       GameObject.Find("Player3").GetComponent<GameObject>(),
-                                       GameObject.Find("Player4").GetComponent<GameObject>()
-                                      };
+        //assigns sprite to Player Images
         for (int i = 0; i<4; i++)
         {
             if(PlayerPrefs.GetInt("Character" + i) == i)
             {
+
                 playerImage[i].sprite = playerSprite[i];
+                Debug.Log("Is character Sprite: " +playerSprite[i]);
             }
         }
 
@@ -81,7 +68,7 @@ public class HUD_Manager : MonoBehaviour
     private void Awake()
     {
         startTime = Time.timeSinceLevelLoad;
-
+        TimeLeft = 180;
         InitHudTxt();
 
         //TODO: set player img
@@ -116,6 +103,8 @@ public class HUD_Manager : MonoBehaviour
         if (TimeLeft < 0 || GameStatus == (int)MatchMode.MatchDone) //Time out or match done
         {
             TimeLeft = 0;
+            gameOverCanvas.gameObject.SetActive(true);
+            Time.timeScale = -1;
         }
 
         //Test for checking player death

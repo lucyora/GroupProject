@@ -9,6 +9,18 @@ public class LoadStartGame : MonoBehaviour {
     {
         SceneManager.LoadSceneAsync(sceneName);
     }
+    public void LoadScenefromlevel(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName);
+        Time.timeScale = 1;
+    }
+
+    public void loadcurrentScene()
+    {
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        Time.timeScale = 1;
+    }
     public void Quit()
     {
         Application.Quit();

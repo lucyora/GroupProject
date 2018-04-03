@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameOverManager : MonoBehaviour {
 
-    public bool isGameOver = false;
-
+  //  public bool isGameOver = false;
+  /*
     [SerializeField]
     private GameObject gameOverCanvas;
 
@@ -26,5 +26,5 @@ public class GameOverManager : MonoBehaviour {
             gameOverCanvas.SetActive(true);         // activates game over canvas
             Time.timeScale = 0.0f;                  // stop time once game is over
         }
-    }
+    }*/
 }
