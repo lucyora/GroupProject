@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: fb3b9b55c01d2194c816b2d469854e16, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1921534858}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.34744054, g: 0.4146754, b: 0.4977309, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1799,11 +1799,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 82438950461324260, guid: c47febaa8bad79a4e95e0ffc0a5a2f23,
-        type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 76d2ff78dc7dc9c4e9df28825ee3fb95, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c47febaa8bad79a4e95e0ffc0a5a2f23, type: 2}
   m_IsPrefabParent: 0
@@ -3391,13 +3386,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1544102301}
-  m_LocalRotation: {x: 0.19430658, y: -0, z: -0, w: 0.98094094}
-  m_LocalPosition: {x: 10.39, y: 29.88, z: -79.75}
+  m_LocalRotation: {x: 0.1641869, y: 0, z: 0, w: 0.9864293}
+  m_LocalPosition: {x: 10.39, y: 21.5, z: -79.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 22.408, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.9, y: 0, z: 0}
 --- !u!114 &1544102306
 MonoBehaviour:
   m_ObjectHideFlags: 0

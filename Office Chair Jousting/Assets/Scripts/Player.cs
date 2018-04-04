@@ -25,14 +25,16 @@ public class Player : Raycast {
     public bool TiltCorrection;
     public string LastPlayerHit;
     private GameOverManager gameOverManager;
-    public AudioSource maleScreams;
+    //public AudioSource maleScreams;
+
+	private bool deathSoundPlayed;
 
 
     void Start ()
     {
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
-        maleScreams = GameObject.Find("MaleScream").GetComponent<AudioSource>();
+        //maleScreams = GameObject.Find("MaleScream").GetComponent<AudioSource>();
         int charint = PlayerPrefs.GetInt("Character"+ (InternalPlayerIndex + 1));
         if (charint < 0)
         {
@@ -71,18 +73,19 @@ public class Player : Raycast {
         {           
             SolidCharacters[(int)Character].SetActive(false);
             RagdollCharacters[(int)Character].SetActive(true);
-            if (Gender == 0)
-            {
-                maleScreams.Play();
-            }
-            else if (Gender == 1)
-            {
-                //Female Scream goes here
-            }
-            else
-            {
-                //Third Gender? Probably the ottomans or something idk.
-            }
+			
+			if(!deathSoundPlayed)
+			{
+				if (Gender == 0)
+				{
+					SoundManager.instance.maleScream3.Play();
+				}
+				else if (Gender == 1)
+				{
+					SoundManager.instance.femaleScream1.Play();
+				}
+				deathSoundPlayed = true;
+			}
             
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
@@ -105,13 +108,21 @@ public class Player : Raycast {
     {
 
 
-        //Player Movement
-        //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
-        
-        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
-        {
-            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / SpeedLimiter)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / SpeedLimiter)));         
-        }
+		//Player Movement
+		//Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
+
+		if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
+		{
+			if (!SoundManager.instance.movechair.isPlaying)
+			{
+				SoundManager.instance.movechair.Play();
+			}
+			transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / SpeedLimiter)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / SpeedLimiter)));
+		}
+		else
+		{
+			SoundManager.instance.movechair.Stop();
+		}
         //Joust Rotation
         /////TODO Cheat rotation speed by not checking every frame?
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
@@ -129,12 +140,12 @@ public class Player : Raycast {
                 if (Math.Round(Input.GetAxis(SelectedP_LX)) !=0)
                 {
                     //transform.eulerAngles = new Vector3((transform.eulerAngles.x + Input.GetAxis(SelectedP_LX)), (float)storedrotation,transform.eulerAngles.z); 
-                    transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LX), 0.0f, 0.0f), Space.Self);
+                    transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LX), 0.0f, 0.0f), Space.World);
                 }
                 if (Math.Round(Input.GetAxis(SelectedP_LY)) != 0)
                 {
                     //transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, (transform.eulerAngles.z - Input.GetAxis(SelectedP_LY))); 
-                    transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LY)), Space.Self);
+                    transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LY)), Space.World);
                 }
             }
 
@@ -165,6 +176,30 @@ public class Player : Raycast {
         {
             LastPlayerHit = collision.gameObject.tag;
             Invoke("ClearPlayerHit", 5.0f);
+
+			// one grunt for jenny
+			switch (Character)
+			{
+				case Player.character.Bubba:
+					SoundManager.instance.maleGrunt3.Play();
+					SoundManager.instance.Hit1.Play();
+					break;
+
+				case Player.character.Steve:
+					SoundManager.instance.maleGrunt2.Play();
+					SoundManager.instance.Hit1.Play();
+					break;
+
+				case Player.character.Gretchen:
+					SoundManager.instance.maleGrunt1.Play();
+					SoundManager.instance.Hit1.Play();
+					break;
+
+				case Player.character.Jenny:
+					SoundManager.instance.femaleGrunt1.Play();
+					SoundManager.instance.Hit1.Play();
+					break;
+			}
         }
         
          

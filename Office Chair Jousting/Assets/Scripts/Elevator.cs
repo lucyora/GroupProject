@@ -10,6 +10,7 @@ public class Elevator : MonoBehaviour
         if (other.gameObject.tag == "Player0" || other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2" || other.gameObject.tag == "Player3" || other.gameObject.tag == "Player4") // and the other object's tag is "Player"
         {
             other.gameObject.transform.position = Destination.transform.position; // set the player's position to the destination item's.
+			SoundManager.instance.elevatorDing.Play();
             //other.gameObject.transform.rotation = Destination.transform.rotation; // set the player's position to the destination item's.
         }
     }

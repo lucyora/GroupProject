@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class grunts : MonoBehaviour {
-    public AudioSource malegrunts;
+    //public AudioSource malegrunts;
     public AudioSource hits;
     // Use this for initialization
     void Start () {
-        malegrunts = GameObject.Find("MaleGrunts").GetComponent<AudioSource>();
+     //   malegrunts = GameObject.Find("MaleGrunts").GetComponent<AudioSource>();
         hits = GameObject.Find("Hits").GetComponent<AudioSource>();
     }
 	
@@ -37,7 +37,7 @@ public class grunts : MonoBehaviour {
             }
             Debug.Log("is In");
             //hits.Play();
-            malegrunts.PlayDelayed(0.5f);
+          //  malegrunts.PlayDelayed(0.5f);
         }
     }
 }

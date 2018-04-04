@@ -23,6 +23,10 @@ public class SoundManager : MonoBehaviour
 	public AudioSource Hit2;
 	public AudioSource Hit3;
 	public AudioSource Hit4;
+	public AudioSource femaleScream1;
+	public AudioSource femaleGrunt1;
+	public AudioSource movechair;
+	public AudioSource elevatorDing;
 
 
 	public AudioSource femaleGrunts;
