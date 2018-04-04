@@ -15,6 +15,8 @@ public class HUD_Manager : MonoBehaviour
     //Timer
     private float sec, min;
     private float startTime;
+    int textrng;
+
 
     private float TimeLeft;
     public bool SurvivalMode;
@@ -29,6 +31,8 @@ public class HUD_Manager : MonoBehaviour
     public Image[] playerImage;
     public Sprite[] playerSprite = new Sprite[4];
 
+    public TextMeshProUGUI winnerTXT;
+    public TextMeshProUGUI EveryFired;
     //[SerializeField]
     public GameObject[] PlayerHUD;
 
@@ -43,23 +47,29 @@ public class HUD_Manager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        textrng = Random.Range(0, 4);
         PlayerInfo = new int[4] { 0, 0, 0, 0 };
+        
         //assigns sprite to Player Images
         for (int i = 0; i<4; i++)
         {
-            if(PlayerPrefs.GetInt("Character" + i) == i)
+            Debug.Log(PlayerPrefs.GetInt("Character" + (i+1)));
+            for (int j = 0; j < 4; j++)
             {
-
-                playerImage[i].sprite = playerSprite[i];
-                Debug.Log("Is character Sprite: " +playerSprite[i]);
+                if (PlayerPrefs.GetInt("Character" + (i+1)) == j)
+                {
+                    playerImage[i].sprite = playerSprite[j];
+                    Debug.Log("Is character Sprite: " + playerSprite[j]);
+                }
             }
+
         }
 
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         
         //playerClass = GetComponent<Player>();
         InitHudTxt();
-
+        TimeLeft = 180;
 
         //Test get player hud object
         //Testplayer = GameObject.Find("HUDCanvas/HUDManager/Player1");
@@ -67,8 +77,9 @@ public class HUD_Manager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         startTime = Time.timeSinceLevelLoad;
-        TimeLeft = 180;
+
         InitHudTxt();
 
         //TODO: set player img
@@ -78,8 +89,8 @@ public class HUD_Manager : MonoBehaviour
     void Update ()
     {
         //Timer
-        TimeLeft -= Time.deltaTime;
-
+        TimeLeft = TimeLeft - Time.deltaTime;
+        Debug.Log(TimeLeft);
 
         //count goes up for survival mode
         //Up count
@@ -100,11 +111,32 @@ public class HUD_Manager : MonoBehaviour
         //Score
         ScoreUpdateHUD();
 
-        if (TimeLeft < 0 || GameStatus == (int)MatchMode.MatchDone) //Time out or match done
+        if (TimeLeft < 0) //Time out or match done
         {
-            TimeLeft = 0;
+            //TimeLeft = 0;
+            Time.timeScale = 0;
+            switch (textrng)
+            {
+                case 0:
+                    EveryFired.text = "HR would like a word with you...";
+                    break;
+                case 1:
+                    EveryFired.text = "This company retreat sucked";
+                    break;
+                case 2:
+                    EveryFired.text = "We don't get paid enough for this";
+                    break;
+                case 3:
+                    EveryFired.text = "If we unionized, this game wouldn't make sense";
+                    break;
+                case 4:
+                    EveryFired.text = "This is what happens when you give employees jousts instead of laptops.";
+                    break;
+
+
+            }
             gameOverCanvas.gameObject.SetActive(true);
-            Time.timeScale = -1;
+
         }
 
         //Test for checking player death

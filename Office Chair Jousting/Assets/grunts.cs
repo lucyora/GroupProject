@@ -36,7 +36,7 @@ public class grunts : MonoBehaviour {
                     break;
             }
             Debug.Log("is In");
-            hits.Play();
+            //hits.Play();
             malegrunts.PlayDelayed(0.5f);
         }
     }

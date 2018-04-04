@@ -19,7 +19,7 @@ public class LoadStartGame : MonoBehaviour {
     {
         int scene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
-        Time.timeScale = 1;
+
     }
     public void Quit()
     {
