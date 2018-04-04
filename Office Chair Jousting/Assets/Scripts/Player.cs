@@ -8,6 +8,7 @@ public class Player : Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
     public bool isAlive;
+    int Gender;
     public float Strength= 0;//TODO. Implement This
     public float Mass = 0;
     public float SpeedLimiter = 100;
@@ -48,6 +49,7 @@ public class Player : Raycast {
         CharacterStats stats = new CharacterStats(Character);
         Strength += (powerup.Strength + stats.Strength);
         SpeedLimiter = stats.SpeedLimiter;
+        Gender = stats.Gender;
         SpeedLimiter -= powerup.Speed;
         RotationSnapRange += (powerup.Stability + stats.RotationSnapRange);        
         SolidCharacters[(int)Character].SetActive(true);
@@ -69,7 +71,19 @@ public class Player : Raycast {
         {           
             SolidCharacters[(int)Character].SetActive(false);
             RagdollCharacters[(int)Character].SetActive(true);
-            maleScreams.Play();
+            if (Gender == 0)
+            {
+                maleScreams.Play();
+            }
+            else if (Gender == 1)
+            {
+                //Female Scream goes here
+            }
+            else
+            {
+                //Third Gender? Probably the ottomans or something idk.
+            }
+            
             this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             this.gameObject.transform.GetChild(2).gameObject.SetActive(true);
             this.gameObject.tag = "DeadPlayer";
