@@ -100,7 +100,8 @@ public class HUD_Manager : MonoBehaviour
         //Score
         ScoreUpdateHUD();
 
-        if (TimeLeft < 0 || GameStatus == (int)MatchMode.MatchDone) //Time out or match done
+        //if (TimeLeft < 0 || GameStatus == (int)MatchMode.MatchDone) //Time out or match done
+        if (TimeLeft < 0)
         {
             TimeLeft = 0;
             gameOverCanvas.gameObject.SetActive(true);
