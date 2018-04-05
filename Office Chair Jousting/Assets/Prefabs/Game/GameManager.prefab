@@ -51,13 +51,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0246b1a0c834814e992d02d91c86def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   PlayerList: []
   PlayersOptions: []
   Player1isAI: 1
-  Player2isAI: 1
-  Player3isAI: 1
+  Player2isAI: 0
+  Player3isAI: 0
   Player4isAI: 0
   botcount: 0
   TotalPlayerCount: 0
+  score: []
   GameMode: 0
-  DebugMode: 1
+  DebugMode: 0
+  gameisover: 0

@@ -45,7 +45,7 @@ public class UICom : MonoBehaviour {
     {
         bool ready = allReady();
         int teams = DifferentTeams();
-        if (gameMode.gameModeIndex == 0)
+        /*if (gameMode.gameModeIndex == 0)
         {
             if(charSelect[1].IsPlayer[1] == 0)
             {
@@ -55,7 +55,7 @@ public class UICom : MonoBehaviour {
             {
                 // INPUT CODE TO CHECK IF ALL PLAYERS ARE ON THE SAME TEAM
             }
-        }
+        }*/
         if ( ready == true)
         {
             charSelect[i].ToMap_btn.onClick.Invoke();

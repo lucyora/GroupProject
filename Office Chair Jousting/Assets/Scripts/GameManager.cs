@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public enum gamemode { DeathMatch, TeamDeathMatch, OttomanEmpire, LastManSitting };
     public gamemode GameMode;
     public bool DebugMode;
+    public bool gameisover = false;
 
     void Start()
     {

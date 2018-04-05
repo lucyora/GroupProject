@@ -16,23 +16,33 @@ public class Controller : MonoBehaviour {
     private string P1_RX = "Joy0XR";
     private string P1_RY = "Joy0YR";
 
+    private string P1_Start = "JoyStart0";
+
     private string P2_LX = "Joy1XL";
     private string P2_LY = "Joy1YL";
  
     private string P2_RX = "Joy1XR";
     private string P2_RY = "Joy1YR";
- 
+
+    private string P2_Start = "JoyStart1";
+
     private string P3_LX = "Joy2XL";
     private string P3_LY = "Joy2YL";
  
     private string P3_RX = "Joy2XR";
     private string P3_RY = "Joy2YR";
- 
+
+    private string P3_Start = "JoyStart2";
+
     private string P4_LX = "Joy3XL";
     private string P4_LY = "Joy3YL";
  
     private string P4_RX = "Joy3XR";
     private string P4_RY = "Joy3YR";
+
+    private string P4_Start = "JoyStart3";
+
+
     //
 
     //Strings to be used once player is determined
@@ -40,7 +50,9 @@ public class Controller : MonoBehaviour {
     [HideInInspector] public string SelectedP_LY;
     [HideInInspector] public string SelectedP_RX;
     [HideInInspector] public string SelectedP_RY;
-    
+    [HideInInspector] public string SelectedP_Start;
+
+
     // Use this for initialization
     public void InitController()
     {
@@ -51,24 +63,28 @@ public class Controller : MonoBehaviour {
                 SelectedP_LY = P1_LY;
                 SelectedP_RX = P1_RX;
                 SelectedP_RY = P1_RY;
+                SelectedP_Start = P1_Start;
                 break;
             case current_player.Player_2:
                 SelectedP_LX = P2_LX;
                 SelectedP_LY = P2_LY;
                 SelectedP_RX = P2_RX;
                 SelectedP_RY = P2_RY;
+                SelectedP_Start = P2_Start;
                 break;
             case current_player.Player_3:
                 SelectedP_LX = P3_LX;
                 SelectedP_LY = P3_LY;
                 SelectedP_RX = P3_RX;
                 SelectedP_RY = P3_RY;
+                SelectedP_Start = P3_Start;
                 break;
             case current_player.Player_4:
                 SelectedP_LX = P4_LX;
                 SelectedP_LY = P4_LY;
                 SelectedP_RX = P4_RX;
                 SelectedP_RY = P4_RY;
+                SelectedP_Start = P4_Start;
                 break;
             case current_player.AI:
                 SelectedP_LX = "AI";

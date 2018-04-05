@@ -198,7 +198,7 @@ public class CharacterSelect : MonoBehaviour {
                 image.color = Color.white;
             }
             //select power
-            else if (Input.GetButtonDown("JoyA" + i) && characterChosen[i] == true && powerChosen[i] == false)
+           else if (Input.GetButtonDown("JoyA" + i) && characterChosen[i] == true && powerChosen[i] == false)
             {
                 if (powerIndex[i] == 0 && playerCoins >= 0) // first power up will be unlocked by default
                 {

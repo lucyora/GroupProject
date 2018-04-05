@@ -22,6 +22,7 @@ public class Player : Raycast {
     public float Score;
     public bool DebugMode;
     private GameManager gamemanager;
+    private HUD_Manager hud_Manager;
     public bool TiltCorrection;
     public string LastPlayerHit;
     private GameOverManager gameOverManager;
@@ -32,6 +33,7 @@ public class Player : Raycast {
 
     void Start ()
     {
+        GameObject Camera = GameObject.FindGameObjectWithTag("Camera");
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
         //maleScreams = GameObject.Find("MaleScream").GetComponent<AudioSource>();
@@ -65,8 +67,12 @@ public class Player : Raycast {
     {
 
         if (isAlive)
-        {            
-            UpdatePosition();
+        {
+            if(gamemanager.gameisover == false) {
+              
+                UpdatePosition();
+            }
+            
             isAlive = isOBJAlive();
         }
         else
@@ -147,7 +153,7 @@ public class Player : Raycast {
                     //transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, (transform.eulerAngles.z - Input.GetAxis(SelectedP_LY))); 
                     transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LY)), Space.World);
                 }
-            }
+          
 
             //Snapping Tilt when angles are within range
             if ((transform.eulerAngles.x < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.x))
@@ -160,6 +166,8 @@ public class Player : Raycast {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f);
                 //transform.Rotate(new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f), Space.World);
             }
+            }
+
         }
 
 

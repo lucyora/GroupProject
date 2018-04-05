@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class HUD_Manager : MonoBehaviour
+public class HUD_Manager : Controller
 {
 
     private GameManager gamemanager;
@@ -37,6 +37,7 @@ public class HUD_Manager : MonoBehaviour
     public GameObject[] PlayerHUD;
 
     public GameObject gameOverCanvas;
+    public GameObject PauseMenu;
     //public GameObject Testplayer;
 
     public int GameStatus;
@@ -90,7 +91,6 @@ public class HUD_Manager : MonoBehaviour
     {
         //Timer
         TimeLeft = TimeLeft - Time.deltaTime;
-        Debug.Log(TimeLeft);
 
         //count goes up for survival mode
         //Up count
@@ -113,34 +113,26 @@ public class HUD_Manager : MonoBehaviour
 
 
         //if (TimeLeft < 0 || GameStatus == (int)MatchMode.MatchDone) //Time out or match done
-        if (TimeLeft < 0)
-
+        if (TimeLeft < 0) 
         {
-            //TimeLeft = 0;
-            Time.timeScale = 0;
-            switch (textrng)
-            {
-                case 0:
-                    EveryFired.text = "HR would like a word with you...";
-                    break;
-                case 1:
-                    EveryFired.text = "This company retreat sucked";
-                    break;
-                case 2:
-                    EveryFired.text = "We don't get paid enough for this";
-                    break;
-                case 3:
-                    EveryFired.text = "If we unionized, this game wouldn't make sense";
-                    break;
-                case 4:
-                    EveryFired.text = "This is what happens when you give employees jousts instead of laptops.";
-                    break;
-
-
-            }
-            gameOverCanvas.gameObject.SetActive(true);
-
+            TimeLeft = 0;
+            GameOverHUD();
+            gamemanager.gameisover = true;
         }
+        if(gameOverCanvas.gameObject.activeInHierarchy == true && Input.GetButtonDown(SelectedP_Start))
+        {
+            Time.timeScale = 1;
+            PauseMenu.gameObject.SetActive(false);
+        }
+        else if (gameOverCanvas.gameObject.activeInHierarchy == false && Input.GetButtonDown(SelectedP_Start))
+        {
+            Time.timeScale = 0;
+            PauseMenu.gameObject.SetActive(true);
+        }
+
+
+
+
 
         //Test for checking player death
         //if (!playerClass.isAlive)
@@ -149,16 +141,43 @@ public class HUD_Manager : MonoBehaviour
         //    Debug.Log("Player1's gone far away...");
         //}
 
-        //TODO: Think about pop up hud with sub-menu to choose restart
-        //if (Input.GetButtonDown("JoyA"))
-        //{
-        //    //GameOver();
-        //}
-        //else if (Input.GetButtonDown("JoyB"))
-        //{
-        //    //GameStart();
-        //    GameStatusText.text = "Test";
-        //}
+            //TODO: Think about pop up hud with sub-menu to choose restart
+            //if (Input.GetButtonDown("JoyA"))
+            //{
+            //    //GameOver();
+            //}
+            //else if (Input.GetButtonDown("JoyB"))
+            //{
+            //    //GameStart();
+            //    GameStatusText.text = "Test";
+            //}
+
+    }
+    void GameOverHUD()
+    {
+        //TimeLeft = 0;
+        Time.timeScale = 1;
+        switch (textrng)
+        {
+            case 0:
+                EveryFired.text = "HR would like a word with you...";
+                break;
+            case 1:
+                EveryFired.text = "This company retreat sucked";
+                break;
+            case 2:
+                EveryFired.text = "We don't get paid enough for this";
+                break;
+            case 3:
+                EveryFired.text = "If we unionized, this game wouldn't make sense";
+                break;
+            case 4:
+                EveryFired.text = "This is what happens when you give employees jousts instead of laptops.";
+                break;
+
+
+        }
+        gameOverCanvas.gameObject.SetActive(true);
 
     }
     void ScoreUpdateHUD()

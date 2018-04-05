@@ -15,6 +15,7 @@ TagManager:
   - GameManager
   - DeadPlayer
   - Player0
+  - Camera
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,9 @@ public class LoadStartGame : MonoBehaviour {
     }
     public void LoadScenefromlevel(string sceneName)
     {
-        SceneManager.LoadSceneAsync(sceneName);
         Time.timeScale = 1;
+        SceneManager.LoadSceneAsync(sceneName);
+        
     }
 
     public void loadcurrentScene()

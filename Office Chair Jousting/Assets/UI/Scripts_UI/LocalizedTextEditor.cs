@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using System.IO;
-
+#if UNITY_EDITOR
+using UnityEditor;
 public class LocalizedTextEditor : EditorWindow
 {
     public LocalizationData localizationData;
@@ -69,3 +69,4 @@ public class LocalizedTextEditor : EditorWindow
     }
 
 }
+#endif

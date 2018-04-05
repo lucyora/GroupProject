@@ -7,13 +7,14 @@ public class SetModeType : MonoBehaviour {
 
     public bool doneWithMenu = false;
     private float controlDelay;
-    public int gameModeIndex = 0;
+    public int gameModeIndex = 1;
     public Transform[] gameModePosition = new Transform[3];
     public Button ToChar_btn;
     public RectTransform nav;
 
     public void navControl()
     {
+        Time.timeScale = 1;
         if (Input.GetAxis("Joy0XL") <= -0.2)
         {
             controlDelay += Time.deltaTime;
