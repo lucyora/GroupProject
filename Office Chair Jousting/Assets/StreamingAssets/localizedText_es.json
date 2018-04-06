@@ -1,1 +1,39 @@
-{"items":[{"key":"game_title","value":"Office Chair Jousting"},{"key":"play_button","value":"jugar"},{"key":"vs_button","value":"vs"},{"key":"option_button","value":"opción"},{"key":"credit_button","value":"crédito"},{"key":"quit_button","value":"dejar"}]}
+{
+"items":
+[
+{"key":"Title_txt","value":"Office Chair Joust_es"},
+{"key":"Play_btn","value":"Play_es"},
+{"key":"Options_btn","value":"Options_es"},
+{"key":"Volume_btn","value":"Volume_es"},
+{"key":"Languages_btn","value":"Languages_es"},
+{"key":"Back_btn","value":"Back_es"},
+{"key":"Volume_Master_Slider","value":"Master_es"},
+{"key":"Music_Slider","value":"Music_es"},
+{"key":"Sound_FX_Slider","value":"Sound Effects_es"},
+{"key":"English_btn","value":"English_es"},
+{"key":"French_btn","value":"French_es"},
+{"key":"German_btn","value":"German_es"},
+{"key":"Spanish_btn","value":"Spanish_es"},
+{"key":"PowerUnlock_btn","value":"PowerUnlock_es"},
+{"key":"Credits_btn","value":"Credits_es"},
+{"key":"Quit_btn","value":"Quit_es"},
+
+{"key":"TeamDeathMatch","value":"Team Death Match_es"},
+{"key":"DeathMatch","value":"DeathMatch_es"},
+{"key":"OttomanEmpire","value":"Ottoman Empire_es"},
+{"key":"Player2Join","value":"Player 2 Press Start To Join_es"},
+{"key":"Player3Join","value":"Player 3 Press Start To Join_es"},
+{"key":"Player4Join","value":"Player 4 Press Start To Join_es"},
+{"key":"Strength","value":"Strength"},
+{"key":"Speed","value":"Speed"},
+{"key":"Stability","value":"Stability"},
+{"key":"StartTxt","value":"Press Start When Ready_es"},
+{"key":"BackToGameMode","value":"Back To GameMode_es"},
+{"key":"MainOffice","value":"Main Office_es"},
+{"key":"IceOffice","value":"Ice Office_es"},
+{"key":"SpaceOffice","value":"Space Office_es"},
+{"key":"DesertOffice","value":"Desert Office_es"}
+
+
+]
+}
