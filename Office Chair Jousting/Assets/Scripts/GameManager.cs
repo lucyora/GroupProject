@@ -51,10 +51,39 @@ public class GameManager : MonoBehaviour
         if (Player1isAI == 1)
         {
             PlayersOptions.Add(new PlayerOptions(true, 0, Controller.current_player.Player_1));
+            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
             SetPlayerOptions(PlayersOptions[0], 0);
             SpawnPlayer(0);
             TotalPlayerCount += 1;
         }
+        if (Player2isAI == 1)
+        {
+            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
+            PlayersOptions.Add(new PlayerOptions(true, 1, Controller.current_player.Player_2));
+            SetPlayerOptions(PlayersOptions[1], 1);
+            SpawnPlayer(1);
+            TotalPlayerCount += 1;
+        }
+        if (Player3isAI == 1)
+        {
+            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
+            PlayersOptions.Add(new PlayerOptions(true, 2, Controller.current_player.Player_3));
+            SetPlayerOptions(PlayersOptions[2], 2);
+            SpawnPlayer(2);
+            TotalPlayerCount += 1;
+        }
+        if (Player4isAI == 1)
+        {
+            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
+            PlayersOptions.Add(new PlayerOptions(true, 3, Controller.current_player.Player_4));
+            SetPlayerOptions(PlayersOptions[3], 3);
+            SpawnPlayer(3);
+            TotalPlayerCount += 1;
+        }
+                    
+                
+            
+        
 
         /* Bot spawning code goes here
          * 
@@ -142,6 +171,7 @@ public class GameManager : MonoBehaviour
                     PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
                     SetPlayerOptions(PlayersOptions[index], index);
                     SpawnPlayer(index);
+                    //Here lies the final resting place of the worlds most stress inducing foreach escape
                 }
 
             }
@@ -156,6 +186,7 @@ public class GameManager : MonoBehaviour
     }
     void UpdateScores(string Striker)
     {
+
         switch (Striker)
         {
             case("Player0"):

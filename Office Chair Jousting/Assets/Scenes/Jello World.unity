@@ -3542,10 +3542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59af0b49ec3a4484b87666c48b122ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 70951343}
-  - {fileID: 0}
-  - {fileID: 0}
   offset: {x: -7.92, y: 2.25, z: -58.8}
   minZoom: 60
   maxZoom: 60

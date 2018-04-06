@@ -50,8 +50,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4976420954457952}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: SteveRagDoll
   m_TagString: Player2
+=======
+  m_Name: afro01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,8 +100,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4078559197110930}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thumb_03_r
   m_TagString: Untagged
+=======
+  m_Name: long01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,8 +286,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4030298391441830}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: hand_r
   m_TagString: Untagged
+=======
+  m_Name: Steve
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,8 +369,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4399190540296902}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ball_r
   m_TagString: Untagged
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,8 +454,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4373175004384070}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thumb_03_r
   m_TagString: Untagged
+=======
+  m_Name: female_casualsuit02Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,8 +489,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4394989628778892}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_02_l
   m_TagString: Untagged
+=======
+  m_Name: l
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,8 +620,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4854211876085714}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thigh_r
   m_TagString: Untagged
+=======
+  m_Name: male_casualsuit02Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,8 +655,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4787728111613358}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: Root
   m_TagString: Untagged
+=======
+  m_Name: q
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -681,8 +721,13 @@ GameObject:
   - component: {fileID: 4466005422694310}
   - component: {fileID: 137230420042056002}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: low-polyMesh
   m_TagString: Player2
+=======
+  m_Name: 3-JASON-07
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -729,8 +774,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4461473275189090}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thumb_01_r
   m_TagString: Untagged
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,8 +906,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4246073903762002}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thumb_01_l
   m_TagString: Untagged
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -967,8 +1022,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4481360839965480}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_01_r
   m_TagString: Untagged
+=======
+  m_Name: shoes01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1027,8 +1087,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4495575846047132}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_01_l
   m_TagString: Untagged
+=======
+  m_Name: Gretchen
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1057,8 +1122,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4687897304102636}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ball_l
   m_TagString: Untagged
+=======
+  m_Name: JennyRagDoll
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,8 +1142,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4048335663435776}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_01_l
   m_TagString: Untagged
+=======
+  m_Name: male_worksuit01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,8 +1290,13 @@ GameObject:
   - component: {fileID: 4426704902367646}
   - component: {fileID: 137822706965987942}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: low-polyMesh
   m_TagString: Player2
+=======
+  m_Name: Player
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1245,8 +1325,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4051195593205126}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: middle_03_l
   m_TagString: Untagged
+=======
+  m_Name: Lance
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1617,8 +1702,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4786809974547982}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: middle_03_r
   m_TagString: Untagged
+=======
+  m_Name: female1605Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1678,8 +1768,13 @@ GameObject:
   - component: {fileID: 4452645562709198}
   - component: {fileID: 65237598012439220}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: Lance
   m_TagString: Player2
+=======
+  m_Name: GretchenRagDoll
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1789,8 +1884,13 @@ GameObject:
   - component: {fileID: 54193842844569284}
   - component: {fileID: 144594761291284954}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: lowerarm_l
   m_TagString: Untagged
+=======
+  m_Name: male_casualsuit03Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1879,8 +1979,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4448070122758582}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: middle_02_r
   m_TagString: Untagged
+=======
+  m_Name: Bubba
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1955,8 +2060,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4140429563669284}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ball_r
   m_TagString: Untagged
+=======
+  m_Name: Cylinder.001
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2156,8 +2266,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4791986769974712}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thigh_l
   m_TagString: Untagged
+=======
+  m_Name: bubbaMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2233,8 +2348,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4415459612094388}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: spine_03
   m_TagString: Untagged
+=======
+  m_Name: bubbaMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2492,8 +2612,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4401210818381762}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: pinky_03_r
   m_TagString: Untagged
+=======
+  m_Name: BubbaRagDoll
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2509,8 +2634,13 @@ GameObject:
   - component: {fileID: 33270870515670714}
   - component: {fileID: 23049917670318406}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: dd
   m_TagString: Player2
+=======
+  m_Name: low-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2524,8 +2654,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4993307610267860}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: spine_03
   m_TagString: Untagged
+=======
+  m_Name: Cylinder
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2718,8 +2853,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4153417319468578}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: spine_01
   m_TagString: Untagged
+=======
+  m_Name: Lance
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2794,8 +2934,13 @@ GameObject:
   - component: {fileID: 4603836647000194}
   - component: {fileID: 137047252496999212}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: male1591Mesh
   m_TagString: Player2
+=======
+  m_Name: male_casualsuit02Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3166,8 +3311,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4946250050549942}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: pinky_03_l
   m_TagString: Untagged
+=======
+  m_Name: long01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3289,13 +3439,38 @@ GameObject:
   m_Component:
   - component: {fileID: 4806997255430414}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_03_l
   m_TagString: Untagged
+=======
+  m_Name: long01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &1435541046674134
+=======
+--- !u!1 &1436386743992968
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4204859155971044}
+  - component: {fileID: 95731348941522282}
+  m_Layer: 0
+  m_Name: Jenny
+  m_TagString: Player0
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!1 &1436543009943922
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3364,8 +3539,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4964071769409068}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: index_03_r
   m_TagString: Untagged
+=======
+  m_Name: high-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3379,8 +3559,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4748949456056890}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: lowerarm_r
   m_TagString: Untagged
+=======
+  m_Name: low-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3394,8 +3579,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4076852170546384}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: hand_r
   m_TagString: Untagged
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3410,8 +3600,13 @@ GameObject:
   - component: {fileID: 4308503686362868}
   - component: {fileID: 137940780056241832}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: male_worksuit01Mesh
   m_TagString: Player2
+=======
+  m_Name: g
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3624,8 +3819,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4425745066714046}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: spine_01
   m_TagString: Untagged
+=======
+  m_Name: SteveRagDoll
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3672,8 +3872,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4687572867774434}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: spine_01
   m_TagString: Untagged
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3950,8 +4155,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4381912737011780}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: index_03_r
   m_TagString: Untagged
+=======
+  m_Name: Joust
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3995,8 +4205,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4551474763820338}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: Game_engine
   m_TagString: Player2
+=======
+  m_Name: male1591Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4226,8 +4441,13 @@ GameObject:
   - component: {fileID: 4690093865746414}
   - component: {fileID: 137813212041714282}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: high-polyMesh
   m_TagString: Player2
+=======
+  m_Name: male_worksuit01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4256,8 +4476,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4733577249904690}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ball_l
   m_TagString: Untagged
+=======
+  m_Name: female1605Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4286,8 +4511,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4851781954055966}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: index_03_l
   m_TagString: Untagged
+=======
+  m_Name: shoes06Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4376,8 +4606,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4495852573302016}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: foot_l
   m_TagString: Untagged
+=======
+  m_Name: Armchair 1
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4466,8 +4701,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4032854000179112}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: index_03_r
   m_TagString: Untagged
+=======
+  m_Name: low-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4649,6 +4889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4154220276078574}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: pinky_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4668,6 +4909,10 @@ GameObject:
   m_Layer: 0
   m_Name: g
   m_TagString: Player2
+=======
+  m_Name: male1591Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4924,8 +5169,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4541653116637994}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_02_r
   m_TagString: Untagged
+=======
+  m_Name: female1605Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4970,8 +5220,13 @@ GameObject:
   - component: {fileID: 4549589565536546}
   - component: {fileID: 137895475050999022}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: low-polyMesh
   m_TagString: Player2
+=======
+  m_Name: k
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5159,8 +5414,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4411895916025170}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_02_l
   m_TagString: Untagged
+=======
+  m_Name: Avatar
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5297,8 +5557,13 @@ GameObject:
   - component: {fileID: 4642949310894272}
   - component: {fileID: 137849664530695746}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: male_casualsuit03Mesh
   m_TagString: Player2
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5372,8 +5637,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4610070148648970}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: hand_l
   m_TagString: Untagged
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5418,8 +5688,13 @@ GameObject:
   - component: {fileID: 4241219958840162}
   - component: {fileID: 137741304183363154}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: female1605Mesh
   m_TagString: Player2
+=======
+  m_Name: r
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5746,8 +6021,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4725298552738570}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: middle_01_r
   m_TagString: Untagged
+=======
+  m_Name: shoes06Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5975,8 +6255,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4619718214096268}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: spine_01
   m_TagString: Untagged
+=======
+  m_Name: afro01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6244,8 +6529,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4962598785567998}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thumb_02_r
   m_TagString: Untagged
+=======
+  m_Name: low-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6259,8 +6549,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4763891529484626}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: pelvis
   m_TagString: Untagged
+=======
+  m_Name: female1605Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6379,8 +6674,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4545532607537952}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: thumb_03_l
   m_TagString: Untagged
+=======
+  m_Name: 3-JASON-06
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6394,8 +6694,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4382893585644062}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: foot_l
   m_TagString: Untagged
+=======
+  m_Name: low-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6424,8 +6729,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4078317190318098}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: index_02_r
   m_TagString: Untagged
+=======
+  m_Name: Game_engine
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6455,8 +6765,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4407548659846830}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: Root
   m_TagString: Untagged
+=======
+  m_Name: shoes01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6676,8 +6991,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4795460905715356}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: Root
   m_TagString: Untagged
+=======
+  m_Name: shoes06Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6826,8 +7146,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4582791367821728}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: Game_engine
   m_TagString: Player2
+=======
+  m_Name: long01Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6841,8 +7166,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4351763694603336}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: foot_r
   m_TagString: Untagged
+=======
+  m_Name: low-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6902,8 +7232,13 @@ GameObject:
   - component: {fileID: 4673228341210774}
   - component: {fileID: 137865593629688772}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: afro01Mesh
   m_TagString: Player2
+=======
+  m_Name: high-polyMesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6979,8 +7314,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4443385343366564}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: neck_01
   m_TagString: Untagged
+=======
+  m_Name: male_casualsuit03Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7089,8 +7429,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4604576203295852}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: index_03_r
   m_TagString: Untagged
+=======
+  m_Name: ss
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7212,8 +7557,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4348050828280486}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ring_01_r
   m_TagString: Untagged
+=======
+  m_Name: dd
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7368,8 +7718,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4958500145012196}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: foot_r
   m_TagString: Untagged
+=======
+  m_Name: shoes06Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7503,8 +7858,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4298652042044446}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: clavicle_r
   m_TagString: Untagged
+=======
+  m_Name: w
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7518,8 +7878,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4588565869656452}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: pinky_02_l
   m_TagString: Untagged
+=======
+  m_Name: female_casualsuit02Mesh
+  m_TagString: Player0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16188,7 +16553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072388d5055dea24fbe552afaad228ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Current_Player: 2
+  Current_Player: 0
   isAI: 0
   SelectedP_LX: 
   SelectedP_LY: 
@@ -16209,11 +16574,19 @@ MonoBehaviour:
   - {fileID: 1841830830626430}
   - {fileID: 1790227608813812}
   RagdollCharacters:
+<<<<<<< HEAD
   - {fileID: 1860340097969186}
   - {fileID: 1004152723106484}
   - {fileID: 1228430148860714}
   - {fileID: 1075099078713230}
   InternalPlayerIndex: 2
+=======
+  - {fileID: 1148417782444882}
+  - {fileID: 1475112156663620}
+  - {fileID: 1236218686409708}
+  - {fileID: 1341148390951562}
+  InternalPlayerIndex: 0
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
   Score: 0
   DebugMode: 0
   TiltCorrection: 0
