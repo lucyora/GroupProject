@@ -99,7 +99,6 @@ public class Player : Raycast {
             this.gameObject.transform.GetChild(0).tag = "DeadPlayer";
             this.gameObject.transform.GetChild(1).tag = "DeadPlayer";
             this.gameObject.transform.GetChild(2).tag = "DeadPlayer";
-
             Invoke("Death", 3.0f);
             //if(timesup)
             //{

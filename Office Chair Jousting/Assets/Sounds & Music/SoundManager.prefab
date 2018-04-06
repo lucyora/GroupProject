@@ -1215,7 +1215,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243391806240296634, guid: 7f58ad1ee02b0b54abd409bbe04741af,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a1ceae99e44a2e4428f71837212fc9f7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 76d2ff78dc7dc9c4e9df28825ee3fb95, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   Hit3: {fileID: 82796717113583732}
   Hit4: {fileID: 82606465823209110}
   femaleScream1: {fileID: 82405436300215078}
-  femaleGrunt1: {fileID: 0}
+  femaleGrunt1: {fileID: 82976021105368112}
   movechair: {fileID: 82149119496251540}
   elevatorDing: {fileID: 82138180062850980}
   femaleGrunts: {fileID: 82976021105368112}

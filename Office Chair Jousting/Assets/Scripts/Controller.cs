@@ -12,34 +12,26 @@ public class Controller : MonoBehaviour {
 
     private string P1_LX = "Joy0XL";
     private string P1_LY = "Joy0YL";
- 
     private string P1_RX = "Joy0XR";
     private string P1_RY = "Joy0YR";
-
     private string P1_Start = "JoyStart0";
 
     private string P2_LX = "Joy1XL";
     private string P2_LY = "Joy1YL";
- 
     private string P2_RX = "Joy1XR";
     private string P2_RY = "Joy1YR";
-
     private string P2_Start = "JoyStart1";
 
     private string P3_LX = "Joy2XL";
     private string P3_LY = "Joy2YL";
- 
     private string P3_RX = "Joy2XR";
     private string P3_RY = "Joy2YR";
-
     private string P3_Start = "JoyStart2";
 
     private string P4_LX = "Joy3XL";
     private string P4_LY = "Joy3YL";
- 
     private string P4_RX = "Joy3XR";
     private string P4_RY = "Joy3YR";
-
     private string P4_Start = "JoyStart3";
 
 

@@ -54,13 +54,11 @@ public class HUD_Manager : Controller
         //assigns sprite to Player Images
         for (int i = 0; i<4; i++)
         {
-            Debug.Log(PlayerPrefs.GetInt("Character" + (i+1)));
             for (int j = 0; j < 4; j++)
             {
                 if (PlayerPrefs.GetInt("Character" + (i+1)) == j)
                 {
                     playerImage[i].sprite = playerSprite[j];
-                    Debug.Log("Is character Sprite: " + playerSprite[j]);
                 }
             }
 
@@ -119,16 +117,19 @@ public class HUD_Manager : Controller
             GameOverHUD();
             gamemanager.gameisover = true;
         }
-        if(gameOverCanvas.gameObject.activeInHierarchy == true && Input.GetButtonDown(SelectedP_Start))
+        
+        //That controller script is part of the player. The previous implementation wouldn't work. Let's do this for now and we'll hook it in properly once this is moved into the gamemanager
+        if (gameOverCanvas.gameObject.activeInHierarchy == true && (Input.GetButtonDown("JoyStart0")|| Input.GetButtonDown("JoyStart1")|| Input.GetButtonDown("JoyStart2")|| Input.GetButtonDown("JoyStart3")))
         {
             Time.timeScale = 1;
             PauseMenu.gameObject.SetActive(false);
         }
-        else if (gameOverCanvas.gameObject.activeInHierarchy == false && Input.GetButtonDown(SelectedP_Start))
+        else if (gameOverCanvas.gameObject.activeInHierarchy == false && (Input.GetButtonDown("JoyStart0") || Input.GetButtonDown("JoyStart1") || Input.GetButtonDown("JoyStart2") || Input.GetButtonDown("JoyStart3")))
         {
             Time.timeScale = 0;
             PauseMenu.gameObject.SetActive(true);
         }
+        
 
 
 

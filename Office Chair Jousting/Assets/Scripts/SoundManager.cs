@@ -27,8 +27,6 @@ public class SoundManager : MonoBehaviour
 	public AudioSource femaleGrunt1;
 	public AudioSource movechair;
 	public AudioSource elevatorDing;
-
-
 	public AudioSource femaleGrunts;
     public static SoundManager instance = null;
 
