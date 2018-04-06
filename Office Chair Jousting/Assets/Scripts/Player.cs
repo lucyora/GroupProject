@@ -26,8 +26,12 @@ public class Player : Raycast {
     public bool TiltCorrection;
     public string LastPlayerHit;
     private GameOverManager gameOverManager;
+
+
+
     //public AudioSource maleScreams;
 
+    private bool deathSoundPlayed;
 
 
     void Start ()
@@ -58,6 +62,8 @@ public class Player : Raycast {
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
+
+
         InitController();
 
     }
@@ -112,6 +118,21 @@ public class Player : Raycast {
     {
 
 
+        //Player Movement
+        //Camera must face +Z for rotation to work properly. I'm not going to keep changing the axies
+
+        if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_LX), 2) + Math.Pow(Input.GetAxis(SelectedP_LY), 2)), 0) != 0)
+        {
+            if (!SoundManager.instance.movechair.isPlaying)
+            {
+                SoundManager.instance.movechair.Play();
+            }
+            transform.position = new Vector3((transform.position.x + (Input.GetAxis(SelectedP_LX) / SpeedLimiter)), transform.position.y, (transform.position.z + (Input.GetAxis(SelectedP_LY) / SpeedLimiter)));
+        }
+        else
+        {
+            SoundManager.instance.movechair.Stop();
+        }
         //Joust Rotation
         /////TODO Cheat rotation speed by not checking every frame?
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
@@ -168,6 +189,29 @@ public class Player : Raycast {
             LastPlayerHit = collision.gameObject.tag;
             Invoke("ClearPlayerHit", 5.0f);
 
+            // one grunt for jenny
+            switch (Character)
+            {
+                case Player.character.Bubba:
+                    SoundManager.instance.maleGrunt3.Play();
+                    SoundManager.instance.Hit1.Play();
+                    break;
+
+                case Player.character.Steve:
+                    SoundManager.instance.maleGrunt2.Play();
+                    SoundManager.instance.Hit1.Play();
+                    break;
+
+                case Player.character.Gretchen:
+                    SoundManager.instance.maleGrunt1.Play();
+                    SoundManager.instance.Hit1.Play();
+                    break;
+
+                case Player.character.Jenny:
+                    SoundManager.instance.femaleGrunt1.Play();
+                    SoundManager.instance.Hit1.Play();
+                    break;
+            }
         }
         
          

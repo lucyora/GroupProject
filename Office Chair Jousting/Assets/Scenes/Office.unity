@@ -40,6 +40,9 @@ RenderSettings:
   m_Sun: {fileID: 1489988566}
 <<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+>>>>>>> d22d8323dac28503aec134ab1c405888e996873e
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4141,15 +4144,19 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1151151843}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59af0b49ec3a4484b87666c48b122ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: []
   offset: {x: -29, y: 33, z: -0.5}
   minZoom: 10
   maxZoom: 60
   zoomLimiter: 50
   smoothTime: 0.5
+  cameraObj: {fileID: 1151151843}
+  player: {fileID: 0}
 --- !u!1 &1234740167
 GameObject:
   m_ObjectHideFlags: 0

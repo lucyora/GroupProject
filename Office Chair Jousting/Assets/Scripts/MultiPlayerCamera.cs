@@ -20,10 +20,26 @@ public class MultiPlayerCamera : MonoBehaviour
     private Vector3 velocity;
     private Camera cam;
 
+    private Player player;
+
     private void Start()
     {
         cam = GetComponent<Camera>();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            targets.Add(player.gameObject.transform);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            targets.Remove(player.gameObject.transform);
+        }
+
+    }
+
+
     private void LateUpdate()
     {
         if (targets.Count == 0)                             // Null check condition, if there is no player to follow for camera it just returns. 
