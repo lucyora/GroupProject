@@ -38,11 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1489988566}
-<<<<<<< HEAD
-  m_IndirectSpecularColor: {r: 0.43667555, g: 0.48427182, b: 0.5645241, a: 1}
-=======
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
->>>>>>> d22d8323dac28503aec134ab1c405888e996873e
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -711,7 +707,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 79611357}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 0.49000072, z: -23.4}
+  m_LocalPosition: {x: 2.56, y: 0.49000072, z: -23.46}
   m_LocalScale: {x: 46.74, y: 32, z: 1}
   m_Children: []
   m_Father: {fileID: 393264311}
@@ -2619,16 +2615,6 @@ Prefab:
       propertyPath: SpawnPoints.Array.data[8]
       value: 
       objectReference: {fileID: 987241202}
-    - target: {fileID: 114618737632213274, guid: 35b76799ca02c6e4d8329487659d9c74,
-        type: 2}
-      propertyPath: DebugMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114618737632213274, guid: 35b76799ca02c6e4d8329487659d9c74,
-        type: 2}
-      propertyPath: Player2isAI
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35b76799ca02c6e4d8329487659d9c74, type: 2}
   m_IsPrefabParent: 0
@@ -4144,19 +4130,18 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1151151843}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59af0b49ec3a4484b87666c48b122ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets: []
+  targets:
+  - {fileID: 0}
   offset: {x: -29, y: 33, z: -0.5}
   minZoom: 10
   maxZoom: 60
   zoomLimiter: 50
   smoothTime: 0.5
-  cameraObj: {fileID: 1151151843}
-  player: {fileID: 0}
 --- !u!1 &1234740167
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,11 +5599,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1639559274}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!82 &1652077508 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 82976021105368112, guid: c47febaa8bad79a4e95e0ffc0a5a2f23,
-    type: 2}
-  m_PrefabInternal: {fileID: 1925341024}
 --- !u!1 &1653317829 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: d9aa746a18b5b374482cc296e6e0d503, type: 3}
@@ -6463,11 +6443,6 @@ Prefab:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114788856878099486, guid: c47febaa8bad79a4e95e0ffc0a5a2f23,
-        type: 2}
-      propertyPath: femaleGrunt1
-      value: 
-      objectReference: {fileID: 1652077508}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c47febaa8bad79a4e95e0ffc0a5a2f23, type: 2}
   m_IsPrefabParent: 0
