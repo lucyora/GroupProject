@@ -141,16 +141,16 @@ public class HUD_Manager : Controller
         //    Debug.Log("Player1's gone far away...");
         //}
 
-            //TODO: Think about pop up hud with sub-menu to choose restart
-            //if (Input.GetButtonDown("JoyA"))
-            //{
-            //    //GameOver();
-            //}
-            //else if (Input.GetButtonDown("JoyB"))
-            //{
-            //    //GameStart();
-            //    GameStatusText.text = "Test";
-            //}
+        //TODO: Think about pop up hud with sub-menu to choose restart
+        //if (Input.GetButtonDown("JoyA"))
+        //{
+        //    //GameOver();
+        //}
+        //else if (Input.GetButtonDown("JoyB"))
+        //{
+        //    //GameStart();
+        //    GameStatusText.text = "Test";
+        //}
 
     }
     void GameOverHUD()

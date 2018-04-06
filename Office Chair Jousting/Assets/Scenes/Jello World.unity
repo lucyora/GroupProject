@@ -3548,15 +3548,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59af0b49ec3a4484b87666c48b122ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 70951343}
-  - {fileID: 0}
-  - {fileID: 0}
+  targets: []
   offset: {x: -7.92, y: 2.25, z: -58.8}
   minZoom: 60
   maxZoom: 60
   zoomLimiter: 50
   smoothTime: 0.5
+  player: {fileID: 0}
 --- !u!1 &1636674004
 GameObject:
   m_ObjectHideFlags: 0

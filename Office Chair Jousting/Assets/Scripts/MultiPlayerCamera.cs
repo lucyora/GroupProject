@@ -2,6 +2,7 @@
 
 
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,22 +10,36 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class MultiPlayerCamera : MonoBehaviour
 {
-
-    public List<Transform> targets;                         // Dynamic target list to follow.It allows add as many player as controller connected.
+    public List<Transform> targets = new List<Transform>();                         // Dynamic target list to follow.It allows add as many player as controller connected.
     public Vector3 offset;                                  // Offset the camera to keep every player inside the range
     public float minZoom = 10.0f;
     public float maxZoom = 60.0f;
     public float zoomLimiter = 50.0f;
     public float smoothTime = 0.5f;
 
-
     private Vector3 velocity;
     private Camera cam;
+
+    private Player player;
 
     private void Start()
     {
         cam = GetComponent<Camera>();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            targets.Add(player.gameObject.transform);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            targets.Remove(player.gameObject.transform);
+        }
+
+    }
+
+
     private void LateUpdate()
     {
         if (targets.Count == 0)                             // Null check condition, if there is no player to follow for camera it just returns. 

@@ -33,6 +33,7 @@ public class Player : Raycast {
 
     void Start ()
     {
+        
         GameObject Camera = GameObject.FindGameObjectWithTag("Camera");
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
@@ -49,6 +50,7 @@ public class Player : Raycast {
             Debug.LogWarning("Character index was set above 3. It cannot be above 3");
 
         }
+        //Camera.GetComponent<MultiPlayerCamera>().targets[charint] = this.transform;
         Character = (character)(charint);
         CharacterStats stats = new CharacterStats(Character);
         Strength += (powerup.Strength + stats.Strength);
