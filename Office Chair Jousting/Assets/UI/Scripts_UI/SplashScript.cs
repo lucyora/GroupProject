@@ -14,6 +14,11 @@ public class SplashScript : MonoBehaviour {
     IEnumerator LoadMain()
     {
         yield return new WaitForSecondsRealtime(3.0f);
+        //SceneManager.LoadSceneAsync("MainMenu");
+    }
+
+    public void MoveToMain()
+    {
         SceneManager.LoadSceneAsync("MainMenu");
     }
 }

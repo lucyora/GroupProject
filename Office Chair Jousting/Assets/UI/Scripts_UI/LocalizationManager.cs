@@ -25,6 +25,7 @@ public class LocalizationManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
     }
 
     public void LoadLocalizedText(string fileName)

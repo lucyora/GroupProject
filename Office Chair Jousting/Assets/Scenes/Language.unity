@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -77,18 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -110,49 +107,7 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &70894067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 70894069}
-  - component: {fileID: 70894068}
-  m_Layer: 0
-  m_Name: StartupManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &70894068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 70894067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa6c8a21e6d2784c8665bea608ae4c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &70894069
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 70894067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 761.76556, y: 320.51376, z: 40.034485}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &334843085
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,8 +280,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032243898}
-        m_MethodName: LoadLocalizedText
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: TriggerLocalization
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -334,6 +289,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: localizedText_es.json
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: LoadMenuScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -760,8 +726,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032243898}
-        m_MethodName: LoadLocalizedText
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: TriggerLocalization
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -770,7 +736,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: localizedText_de.json
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: LoadMenuScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &848785921
@@ -926,7 +903,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -57.5576, y: 0, z: -59.0459, w: -167.01266}
+  m_margin: {x: -57.5576, y: 54.258606, z: -59.0459, w: -167.01266}
   m_textInfo:
     textComponent: {fileID: 889437620}
     characterCount: 8
@@ -1044,11 +1021,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!4 &911858573
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,7 +1049,6 @@ GameObject:
   - component: {fileID: 1043531143}
   - component: {fileID: 1043531145}
   - component: {fileID: 1043531144}
-  - component: {fileID: 1043531146}
   m_Layer: 5
   m_Name: ESText
   m_TagString: Untagged
@@ -1218,18 +1194,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1043531142}
---- !u!114 &1043531146
+--- !u!1 &1084602901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1084602903}
+  - component: {fileID: 1084602902}
+  m_Layer: 0
+  m_Name: LocalizationButtonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1084602902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1043531142}
-  m_Enabled: 0
+  m_GameObject: {fileID: 1084602901}
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f3d3d4a035e5a43bc920198e611578, type: 3}
+  m_Script: {fileID: 11500000, guid: 274515a39db2d9f448e273bf17f59163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: credit_button
+--- !u!4 &1084602903
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1084602901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 461.29105, y: 228.09605, z: 22.258423}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157042266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1244,6 @@ GameObject:
   - component: {fileID: 1157042267}
   - component: {fileID: 1157042269}
   - component: {fileID: 1157042268}
-  - component: {fileID: 1157042270}
   m_Layer: 5
   m_Name: FRText
   m_TagString: Untagged
@@ -1385,18 +1388,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1157042266}
---- !u!114 &1157042270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1157042266}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f3d3d4a035e5a43bc920198e611578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: option_button
 --- !u!1 &1306956219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,8 +1464,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032243898}
-        m_MethodName: LoadLocalizedText
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: TriggerLocalization
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1482,6 +1473,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: localizedText_fr.json
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: LoadMenuScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1529,7 +1531,6 @@ GameObject:
   - component: {fileID: 1389376560}
   - component: {fileID: 1389376562}
   - component: {fileID: 1389376561}
-  - component: {fileID: 1389376563}
   m_Layer: 5
   m_Name: DEText
   m_TagString: Untagged
@@ -1674,18 +1675,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389376559}
---- !u!114 &1389376563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1389376559}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f3d3d4a035e5a43bc920198e611578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: quit_button
 --- !u!1 &1439347499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,8 +1751,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2032243898}
-        m_MethodName: LoadLocalizedText
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: TriggerLocalization
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1771,6 +1760,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: localizedText_en.json
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1084602902}
+        m_MethodName: LoadMenuScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1986,7 +1986,6 @@ GameObject:
   - component: {fileID: 1809818293}
   - component: {fileID: 1809818295}
   - component: {fileID: 1809818294}
-  - component: {fileID: 1809818296}
   m_Layer: 5
   m_Name: ENText
   m_TagString: Untagged
@@ -2132,18 +2131,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809818292}
---- !u!114 &1809818296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1809818292}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f3d3d4a035e5a43bc920198e611578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: vs_button
 --- !u!1 &2032243896
 GameObject:
   m_ObjectHideFlags: 0
