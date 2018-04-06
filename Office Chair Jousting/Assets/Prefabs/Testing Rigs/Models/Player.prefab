@@ -3568,7 +3568,7 @@ GameObject:
   - component: {fileID: 114965124076268632}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16181,11 +16181,12 @@ MonoBehaviour:
   SelectedP_LY: 
   SelectedP_RX: 
   SelectedP_RY: 
+  SelectedP_Start: 
   Character: 3
   isAlive: 1
   Strength: 0
   Mass: 136
-  MaxSpeed: 5
+  SpeedLimiter: 100
   CenterofGravity: {x: 0, y: 0, z: 0}
   RotationSnapRange: 0
   detect: 0
@@ -16199,6 +16200,11 @@ MonoBehaviour:
   - {fileID: 1473899663925262}
   - {fileID: 1187296345078274}
   - {fileID: 1643166473316032}
+  InternalPlayerIndex: 0
+  Score: 0
+  DebugMode: 0
+  TiltCorrection: 0
+  LastPlayerHit: 
 --- !u!135 &135651266335687232
 SphereCollider:
   m_ObjectHideFlags: 1
