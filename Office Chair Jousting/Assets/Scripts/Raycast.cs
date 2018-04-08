@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Raycast : Controller {
-    private float downlength = 30;
+    private float downlength = 10;
     private float leftlength = 2;
     private float fwdlength = 2;
     private float backlength = 2;
     private float rightlength = 2;
+    private float uplength = 5;
+    private bool[] hitarray = new bool[4];
 	
 	// Update is called once per frame
 	public bool isOBJAlive () {
@@ -17,13 +19,16 @@ public class Raycast : Controller {
         RaycastHit rhit;
         RaycastHit fhit;
         RaycastHit bhit;
+        RaycastHit uhit;
 
         Ray downRay = new Ray(transform.position, -transform.up);
+        Ray upRay = new Ray(transform.position, transform.up);
         Ray leftRay = new Ray(transform.position, -transform.right);
-        Ray rgtRay = new Ray(transform.position, transform.right);
+        Ray rightRay = new Ray(transform.position, transform.right);
         Ray fwdRay = new Ray(transform.position, transform.forward);
         Ray backRay = new Ray(transform.position, -transform.forward);
 
+        Debug.DrawRay(transform.position, transform.up * downlength, Color.black);
         Debug.DrawRay(transform.position, -transform.up * downlength, Color.black);
         Debug.DrawRay(transform.position, -transform.right * leftlength, Color.black);
         Debug.DrawRay(transform.position, transform.right * rightlength, Color.black);
@@ -31,37 +36,51 @@ public class Raycast : Controller {
         Debug.DrawRay(transform.position, -transform.forward * backlength, Color.black);
 
         Physics.Raycast(leftRay, out lhit, leftlength);
-        Physics.Raycast(rgtRay, out rhit, rightlength);
+        Physics.Raycast(rightRay, out rhit, rightlength);
         Physics.Raycast(fwdRay, out fhit, fwdlength);
         Physics.Raycast(backRay, out bhit, backlength);
+        Physics.Raycast(upRay, out uhit, uplength);
 
         if (Physics.Raycast(downRay, out dhit, downlength))
         {
             if (dhit.collider.tag == "Ground")
             {
                 return true;
-            }             
-        }
-        else
-        {
-            if (dhit.collider == null)
-            {
-                return false;
             }
-            else
-            {
-                if (dhit.collider.tag != "Ground" || lhit.collider.tag == "Ground" || rhit.collider.tag == "Ground" || fhit.collider.tag == "Ground" || bhit.collider.tag == "Ground")
-                {
-                    return false;
-                }
-            }
-            if (dhit.collider.tag == null && lhit.collider.tag == null && rhit.collider.tag == null && fhit.collider.tag == null && bhit.collider.tag == null)
+            if (dhit.collider.tag == "DeathPlane")
             {
                 return false;
             }
 
         }
-        return false;
+        hitarray[0] = sidesraycast(leftRay, lhit, leftlength);
+        hitarray[1] = sidesraycast(rightRay, rhit, rightlength);
+        hitarray[2] = sidesraycast(fwdRay, fhit, fwdlength);
+        hitarray[3] = sidesraycast(backRay, bhit, backlength);
+        foreach (bool goodhit in hitarray)
+        {
+            if (!goodhit)
+            {
+                return false;
+            }
+        }
+        if (Physics.Raycast(upRay, out uhit, uplength))
+        {
+            return false;
+        }
+
+            return true;
     
 	}
+    public bool sidesraycast(Ray raycast, RaycastHit hit, float length)
+    {
+        if (Physics.Raycast(raycast, out hit, length))
+        {
+            if (hit.collider.tag == "Ground" || hit.collider.tag == "DeathPlane")
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

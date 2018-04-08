@@ -8,9 +8,6 @@ public class HUD_Manager : Controller
 {
 
     private GameManager gamemanager;
-    private List<float> Scores = new List<float>();
-
-//    Player playerClass;
 
     //Timer
     private float sec, min;
@@ -18,8 +15,7 @@ public class HUD_Manager : Controller
     int textrng;
 
 
-    private float TimeLeft;
-    public bool SurvivalMode;
+    public float TimeLeft;
 
     //TODO: Add player data on NHUD
     private int[] PlayerInfo;
@@ -40,9 +36,6 @@ public class HUD_Manager : Controller
     public GameObject PauseMenu;
     //public GameObject Testplayer;
 
-    public int GameStatus;
-
-    public enum MatchMode { MatchDone, DeathMatch, Team, Survival };
 
 
     // Use this for initialization
@@ -68,7 +61,7 @@ public class HUD_Manager : Controller
         
         //playerClass = GetComponent<Player>();
         InitHudTxt();
-        TimeLeft = 180;
+        TimeLeft = gamemanager.MatchTime;
 
         //Test get player hud object
         //Testplayer = GameObject.Find("HUDCanvas/HUDManager/Player1");
@@ -80,11 +73,23 @@ public class HUD_Manager : Controller
         startTime = Time.timeSinceLevelLoad;
 
         InitHudTxt();
-
-        //TODO: set player img
-        // Player1 == Player.character.Jenny... etc
     }
-    // Update is called once per frame
+
+    public bool PauseEvent()
+    {
+        if (gameOverCanvas.gameObject.activeInHierarchy == true)
+        {
+            Time.timeScale = 1;
+            PauseMenu.gameObject.SetActive(false);
+            return false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            PauseMenu.gameObject.SetActive(true);
+            return true;
+        }
+    }
     void Update ()
     {
         //Timer
@@ -92,15 +97,23 @@ public class HUD_Manager : Controller
 
         //count goes up for survival mode
         //Up count
-        if (SurvivalMode == true)
+        if (gamemanager.GameMode == GameManager.gamemode.OttomanEmpire)
         { 
             min = (int)(Time.time / 60f);
             sec = (int)(Time.time % 60f);
+            gamemanager.score[0] = Time.time;
         }
         else         //Down count
         { 
             min = (int)(TimeLeft / 60f);
             sec = (int)(TimeLeft % 60f);
+            if (TimeLeft < 0) 
+            {
+                TimeLeft = 0;
+                GameOverHUD();
+                gamemanager.GameIsOver = true;
+            }
+
         }
 
         string temp = "Time " + min.ToString("00") + ":" + sec.ToString("00");
@@ -108,30 +121,6 @@ public class HUD_Manager : Controller
 
         //Score
         ScoreUpdateHUD();
-
-
-        //if (TimeLeft < 0 || GameStatus == (int)MatchMode.MatchDone) //Time out or match done
-        if (TimeLeft < 0) 
-        {
-            TimeLeft = 0;
-            GameOverHUD();
-            gamemanager.gameisover = true;
-        }
-        
-        //That controller script is part of the player. The previous implementation wouldn't work. Let's do this for now and we'll hook it in properly once this is moved into the gamemanager
-        if (gameOverCanvas.gameObject.activeInHierarchy == true && (Input.GetButtonDown("JoyStart0")|| Input.GetButtonDown("JoyStart1")|| Input.GetButtonDown("JoyStart2")|| Input.GetButtonDown("JoyStart3")))
-        {
-            Time.timeScale = 1;
-            PauseMenu.gameObject.SetActive(false);
-        }
-        else if (gameOverCanvas.gameObject.activeInHierarchy == false && (Input.GetButtonDown("JoyStart0") || Input.GetButtonDown("JoyStart1") || Input.GetButtonDown("JoyStart2") || Input.GetButtonDown("JoyStart3")))
-        {
-            Time.timeScale = 0;
-            PauseMenu.gameObject.SetActive(true);
-        }
-        
-
-
 
 
 
@@ -164,7 +153,7 @@ public class HUD_Manager : Controller
                 EveryFired.text = "HR would like a word with you...";
                 break;
             case 1:
-                EveryFired.text = "This company retreat sucked";
+                EveryFired.text = "This company retreat has not very productive";
                 break;
             case 2:
                 EveryFired.text = "We don't get paid enough for this";

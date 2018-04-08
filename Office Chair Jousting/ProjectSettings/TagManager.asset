@@ -16,6 +16,7 @@ TagManager:
   - DeadPlayer
   - Player0
   - Camera
+  - DeathPlane
   layers:
   - Default
   - TransparentFX

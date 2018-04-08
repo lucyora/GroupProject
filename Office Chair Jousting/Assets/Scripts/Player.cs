@@ -25,7 +25,9 @@ public class Player : Raycast {
     private HUD_Manager hud_Manager;
     public bool TiltCorrection;
     public string LastPlayerHit;
+    public bool readytorespawn = false;
     private GameOverManager gameOverManager;
+    public int team = 3;
 
 
 
@@ -73,7 +75,7 @@ public class Player : Raycast {
 
         if (isAlive)
         {
-            if(gamemanager.gameisover == false) {
+            if(gamemanager.GameIsOver == false) {
               
                 UpdatePosition();
             }
@@ -104,11 +106,7 @@ public class Player : Raycast {
             this.gameObject.transform.GetChild(0).tag = "DeadPlayer";
             this.gameObject.transform.GetChild(1).tag = "DeadPlayer";
             this.gameObject.transform.GetChild(2).tag = "DeadPlayer";
-            Invoke("Death", 3.0f);
-            //if(timesup)
-            //{
-            //    gameOverManager.isGameOver = true;             // Add different conditions for different game modes to end the game by setting isGameOver bool to true
-            //}
+            Invoke("preparetorespawn", 2.0f);
             
         }
 
@@ -177,6 +175,10 @@ public class Player : Raycast {
 
 
     }
+    public void preparetorespawn()
+    {
+        readytorespawn = true;
+    }
     public void Death()
     {
         Destroy(gameObject);
@@ -188,7 +190,7 @@ public class Player : Raycast {
         {
             LastPlayerHit = collision.gameObject.tag;
             Invoke("ClearPlayerHit", 5.0f);
-
+            //gamemanager.StoreHitMagnitude(collision.relativeVelocity.magnitude,InternalPlayerIndex,LastPlayerHit);
             // one grunt for jenny
             switch (Character)
             {
@@ -212,13 +214,13 @@ public class Player : Raycast {
                     SoundManager.instance.Hit1.Play();
                     break;
             }
+
+
         }
         
          
-        if (detect)
-        {
-            Debug.Log(collision.relativeVelocity.magnitude);
-        }
+        
+        
         
     }
     private void ClearPlayerHit()
