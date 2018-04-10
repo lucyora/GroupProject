@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class HUD_Manager : Controller
+public class HUD_Manager : MonoBehaviour
 {
 
     private GameManager gamemanager;

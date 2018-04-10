@@ -4,7 +4,7 @@ using System.Collections.Generic;
  
 using UnityEngine;
  
-public class Controller : MonoBehaviour {
+public class Player_GameController : MonoBehaviour {
     //Set sensitivity to one
     public enum current_player {Player_1,Player_2,Player_3,Player_4,AI};
     public current_player Current_Player;

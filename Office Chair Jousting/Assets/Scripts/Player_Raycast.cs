@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Raycast : Controller {
+public class Player_Raycast : Player_GameController {
     private float downlength = 10;
     private float leftlength = 2;
     private float fwdlength = 2;

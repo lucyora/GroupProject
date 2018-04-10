@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerOptions
 {
     public Player.character PlayerCharacter;
-    public Controller.current_player Current_Player;
+    public Player_GameController.current_player Current_Player;
     public bool isPlayer;
     public int PlayerIndex;
     public int Team;
-    public PlayerOptions(bool isplayer, int playerindex, Controller.current_player current_player,int team)
+    public PlayerOptions(bool isplayer, int playerindex, Player_GameController.current_player current_player,int team)
     {
         isPlayer = isplayer;
         PlayerIndex = playerindex;
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
         if (Player1isAI == 1)
         {
-            PlayersOptions.Add(new PlayerOptions(true, 0, Controller.current_player.Player_1,0));
+            PlayersOptions.Add(new PlayerOptions(true, 0, Player_GameController.current_player.Player_1,0));
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
             SetPlayerOptions(PlayersOptions[0], 0);
             SpawnPlayer(0);
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         if (Player2isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            PlayersOptions.Add(new PlayerOptions(true, 1, Controller.current_player.Player_2,0));
+            PlayersOptions.Add(new PlayerOptions(true, 1, Player_GameController.current_player.Player_2,0));
             SetPlayerOptions(PlayersOptions[1], 1);
             SpawnPlayer(1);
             TotalPlayerCount += 1;
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         if (Player3isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            PlayersOptions.Add(new PlayerOptions(true, 2, Controller.current_player.Player_3,0));
+            PlayersOptions.Add(new PlayerOptions(true, 2, Player_GameController.current_player.Player_3,0));
             SetPlayerOptions(PlayersOptions[2], 2);
             SpawnPlayer(2);
             TotalPlayerCount += 1;
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         if (Player4isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            PlayersOptions.Add(new PlayerOptions(true, 3, Controller.current_player.Player_4,0));
+            PlayersOptions.Add(new PlayerOptions(true, 3, Player_GameController.current_player.Player_4,0));
             SetPlayerOptions(PlayersOptions[3], 3);
             SpawnPlayer(3);
             TotalPlayerCount += 1;

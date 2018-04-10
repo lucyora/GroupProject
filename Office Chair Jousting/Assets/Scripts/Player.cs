@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Player : Raycast {
+public class Player : Player_Raycast {
     public enum character {Jenny,Steve,Gretchen,Bubba};
     public character Character;
     public bool isAlive;
