@@ -23,9 +23,11 @@ public class HUD_Manager : Controller
     public TextMeshProUGUI TimerText;
     //public TextMeshProUGUI GameStatusText;
     public TextMeshProUGUI[] PlayerScoresHUD;
-  //  public GameObject[] playersHUD;
     public Image[] playerImage;
+    public Image[] playerImageT;
     public Sprite[] playerSprite = new Sprite[4];
+    public TextMeshProUGUI[] team_txt;
+    public GameObject[] TeamHUD;
 
     public TextMeshProUGUI winnerTXT;
     public TextMeshProUGUI EveryFired;
@@ -43,24 +45,43 @@ public class HUD_Manager : Controller
     {
         textrng = Random.Range(0, 4);
         PlayerInfo = new int[4] { 0, 0, 0, 0 };
-        
-        //assigns sprite to Player Images
-        for (int i = 0; i<4; i++)
+                gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        if (gamemanager.GameMode == GameManager.gamemode.TeamDeathMatch)
         {
-            for (int j = 0; j < 4; j++)
+            team_txt[0].gameObject.SetActive(true);
+            team_txt[1].gameObject.SetActive(true);
+            InitTeamHudTxt();
+            for (int i = 0; i < 4; i++)
             {
-                if (PlayerPrefs.GetInt("Character" + (i+1)) == j)
+                for (int j = 0; j < 4; j++)
                 {
-                    playerImage[i].sprite = playerSprite[j];
+                    if (PlayerPrefs.GetInt("Character" + (i + 1)) == j)
+                    {
+                        playerImageT[i].sprite = playerSprite[j];
+                    }
                 }
             }
-
         }
-
-        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        else if(gamemanager.GameMode != GameManager.gamemode.TeamDeathMatch)
+        {
+            team_txt[0].gameObject.SetActive(false);
+            team_txt[1].gameObject.SetActive(false);
+            InitHudTxt();
+            //assigns sprite to Player Images
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (PlayerPrefs.GetInt("Character" + (i + 1)) == j)
+                    {
+                        playerImage[i].sprite = playerSprite[j];
+                    }
+                }
+            }
+        }
         
         //playerClass = GetComponent<Player>();
-        InitHudTxt();
+
         TimeLeft = gamemanager.MatchTime;
 
         //Test get player hud object
@@ -71,8 +92,6 @@ public class HUD_Manager : Controller
     {
         Time.timeScale = 1;
         startTime = Time.timeSinceLevelLoad;
-
-        InitHudTxt();
     }
 
     public bool PauseEvent()
@@ -184,50 +203,92 @@ public class HUD_Manager : Controller
         PlayerScoresHUD[3].text = "Score : " + ps4;
 
     }
+    void TeamScroeUpdate()
+    {
+        float team1 = gamemanager.teamscores[0];
+        float team2 = gamemanager.teamscores[1];
+    }
 
 
     public void InitHudTxt()
     {
         //TODO: Only active players get HUD
+            if (PlayerPrefs.GetInt("Player1isAI") == 1)
+            {
+                PlayerHUD[0].gameObject.SetActive(true);
+            }
+            else
+            {
+                PlayerHUD[0].gameObject.SetActive(false);
+            }
 
-        if(PlayerPrefs.GetInt("Player1isAI") == 1)
+            if (PlayerPrefs.GetInt("Player2isAI") == 1)
+            {
+                PlayerHUD[1].gameObject.SetActive(true);
+            }
+            else
+            {
+                PlayerHUD[1].gameObject.SetActive(false);
+            }
+
+            if (PlayerPrefs.GetInt("Player3isAI") == 1)
+            {
+                PlayerHUD[2].gameObject.SetActive(true);
+            }
+            else
+            {
+                PlayerHUD[2].gameObject.SetActive(false);
+            }
+
+            if (PlayerPrefs.GetInt("Player4isAI") == 1)
+            {
+                PlayerHUD[3].gameObject.SetActive(true);
+            }
+            else
+            {
+                PlayerHUD[3].gameObject.SetActive(false);
+            }
+    }
+    public void InitTeamHudTxt()
+    {
+        if (PlayerPrefs.GetInt("Player1isAI") == 1)
         {
-            PlayerHUD[0].gameObject.SetActive(true);
+            playerImageT[0].gameObject.SetActive(true);
         }
         else
         {
-            PlayerHUD[0].gameObject.SetActive(false);
+            playerImageT[0].gameObject.SetActive(false);
         }
 
         if (PlayerPrefs.GetInt("Player2isAI") == 1)
         {
-            PlayerHUD[1].gameObject.SetActive(true);
+            playerImageT[1].gameObject.SetActive(true);
         }
         else
         {
-            PlayerHUD[1].gameObject.SetActive(false);
+            playerImageT[1].gameObject.SetActive(false);
         }
 
         if (PlayerPrefs.GetInt("Player3isAI") == 1)
         {
-            PlayerHUD[2].gameObject.SetActive(true);
+            playerImageT[2].gameObject.SetActive(true);
         }
         else
         {
-            PlayerHUD[2].gameObject.SetActive(false);
+            playerImageT[2].gameObject.SetActive(false);
         }
 
         if (PlayerPrefs.GetInt("Player4isAI") == 1)
         {
-            PlayerHUD[3].gameObject.SetActive(true);
+            playerImageT[3].gameObject.SetActive(true);
         }
         else
         {
-            PlayerHUD[3].gameObject.SetActive(false);
+            playerImageT[3].gameObject.SetActive(false);
         }
-
-
     }
+
+
 
     void SubMenu()
     {

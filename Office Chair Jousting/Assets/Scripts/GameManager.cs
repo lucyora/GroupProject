@@ -104,16 +104,15 @@ public class GameManager : MonoBehaviour
             SpawnPlayer(3);
             TotalPlayerCount += 1;
         }
-                    
-                
-            
-        
+
+
+
+
 
         /* Bot spawning code goes here
          * 
          * 
          * */
-
 
         //UI hooks for game mode above here
         switch (GameMode)
