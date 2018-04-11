@@ -499,7 +499,8 @@ public class CharacterSelect : MonoBehaviour {
         { 
             powerUp.sprite = powersprite[0];
             powerName.text = "Donut";
-            powerstats.text = "Strength + \n speed---\nStability++";
+            //powerstats.text = "Strength + \n speed---\nStability++";
+            powerstats.text = "+\n---\n++";
         }
         else if (powerIndex[i] == 1)
         {
@@ -512,7 +513,8 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[6];
             }
             powerName.text = "Promotion";
-            powerstats.text = "Strength +++ \n speed---\nStability+++";
+            //powerstats.text = "Strength +++ \n speed---\nStability+++";
+            powerstats.text = "+++\n---\n+++";
         }
         else if (powerIndex[i] == 2)
         {
@@ -525,7 +527,8 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[7];
             }
             powerName.text = "WD-40";
-            powerstats.text = "Strength \n speed++\nStability+++";
+            //powerstats.text = "Strength \n speed++\nStability+++";
+            powerstats.text = "\n++\n+++";
         }
         else if (powerIndex[i] == 3)
         {
@@ -538,7 +541,8 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[8];
             }
             powerName.text = "Coffee";
-            powerstats.text = "Strength  \n speed+++\nStability--";
+            //powerstats.text = "Strength  \n speed+++\nStability--";
+            powerstats.text = "\n+++\n--";
         }
         else if (powerIndex[i] == 4)
         {
@@ -551,7 +555,8 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[9];
             }
             powerName.text = "Rocket Booster";
-            powerstats.text = "Strength+  \n speed+++\nStability---";
+            //powerstats.text = "Strength+  \n speed+++\nStability---";
+            powerstats.text = "+\n+++\n---";
         }
         else if (powerIndex[i] == 5)
         {
@@ -564,7 +569,8 @@ public class CharacterSelect : MonoBehaviour {
                 powerUp.sprite = powersprite[10];
             }
             powerName.text = "Kale";
-            powerstats.text = "Strength+++  \n speed\nStability-";
+            //powerstats.text = "Strength+++  \n speed\nStability-";
+            powerstats.text = "+++\n\n-";
         }
     }
 }
