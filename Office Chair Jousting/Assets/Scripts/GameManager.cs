@@ -43,8 +43,6 @@ public class GameManager : MonoBehaviour
     public int Player2isAI;
     public int Player3isAI;
     public int Player4isAI;
-
-    
  
     public float[] score;
     public int[] teamscores;
@@ -115,15 +113,21 @@ public class GameManager : MonoBehaviour
          * */
 
         //UI hooks for game mode above here
-        switch (GameMode)
+
+
+        switch (PlayerPrefs.GetInt("GameMode"))
         {
-            case gamemode.DeathMatch:
+            case 0:
+                GameMode = gamemode.TeamDeathMatch;
                 break;
-            case gamemode.TeamDeathMatch:
+            case 1:
+                GameMode = gamemode.DeathMatch;
                 break;
-            case gamemode.OttomanEmpire:
+            case 2:
+                GameMode = gamemode.OttomanEmpire;
                 break;
-            case gamemode.LastManSitting:
+            case 4:
+                GameMode = gamemode.LastManSitting;
                 break;
         }
         InvokeRepeating("DeathWatch", 0.01f, 1.0f);
