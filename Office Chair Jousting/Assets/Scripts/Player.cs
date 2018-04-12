@@ -25,6 +25,7 @@ public class Player : Player_Raycast {
     private HUD_Manager hud_Manager;
     public bool TiltCorrection;
     public string LastPlayerHit;
+    public int LastPlayerHitTeam;
     public bool readytorespawn = false;
     private GameOverManager gameOverManager;
     public int team = 3;
@@ -186,9 +187,19 @@ public class Player : Player_Raycast {
     private void OnCollisionEnter(Collision collision)
     {
         //TODO ignore collision with self and the floor for this value
-        if (collision.gameObject.tag != "Ground" && collision.gameObject.tag != "Untagged")
+        if (collision.gameObject.tag != "Ground" && collision.gameObject.tag != "Untagged" && collision.gameObject.tag !="DeathPlane")
         {
             LastPlayerHit = collision.gameObject.tag;
+
+            if (collision.gameObject.GetComponent<Player>() == null)
+            {
+                LastPlayerHitTeam = collision.transform.parent.gameObject.GetComponent<Player>().team;
+            }
+            else 
+            {
+                LastPlayerHitTeam = collision.gameObject.GetComponent<Player>().team;
+            }
+
             Invoke("ClearPlayerHit", 5.0f);
             //gamemanager.StoreHitMagnitude(collision.relativeVelocity.magnitude,InternalPlayerIndex,LastPlayerHit);
             // one grunt for jenny
@@ -226,6 +237,7 @@ public class Player : Player_Raycast {
     private void ClearPlayerHit()
     {
         LastPlayerHit = "";
+        LastPlayerHitTeam = 800;
     }
 
 }

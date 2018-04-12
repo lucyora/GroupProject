@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
     public int botcount;
     public int TotalPlayerCount;
 
+    public bool PlayerIsInElevator;
+
     void Start()
     {
         //TO DO. Get team information for each player
@@ -227,7 +229,7 @@ public class GameManager : MonoBehaviour
             {
                 if (player.GetComponent<Player>().readytorespawn)
                 {
-                    UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team);
+                    UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
                     PlayerList[index].GetComponent<Player>().Death();
                     if (GameMode != gamemode.OttomanEmpire)
                     {
@@ -249,7 +251,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    void UpdateScores(string Striker,int StrikeeTeam)
+    void UpdateScores(string Striker,int StrikeeTeam,int StrikersTeam)
     {
 
 
@@ -278,10 +280,10 @@ public class GameManager : MonoBehaviour
         {
             if (Striker == "Player0" || Striker == "Player1" || Striker == "Player2" || Striker == "Player3")
             {
-                GameObject killer = GameObject.FindGameObjectWithTag(Striker);
-                if (killer.GetComponent<Player>().team != StrikeeTeam)
+                Debug.Log(StrikersTeam);
+                if (StrikersTeam != StrikeeTeam && StrikersTeam < (teamscores.Length -1))
                 {
-                    teamscores[killer.GetComponent<Player>().team] += 1;
+                    teamscores[StrikersTeam] += 1;
                 }
             }
         }

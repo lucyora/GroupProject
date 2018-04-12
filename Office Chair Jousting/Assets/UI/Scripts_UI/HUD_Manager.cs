@@ -156,7 +156,7 @@ public class HUD_Manager : MonoBehaviour
                 EveryFired.text = "HR would like a word with you...";
                 break;
             case 1:
-                EveryFired.text = "This company retreat has not very productive";
+                EveryFired.text = "This company retreat has not been very productive";
                 break;
             case 2:
                 EveryFired.text = "We don't get paid enough for this";
