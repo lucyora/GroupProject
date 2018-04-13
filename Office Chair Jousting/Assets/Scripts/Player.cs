@@ -21,7 +21,7 @@ public class Player : Player_Raycast {
     public int InternalPlayerIndex;
     public float Score;
     public bool DebugMode;
-    private GameManager gamemanager;
+    public GameManager gamemanager;
     private HUD_Manager hud_Manager;
     public bool TiltCorrection;
     public string LastPlayerHit;

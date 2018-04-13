@@ -12,11 +12,15 @@ public class AI : Player
 	int attackType;
 	Quaternion qTo;
 	public GameObject player;
+    public Animation rotate;
 	Vector3 Target;
 	public float AttackDistance = 15.0f; // determines when the AI Will start attacking
 	public float speed;
 	float timer = 0.0f;
 	private NavMeshAgent nav;
+
+    Animator animator;
+    bool ai_Attack;
 
 	// Use this for initialization
 	void Awake()
@@ -32,7 +36,11 @@ public class AI : Player
 	}
 	void Start()
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
+        ai_Attack = false;
+
+        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        player = GameObject.FindGameObjectWithTag("Player");
 		qTo = Quaternion.Euler(new Vector3(0.0f, Random.Range(-180.0f, 180.0f), 0.0f));
 		if (gameObject.tag == "AI")
 		{
@@ -62,7 +70,7 @@ public class AI : Player
 		}
 		else
 		{
-			player = GameObject.FindGameObjectWithTag("Player");
+			player = GameObject.FindGameObjectWithTag("Player0");
 		}
 
 	}
@@ -77,6 +85,10 @@ public class AI : Player
 		}
 		else
 		{
+            if(ai_Attack == false)
+            {
+                animator.SetBool("Attack", false);
+            }
 
 			//rotates Ai towards Player while moving
 			transform.LookAt(Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime));
@@ -87,6 +99,7 @@ public class AI : Player
 			{
 				//switching to attack mode    
 				callonce = true;
+                ai_Attack = true;
 				ChangeState(aiState.ATTACK);
 				yield break;
 			}
@@ -101,17 +114,20 @@ public class AI : Player
 	}
 	public IEnumerator Attack()
 	{
-		//    while (CurrentState == aiState.ATTACK)
-		//   {
+        //    while (CurrentState == aiState.ATTACK)
+        //   {
 
-		//randomizes the way the Ai will attack
-		if (callonce == true)
+        if (ai_Attack == true)
+        {
+            animator.SetBool("Attack", true);
+        }
+        //randomizes the way the Ai will attack
+        if (callonce == true)
 		{
 			attackType = Random.Range(0, 3);
 			callonce = false;
 
 		}
-		attackType = 0;
 		Debug.Log(attackType);
 		//Attach where AI does constant 360 degree spin
 		if (attackType == 0)
@@ -141,11 +157,14 @@ public class AI : Player
 		//if AI if further than than attack distance move towards the player
 		if (Vector3.Distance(transform.position, player.transform.position) > AttackDistance)
 		{
+            rotate.Stop();
+            ai_Attack = false;
 			ChangeState(aiState.MOVETO);
 			yield break;
 		}
 		if (isAlive == false)
 		{
+            rotate.Stop();
 			ChangeState(aiState.DEAD);
 		}
 

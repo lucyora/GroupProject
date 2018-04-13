@@ -7265,6 +7265,8 @@ GameObject:
   - component: {fileID: 54646263468333100}
   - component: {fileID: 114262182377848296}
   - component: {fileID: 195759909355096398}
+  - component: {fileID: 111696442462746662}
+  - component: {fileID: 95848150721383608}
   m_Layer: 0
   m_Name: AI
   m_TagString: AI
@@ -7974,7 +7976,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939820728186984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8556185, y: 2.47, z: -2.0606093}
+  m_LocalPosition: {x: -7.76, y: 2.47, z: -2.0606093}
   m_LocalScale: {x: 2.0365696, y: 3.9077373, z: 2.0975955}
   m_Children:
   - {fileID: 4022817925717092}
@@ -16138,6 +16140,42 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95848150721383608
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939820728186984}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 01fdb4eda98849f42bdfea7ed3fac35b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &111696442462746662
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939820728186984}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 8f0ca4f629a69c348b2aaad898a3f739, type: 2}
+  - {fileID: 7400000, guid: 19fa3cfa1b993554dbaaf748b782fdb7, type: 2}
+  - {fileID: 7400000, guid: d1315c62b9985ba448e9c6b9d012f7b5, type: 2}
+  - {fileID: 7400000, guid: d9d84e184d82fc7488e91f1f96f8f33a, type: 2}
+  - {fileID: 7400000, guid: b28a95bf734584043b5fed5ac1870eda, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114262182377848296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16155,11 +16193,12 @@ MonoBehaviour:
   SelectedP_LY: 
   SelectedP_RX: 
   SelectedP_RY: 
-  Character: 0
+  SelectedP_Start: 
+  Character: 1
   isAlive: 0
   Strength: 0
-  Mass: 100
-  SpeedLimiter: 0
+  Mass: 136
+  SpeedLimiter: 5
   CenterofGravity: {x: 0, y: 0, z: 0}
   RotationSnapRange: 0
   detect: 0
@@ -16176,8 +16215,17 @@ MonoBehaviour:
   InternalPlayerIndex: 0
   Score: 0
   DebugMode: 0
+  gamemanager: {fileID: 0}
+  TiltCorrection: 1
+  LastPlayerHit: 
+  LastPlayerHitTeam: 0
+  readytorespawn: 0
+  team: 3
+  CurrentState: 0
   player: {fileID: 0}
-  speed: 0
+  rotate: {fileID: 111696442462746662}
+  AttackDistance: 15
+  speed: 5
 --- !u!135 &135055938027592688
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -20707,7 +20755,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939820728186984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -20719,6 +20767,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.4
+  m_BaseOffset: 0.48
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

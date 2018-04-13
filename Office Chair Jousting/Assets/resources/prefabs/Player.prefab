@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 137289525604946902}
   m_Layer: 0
   m_Name: male_worksuit01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 4355200840671420}
   m_Layer: 0
   m_Name: Avatar
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 4005380978802162}
   m_Layer: 0
   m_Name: GretchenRagDoll
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 137938978918951500}
   m_Layer: 0
   m_Name: long01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 95883801603608600}
   m_Layer: 0
   m_Name: Bubba
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 23506692703383576}
   m_Layer: 0
   m_Name: g
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 4582470242218084}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 23135141890007064}
   m_Layer: 0
   m_Name: k
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 23762653659755700}
   m_Layer: 0
   m_Name: dd
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 137255836088711398}
   m_Layer: 0
   m_Name: shoes06Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1145,7 +1145,7 @@ GameObject:
   - component: {fileID: 137200708351725008}
   m_Layer: 0
   m_Name: low-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 137847456918899416}
   m_Layer: 0
   m_Name: low-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 23771345840303472}
   m_Layer: 0
   m_Name: l
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1257,7 +1257,7 @@ GameObject:
   - component: {fileID: 137454045754309120}
   m_Layer: 0
   m_Name: female1605Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1274,7 +1274,7 @@ GameObject:
   - component: {fileID: 23074941610243286}
   m_Layer: 0
   m_Name: ss
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 137380832370518718}
   m_Layer: 0
   m_Name: male_worksuit01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1456,7 +1456,7 @@ GameObject:
   - component: {fileID: 137366670272632994}
   m_Layer: 0
   m_Name: shoes01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1672,7 +1672,7 @@ GameObject:
   - component: {fileID: 137851214242880612}
   m_Layer: 0
   m_Name: shoes06Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1703,7 +1703,7 @@ GameObject:
   - component: {fileID: 54188886732168548}
   m_Layer: 0
   m_Name: Lance
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1734,7 +1734,7 @@ GameObject:
   - component: {fileID: 95731805279049254}
   m_Layer: 0
   m_Name: Steve
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1891,7 +1891,7 @@ GameObject:
   - component: {fileID: 137772570806706588}
   m_Layer: 0
   m_Name: female1605Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1984,7 +1984,7 @@ GameObject:
   - component: {fileID: 4024806247375946}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2000,7 +2000,7 @@ GameObject:
   - component: {fileID: 137981641171654848}
   m_Layer: 0
   m_Name: long01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2091,7 +2091,7 @@ GameObject:
   - component: {fileID: 137693890467050108}
   m_Layer: 0
   m_Name: bubbaMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2460,7 +2460,7 @@ GameObject:
   - component: {fileID: 4515200485498508}
   m_Layer: 0
   m_Name: SteveRagDoll
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2492,7 +2492,7 @@ GameObject:
   - component: {fileID: 23187249592360658}
   m_Layer: 0
   m_Name: q
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2522,7 +2522,7 @@ GameObject:
   - component: {fileID: 4158496569869848}
   m_Layer: 0
   m_Name: Lance
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2597,7 +2597,7 @@ GameObject:
   - component: {fileID: 4648290708304400}
   m_Layer: 0
   m_Name: JennyRagDoll
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2733,7 +2733,7 @@ GameObject:
   - component: {fileID: 137141576012709566}
   m_Layer: 0
   m_Name: male_casualsuit03Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2779,7 +2779,7 @@ GameObject:
   - component: {fileID: 137999228895483806}
   m_Layer: 0
   m_Name: male1591Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2872,7 +2872,7 @@ GameObject:
   - component: {fileID: 137077354909394106}
   m_Layer: 0
   m_Name: low-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2954,7 +2954,7 @@ GameObject:
   - component: {fileID: 114250476776271770}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3164,7 +3164,7 @@ GameObject:
   - component: {fileID: 4916403984876934}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3180,7 +3180,7 @@ GameObject:
   - component: {fileID: 137359333632968788}
   m_Layer: 0
   m_Name: shoes01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3196,7 +3196,7 @@ GameObject:
   - component: {fileID: 137161266492647752}
   m_Layer: 0
   m_Name: low-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3227,7 +3227,7 @@ GameObject:
   - component: {fileID: 137933844042785106}
   m_Layer: 0
   m_Name: high-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3362,7 +3362,7 @@ GameObject:
   - component: {fileID: 4413453486775596}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3471,7 +3471,7 @@ GameObject:
   - component: {fileID: 137820477694212754}
   m_Layer: 0
   m_Name: long01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3502,7 +3502,7 @@ GameObject:
   - component: {fileID: 137681090521294978}
   m_Layer: 0
   m_Name: female1605Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3547,7 +3547,7 @@ GameObject:
   - component: {fileID: 4295965521120940}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3700,7 +3700,7 @@ GameObject:
   - component: {fileID: 4229661226852434}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3790,7 +3790,7 @@ GameObject:
   - component: {fileID: 4717047001768876}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3837,7 +3837,7 @@ GameObject:
   - component: {fileID: 23627526436598456}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4176,7 +4176,7 @@ GameObject:
   - component: {fileID: 137707116215701222}
   m_Layer: 0
   m_Name: bubbaMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4377,7 +4377,7 @@ GameObject:
   - component: {fileID: 4467934046113346}
   m_Layer: 0
   m_Name: BubbaRagDoll
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4424,7 +4424,7 @@ GameObject:
   - component: {fileID: 23283905215178232}
   m_Layer: 0
   m_Name: Cylinder.001
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4800,7 +4800,7 @@ GameObject:
   - component: {fileID: 137580402624739660}
   m_Layer: 0
   m_Name: afro01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4861,7 +4861,7 @@ GameObject:
   - component: {fileID: 137515473165196310}
   m_Layer: 0
   m_Name: male_casualsuit02Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5043,7 +5043,7 @@ GameObject:
   - component: {fileID: 23454600794251650}
   m_Layer: 0
   m_Name: 3-JASON-06
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5355,7 +5355,7 @@ GameObject:
   - component: {fileID: 137580370655944316}
   m_Layer: 0
   m_Name: female_casualsuit02Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5390,7 +5390,7 @@ GameObject:
   - component: {fileID: 23540491321103822}
   m_Layer: 0
   m_Name: 3-JASON-07
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5421,7 +5421,7 @@ GameObject:
   - component: {fileID: 137293272810912672}
   m_Layer: 0
   m_Name: shoes06Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5665,7 +5665,7 @@ GameObject:
   - component: {fileID: 137708480357007948}
   m_Layer: 0
   m_Name: male1591Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5954,7 +5954,7 @@ GameObject:
   - component: {fileID: 138310832809301238}
   m_Layer: 0
   m_Name: Joust
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6017,7 +6017,7 @@ GameObject:
   - component: {fileID: 4186016145645470}
   m_Layer: 0
   m_Name: Game_engine
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6078,7 +6078,7 @@ GameObject:
   - component: {fileID: 137384979703905646}
   m_Layer: 0
   m_Name: low-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6157,7 +6157,7 @@ GameObject:
   - component: {fileID: 137094006314957406}
   m_Layer: 0
   m_Name: female_casualsuit02Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6232,7 +6232,7 @@ GameObject:
   - component: {fileID: 4348702118940304}
   m_Layer: 0
   m_Name: Armchair 1
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6338,7 +6338,7 @@ GameObject:
   - component: {fileID: 137550942884621840}
   m_Layer: 0
   m_Name: long01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6573,7 +6573,7 @@ GameObject:
   - component: {fileID: 95474670996710424}
   m_Layer: 0
   m_Name: Gretchen
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6851,7 +6851,7 @@ GameObject:
   - component: {fileID: 23284487883869976}
   m_Layer: 0
   m_Name: r
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6867,7 +6867,7 @@ GameObject:
   - component: {fileID: 137653238830643774}
   m_Layer: 0
   m_Name: shoes06Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7141,7 +7141,7 @@ GameObject:
   - component: {fileID: 137908438649391756}
   m_Layer: 0
   m_Name: female1605Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7265,7 +7265,7 @@ GameObject:
   - component: {fileID: 137830619039092390}
   m_Layer: 0
   m_Name: high-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7356,7 +7356,7 @@ GameObject:
   - component: {fileID: 95531639916452874}
   m_Layer: 0
   m_Name: Jenny
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7388,7 +7388,7 @@ GameObject:
   - component: {fileID: 23267016760716716}
   m_Layer: 0
   m_Name: w
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7419,7 +7419,7 @@ GameObject:
   - component: {fileID: 137235106410423222}
   m_Layer: 0
   m_Name: male_casualsuit02Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7468,7 +7468,7 @@ GameObject:
   - component: {fileID: 137873121009685552}
   m_Layer: 0
   m_Name: afro01Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7514,7 +7514,7 @@ GameObject:
   - component: {fileID: 137327602392347168}
   m_Layer: 0
   m_Name: low-polyMesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7530,7 +7530,7 @@ GameObject:
   - component: {fileID: 137170832553313734}
   m_Layer: 0
   m_Name: male_casualsuit03Mesh
-  m_TagString: Player1
+  m_TagString: Player0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16175,7 +16175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072388d5055dea24fbe552afaad228ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Current_Player: 1
+  Current_Player: 0
   isAI: 0
   SelectedP_LX: 
   SelectedP_LY: 
@@ -16200,9 +16200,10 @@ MonoBehaviour:
   - {fileID: 1318004103851380}
   - {fileID: 1046676636304362}
   - {fileID: 1575051930162474}
-  InternalPlayerIndex: 1
+  InternalPlayerIndex: 0
   Score: 0
   DebugMode: 1
+  gamemanager: {fileID: 0}
   TiltCorrection: 0
   LastPlayerHit: 
   LastPlayerHitTeam: 0
