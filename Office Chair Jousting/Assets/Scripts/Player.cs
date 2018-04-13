@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 public class Player : Player_Raycast {
-    public enum character {Jenny,Steve,Gretchen,Bubba};
+    public enum character {Jenny,Steve,Bubba,Judith};
     public character Character;
     public bool isAlive;
     int Gender;
@@ -215,12 +215,12 @@ public class Player : Player_Raycast {
                     SoundManager.instance.Hit1.Play();
                     break;
 
-                case Player.character.Gretchen:
-                    SoundManager.instance.maleGrunt1.Play();
+                case Player.character.Jenny:
+                    SoundManager.instance.femaleGrunt1.Play();
                     SoundManager.instance.Hit1.Play();
                     break;
 
-                case Player.character.Jenny:
+                case Player.character.Judith:
                     SoundManager.instance.femaleGrunt1.Play();
                     SoundManager.instance.Hit1.Play();
                     break;

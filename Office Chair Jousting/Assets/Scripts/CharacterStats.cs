@@ -35,7 +35,7 @@ public class CharacterStats
                 RotationSnapRange = 3;
                 Gender = 0;
                 break;
-            case Player.character.Gretchen:
+            case Player.character.Judith:
                 Strength = 0;
                 Mass = 136;
                 SpeedLimiter = 5;
