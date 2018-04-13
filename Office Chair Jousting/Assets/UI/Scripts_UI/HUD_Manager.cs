@@ -23,6 +23,7 @@ public class HUD_Manager : MonoBehaviour
     public TextMeshProUGUI TimerText;
     //public TextMeshProUGUI GameStatusText;
     public TextMeshProUGUI[] PlayerScoresHUD;
+    public TextMeshProUGUI[] TeamScoresHUD;
     public Image[] playerImage;
     public Image[] playerImageT;
     public Sprite[] playerSprite = new Sprite[4];
@@ -116,14 +117,21 @@ public class HUD_Manager : MonoBehaviour
                 GameOverHUD();
                 gamemanager.GameIsOver = true;
             }
-
+            if(gamemanager.GameMode == GameManager.gamemode.TeamDeathMatch)
+            {
+                TeamScroeUpdate();
+            }
+            else if(gamemanager.GameMode == GameManager.gamemode.DeathMatch)
+            {
+                ScoreUpdateHUD();
+            }
         }
 
         string temp = "Time " + min.ToString("00") + ":" + sec.ToString("00");
         TimerText.text = temp;
 
         //Score
-        ScoreUpdateHUD();
+
 
 
 
@@ -167,8 +175,6 @@ public class HUD_Manager : MonoBehaviour
             case 4:
                 EveryFired.text = "This is what happens when you give employees jousts instead of laptops.";
                 break;
-
-
         }
         gameOverCanvas.gameObject.SetActive(true);
 
@@ -181,6 +187,11 @@ public class HUD_Manager : MonoBehaviour
         float ps3 = gamemanager.score[2];
         float ps4 = gamemanager.score[3];
 
+        PlayerScoresHUD[0].gameObject.SetActive(true);
+        PlayerScoresHUD[1].gameObject.SetActive(true);
+        PlayerScoresHUD[2].gameObject.SetActive(true);
+        PlayerScoresHUD[3].gameObject.SetActive(true);
+
         PlayerScoresHUD[0].text = "Score : " + ps1;
         PlayerScoresHUD[1].text = "Score : " + ps2;
         PlayerScoresHUD[2].text = "Score : " + ps3;
@@ -191,6 +202,12 @@ public class HUD_Manager : MonoBehaviour
     {
         float team1 = gamemanager.teamscores[0];
         float team2 = gamemanager.teamscores[1];
+
+        TeamScoresHUD[0].gameObject.SetActive(true);
+        TeamScoresHUD[1].gameObject.SetActive(true);
+
+        TeamScoresHUD[0].text = "Team Score: " + team1;
+        TeamScoresHUD[1].text = "Team Score: " + team2;
     }
 
 
