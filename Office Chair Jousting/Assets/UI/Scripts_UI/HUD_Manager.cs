@@ -79,18 +79,18 @@ public class HUD_Manager : MonoBehaviour
         startTime = Time.timeSinceLevelLoad;
     }
 
-    public bool PauseEvent()
+    public bool PauseEvent(bool GameisPaused)
     {
-        if (gameOverCanvas.gameObject.activeInHierarchy == true)
+        if (GameisPaused)
         {
-            Time.timeScale = 1;
-            PauseMenu.gameObject.SetActive(false);
+            Time.timeScale = 0;
+            PauseMenu.gameObject.SetActive(true);
             return false;
         }
         else
         {
-            Time.timeScale = 0;
-            PauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 1;
+            PauseMenu.gameObject.SetActive(false);
             return true;
         }
     }

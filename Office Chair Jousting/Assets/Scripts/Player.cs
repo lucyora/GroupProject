@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 public class Player : Player_Raycast {
-    public enum character {Jenny,Steve,Bubba,Judith};
+    public enum character {Jenny,Steve, Gretchen, Bubba, Judith,Harry};
     public character Character;
     public bool isAlive;
     int Gender;
@@ -55,7 +55,10 @@ public class Player : Player_Raycast {
             Debug.LogWarning("Character index was set above 3. It cannot be above 3");
 
         }
-        Character = (character)(charint);
+        if (!DebugMode)
+        {
+            Character = (character)(charint);
+        } 
         CharacterStats stats = new CharacterStats(Character);
         Strength += (powerup.Strength + stats.Strength);
         SpeedLimiter = stats.SpeedLimiter;
@@ -65,6 +68,7 @@ public class Player : Player_Raycast {
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
+        this.gameObject.transform.GetChild(1).GetComponent<Joust>().Strength = Strength;
 
 
         InitController();
@@ -76,7 +80,7 @@ public class Player : Player_Raycast {
 
         if (isAlive)
         {
-            if(gamemanager.GameIsOver == false) {
+            if(gamemanager.GameIsOver == false && gamemanager.GameisPaused == false) {
               
                 UpdatePosition();
             }

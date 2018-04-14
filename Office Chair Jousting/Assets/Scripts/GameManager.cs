@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //TO DO. Get team information for each player
         score = new float[4];
         if (!DebugMode)
         {
@@ -113,25 +112,26 @@ public class GameManager : MonoBehaviour
          * 
          * 
          * */
-
-        //UI hooks for game mode above here
-
-
-        switch (PlayerPrefs.GetInt("GameMode"))
+        if (!DebugMode)
         {
-            case 0:
-                GameMode = gamemode.TeamDeathMatch;
-                break;
-            case 1:
-                GameMode = gamemode.DeathMatch;
-                break;
-            case 2:
-                GameMode = gamemode.OttomanEmpire;
-                break;
-            case 4:
-                GameMode = gamemode.LastManSitting;
-                break;
+            switch (PlayerPrefs.GetInt("GameMode"))
+            {
+                case 0:
+                    GameMode = gamemode.TeamDeathMatch;
+                    break;
+                case 1:
+                    GameMode = gamemode.DeathMatch;
+                    break;
+                case 2:
+                    GameMode = gamemode.OttomanEmpire;
+                    break;
+                case 4:
+                    GameMode = gamemode.LastManSitting;
+                    break;
+            }
+
         }
+
         InvokeRepeating("DeathWatch", 0.01f, 1.0f);
     }
     void Update()
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
                 if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
                 {
                     GameisPaused = !GameisPaused;
-                    HudManager.GetComponent<HUD_Manager>().PauseEvent();
+                    HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
                 }
             }
 
@@ -280,7 +280,6 @@ public class GameManager : MonoBehaviour
         {
             if (Striker == "Player0" || Striker == "Player1" || Striker == "Player2" || Striker == "Player3")
             {
-                Debug.Log(StrikersTeam);
                 if (StrikersTeam != StrikeeTeam && StrikersTeam < (teamscores.Length -1))
                 {
                     teamscores[StrikersTeam] += 1;
