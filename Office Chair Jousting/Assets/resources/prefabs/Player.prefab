@@ -24539,7 +24539,7 @@ MonoBehaviour:
   Score: 0
   DebugMode: 1
   gamemanager: {fileID: 0}
-  TiltCorrection: 0
+  TiltCorrection: 1
   LastPlayerHit: 
   LastPlayerHitTeam: 0
   readytorespawn: 0

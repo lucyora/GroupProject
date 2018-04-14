@@ -83,9 +83,10 @@ public class Player : Player_Raycast {
             if(gamemanager.GameIsOver == false && gamemanager.GameisPaused == false) {
               
                 UpdatePosition();
+                isAlive = isOBJAlive();
             }
             
-            isAlive = isOBJAlive();
+           
         }
         else
         {           
@@ -153,26 +154,24 @@ public class Player : Player_Raycast {
                 if (Math.Round(Input.GetAxis(SelectedP_LX)) !=0)
                 {
                     //transform.eulerAngles = new Vector3((transform.eulerAngles.x + Input.GetAxis(SelectedP_LX)), (float)storedrotation,transform.eulerAngles.z); 
-                    transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LX), 0.0f, 0.0f), Space.World);
+                    transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LX)), Space.World);
                 }
                 if (Math.Round(Input.GetAxis(SelectedP_LY)) != 0)
                 {
                     //transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, (transform.eulerAngles.z - Input.GetAxis(SelectedP_LY))); 
-                    transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LY)), Space.World);
+                    transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LY), 0.0f, 0.0f), Space.World);
                 }
           
 
-            //Snapping Tilt when angles are within range
-            if ((transform.eulerAngles.x < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.x))
-            {
-                transform.eulerAngles = new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z);
-                //transform.Rotate(new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z),Space.World);
-            }
-            if ((transform.eulerAngles.z < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.z))
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f);
-                //transform.Rotate(new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f), Space.World);
-            }
+                //Snapping Tilt when angles are within range
+                if ((transform.eulerAngles.x < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.x))
+                {
+                    transform.eulerAngles = new Vector3(0.0f, (float)storedrotation, transform.eulerAngles.z);
+                }
+                if ((transform.eulerAngles.z < RotationSnapRange) || ((-RotationSnapRange) > transform.eulerAngles.z))
+                {
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, 0.0f);
+                }
             }
 
         }
