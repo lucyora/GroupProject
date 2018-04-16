@@ -22,30 +22,30 @@ public class CharacterStats
         switch (Character)
         {
             case Player.character.Jenny:
-                Strength = 100;
+                Strength = 30;
                 Mass = 136;
-                SpeedLimiter = 5;
-                RotationSnapRange = 3;
+                SpeedLimiter = 10;
+                RotationSnapRange = 5;
                 Gender = 1;
                 break;
             case Player.character.Steve:
-                Strength = 100;
+                Strength = 85;
                 Mass = 136;
-                SpeedLimiter = 5;
-                RotationSnapRange = 3;
+                SpeedLimiter = 2;
+                RotationSnapRange = 1;
                 Gender = 0;
                 break;
             case Player.character.Judith:
-                Strength = 100;
+                Strength = 70;
                 Mass = 136;
-                SpeedLimiter = 5;
-                RotationSnapRange = 3;
+                SpeedLimiter = 15;
+                RotationSnapRange = 1;
                 Gender = 1;
                 break;
             case Player.character.Bubba:
-                Strength = 100;
+                Strength = 2;
                 Mass = 136;
-                SpeedLimiter = 5;
+                SpeedLimiter = 7;
                 RotationSnapRange = 3;
                 Gender = 0;
                 break;
