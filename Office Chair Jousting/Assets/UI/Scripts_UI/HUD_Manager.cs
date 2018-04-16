@@ -203,11 +203,11 @@ public class HUD_Manager : MonoBehaviour
         float team1 = gamemanager.teamscores[0];
         float team2 = gamemanager.teamscores[1];
 
-        TeamScoresHUD[0].gameObject.SetActive(true);
+      /*  TeamScoresHUD[0].gameObject.SetActive(true);
         TeamScoresHUD[1].gameObject.SetActive(true);
 
         TeamScoresHUD[0].text = "Team Score: " + team1;
-        TeamScoresHUD[1].text = "Team Score: " + team2;
+        TeamScoresHUD[1].text = "Team Score: " + team2;*/
     }
 
 

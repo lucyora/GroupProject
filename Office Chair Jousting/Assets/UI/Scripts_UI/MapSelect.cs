@@ -25,7 +25,7 @@ public class MapSelect : MonoBehaviour {
 
     public void navControl()
     {
-        if (Input.GetAxis("Joy0XL") <= -1)
+        if (Input.GetAxis("Joy0XL") <= -0.5)
         {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
@@ -36,7 +36,7 @@ public class MapSelect : MonoBehaviour {
                 controlDelay = 0;
             }
         }
-        if (Input.GetAxis("Joy0XL") >= 1)
+        if (Input.GetAxis("Joy0XL") >= 0.5)
         {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
@@ -46,7 +46,7 @@ public class MapSelect : MonoBehaviour {
                 controlDelay = 0;
             }
         }
-        if (Input.GetAxis("Joy0YL") <= -0.8)
+        if (Input.GetAxis("Joy0YL") <= -0.5)
         {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
@@ -57,7 +57,7 @@ public class MapSelect : MonoBehaviour {
                 controlDelay = 0;
             }
         }
-        if (Input.GetAxis("Joy0YL") >= 1)
+        if (Input.GetAxis("Joy0YL") >= 0.5)
         {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
