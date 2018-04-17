@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPoints : MonoBehaviour
 {
-
+    [Tooltip("Whether something is inside the spawn point")]
     public bool SpaceIsOccupied = false;
     void OnTriggerStay(Collider other)
     {

@@ -2,7 +2,6 @@
  Character Stats
  
  Setting Stats for specific characters
- Values are currently temporary. Fill in at least 3 others with unique values
  
  */
  using System.Collections;
@@ -44,7 +43,7 @@ public class CharacterStats
                 break;
             case Player.character.Bubba:
                 Strength = 2;
-                Mass = 136;
+                Mass = 140;
                 SpeedLimiter = 7;
                 RotationSnapRange = 3;
                 Gender = 0;

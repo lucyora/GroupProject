@@ -37,28 +37,40 @@ public class GameManager : MonoBehaviour
 {
     public enum gamemode { DeathMatch, TeamDeathMatch, OttomanEmpire, LastManSitting };
     public gamemode GameMode;
+    [Tooltip("The length of the match in seconds for all modes except for Ottoman Empire and Last Man Sitting")]
     public float MatchTime;
 
+    [Tooltip("0 is ai and 1 is human. ")]
     public int Player1isAI;
+    [Tooltip("0 is ai and 1 is human. ")]
     public int Player2isAI;
+    [Tooltip("0 is ai and 1 is human. ")]
     public int Player3isAI;
+    [Tooltip("0 is ai and 1 is human. ")]
     public int Player4isAI;
- 
+
+    [Tooltip("An array for each players score. Index 0 is Player 1's score")]
     public float[] score;
+    [Tooltip("An array for all team scores. Set as many teams as you need")]
     public int[] teamscores;
     public LargestHit largesthit = new LargestHit();
 
+    [Tooltip("Mostly decouples the game scene from the menu's")]
     public bool DebugMode;
     public GameObject HudManager;
+    [Tooltip("A list of points where players can spawn. Each object needs SpawnPoints.cs attached")]
     public GameObject[] SpawnPoints;
+    [Tooltip("The UI elemts that hover over players during the game")]
     public GameObject[] PlayerIndicator;
+    [Tooltip("All current active players")]
     public List<GameObject> PlayerList;
+    [Tooltip("Storage for the players set options.")]
     public List<PlayerOptions> PlayersOptions;
     public bool GameIsOver = false;
     public bool GameisPaused = false;
     public int botcount;
     public int TotalPlayerCount;
-
+    [Tooltip("Disables the elevator while a player is inside. Does nothing if there are no elevators")]
     public bool PlayerIsInElevator;
 
     void Start()
@@ -71,14 +83,19 @@ public class GameManager : MonoBehaviour
             Player3isAI = PlayerPrefs.GetInt("Player3isAI");
             Player4isAI = PlayerPrefs.GetInt("Player4isAI");
         }
-        if (Player1isAI == 1)
+
+
+        if (Player1isAI == 1)// If player 1 is a human
         {
-            PlayersOptions.Add(new PlayerOptions(true, 0, Player_GameController.current_player.Player_1,0));
-            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            SetPlayerOptions(PlayersOptions[0], 0);
-            SpawnPlayer(0);
+            PlayersOptions.Add(new PlayerOptions(true, 0, Player_GameController.current_player.Player_1,0));// TO DO. Change the last function parameter to be the proper team index for the player
+            //Stores player options. Actual player objects are often deleted and replaced so anything that needs to stay through the match and isn't set through playerprefs should be stored in the PlayerOptions class
+            PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));//A new player prefab is set inside the PlayerList arraylist
+            SetPlayerOptions(PlayersOptions[0], 0);// Setting the player options to the instantiated player prefab
+            SpawnPlayer(0); 
             TotalPlayerCount += 1;
+            
         }
+        //Human Players 2-4 are handled identically but with their proper values
         if (Player2isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
@@ -104,14 +121,7 @@ public class GameManager : MonoBehaviour
             TotalPlayerCount += 1;
         }
 
-
-
-
-
-        /* Bot spawning code goes here
-         * 
-         * 
-         * */
+        //This is set in the inspector is this script is in debug mode
         if (!DebugMode)
         {
             switch (PlayerPrefs.GetInt("GameMode"))
@@ -132,8 +142,10 @@ public class GameManager : MonoBehaviour
 
         }
 
-        InvokeRepeating("DeathWatch", 0.01f, 1.0f);
+        InvokeRepeating("DeathWatch", 0.01f, 1.0f);//Watching for player deaths
     }
+
+
     void Update()
     {
         int index = 0;
@@ -143,6 +155,7 @@ public class GameManager : MonoBehaviour
         }
         foreach (GameObject Player in PlayerList)
         {
+            //Pausing the game
             if (Player.GetComponent<Player>().SelectedP_Start != "")
             {
                 if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
@@ -151,8 +164,9 @@ public class GameManager : MonoBehaviour
                     HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
                 }
             }
+            //
 
-            PlayerIndicator[index].transform.position = new Vector3(Player.transform.position.x,(Player.transform.position.y + 10),Player.transform.position.z);
+            PlayerIndicator[index].transform.position = new Vector3(Player.transform.position.x,(Player.transform.position.y + 10),Player.transform.position.z);//Setting the player indicators to float just above their respective players.
             index++;
         }
     }
@@ -164,6 +178,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("SpawnPoints array in Game Manager has no Spawn Points. Please fill this variable in with game objects");
         }
+        //Checking for a spawn point with free space
         bool freespace = false;
         int SpawnPointIndex = 0;
         while (!freespace)
@@ -175,24 +190,26 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        PlayerList[index] = Instantiate(PlayerList[index], SpawnPoints[SpawnPointIndex].transform.position,Quaternion.identity);
+        PlayerList[index] = Instantiate(PlayerList[index], SpawnPoints[SpawnPointIndex].transform.position,Quaternion.identity);//Replacing the current player object with a fresh version
     }
 
-    
+  
     void SetPlayerOptions(PlayerOptions playeroptions, int index)
     {
         if (PlayerList[index].GetComponent<Player>() != null)
         {
             PlayerList[index].GetComponent<Player>().Character = playeroptions.PlayerCharacter;
             PlayerList[index].GetComponent<Player>().Current_Player = playeroptions.Current_Player;
-            //PlayerList[index].GetComponent<Player>().Current_Player = Controller.current_player.Player_1;
             PlayerList[index].GetComponent<Player>().InternalPlayerIndex = index;
             PlayerList[index].GetComponent<Player>().team = playeroptions.Team;
-            PlayerList[index].tag = "Player" + index;
 
+            //Setting portions of the player object to have a proper player tag. This is used in hit detection
+            PlayerList[index].tag = "Player" + index;
             PlayerList[index].gameObject.transform.GetChild(0).tag = "Player" + index;
             PlayerList[index].gameObject.transform.GetChild(1).tag = "Player" + index;
             PlayerList[index].gameObject.transform.GetChild(2).tag = "Player" + index;
+
+            //Setting the children and great granchildren to have the proper player tag.
             foreach (Transform child in PlayerList[index].gameObject.transform)
             {
                 child.gameObject.tag = "Player" + index;
@@ -220,17 +237,21 @@ public class GameManager : MonoBehaviour
         int index = 0;
         if (PlayerList[0] == null)
         {
+           
             return;
         }
+        //Checking for death in each object in the PlayerList
         foreach (var player in PlayerList)
         {
             
             if (player.GetComponent<Player>() != null)
             {
+                //Player object is confirmed to be a human
                 if (player.GetComponent<Player>().readytorespawn)
                 {
                     UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
                     PlayerList[index].GetComponent<Player>().Death();
+                    //We're not respawning the player in ottoman
                     if (GameMode != gamemode.OttomanEmpire)
                     {
                         PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
@@ -280,7 +301,7 @@ public class GameManager : MonoBehaviour
         {
             if (Striker == "Player0" || Striker == "Player1" || Striker == "Player2" || Striker == "Player3")
             {
-                if (StrikersTeam != StrikeeTeam && StrikersTeam < (teamscores.Length -1))
+                if (StrikersTeam != StrikeeTeam && StrikersTeam < (teamscores.Length -1))//If the player who killed the player we're currently respawning isn't on the same team and the team the killers team actually exists...
                 {
                     teamscores[StrikersTeam] += 1;
                 }
@@ -290,7 +311,7 @@ public class GameManager : MonoBehaviour
     }
     public void StoreHitMagnitude(float magnitude,int playerindex,string otherplayertag)
     {
-        if (magnitude < largesthit.magnitude)
+        if (magnitude < largesthit.magnitude)//Don't store magnitude if the hit is smaller than the previous
         {
             return;
         }

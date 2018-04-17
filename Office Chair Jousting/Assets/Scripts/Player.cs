@@ -6,35 +6,41 @@ using UnityEngine;
 
 public class Player : Player_Raycast {
     public enum character {Jenny,Steve, Gretchen, Bubba, Judith,Harry};
+    [Tooltip("What character will be spawned. The value set in the inspector will be ignored if debug mode isn't enabled")]
     public character Character;
     public bool isAlive;
     int Gender;
-    public float Strength= 0;//TODO. Implement This
+    public float Strength= 0;
     public float Mass = 0;
     public float SpeedLimiter = 100;
     public Vector3 CenterofGravity;
+    [Tooltip("If angle x and angle z are between -RotationSnapRange and RotationSnapRange then the angle in this range will snap to 0. The higher the number, the higher the stabilty")]
     public float RotationSnapRange;
-    public bool detect;
+    [Tooltip("Models shown when the player is alive. The oder MUST match the Ragdoll Characters array")]
     public GameObject[] SolidCharacters;
+    [Tooltip("Models shown when the player is alive. The oder MUST match the Solid Characters array")]
     public GameObject[] RagdollCharacters;
     private double storedrotation;
+    [Tooltip("Used in the game manager for score keeping, options setting and respawning")]
     public int InternalPlayerIndex;
     public float Score;
+    [Tooltip("Mostly decouples this prefab from the ui")]
     public bool DebugMode;
     public GameManager gamemanager;
     private HUD_Manager hud_Manager;
+    [Tooltip("If angle x and angle z are between -RotationSnapRange and RotationSnapRange then the angle in this range will snap to 0. The higher the number, the higher the stabilty")]
     public bool TiltCorrection;
     public string LastPlayerHit;
     public int LastPlayerHitTeam;
     public bool readytorespawn = false;
     private GameOverManager gameOverManager;
     public int team = 3;
-
+    private bool deathSoundPlayed;
 
 
     //public AudioSource maleScreams;
 
-    private bool deathSoundPlayed;
+
 
 
     void Start ()
@@ -68,7 +74,7 @@ public class Player : Player_Raycast {
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
-        this.gameObject.transform.GetChild(1).GetComponent<Joust>().Strength = Strength;
+        this.gameObject.transform.GetChild(1).GetComponent<Joust>().Strength = Strength;//The joust
 
 
         InitController();
@@ -138,7 +144,6 @@ public class Player : Player_Raycast {
             SoundManager.instance.movechair.Stop();
         }
         //Joust Rotation
-        /////TODO Cheat rotation speed by not checking every frame?
         if (Math.Round(Math.Sqrt(Math.Pow(Input.GetAxis(SelectedP_RX), 2) + Math.Pow(Input.GetAxis(SelectedP_RY), 2)), 0) != 0)
         {
             //If the distance between 0,0 and the joysticks current axis does not equal 0 set a new rotation
@@ -153,12 +158,10 @@ public class Player : Player_Raycast {
             {
                 if (Math.Round(Input.GetAxis(SelectedP_LX)) !=0)
                 {
-                    //transform.eulerAngles = new Vector3((transform.eulerAngles.x + Input.GetAxis(SelectedP_LX)), (float)storedrotation,transform.eulerAngles.z); 
                     transform.Rotate(new Vector3(0.0f, 0.0f, Input.GetAxis(SelectedP_LX)), Space.World);
                 }
                 if (Math.Round(Input.GetAxis(SelectedP_LY)) != 0)
                 {
-                    //transform.eulerAngles = new Vector3(transform.eulerAngles.x, (float)storedrotation, (transform.eulerAngles.z - Input.GetAxis(SelectedP_LY))); 
                     transform.Rotate(new Vector3(Input.GetAxis(SelectedP_LY), 0.0f, 0.0f), Space.World);
                 }
           

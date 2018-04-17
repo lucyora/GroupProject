@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Raycast : Player_GameController {
+
+    
     private float downlength = 10;
     private float leftlength = 2;
     private float fwdlength = 2;
@@ -10,8 +12,9 @@ public class Player_Raycast : Player_GameController {
     private float rightlength = 2;
     private float uplength = 5;
     private bool[] hitarray = new bool[4];
-	
-	// Update is called once per frame
+	//<summary>
+    // returns true if the player is alive based on the raycasts. Returns false if the player is dead.
+    //</summary>
 	public bool isOBJAlive () {
 
         RaycastHit dhit;

@@ -11,23 +11,25 @@ public class Elevator : MonoBehaviour
     {
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
-    void OnTriggerEnter(Collider other)    // once the trigger on the collider activates 
+    void OnTriggerEnter(Collider other)   
     {
-        if (other.gameObject.tag == "Player0" || other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2" || other.gameObject.tag == "Player3" || other.gameObject.tag == "Player4") // and the other object's tag is "Player"
+        //First I'm checking if the collided object is an alive player. Dead players will have the tag "DeadPlayer"
+        if (other.gameObject.tag == "Player0" || other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2" || other.gameObject.tag == "Player3" || other.gameObject.tag == "Player4")
         {
             if (other.gameObject.GetComponent<Player>() != null && !gamemanager.PlayerIsInElevator)
             {
-                gamemanager.PlayerIsInElevator = true;
-                player = other;
-                other.gameObject.active = false;
-                player.transform.position = new Vector3(1000, 1000, 1000); 
+                gamemanager.PlayerIsInElevator = true;// This variable is used so the other elevator knows not to transport someone until the other player reaches their destination
+                player = other; // Storing the player for when we invoke the function to bring the player to their destination
+                other.gameObject.active = false; //I'm setting the player to be inactive so physics don't mess with the player once they reach their destination
+                player.transform.position = new Vector3(1000, 1000, 1000); //Setting the player somewhere out of the cameras viewable range. If the player isn't moved outside of the cameras range the player icon will continue to be on screen.
 			    SoundManager.instance.elevatorDing.Play();
-                Invoke("reactivateplayer", 1.0f); //currently disabled as it causes a crash if the player is in the elevator and another player is getting ready to respawn from their blow. 
-                //reactivateplayer();
+                Invoke("reactivateplayer", 1.0f); 
+                
             }
             
         }
     }
+    //Re-activating the player
     public void reactivateplayer()
     {
         player.gameObject.transform.position = Destination.transform.position;

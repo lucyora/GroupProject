@@ -5,11 +5,20 @@ using System.Collections.Generic;
 using UnityEngine;
  
 public class Player_GameController : MonoBehaviour {
-    //Set sensitivity to one
+    /*
+    <summary>
+        What handles multiplayer input in game. This is the base layer of the player hierachy. This really shouldn't be used outside of the player. 
+        Implement new player inputs through either gamemanager.cs or player.cs. Whatever is more suitable.
+    </summary>
+    */
     public enum current_player {Player_1,Player_2,Player_3,Player_4,AI};
     public current_player Current_Player;
     [HideInInspector] public bool isAI;
 
+    /*
+     Player Input Strings
+       The respective strings for each players inputs
+    */
     private string P1_LX = "Joy0XL";
     private string P1_LY = "Joy0YL";
     private string P1_RX = "Joy0XR";
@@ -34,10 +43,7 @@ public class Player_GameController : MonoBehaviour {
     private string P4_RY = "Joy3YR";
     private string P4_Start = "JoyStart3";
 
-
-    //
-
-    //Strings to be used once player is determined
+    //Strings that are used once player is determined. Once player index is determined these strings will be used for input 
     [HideInInspector] public string SelectedP_LX;
     [HideInInspector] public string SelectedP_LY;
     [HideInInspector] public string SelectedP_RX;
@@ -45,7 +51,9 @@ public class Player_GameController : MonoBehaviour {
     [HideInInspector] public string SelectedP_Start;
 
 
-    // Use this for initialization
+    //<summary>
+    // Sets the generic input strings to the proper values for each player. 
+    //</summary>
     public void InitController()
     {
         switch (Current_Player)
