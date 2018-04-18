@@ -63,12 +63,16 @@ public class GameManager : MonoBehaviour
     [Tooltip("The UI elemts that hover over players during the game")]
     public GameObject[] PlayerIndicator;
     [Tooltip("All current active players")]
+    public GameObject[] TeamIndicator;
     public List<GameObject> PlayerList;
+    [Tooltip("Ottoman")]
+    public GameObject Ottoman;
     [Tooltip("Storage for the players set options.")]
     public List<PlayerOptions> PlayersOptions;
     public bool GameIsOver = false;
     public bool GameisPaused = false;
     public int botcount;
+    public int ottomanCount;
     public int TotalPlayerCount;
     [Tooltip("Disables the elevator while a player is inside. Does nothing if there are no elevators")]
     public bool PlayerIsInElevator;
@@ -87,7 +91,8 @@ public class GameManager : MonoBehaviour
 
         if (Player1isAI == 1)// If player 1 is a human
         {
-            PlayersOptions.Add(new PlayerOptions(true, 0, Player_GameController.current_player.Player_1,0));// TO DO. Change the last function parameter to be the proper team index for the player
+
+            PlayersOptions.Add(new PlayerOptions(true, 0, Player_GameController.current_player.Player_1,PlayerPrefs.GetInt("Player1Team")));// TO DO. Change the last function parameter to be the proper team index for the player
             //Stores player options. Actual player objects are often deleted and replaced so anything that needs to stay through the match and isn't set through playerprefs should be stored in the PlayerOptions class
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));//A new player prefab is set inside the PlayerList arraylist
             SetPlayerOptions(PlayersOptions[0], 0);// Setting the player options to the instantiated player prefab
@@ -99,7 +104,7 @@ public class GameManager : MonoBehaviour
         if (Player2isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            PlayersOptions.Add(new PlayerOptions(true, 1, Player_GameController.current_player.Player_2,0));
+            PlayersOptions.Add(new PlayerOptions(true, 1, Player_GameController.current_player.Player_2, PlayerPrefs.GetInt("Player2Team")));
             SetPlayerOptions(PlayersOptions[1], 1);
             SpawnPlayer(1);
             TotalPlayerCount += 1;
@@ -107,7 +112,7 @@ public class GameManager : MonoBehaviour
         if (Player3isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            PlayersOptions.Add(new PlayerOptions(true, 2, Player_GameController.current_player.Player_3,0));
+            PlayersOptions.Add(new PlayerOptions(true, 2, Player_GameController.current_player.Player_3, PlayerPrefs.GetInt("Player3Team")));
             SetPlayerOptions(PlayersOptions[2], 2);
             SpawnPlayer(2);
             TotalPlayerCount += 1;
@@ -115,7 +120,7 @@ public class GameManager : MonoBehaviour
         if (Player4isAI == 1)
         {
             PlayerList.Add((GameObject)Resources.Load("prefabs/player", typeof(GameObject)));
-            PlayersOptions.Add(new PlayerOptions(true, 3, Player_GameController.current_player.Player_4,0));
+            PlayersOptions.Add(new PlayerOptions(true, 3, Player_GameController.current_player.Player_4,PlayerPrefs.GetInt("Player4Team")));
             SetPlayerOptions(PlayersOptions[3], 3);
             SpawnPlayer(3);
             TotalPlayerCount += 1;
@@ -165,9 +170,53 @@ public class GameManager : MonoBehaviour
                 }
             }
             //
+            if (GameMode != gamemode.TeamDeathMatch)
+            {
+                PlayerIndicator[index].transform.position = new Vector3(Player.transform.position.x, (Player.transform.position.y + 10), Player.transform.position.z);//Setting the player indicators to float just above their respective players.
+            }
 
-            PlayerIndicator[index].transform.position = new Vector3(Player.transform.position.x,(Player.transform.position.y + 10),Player.transform.position.z);//Setting the player indicators to float just above their respective players.
             index++;
+        }
+        if (GameMode == gamemode.TeamDeathMatch)
+        {
+            if (PlayerList[0].GetComponent<Player>().team == 0)
+            {
+                TeamIndicator[0].transform.position = new Vector3(PlayerList[0].transform.position.x, PlayerList[0].transform.position.y + 10, PlayerList[0].transform.position.z);
+            }
+            else
+            {
+                TeamIndicator[1].transform.position = new Vector3(PlayerList[0].transform.position.x, PlayerList[0].transform.position.y + 10, PlayerList[0].transform.position.z);
+            }
+
+
+            if (PlayerList[1].GetComponent<Player>().team == 0)
+            {
+                TeamIndicator[2].transform.position = new Vector3(PlayerList[1].transform.position.x, PlayerList[1].transform.position.y + 10, PlayerList[1].transform.position.z);
+            }
+            else
+            {
+                TeamIndicator[3].transform.position = new Vector3(PlayerList[1].transform.position.x, PlayerList[1].transform.position.y + 10, PlayerList[1].transform.position.z);
+            }
+
+
+            if (PlayerList[2].GetComponent<Player>().team == 0)
+            {
+                TeamIndicator[4].transform.position = new Vector3(PlayerList[2].transform.position.x, PlayerList[2].transform.position.y + 10, PlayerList[2].transform.position.z);
+            }
+            else
+            {
+                TeamIndicator[5].transform.position = new Vector3(PlayerList[2].transform.position.x, PlayerList[2].transform.position.y + 10, PlayerList[2].transform.position.z);
+            }
+
+
+            if (PlayerList[3].GetComponent<Player>().team == 0)
+            {
+                TeamIndicator[6].transform.position = new Vector3(PlayerList[3].transform.position.x, PlayerList[3].transform.position.y + 10, PlayerList[3].transform.position.z);
+            }
+            else
+            {
+                TeamIndicator[7].transform.position = new Vector3(PlayerList[3].transform.position.x, PlayerList[3].transform.position.y + 10, PlayerList[3].transform.position.z);
+            }
         }
     }
 
@@ -193,7 +242,30 @@ public class GameManager : MonoBehaviour
         PlayerList[index] = Instantiate(PlayerList[index], SpawnPoints[SpawnPointIndex].transform.position,Quaternion.identity);//Replacing the current player object with a fresh version
     }
 
-  
+    void SpawnOttoman()
+    {
+        if (SpawnPoints.Length == 0)
+        {
+            Debug.LogError("SpawnPoints array in Game Manager has no Spawn Points. Please fill this variable in with game objects");
+        }
+        //Checking for a spawn point with free space
+        bool freespace = false;
+        int SpawnPointIndex = 0;
+        while (!freespace)
+        {
+            SpawnPointIndex = Random.Range(0, SpawnPoints.Length);
+            if (!SpawnPoints[SpawnPointIndex].GetComponent<SpawnPoints>().SpaceIsOccupied)
+            {
+                freespace = true;
+            }
+
+        }
+        Ottoman = Instantiate(Ottoman, SpawnPoints[SpawnPointIndex].transform.position, Quaternion.identity);//Replacing the current player object with a fresh version
+    }
+
+
+
+
     void SetPlayerOptions(PlayerOptions playeroptions, int index)
     {
         if (PlayerList[index].GetComponent<Player>() != null)
@@ -235,7 +307,6 @@ public class GameManager : MonoBehaviour
     void DeathWatch()
     {
         int index = 0;
-
         if(GameMode == gamemode.OttomanEmpire && PlayerList.Count == 0)
         {
             GameIsOver = true;
@@ -253,28 +324,47 @@ public class GameManager : MonoBehaviour
                 //Player object is confirmed to be a human
                 if (player.GetComponent<Player>().readytorespawn)
                 {
-                    UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
-                    PlayerList[index].GetComponent<Player>().Death();
+                    
                     //We're not respawning the player in ottoman
                     if (GameMode != gamemode.OttomanEmpire)
                     {
+                        UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
+                        PlayerList[index].GetComponent<Player>().Death();
                         PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
                         SetPlayerOptions(PlayersOptions[index], index);
-                        SpawnPlayer(index);                    
+                        SpawnPlayer(index);
                         //Here lies the final resting place of the worlds most stress inducing foreach escape
                     }
+                    else
+                    {
+                        player.SetActive(false);
+                        player.transform.position = new Vector3(1000, 1000, 1000);
 
+                    }
                 }
-
-            }
-            else
-            {
-                //Bot Respawning goes here
             }
             index++;
-
         }
 
+        if(GameMode == gamemode.OttomanEmpire)
+        {
+            //for(int i = 0; i < ottomanCount; i++)
+            //{
+                if(Ottoman.GetComponent<AI>() != null)
+                {
+                    if(Ottoman.GetComponent<AI>().readytorespawn)
+                    {
+                        Debug.Log("Inside deepest if statement ready to respawn");
+                        Ottoman.GetComponent<AI>().Death();
+                    }
+                    Debug.Log("Spawning? Should be");
+                    Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
+                    SpawnOttoman();
+                }
+
+            //}
+         }
+      
     }
     void UpdateScores(string Striker,int StrikeeTeam,int StrikersTeam)
     {
