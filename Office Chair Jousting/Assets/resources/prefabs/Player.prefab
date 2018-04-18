@@ -24502,6 +24502,7 @@ MonoBehaviour:
   gamemanager: {fileID: 0}
   TiltCorrection: 1
   LastPlayerHit: 
+  lastOttomanHit: 
   LastPlayerHitTeam: 0
   readytorespawn: 0
   team: 0

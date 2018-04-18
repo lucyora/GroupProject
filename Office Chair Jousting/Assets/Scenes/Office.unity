@@ -1287,11 +1287,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1878613221655648, guid: cde2c75929997ee4c8d39a32ed28a3e7,
     type: 2}
   m_PrefabInternal: {fileID: 1934857075}
---- !u!1 &294695198 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1875948719862268, guid: cde2c75929997ee4c8d39a32ed28a3e7,
-    type: 2}
-  m_PrefabInternal: {fileID: 1934857075}
 --- !u!1 &294868496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,8 +2252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf8ffb48180af5499b215b3679f0c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventSystem: {fileID: 1322240089}
-  selectedObject: {fileID: 294695198}
+  eventSystem: {fileID: 0}
+  selectedObject: {fileID: 0}
 --- !u!224 &467492679 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224845470297780180, guid: cde2c75929997ee4c8d39a32ed28a3e7,
@@ -2604,7 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d0f2914abe6b1409b33abace806f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {fileID: 199274374}
+  Destination: {fileID: 0}
   player: {fileID: 0}
 --- !u!65 &656379441
 BoxCollider:
@@ -6568,7 +6563,7 @@ Prefab:
     - target: {fileID: 114386767899987646, guid: 7150e91944ffe134dad0b28465be3aa0,
         type: 2}
       propertyPath: MatchTime
-      value: 30
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7150e91944ffe134dad0b28465be3aa0, type: 2}
@@ -8877,7 +8872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d0f2914abe6b1409b33abace806f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {fileID: 1538462326}
+  Destination: {fileID: 0}
   player: {fileID: 0}
 --- !u!65 &2002076552
 BoxCollider:

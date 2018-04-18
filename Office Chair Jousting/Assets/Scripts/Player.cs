@@ -38,7 +38,6 @@ public class Player : Player_Raycast {
     public int team = 3;
     public bool IsInElevator;
     private bool deathSoundPlayed;
-    public bool IsInElevator;
 
 
     //public AudioSource maleScreams;
