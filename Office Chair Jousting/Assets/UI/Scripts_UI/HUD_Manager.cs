@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 using TMPro;
 
@@ -8,12 +9,12 @@ public class HUD_Manager : MonoBehaviour
 {
 
     private GameManager gamemanager;
-
+    // for invoke GameOverHud
+    float call = 0.5f;          
     //Timer
     private float sec, min;
     private float startTime;
     int textrng;
-
 
     public float TimeLeft;
 
@@ -24,6 +25,7 @@ public class HUD_Manager : MonoBehaviour
     //public TextMeshProUGUI GameStatusText;
     public TextMeshProUGUI[] PlayerScoresHUD;
     public TextMeshProUGUI[] TeamScoresHUD;
+    public TextMeshProUGUI[] LeaderboardHUD;
     public Image[] playerImage;
     public Image[] playerImageT;
     public Sprite[] playerSprite = new Sprite[4];
@@ -114,7 +116,7 @@ public class HUD_Manager : MonoBehaviour
             if (TimeLeft < 0) 
             {
                 TimeLeft = 0;
-                GameOverHUD();
+                Invoke("GameOverHUD", call);                //avoid calling function every frame by invoking after specific amount of second
                 gamemanager.GameIsOver = true;
             }
             if(gamemanager.GameMode == GameManager.gamemode.TeamDeathMatch)
@@ -156,6 +158,7 @@ public class HUD_Manager : MonoBehaviour
     }
     void GameOverHUD()
     {
+        call = 1000000000;
         //TimeLeft = 0;
         Time.timeScale = 1;
         switch (textrng)
