@@ -52,10 +52,13 @@ public class MultiPlayerCamera : MonoBehaviour
             return targets[0].transform.position;
         }
 
-        var bounds = new Bounds(targets[0].transform.position, Vector3.zero);         // Creates the boundary around all connected player.
+        var bounds = new Bounds();         // Creates the boundary around all connected player.
         for (int i = 0; i < targets.Count; i++)
         {
-            bounds.Encapsulate(targets[i].transform.position);        // Resizes the box according to the targets
+            if (!targets[i].gameObject.GetComponent<Player>().IsInElevator)
+            { 
+                bounds.Encapsulate(targets[i].transform.position);        // Resizes the box according to the targets
+            }
         }
         return bounds.center;                               // Returns the center point of the boundary
     }

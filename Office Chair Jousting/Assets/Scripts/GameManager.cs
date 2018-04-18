@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
     {
         int index = 0;
 
-        if(GameMode == gamemode.OttomanEmpire && PlayerList.Length == 0)
+        if(GameMode == gamemode.OttomanEmpire && PlayerList.Count == 0)
         {
             GameIsOver = true;
         }

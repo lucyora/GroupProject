@@ -36,6 +36,7 @@ public class Player : Player_Raycast {
     private GameOverManager gameOverManager;
     public int team = 3;
     private bool deathSoundPlayed;
+    public bool IsInElevator;
 
 
     //public AudioSource maleScreams;

@@ -18,7 +18,9 @@ public class Elevator : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Player>() != null && !gamemanager.PlayerIsInElevator)
             {
+
                 gamemanager.PlayerIsInElevator = true;// This variable is used so the other elevator knows not to transport someone until the other player reaches their destination
+                other.gameObject.GetComponent<Player>().IsInElevator = true;
                 player = other; // Storing the player for when we invoke the function to bring the player to their destination
                 other.gameObject.active = false; //I'm setting the player to be inactive so physics don't mess with the player once they reach their destination
                 player.transform.position = new Vector3(1000, 1000, 1000); //Setting the player somewhere out of the cameras viewable range. If the player isn't moved outside of the cameras range the player icon will continue to be on screen.
@@ -34,6 +36,7 @@ public class Elevator : MonoBehaviour
     {
         player.gameObject.transform.position = Destination.transform.position;
         player.gameObject.active = true;
+        player.gameObject.GetComponent<Player>().IsInElevator = false;
         SoundManager.instance.elevatorDing.Play();
         gamemanager.PlayerIsInElevator = false;
 
