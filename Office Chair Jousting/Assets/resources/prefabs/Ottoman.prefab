@@ -148,9 +148,10 @@ GameObject:
   - component: {fileID: 33274787838456826}
   - component: {fileID: 65403268220799216}
   - component: {fileID: 23711473068397208}
+  - component: {fileID: 114516203255403704}
   m_Layer: 0
   m_Name: Ottoman
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,8 +212,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1913698566137164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.589, y: 0.442, z: -1.59}
-  m_LocalScale: {x: 1, y: 0.25, z: 0.5}
+  m_LocalPosition: {x: 6.657116, y: 3.18, z: 16.988338}
+  m_LocalScale: {x: 5, y: 1.25, z: 2.5}
   m_Children:
   - {fileID: 4759471602763422}
   - {fileID: 4484223843369830}
@@ -788,6 +789,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114516203255403704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913698566137164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7c0b633f0d4d0489c2cdfdf6675b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Current_Player: 4
+  isAI: 0
+  SelectedP_LX: 
+  SelectedP_LY: 
+  SelectedP_RX: 
+  SelectedP_RY: 
+  SelectedP_Start: 
+  Character: 0
+  isAlive: 1
+  Strength: 0
+  Mass: 0
+  SpeedLimiter: 100
+  CenterofGravity: {x: 0, y: 0, z: 0}
+  RotationSnapRange: 0
+  SolidCharacters: []
+  RagdollCharacters: []
+  InternalPlayerIndex: 0
+  Score: 0
+  DebugMode: 0
+  gamemanager: {fileID: 0}
+  TiltCorrection: 0
+  LastPlayerHit: 
+  lastOttomanHit: 
+  LastPlayerHitTeam: 0
+  readytorespawn: 0
+  team: 3
+  CurrentState: 0
+  player: {fileID: 0}
+  rotate: {fileID: 0}
+  AttackDistance: 0
+  speed: 5
 --- !u!135 &135911738481671396
 SphereCollider:
   m_ObjectHideFlags: 1
