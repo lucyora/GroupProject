@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MainMen : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class MainMen : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        selectedObject.gameObject.GetComponent<Button>().Select();
     }
 
     // Update is called once per frame

@@ -273,28 +273,15 @@ public class HUD_Manager : MonoBehaviour
     public void InitTeamHudTxt()
     {
         gameHUD[1].gameObject.SetActive(true);
-        for (int i = 0; i < 4; i++)
-        {
+
             for (int j = 0; j < 4; j++)
             {
-                if(PlayerPrefs.GetInt("Player"+(i+1)+"Team") == 0)
+                if(PlayerPrefs.GetInt("Player"+(j+1)+"Team") == 0)
                 {
                     //check which team is each player is on
                 }
-                if (PlayerPrefs.GetInt("Character" + (i + 1)) == j)
-                {
-                    playerImageT[i].sprite = playerSprite[j];
-                }
             }
-            if (isplayer[i] == 1)
-            {
-                playerImageT[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                playerImageT[i].gameObject.SetActive(false);
-            }
-        }
+        
     }
 
 
