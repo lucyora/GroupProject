@@ -64,11 +64,14 @@ public class GameManager : MonoBehaviour
     public GameObject[] PlayerIndicator;
     [Tooltip("All current active players")]
     public List<GameObject> PlayerList;
+    [Tooltip("Ottoman")]
+    public GameObject Ottoman;
     [Tooltip("Storage for the players set options.")]
     public List<PlayerOptions> PlayersOptions;
     public bool GameIsOver = false;
     public bool GameisPaused = false;
     public int botcount;
+    public int ottomanCount;
     public int TotalPlayerCount;
     [Tooltip("Disables the elevator while a player is inside. Does nothing if there are no elevators")]
     public bool PlayerIsInElevator;
@@ -193,7 +196,30 @@ public class GameManager : MonoBehaviour
         PlayerList[index] = Instantiate(PlayerList[index], SpawnPoints[SpawnPointIndex].transform.position,Quaternion.identity);//Replacing the current player object with a fresh version
     }
 
-  
+    void SpawnOttoman()
+    {
+        if (SpawnPoints.Length == 0)
+        {
+            Debug.LogError("SpawnPoints array in Game Manager has no Spawn Points. Please fill this variable in with game objects");
+        }
+        //Checking for a spawn point with free space
+        bool freespace = false;
+        int SpawnPointIndex = 0;
+        while (!freespace)
+        {
+            SpawnPointIndex = Random.Range(0, SpawnPoints.Length);
+            if (!SpawnPoints[SpawnPointIndex].GetComponent<SpawnPoints>().SpaceIsOccupied)
+            {
+                freespace = true;
+            }
+
+        }
+        Ottoman = Instantiate(Ottoman, SpawnPoints[SpawnPointIndex].transform.position, Quaternion.identity);//Replacing the current player object with a fresh version
+    }
+
+
+
+
     void SetPlayerOptions(PlayerOptions playeroptions, int index)
     {
         if (PlayerList[index].GetComponent<Player>() != null)
@@ -235,6 +261,10 @@ public class GameManager : MonoBehaviour
     void DeathWatch()
     {
         int index = 0;
+        if (GameMode == gamemode.OttomanEmpire && PlayerList.Count == 0)
+        {
+            GameIsOver = true;
+        }
         if (PlayerList[0] == null)
         {
            
@@ -249,28 +279,47 @@ public class GameManager : MonoBehaviour
                 //Player object is confirmed to be a human
                 if (player.GetComponent<Player>().readytorespawn)
                 {
-                    UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
-                    PlayerList[index].GetComponent<Player>().Death();
+                    
                     //We're not respawning the player in ottoman
                     if (GameMode != gamemode.OttomanEmpire)
                     {
+                        UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
+                        PlayerList[index].GetComponent<Player>().Death();
                         PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
                         SetPlayerOptions(PlayersOptions[index], index);
-                        SpawnPlayer(index);                    
+                        SpawnPlayer(index);
                         //Here lies the final resting place of the worlds most stress inducing foreach escape
                     }
+                    else
+                    {
+                        player.SetActive(false);
+                        player.transform.position = new Vector3(1000, 1000, 1000);
 
+                    }
                 }
-
-            }
-            else
-            {
-                //Bot Respawning goes here
             }
             index++;
-
         }
 
+        if(GameMode == gamemode.OttomanEmpire)
+        {
+            //for(int i = 0; i < ottomanCount; i++)
+            //{
+                if(Ottoman.GetComponent<AI>() != null)
+                {
+                    if(Ottoman.GetComponent<AI>().readytorespawn)
+                    {
+                        Debug.Log("Inside deepest if statement ready to respawn");
+                        Ottoman.GetComponent<AI>().Death();
+                    }
+                    Debug.Log("Spawning? Should be");
+                    Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
+                    SpawnOttoman();
+                }
+
+            //}
+         }
+      
     }
     void UpdateScores(string Striker,int StrikeeTeam,int StrikersTeam)
     {

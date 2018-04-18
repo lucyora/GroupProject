@@ -18,7 +18,7 @@ public class AI : Player
 	public float speed;
 	float timer = 0.0f;
 	private NavMeshAgent nav;
-
+    public int index = 0;
     Animator animator;
     bool ai_Attack;
 
@@ -50,13 +50,14 @@ public class AI : Player
 		else
 		{
 			Debug.Log("Ottoman AI");
-		}
+        }
 
-	}
+    }
 
 	public override void UpdatePosition()//Overrides the player UpdatePosition function that handles player input. Raycasting for death is handled in player.cs
 	{
-		if (player != null)
+        Invoke("invokeAISTUFF", 10.0f);
+            if (player != null)
 		{
 			if (gameObject.tag == "AI")
 			{
@@ -70,24 +71,42 @@ public class AI : Player
 		}
 		else
 		{
-			player = GameObject.FindGameObjectWithTag("Player0");
-		}
+			player = gamemanager.PlayerList[index];
+        }
 
 	}
+
+    public override void SpawnRagdolls()
+    {
+        //HEYO
+    }
+
+    public override void preparetorespawn()
+    {
+        Destroy(gameObject);
+    }
+
+    public void invokeAISTUFF()
+    {
+       index = Random.Range(0, (gamemanager.PlayerList.Count-1));    
+    }
+
 	//moves AI towards the player
 	public IEnumerator Moveto()
 	{
-		//      while (CurrentState == aiState.MOVETO)
-		//      {
+        //      while (CurrentState == aiState.MOVETO)
+        //      {
+        index = Random.Range(0, (gamemanager.PlayerList.Count-1));
 		if (player == null)
 		{
-			player = GameObject.FindGameObjectWithTag("Player");
+            Debug.Log(gamemanager.PlayerList.Count);
+            player = gamemanager.PlayerList[index];
 		}
 		else
 		{
             if(ai_Attack == false)
             {
-                animator.SetBool("Attack", false);
+             //   animator.SetBool("Attack", false);
             }
 
 			//rotates Ai towards Player while moving
@@ -119,7 +138,7 @@ public class AI : Player
 
         if (ai_Attack == true)
         {
-            animator.SetBool("Attack", true);
+       //     animator.SetBool("Attack", true);
         }
         //randomizes the way the Ai will attack
         if (callonce == true)
@@ -157,14 +176,14 @@ public class AI : Player
 		//if AI if further than than attack distance move towards the player
 		if (Vector3.Distance(transform.position, player.transform.position) > AttackDistance)
 		{
-            rotate.Stop();
+       //     rotate.Stop();
             ai_Attack = false;
 			ChangeState(aiState.MOVETO);
 			yield break;
 		}
 		if (isAlive == false)
 		{
-            rotate.Stop();
+          //S  rotate.Stop();
 			ChangeState(aiState.DEAD);
 		}
 

@@ -31,10 +31,12 @@ public class Player : Player_Raycast {
     [Tooltip("If angle x and angle z are between -RotationSnapRange and RotationSnapRange then the angle in this range will snap to 0. The higher the number, the higher the stabilty")]
     public bool TiltCorrection;
     public string LastPlayerHit;
+    public string lastOttomanHit;
     public int LastPlayerHitTeam;
     public bool readytorespawn = false;
     private GameOverManager gameOverManager;
     public int team = 3;
+    public bool IsInElevator;
     private bool deathSoundPlayed;
 
 
@@ -95,10 +97,9 @@ public class Player : Player_Raycast {
            
         }
         else
-        {           
-            SolidCharacters[(int)Character].SetActive(false);
-            RagdollCharacters[(int)Character].SetActive(true);
-            
+        {
+            SpawnRagdolls();
+
             if(!deathSoundPlayed)
             {
                 if (Gender == 0)
@@ -122,6 +123,12 @@ public class Player : Player_Raycast {
             
         }
 
+    }
+
+    public virtual void SpawnRagdolls()
+    {
+        SolidCharacters[(int)Character].SetActive(false);
+        RagdollCharacters[(int)Character].SetActive(true);
     }
 
     public virtual void UpdatePosition()
@@ -182,7 +189,7 @@ public class Player : Player_Raycast {
 
 
     }
-    public void preparetorespawn()
+    public virtual void preparetorespawn()
     {
         readytorespawn = true;
     }
