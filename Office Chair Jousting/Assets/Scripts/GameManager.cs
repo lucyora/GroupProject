@@ -76,12 +76,25 @@ public class GameManager : MonoBehaviour
     public bool GameIsOver = false;
     public bool GameisPaused = false;
     public int botcount;
-    public int ottomanCount;
     public int TotalPlayerCount;
     [Tooltip("Disables the elevator while a player is inside. Does nothing if there are no elevators")]
     public bool PlayerIsInElevator;
 
-    void Start()
+	//----------------------------------------------------
+	//Ottoman related variables
+	//----------------------------------------------------
+	private bool waveSpawn = false;
+	public bool spawn = true;
+	public int totalWaves = 5;
+	private int numWaves = 0;
+	public int totalEnemy = 10;
+	public int numEnemy = 0;
+	private int spawnedEnemy = 0;
+	public float waveTimer = 30.0f;
+	public float timeTillWave = 0.0f;
+	//----------------------------------------------------
+
+	void Start()
     {
         score = new float[4];
         if (!DebugMode)
@@ -158,7 +171,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         int index = 0;
-        if (PlayerIndicator.Length == 0)
+		if (PlayerIndicator.Length == 0)
         {
             Debug.LogError("Player Indicators aren't in the game manager. Please fill the array in");
         }
@@ -264,7 +277,10 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        Ottoman = Instantiate(Ottoman, SpawnPoints[SpawnPointIndex].transform.position, Quaternion.identity);//Replacing the current player object with a fresh version
+		// Increase the total number of enemies spawned and the number of spawned enemies
+		numEnemy++;
+		spawnedEnemy++;
+		Ottoman = Instantiate(Ottoman, SpawnPoints[SpawnPointIndex].transform.position, Quaternion.identity);//Replacing the current player object with a fresh version
     }
 
 
@@ -354,27 +370,99 @@ public class GameManager : MonoBehaviour
             index++;
         }
 
-        if(GameMode == gamemode.OttomanEmpire)
-        {
-            //for(int i = 0; i < ottomanCount; i++)
-            //{
-                if(Ottoman.GetComponent<AI>() != null)
-                {
-                    if(Ottoman.GetComponent<AI>().readytorespawn)
-                    {
-                        Debug.Log("Inside deepest if statement ready to respawn");
+		if (GameMode == gamemode.OttomanEmpire)
+		{
+			Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
+			if (spawn)
+			{
+				// checks to see if the number of spawned enemies is less than the max num of enemies
+				if (numEnemy < totalEnemy)
+				{
+					// spawns an ottoman
+					SpawnOttoman();
+				}
+				// checks to see if the overall spawned num of enemies is more or equal to the total to be spawned
+				if (spawnedEnemy >= totalEnemy)
+				{
+					//sets the spawner to false
+					spawn = false;
+				}
+				else
+				{
+					// spawns an ottoman
+					SpawnOttoman();
+				}
 
-                        Ottoman.GetComponent<AI>().Death();
-                    }
-                    Debug.Log("Spawning? Should be");
-                ottomanKillScore += 10;
-                Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
-                    SpawnOttoman();
-                }
+				if (numWaves < totalWaves + 1)
+				{
+					if (waveSpawn)
+					{
+						//spawns an ottoman
+						SpawnOttoman();
+					}
+					if (numEnemy == 0)
+					{
+						// enables the wave spawner
+						waveSpawn = true;
+						//increase the number of waves
+						numWaves++;
+					}
+					if (numEnemy == totalEnemy)
+					{
+						// disables the wave spawner
+						waveSpawn = false;
+					}
+				}
+				if (numWaves <= totalWaves)
+				{
+					// Increases the timer to allow the timed waves to work
+					timeTillWave += Time.deltaTime;
+					if (waveSpawn)
+					{
+						//spawns an enemy
+						SpawnOttoman();
+					}
+					if (timeTillWave >= waveTimer)
+					{
+						// enables the wave spawner
+						waveSpawn = true;
+						// sets the time back to zero
+						timeTillWave = 0.0f;
+						// increases the number of waves
+						numWaves++;
+						// Get it to spawn the same number of enemies regardless of how many have been killed
+						numEnemy = 0;
+					}
+					if (numEnemy >= totalEnemy)
+					{
+						// diables the wave spawner
+						waveSpawn = false;
+					}
+				}
+				else
+				{
+					spawn = false;
+				}
 
-            //}
-         }
-      
+				//for(int i = 0; i < ottomanCount; i++)
+				//{
+				//if (Ottoman.GetComponent<AI>() != null)
+				//{
+				//	if (Ottoman.GetComponent<AI>().readytorespawn)
+				//	{
+				//		Debug.Log("Inside deepest if statement ready to respawn");
+
+				//		Ottoman.GetComponent<AI>().Death();
+				//	}
+				//	Debug.Log("Spawning? Should be");
+				//	ottomanKillScore += 10;
+				//	Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
+				//	SpawnOttoman();
+				//}
+
+				//}
+			}
+		}
     }
     void UpdateScores(string Striker,int StrikeeTeam,int StrikersTeam)
     {
