@@ -571,11 +571,12 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: 3rdPerson BasicLITE
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\jmca1\Desktop\OtherJoust\GroupProject\Office Chair
+    Jousting\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 00fd469167f6d401
   metroApplicationDescription: 3rdPerson BasicLITE
   wsaImages: {}
   metroTileShortName: 

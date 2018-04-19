@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
     public float[] score;
     [Tooltip("An array for all team scores. Set as many teams as you need")]
     public int[] teamscores;
+    [Tooltip("Ottoman Game Score based on time")]
+    public float ottomanscores;
+    [Tooltip("Ottoman Game Score based on Ottoman Kills")]
+    public int ottomanKillScore;
     public LargestHit largesthit = new LargestHit();
 
     [Tooltip("Mostly decouples the game scene from the menu's")]
@@ -326,21 +330,25 @@ public class GameManager : MonoBehaviour
                 {
                     
                     //We're not respawning the player in ottoman
-                    if (GameMode != gamemode.OttomanEmpire)
-                    {
+                  //  if (GameMode != gamemode.OttomanEmpire)
+                  //  {
                         UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
                         PlayerList[index].GetComponent<Player>().Death();
+
+                    if (GameMode != gamemode.OttomanEmpire)
+                    {
                         PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
                         SetPlayerOptions(PlayersOptions[index], index);
                         SpawnPlayer(index);
+                    }
                         //Here lies the final resting place of the worlds most stress inducing foreach escape
-                    }
-                    else
-                    {
-                        player.SetActive(false);
-                        player.transform.position = new Vector3(1000, 1000, 1000);
+                  //  }
+                  //  else
+                   // {
+                     //   player.SetActive(false);
+                    //    player.transform.position = new Vector3(1000, 1000, 1000);
 
-                    }
+                   // }
                 }
             }
             index++;
@@ -355,10 +363,12 @@ public class GameManager : MonoBehaviour
                     if(Ottoman.GetComponent<AI>().readytorespawn)
                     {
                         Debug.Log("Inside deepest if statement ready to respawn");
+
                         Ottoman.GetComponent<AI>().Death();
                     }
                     Debug.Log("Spawning? Should be");
-                    Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
+                ottomanKillScore += 10;
+                Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
                     SpawnOttoman();
                 }
 

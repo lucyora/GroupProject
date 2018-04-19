@@ -25,6 +25,7 @@ public class HUD_Manager : MonoBehaviour
     //public TextMeshProUGUI GameStatusText;
     public TextMeshProUGUI[] PlayerScoresHUD;
     public TextMeshProUGUI[] TeamScoresHUD;
+    public TextMeshProUGUI OttomanScoreHUD;
     public TextMeshProUGUI[] LeaderboardHUD;
     public Image[] playerImage;
     public Image[] playerImageT;
@@ -63,8 +64,10 @@ public class HUD_Manager : MonoBehaviour
         else if(gamemanager.GameMode == GameManager.gamemode.DeathMatch)
         {
             InitHudTxt();
-            //assigns sprite to Player Images
-
+        }
+        else if (gamemanager.GameMode == GameManager.gamemode.OttomanEmpire)
+        {
+            gameHUD[2].gameObject.SetActive(true);
         }
         
         //playerClass = GetComponent<Player>();
@@ -107,7 +110,9 @@ public class HUD_Manager : MonoBehaviour
         { 
             min = (int)(Time.time / 60f);
             sec = (int)(Time.time % 60f);
-            gamemanager.score[0] = Time.time;
+            float timescore = gamemanager.ottomanscores = Time.time;
+            float gamescore = gamemanager.ottomanKillScore + timescore;
+            OttomanScoreHUD.text = "Score: " + gamescore.ToString("f0");
         }
         else         //Down count
         { 
@@ -206,11 +211,8 @@ public class HUD_Manager : MonoBehaviour
         float team1 = gamemanager.teamscores[0];
         float team2 = gamemanager.teamscores[1];
 
-      /*  TeamScoresHUD[0].gameObject.SetActive(true);
-        TeamScoresHUD[1].gameObject.SetActive(true);
-
         TeamScoresHUD[0].text = "Team Score: " + team1;
-        TeamScoresHUD[1].text = "Team Score: " + team2;*/
+        TeamScoresHUD[1].text = "Team Score: " + team2;
     }
 
 
