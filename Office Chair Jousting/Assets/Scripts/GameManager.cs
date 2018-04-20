@@ -184,14 +184,12 @@ public class GameManager : MonoBehaviour
             }
 
             //Pausing the game
-            if (Input.GetButtonDown("JoyStart0"))
-            {
-                if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
-                {
-                    GameisPaused = !GameisPaused;
-                    HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
-                }
-            }
+		if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
+		{
+		    GameisPaused = !GameisPaused;
+		    HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
+		}
+            
             //
             if (GameMode != gamemode.TeamDeathMatch && Player.GetComponent<Player>().isAlive)
             {
