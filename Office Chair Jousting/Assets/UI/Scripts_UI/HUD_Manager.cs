@@ -211,8 +211,8 @@ public class HUD_Manager : MonoBehaviour
         float team1 = gamemanager.teamscores[0];
         float team2 = gamemanager.teamscores[1];
 
-        TeamScoresHUD[0].text = "Team Score: " + team1;
-        TeamScoresHUD[1].text = "Team Score: " + team2;
+        TeamScoresHUD[0].text = "Score: " + team1;
+        TeamScoresHUD[1].text = "Score: " + team2;
     }
 
 
