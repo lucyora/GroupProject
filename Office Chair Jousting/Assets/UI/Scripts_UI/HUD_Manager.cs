@@ -107,12 +107,15 @@ public class HUD_Manager : MonoBehaviour
         //count goes up for survival mode
         //Up count
         if (gamemanager.GameMode == GameManager.gamemode.OttomanEmpire)
-        { 
-            min = (int)(Time.time / 60f);
-            sec = (int)(Time.time % 60f);
-            float timescore = gamemanager.ottomanscores = Time.time;
-            float gamescore = gamemanager.ottomanKillScore + timescore;
-            OttomanScoreHUD.text = "Score: " + gamescore.ToString("f0");
+        {
+            if (!gamemanager.GameIsOver)
+            {
+                min = (int)(Time.time / 60f);
+                sec = (int)(Time.time % 60f);
+                float timescore = gamemanager.ottomanscores = Time.time;
+                float gamescore = gamemanager.ottomanKillScore + timescore;
+                OttomanScoreHUD.text = "Score: " + gamescore.ToString("f0");
+            }
         }
         else         //Down count
         { 
@@ -120,9 +123,7 @@ public class HUD_Manager : MonoBehaviour
             sec = (int)(TimeLeft % 60f);
             if (TimeLeft < 0) 
             {
-                TimeLeft = 0;
-                Invoke("GameOverHUD", call);                //avoid calling function every frame by invoking after specific amount of second
-                gamemanager.GameIsOver = true;
+                endthegame();
             }
             if(gamemanager.GameMode == GameManager.gamemode.TeamDeathMatch)
             {
@@ -160,6 +161,13 @@ public class HUD_Manager : MonoBehaviour
         //    GameStatusText.text = "Test";
         //}
 
+    }
+    public void endthegame()
+    {
+        //Messy and ultimately shouldn't be done like this but we're running out of time
+                TimeLeft = 0;
+                Invoke("GameOverHUD", call);                //avoid calling function every frame by invoking after specific amount of second
+                gamemanager.GameIsOver = true;
     }
     void GameOverHUD()
     {
