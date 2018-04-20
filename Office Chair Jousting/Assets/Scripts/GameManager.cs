@@ -261,6 +261,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnOttoman()
     {
+        Debug.Log("spawn enemies" + numEnemy + " DeltaTime:" + Time.time);
         if (SpawnPoints.Length == 0)
         {
             Debug.LogError("SpawnPoints array in Game Manager has no Spawn Points. Please fill this variable in with game objects");
@@ -277,8 +278,9 @@ public class GameManager : MonoBehaviour
             }
 
         }
-		// Increase the total number of enemies spawned and the number of spawned enemies
-		numEnemy++;
+        Debug.Log("spawned enemies" + numEnemy + " DeltaTime:" + Time.time);
+        // Increase the total number of enemies spawned and the number of spawned enemies
+        numEnemy++;
 		spawnedEnemy++;
 		Ottoman = Instantiate(Ottoman, SpawnPoints[SpawnPointIndex].transform.position, Quaternion.identity);//Replacing the current player object with a fresh version
     }
@@ -335,11 +337,12 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        timeTillWave += 1;
         //Checking for death in each object in the PlayerList
         foreach (var player in PlayerList)
         {
             
-            if (player.GetComponent<Player>() != null)
+            if (player != null && player.GetComponent<Player>() != null)
             {
                 //Player object is confirmed to be a human
                 if (player.GetComponent<Player>().readytorespawn)
@@ -373,34 +376,40 @@ public class GameManager : MonoBehaviour
 		if (GameMode == gamemode.OttomanEmpire)
 		{
 			Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
-			if (spawn)
+            if (timeTillWave >= waveTimer)
+            {
+                Debug.Log("time till wave");
+                // enables the wave spawner
+                waveSpawn = true;
+                spawn = true;
+                // sets the time back to zero
+                timeTillWave = 0.0f;
+                // increases the number of waves
+
+                // Get it to spawn the same number of enemies regardless of how many have been killed
+                numEnemy = 0;
+                numWaves++;
+            }
+
+            if (spawn)
 			{
-				// checks to see if the number of spawned enemies is less than the max num of enemies
-				if (numEnemy < totalEnemy)
+				// checks to see if the number of spawned ottoman is less than the max num of enemies
+				if (numEnemy <= totalEnemy)
 				{
 					// spawns an ottoman
 					SpawnOttoman();
-				}
-				// checks to see if the overall spawned num of enemies is more or equal to the total to be spawned
-				if (spawnedEnemy >= totalEnemy)
+                    SpawnOttoman();
+                }
+                // checks to see if the overall spawned num of ottoman is more or equal to the total to be spawned
+                if (spawnedEnemy >= totalEnemy * (numWaves+1) )
 				{
 					//sets the spawner to false
 					spawn = false;
 				}
-				else
-				{
-					// spawns an ottoman
-					SpawnOttoman();
-				}
 
 				if (numWaves < totalWaves + 1)
 				{
-					if (waveSpawn)
-					{
-						//spawns an ottoman
-						SpawnOttoman();
-					}
-					if (numEnemy == 0)
+					if (numEnemy == 0 && !waveSpawn)
 					{
 						// enables the wave spawner
 						waveSpawn = true;
@@ -413,26 +422,20 @@ public class GameManager : MonoBehaviour
 						waveSpawn = false;
 					}
 				}
-				if (numWaves <= totalWaves)
+                //Debug.Log("Number of waves, "+numWaves);
+                ///Debug.Log("Number of waves "+ totalWaves);
+
+                if (numWaves <= totalWaves)
 				{
 					// Increases the timer to allow the timed waves to work
-					timeTillWave += Time.deltaTime;
+					//timeTillWave += Time.deltaTime;
+                    Debug.Log("Wave timer");
 					if (waveSpawn)
 					{
 						//spawns an enemy
 						SpawnOttoman();
-					}
-					if (timeTillWave >= waveTimer)
-					{
-						// enables the wave spawner
-						waveSpawn = true;
-						// sets the time back to zero
-						timeTillWave = 0.0f;
-						// increases the number of waves
-						numWaves++;
-						// Get it to spawn the same number of enemies regardless of how many have been killed
-						numEnemy = 0;
-					}
+                    }
+
 					if (numEnemy >= totalEnemy)
 					{
 						// diables the wave spawner

@@ -30,8 +30,6 @@ public class AI : Player
 		// CurrentState = aiState.MOVETO;
 
 		nav = GetComponent<NavMeshAgent>();
-		Debug.Log("I AM AWAKE");
-		//nav.enabled = true;
 		isAlive = true;
 	}
 	void Start()
