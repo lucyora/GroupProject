@@ -61,7 +61,6 @@ public class AI : Player
 		{
 			if (gameObject.tag == "AI")
 			{
-				Debug.Log("Is Player AI");
 				ChangeState(CurrentState);
 			}
 			else
