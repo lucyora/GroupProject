@@ -170,6 +170,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        bool allplayersdead = true;
         int index = 0;
 		if (PlayerIndicator.Length == 0)
         {
@@ -177,6 +178,11 @@ public class GameManager : MonoBehaviour
         }
         foreach (GameObject Player in PlayerList)
         {
+            if (Player.GetComponent<Player>().isAlive)
+            {
+                allplayersdead = false;
+            }
+
             //Pausing the game
             if (Player.GetComponent<Player>().SelectedP_Start != "")
             {
@@ -187,13 +193,20 @@ public class GameManager : MonoBehaviour
                 }
             }
             //
-            if (GameMode != gamemode.TeamDeathMatch)
+            if (GameMode != gamemode.TeamDeathMatch && Player.GetComponent<Player>().isAlive)
             {
                 PlayerIndicator[index].transform.position = new Vector3(Player.transform.position.x, (Player.transform.position.y + 10), Player.transform.position.z);//Setting the player indicators to float just above their respective players.
+            }
+            else
+            {
+                PlayerIndicator[index].transform.position = new Vector3(1000, 1000, 1000);
             }
 
             index++;
         }
+
+
+
         if (GameMode == gamemode.TeamDeathMatch)
         {
             if (PlayerList[0].GetComponent<Player>().team == 0)
@@ -234,6 +247,12 @@ public class GameManager : MonoBehaviour
             {
                 TeamIndicator[7].transform.position = new Vector3(PlayerList[3].transform.position.x, PlayerList[3].transform.position.y + 10, PlayerList[3].transform.position.z);
             }
+        }
+
+        if (allplayersdead && GameMode == gamemode.OttomanEmpire)
+        {
+            GameIsOver = true;
+            HudManager.GetComponent<HUD_Manager>().endthegame();
         }
     }
 
@@ -349,25 +368,18 @@ public class GameManager : MonoBehaviour
                 {
                     
                     //We're not respawning the player in ottoman
-                  //  if (GameMode != gamemode.OttomanEmpire)
-                  //  {
-                        UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
-                        PlayerList[index].GetComponent<Player>().Death();
+
 
                     if (GameMode != gamemode.OttomanEmpire)
                     {
+                        UpdateScores(player.GetComponent<Player>().LastPlayerHit,player.GetComponent<Player>().team,player.GetComponent<Player>().LastPlayerHitTeam);
+                        PlayerList[index].GetComponent<Player>().Death();
                         PlayerList[index] = (GameObject)Resources.Load("prefabs/player", typeof(GameObject));
                         SetPlayerOptions(PlayersOptions[index], index);
                         SpawnPlayer(index);
-                    }
-                        //Here lies the final resting place of the worlds most stress inducing foreach escape
-                  //  }
-                  //  else
-                   // {
-                     //   player.SetActive(false);
-                    //    player.transform.position = new Vector3(1000, 1000, 1000);
 
-                   // }
+                    }
+
                 }
             }
             index++;
