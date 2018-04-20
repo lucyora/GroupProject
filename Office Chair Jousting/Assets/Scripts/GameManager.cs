@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
             }
 
             //Pausing the game
-            if (Player.GetComponent<Player>().SelectedP_Start != "")
+            if (Input.GetButtonDown("JoyStart0"))
             {
                 if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
                 {
