@@ -113,14 +113,12 @@ public class MapSelect : MonoBehaviour {
         {
             world.gameObject.SetActive(false);
             Load.gameObject.SetActive(true);
-            Debug.Log("No Level Currently Added for Map");
-            SceneManager.LoadSceneAsync("CharacterRigTesting");
+            SceneManager.LoadSceneAsync("SPACE");
         }
         if (level == 3)
         {
             world.gameObject.SetActive(false);
             Load.gameObject.SetActive(true);
-            Debug.Log("No Level Currently Added for Map");
             SceneManager.LoadSceneAsync("Jello World_hud");
         }
     }

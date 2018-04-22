@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jello World.unity
     guid: 8ee17a377d0fe624db02d21ccf9dacea
+  - enabled: 1
+    path: Assets/Scenes/SPACE.unity
+    guid: 2812ecf21c0a0104aa246c234745421c
   - enabled: 0
     path: Assets/Scenes/CharacterRigTesting.unity
     guid: 231ad9c306afb154796f0c7e74652bdf

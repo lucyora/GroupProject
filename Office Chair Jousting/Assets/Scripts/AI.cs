@@ -42,28 +42,19 @@ public class AI : Player
 		qTo = Quaternion.Euler(new Vector3(0.0f, Random.Range(-180.0f, 180.0f), 0.0f));
 		if (gameObject.tag == "AI")
 		{
-			Debug.Log("Is Player AI");
 			ChangeState(CurrentState);
 		}
-		else
-		{
-			Debug.Log("Ottoman AI");
-        }
 
     }
 
 	public override void UpdatePosition()//Overrides the player UpdatePosition function that handles player input. Raycasting for death is handled in player.cs
 	{
         Invoke("invokeAISTUFF", 10.0f);
-            if (player != null)
+        if (player != null)
 		{
 			if (gameObject.tag == "AI")
 			{
 				ChangeState(CurrentState);
-			}
-			else
-			{
-				Debug.Log("Ottoman AI");
 			}
 		}
 		else

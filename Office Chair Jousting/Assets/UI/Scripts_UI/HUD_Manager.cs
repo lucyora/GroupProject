@@ -8,7 +8,7 @@ using TMPro;
 public class HUD_Manager : MonoBehaviour
 {
 
-    private GameManager gamemanager;
+    public GameManager gamemanager;
     // for invoke GameOverHud
     float call = 0.5f;          
     //Timer
@@ -49,26 +49,16 @@ public class HUD_Manager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        if(gamemanager == null)
+        {
+            gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        }
         isplayer = new int[4] {gamemanager.Player1isAI,
                                gamemanager.Player2isAI,
                                gamemanager.Player3isAI,
                                gamemanager.Player4isAI };
         textrng = Random.Range(0, 4);
         PlayerInfo = new int[4] { 0, 0, 0, 0 };
-
-        if (gamemanager.GameMode == GameManager.gamemode.TeamDeathMatch)
-        {
-            InitTeamHudTxt();
-        }
-        else if(gamemanager.GameMode == GameManager.gamemode.DeathMatch)
-        {
-            InitHudTxt();
-        }
-        else if (gamemanager.GameMode == GameManager.gamemode.OttomanEmpire)
-        {
-            gameHUD[2].gameObject.SetActive(true);
-        }
         
         //playerClass = GetComponent<Player>();
 
@@ -80,8 +70,9 @@ public class HUD_Manager : MonoBehaviour
 
     private void Awake()
     {
+
         Time.timeScale = 1;
-        startTime = Time.timeSinceLevelLoad;
+
     }
 
     public bool PauseEvent(bool GameisPaused)
@@ -101,6 +92,19 @@ public class HUD_Manager : MonoBehaviour
     }
     void Update ()
     {
+        startTime = Time.timeSinceLevelLoad;
+        if (gamemanager.GameMode == GameManager.gamemode.TeamDeathMatch)
+        {
+            gameHUD[1].gameObject.SetActive(true);
+        }
+        else if (gamemanager.GameMode == GameManager.gamemode.DeathMatch)
+        {
+            InitHudTxt();
+        }
+        else if (gamemanager.GameMode == GameManager.gamemode.OttomanEmpire)
+        {
+            gameHUD[2].gameObject.SetActive(true);
+        }
         //Timer
         TimeLeft = TimeLeft - Time.deltaTime;
 
@@ -110,9 +114,9 @@ public class HUD_Manager : MonoBehaviour
         {
             if (!gamemanager.GameIsOver)
             {
-                min = (int)(Time.time / 60f);
-                sec = (int)(Time.time % 60f);
-                float timescore = gamemanager.ottomanscores = Time.time;
+                min = (int)(startTime / 60f);
+                sec = (int)(startTime % 60f);
+                float timescore = gamemanager.ottomanscores = startTime;
                 float gamescore = gamemanager.ottomanKillScore + timescore;
                 OttomanScoreHUD.text = "Score: " + gamescore.ToString("f0");
             }
@@ -137,37 +141,13 @@ public class HUD_Manager : MonoBehaviour
 
         string temp = "Time " + min.ToString("00") + ":" + sec.ToString("00");
         TimerText.text = temp;
-
-        //Score
-
-
-
-
-        //Test for checking player death
-        //if (!playerClass.isAlive)
-        //{
-        //    GameOver();
-        //    Debug.Log("Player1's gone far away...");
-        //}
-
-        //TODO: Think about pop up hud with sub-menu to choose restart
-        //if (Input.GetButtonDown("JoyA"))
-        //{
-        //    //GameOver();
-        //}
-        //else if (Input.GetButtonDown("JoyB"))
-        //{
-        //    //GameStart();
-        //    GameStatusText.text = "Test";
-        //}
-
     }
     public void endthegame()
     {
         //Messy and ultimately shouldn't be done like this but we're running out of time
-                TimeLeft = 0;
-                Invoke("GameOverHUD", call);                //avoid calling function every frame by invoking after specific amount of second
-                gamemanager.GameIsOver = true;
+        TimeLeft = 0;
+        Invoke("GameOverHUD", call);                //avoid calling function every frame by invoking after specific amount of second
+        gamemanager.GameIsOver = true;
     }
     void GameOverHUD()
     {
@@ -227,8 +207,6 @@ public class HUD_Manager : MonoBehaviour
     public void InitHudTxt()
     {
         gameHUD[0].gameObject.SetActive(true);
-        //TODO: Only active players get HUD
-
         for (int i = 0; i < 4; i++)
         {
             for (int j = 0; j < 4; j++)
@@ -236,72 +214,12 @@ public class HUD_Manager : MonoBehaviour
                 if (PlayerPrefs.GetInt("Character" + (i + 1)) == j)
                 {
                     playerImage[i].sprite = playerSprite[j];
-                   
                 }
             }
             if(isplayer[i] == 1 )
             {
                 PlayerHUD[i].gameObject.SetActive(true);
-            }
-            
-
+            }  
         }
-    
-       /* if (PlayerPrefs.GetInt("Player1isAI") == 1)
-            {
-                PlayerHUD[0].gameObject.SetActive(true);
-            }
-            else
-            {
-                PlayerHUD[0].gameObject.SetActive(false);
-            }
-
-            if (PlayerPrefs.GetInt("Player2isAI") == 1)
-            {
-                PlayerHUD[1].gameObject.SetActive(true);
-            }
-            else
-            {
-                PlayerHUD[1].gameObject.SetActive(false);
-            }
-
-            if (PlayerPrefs.GetInt("Player3isAI") == 1)
-            {
-                PlayerHUD[2].gameObject.SetActive(true);
-            }
-            else
-            {
-                PlayerHUD[2].gameObject.SetActive(false);
-            }
-
-            if (PlayerPrefs.GetInt("Player4isAI") == 1)
-            {
-                PlayerHUD[3].gameObject.SetActive(true);
-            }
-            else
-            {
-                PlayerHUD[3].gameObject.SetActive(false);
-            }*/
-    }
-    public void InitTeamHudTxt()
-    {
-        gameHUD[1].gameObject.SetActive(true);
-
-            for (int j = 0; j < 4; j++)
-            {
-                if(PlayerPrefs.GetInt("Player"+(j+1)+"Team") == 0)
-                {
-                    //check which team is each player is on
-                }
-            }
-        
-    }
-
-
-
-    void SubMenu()
-    {
-        //Restart
-        //Back to main menu  
     }
 }

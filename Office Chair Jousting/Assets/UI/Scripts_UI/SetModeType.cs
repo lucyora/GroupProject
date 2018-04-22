@@ -20,7 +20,6 @@ public class SetModeType : MonoBehaviour {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.1)
             {
-                Debug.Log("Music");
 				SoundManager.instance.selectSound.Play();
                 MoveNav(-1);
                 controlDelay = 0;
@@ -39,7 +38,6 @@ public class SetModeType : MonoBehaviour {
     }
      void MoveNav(int change)
     {
-        Debug.Log("This is Game Mode: " + gameModeIndex);
         if (change > 0)
         {
             if (gameModeIndex + change < gameModePosition.Length - 1)

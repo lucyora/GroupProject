@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 public class Player : Player_Raycast {
-    public enum character {Jenny,Steve, Gretchen, Bubba, Judith,Harry};
+    public enum character {Jenny,Steve, Judith, Bubba,Harry};
     [Tooltip("What character will be spawned. The value set in the inspector will be ignored if debug mode isn't enabled")]
     public character Character;
     public bool isAlive;
@@ -55,13 +55,10 @@ public class Player : Player_Raycast {
         if (charint < 0)
         {
             charint = 0;
-            Debug.LogWarning("Character index was set below 0");
         }
         else if (charint > 3)
         {
             charint = 3;
-            Debug.LogWarning("Character index was set above 3. It cannot be above 3");
-
         }
         if (!DebugMode)
         {

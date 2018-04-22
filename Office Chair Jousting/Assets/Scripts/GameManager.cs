@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("An array for all team scores. Set as many teams as you need")]
     public int[] teamscores;
     [Tooltip("Ottoman Game Score based on time")]
-    public float ottomanscores;
+    public float ottomanscores = 0;
     [Tooltip("Ottoman Game Score based on Ottoman Kills")]
     public int ottomanKillScore;
     public LargestHit largesthit = new LargestHit();
@@ -144,8 +144,9 @@ public class GameManager : MonoBehaviour
         }
 
         //This is set in the inspector is this script is in debug mode
-        if (!DebugMode)
-        {
+        //       if (!DebugMode)
+        //     {
+        Debug.Log("The saved PlayerPref for GamemMode Is: " + PlayerPrefs.GetInt("GameMode"));
             switch (PlayerPrefs.GetInt("GameMode"))
             {
                 case 0:
@@ -160,10 +161,9 @@ public class GameManager : MonoBehaviour
                 case 4:
                     GameMode = gamemode.LastManSitting;
                     break;
-            }
+ //           }
 
         }
-
         InvokeRepeating("DeathWatch", 0.01f, 1.0f);//Watching for player deaths
     }
 
@@ -184,12 +184,14 @@ public class GameManager : MonoBehaviour
             }
 
             //Pausing the game
-		if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
-		{
-		    GameisPaused = !GameisPaused;
-		    HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
-		}
-            
+            if (Input.GetButtonDown("JoyStart0"))
+            {
+                if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
+                {
+                    GameisPaused = !GameisPaused;
+                    HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
+                }
+            }
             //
             if (GameMode != gamemode.TeamDeathMatch && Player.GetComponent<Player>().isAlive)
             {
@@ -199,7 +201,7 @@ public class GameManager : MonoBehaviour
             {
                 PlayerIndicator[index].transform.position = new Vector3(1000, 1000, 1000);
             }
-
+            Debug.Log("index is "+index);
             index++;
         }
 
