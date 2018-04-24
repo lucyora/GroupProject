@@ -218,34 +218,42 @@ public class GameManager : MonoBehaviour
                 TeamIndicator[1].transform.position = new Vector3(PlayerList[0].transform.position.x, PlayerList[0].transform.position.y + 10, PlayerList[0].transform.position.z);
             }
 
-
-            if (PlayerList[1].GetComponent<Player>().team == 0)
+            if (TotalPlayerCount >= 2)
             {
-                TeamIndicator[2].transform.position = new Vector3(PlayerList[1].transform.position.x, PlayerList[1].transform.position.y + 10, PlayerList[1].transform.position.z);
-            }
-            else
-            {
-                TeamIndicator[3].transform.position = new Vector3(PlayerList[1].transform.position.x, PlayerList[1].transform.position.y + 10, PlayerList[1].transform.position.z);
-            }
-
-
-            if (PlayerList[2].GetComponent<Player>().team == 0)
-            {
-                TeamIndicator[4].transform.position = new Vector3(PlayerList[2].transform.position.x, PlayerList[2].transform.position.y + 10, PlayerList[2].transform.position.z);
-            }
-            else
-            {
-                TeamIndicator[5].transform.position = new Vector3(PlayerList[2].transform.position.x, PlayerList[2].transform.position.y + 10, PlayerList[2].transform.position.z);
-            }
+                if (PlayerList[1].GetComponent<Player>().team == 0)
+                {
+                    TeamIndicator[2].transform.position = new Vector3(PlayerList[1].transform.position.x, PlayerList[1].transform.position.y + 10, PlayerList[1].transform.position.z);
+                }
+                else
+                {
+                    TeamIndicator[3].transform.position = new Vector3(PlayerList[1].transform.position.x, PlayerList[1].transform.position.y + 10, PlayerList[1].transform.position.z);
+                }
 
 
-            if (PlayerList[3].GetComponent<Player>().team == 0)
-            {
-                TeamIndicator[6].transform.position = new Vector3(PlayerList[3].transform.position.x, PlayerList[3].transform.position.y + 10, PlayerList[3].transform.position.z);
-            }
-            else
-            {
-                TeamIndicator[7].transform.position = new Vector3(PlayerList[3].transform.position.x, PlayerList[3].transform.position.y + 10, PlayerList[3].transform.position.z);
+                if (TotalPlayerCount >= 3)
+                {
+                    if (PlayerList[2].GetComponent<Player>().team == 0)
+                    {
+                        TeamIndicator[4].transform.position = new Vector3(PlayerList[2].transform.position.x, PlayerList[2].transform.position.y + 10, PlayerList[2].transform.position.z);
+                    }
+                    else
+                    {
+                        TeamIndicator[5].transform.position = new Vector3(PlayerList[2].transform.position.x, PlayerList[2].transform.position.y + 10, PlayerList[2].transform.position.z);
+                    }
+
+
+                    if (TotalPlayerCount >= 4)
+                    {
+                        if (PlayerList[3].GetComponent<Player>().team == 0)
+                        {
+                            TeamIndicator[6].transform.position = new Vector3(PlayerList[3].transform.position.x, PlayerList[3].transform.position.y + 10, PlayerList[3].transform.position.z);
+                        }
+                        else
+                        {
+                            TeamIndicator[7].transform.position = new Vector3(PlayerList[3].transform.position.x, PlayerList[3].transform.position.y + 10, PlayerList[3].transform.position.z);
+                        }
+                    }
+                }
             }
         }
 

@@ -48,6 +48,13 @@ public class CharacterStats
                 RotationSnapRange = 3;
                 Gender = 0;
                 break;
+            case Player.character.Harry:
+                Strength = 2;
+                Mass = 140;
+                SpeedLimiter = 7;
+                RotationSnapRange = 3;
+                Gender = 0;
+                break;
 
         }
     }

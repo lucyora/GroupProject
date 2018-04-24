@@ -56,9 +56,9 @@ public class Player : Player_Raycast {
         {
             charint = 0;
         }
-        else if (charint > 3)
+        else if (charint > 5)
         {
-            charint = 3;
+            charint = 5;
         }
         if (!DebugMode)
         {
