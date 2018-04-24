@@ -24547,8 +24547,9 @@ MonoBehaviour:
   SelectedP_RX: 
   SelectedP_RY: 
   SelectedP_Start: 
-  Character: 4
+  Character: 0
   isAlive: 1
+  Gender: 0
   Strength: 0
   Mass: 136
   SpeedLimiter: 5

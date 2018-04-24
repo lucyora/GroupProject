@@ -119,7 +119,7 @@ public class MapSelect : MonoBehaviour {
         {
             world.gameObject.SetActive(false);
             Load.gameObject.SetActive(true);
-            SceneManager.LoadSceneAsync("Jello World_hud");
+            SceneManager.LoadSceneAsync("Desert Level");
         }
     }
 }

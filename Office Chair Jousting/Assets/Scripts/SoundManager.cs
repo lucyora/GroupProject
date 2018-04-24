@@ -28,6 +28,7 @@ public class SoundManager : MonoBehaviour
 	public AudioSource movechair;
 	public AudioSource elevatorDing;
 	public AudioSource femaleGrunts;
+    public AudioSource ottomanDeath;
     public static SoundManager instance = null;
 
 	public float sfxVol;

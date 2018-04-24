@@ -466,24 +466,6 @@ public class GameManager : MonoBehaviour
 				{
 					spawn = false;
 				}
-
-				//for(int i = 0; i < ottomanCount; i++)
-				//{
-				//if (Ottoman.GetComponent<AI>() != null)
-				//{
-				//	if (Ottoman.GetComponent<AI>().readytorespawn)
-				//	{
-				//		Debug.Log("Inside deepest if statement ready to respawn");
-
-				//		Ottoman.GetComponent<AI>().Death();
-				//	}
-				//	Debug.Log("Spawning? Should be");
-				//	ottomanKillScore += 10;
-				//	Ottoman = (GameObject)Resources.Load("prefabs/Ottoman", typeof(GameObject));
-				//	SpawnOttoman();
-				//}
-
-				//}
 			}
 		}
     }

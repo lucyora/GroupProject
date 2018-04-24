@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SPACE.unity
     guid: 2812ecf21c0a0104aa246c234745421c
+  - enabled: 1
+    path: Assets/Scenes/Desert Level.unity
+    guid: 31cc2d7719096b1438043be6be1a08c0
   - enabled: 0
     path: Assets/Scenes/CharacterRigTesting.unity
     guid: 231ad9c306afb154796f0c7e74652bdf

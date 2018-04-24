@@ -5,11 +5,11 @@ using UnityEngine;
 
 
 public class Player : Player_Raycast {
-    public enum character {Jenny,Steve, Judith, Bubba,Harry};
+    public enum character {Jenny,Steve, Judith, Bubba,Harry, AI};
     [Tooltip("What character will be spawned. The value set in the inspector will be ignored if debug mode isn't enabled")]
     public character Character;
     public bool isAlive;
-    int Gender;
+    public int Gender;
     public float Strength= 0;
     public float Mass = 0;
     public float SpeedLimiter = 100;
@@ -106,6 +106,10 @@ public class Player : Player_Raycast {
                 else if (Gender == 1)
                 {
                     SoundManager.instance.femaleScream1.Play();
+                }
+                else if (Gender == 2)
+                {
+                    SoundManager.instance.ottomanDeath.Play();
                 }
                 deathSoundPlayed = true;
             }

@@ -55,6 +55,13 @@ public class CharacterStats
                 RotationSnapRange = 3;
                 Gender = 0;
                 break;
+            case AI.character.AI:
+                Strength = 2;
+                Mass = 140;
+                SpeedLimiter = 7;
+                RotationSnapRange = 3;
+                Gender = 2;
+                break;
 
         }
     }
