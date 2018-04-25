@@ -30,14 +30,14 @@ public class MultiPlayerCamera : MonoBehaviour
     }
     private void Update()
     {
-        targets = gameManager.PlayerList;  
+        targets = gameManager.PlayerList;
     }
 
 
     private void LateUpdate()
     {
         if (targets.Count == 0)                             // Null check condition, if there is no player to follow for camera it just returns. 
-        {  
+        {
             return;
         }
 
@@ -49,18 +49,25 @@ public class MultiPlayerCamera : MonoBehaviour
     {
         if (targets.Count == 1)                             //If there is only one target no need to keep track of center, but still needs to follow the player
         {
-            return targets[0].transform.position;
+            if (!targets[0].gameObject.GetComponent<Player>().IsInElevator)
+            {
+                return targets[0].transform.position;
+            }
         }
 
         var bounds = new Bounds();         // Creates the boundary around all connected player.
+        //var bounds = new Bounds(targets[0].transform.position, Vector3.zero);         // Creates the boundary around all connected player.
         for (int i = 0; i < targets.Count; i++)
         {
             if (!targets[i].gameObject.GetComponent<Player>().IsInElevator)
-            { 
+            {
                 bounds.Encapsulate(targets[i].transform.position);        // Resizes the box according to the targets
             }
         }
+
+
         return bounds.center;                               // Returns the center point of the boundary
+        
     }
 
 
@@ -85,7 +92,7 @@ public class MultiPlayerCamera : MonoBehaviour
     void ZoomCamera()                                       // Adjusts FOV in the camera when everybody is close to eachother and does viceversa
     {
         float newZoom = Mathf.Lerp(minZoom, maxZoom, GetGreatestDiatance() / zoomLimiter);
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);     
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
     }
 
 }

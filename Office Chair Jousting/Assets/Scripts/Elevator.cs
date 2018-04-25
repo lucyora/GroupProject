@@ -18,7 +18,6 @@ public class Elevator : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Player>() != null && !gamemanager.PlayerIsInElevator)
             {
-
                 gamemanager.PlayerIsInElevator = true;// This variable is used so the other elevator knows not to transport someone until the other player reaches their destination
                 other.gameObject.GetComponent<Player>().IsInElevator = true;
                 player = other; // Storing the player for when we invoke the function to bring the player to their destination
@@ -39,7 +38,6 @@ public class Elevator : MonoBehaviour
         player.gameObject.GetComponent<Player>().IsInElevator = false;
         SoundManager.instance.elevatorDing.Play();
         gamemanager.PlayerIsInElevator = false;
-
     }
 }
 

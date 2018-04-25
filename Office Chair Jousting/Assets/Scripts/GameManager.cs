@@ -356,7 +356,7 @@ public class GameManager : MonoBehaviour
     void DeathWatch()
     {
         int index = 0;
-        if(GameMode == gamemode.OttomanEmpire && PlayerList.Count == 0)
+        if (GameMode == gamemode.OttomanEmpire && PlayerList.Count == 0)
         {
             GameIsOver = true;
         }
