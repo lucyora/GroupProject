@@ -2517,6 +2517,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114241952673599240, guid: 87b3d20ba4c4abf40a356d4df66b0f9d,
+        type: 2}
+      propertyPath: targets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4715598908875020, guid: 87b3d20ba4c4abf40a356d4df66b0f9d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.39
@@ -2552,6 +2557,36 @@ Prefab:
     - target: {fileID: 1750753694117204, guid: 87b3d20ba4c4abf40a356d4df66b0f9d, type: 2}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241952673599240, guid: 87b3d20ba4c4abf40a356d4df66b0f9d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241952673599240, guid: 87b3d20ba4c4abf40a356d4df66b0f9d,
+        type: 2}
+      propertyPath: offset.y
+      value: 22.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241952673599240, guid: 87b3d20ba4c4abf40a356d4df66b0f9d,
+        type: 2}
+      propertyPath: offset.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241952673599240, guid: 87b3d20ba4c4abf40a356d4df66b0f9d,
+        type: 2}
+      propertyPath: offset.z
+      value: -45.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241952673599240, guid: 87b3d20ba4c4abf40a356d4df66b0f9d,
+        type: 2}
+      propertyPath: minZoom
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114241952673599240, guid: 87b3d20ba4c4abf40a356d4df66b0f9d,
+        type: 2}
+      propertyPath: maxZoom
+      value: 73.69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87b3d20ba4c4abf40a356d4df66b0f9d, type: 2}

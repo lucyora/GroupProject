@@ -28,8 +28,7 @@ public class HUD_Manager : MonoBehaviour
     public TextMeshProUGUI OttomanScoreHUD;
     public TextMeshProUGUI[] LeaderboardHUD;
     public Image[] playerImage;
-    public Image[] playerImageT;
-    public Sprite[] playerSprite = new Sprite[4];
+    public Sprite[] playerSprite = new Sprite[5];
 
     private int[] isplayer;
 
@@ -207,19 +206,22 @@ public class HUD_Manager : MonoBehaviour
     public void InitHudTxt()
     {
         gameHUD[0].gameObject.SetActive(true);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < 4; j++)
+            for (int j = 0; j < 5; j++)
             {
                 if (PlayerPrefs.GetInt("Character" + (i + 1)) == j)
                 {
                     playerImage[i].sprite = playerSprite[j];
                 }
             }
-            if(isplayer[i] == 1 )
+        }
+        for(int i = 0; i< 4; i++)
+        {
+            if (isplayer[i] == 1)
             {
                 PlayerHUD[i].gameObject.SetActive(true);
-            }  
+            }
         }
     }
 }

@@ -25,35 +25,36 @@ public class POWERUP
     {
         switch (powerindex)
         {
+            //Donut
+            case 0:
+                Strength = 3;
+                Speed = 9;
+                Stability = 6;
+                break;
             case 1:
-                Strength = 10;
-                Speed = 0;
-                Stability = 3;
+                Strength = 9;
+                Speed = 9;
+                Stability = 9;
                 break;
             case 2:
-                Strength = 30;
-                Speed = 0;
-                Stability = 5;
+                Strength = 0;
+                Speed = -6;
+                Stability = 9;
                 break;
             case 3:
                 Strength = 0;
-                Speed = 10;
-                Stability = 5;
+                Speed = -9;
+                Stability = 6;
                 break;
             case 4:
-                Strength = 0;
-                Speed = 15;
-                Stability = 0;
+                Strength = 3;
+                Speed = -9;
+                Stability = 9;
                 break;
             case 5:
-                Strength = 5;
-                Speed = 15;
-                Stability = 0;
-                break;
-            case 6:
-                Strength = 20;
+                Strength = 9;
                 Speed = 0;
-                Stability = 0;
+                Stability = -3;
                 break;
             default:
                 Debug.LogWarning("Powerup index is either too high or too low. Powerup value is "+powerindex);

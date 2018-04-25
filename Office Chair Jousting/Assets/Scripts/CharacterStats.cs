@@ -21,38 +21,38 @@ public class CharacterStats
         switch (Character)
         {
             case Player.character.Jenny:
-                Strength = 30;
+                Strength = 1;
                 Mass = 136;
                 SpeedLimiter = 10;
-                RotationSnapRange = 5;
+                RotationSnapRange = 10;
                 Gender = 1;
                 break;
             case Player.character.Steve:
                 Strength = 85;
                 Mass = 136;
-                SpeedLimiter = 2;
-                RotationSnapRange = 1;
+                SpeedLimiter = 3;
+                RotationSnapRange = 5;
                 Gender = 0;
                 break;
             case Player.character.Judith:
                 Strength = 70;
                 Mass = 136;
                 SpeedLimiter = 15;
-                RotationSnapRange = 1;
+                RotationSnapRange = 10;
                 Gender = 1;
                 break;
             case Player.character.Bubba:
                 Strength = 2;
                 Mass = 140;
-                SpeedLimiter = 7;
-                RotationSnapRange = 3;
+                SpeedLimiter = 20;
+                RotationSnapRange = 15;
                 Gender = 0;
                 break;
             case Player.character.Harry:
                 Strength = 2;
                 Mass = 140;
-                SpeedLimiter = 7;
-                RotationSnapRange = 3;
+                SpeedLimiter = 25;
+                RotationSnapRange = 5;
                 Gender = 0;
                 break;
             case AI.character.AI:

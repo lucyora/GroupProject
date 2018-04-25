@@ -51,7 +51,6 @@ public class Player : Player_Raycast {
         GameObject Camera = GameObject.FindGameObjectWithTag("Camera");
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         POWERUP powerup = new POWERUP(PlayerPrefs.GetInt("Char"+(InternalPlayerIndex+1)+"Power"));
-        //maleScreams = GameObject.Find("MaleScream").GetComponent<AudioSource>();
         int charint = PlayerPrefs.GetInt("Character"+ (InternalPlayerIndex + 1));
         if (charint < 0)
         {
@@ -67,15 +66,25 @@ public class Player : Player_Raycast {
         } 
         CharacterStats stats = new CharacterStats(Character);
         Strength += (powerup.Strength + stats.Strength);
-        SpeedLimiter = stats.SpeedLimiter;
+        SpeedLimiter = (stats.SpeedLimiter + powerup.Speed);
+        Debug.Log("Power speed Value: " + powerup.Speed);
+        Debug.Log("Character speed Value: " + stats.SpeedLimiter);
         Gender = stats.Gender;
-        SpeedLimiter -= powerup.Speed;
+       // SpeedLimiter -= powerup.Speed;
         RotationSnapRange += (powerup.Stability + stats.RotationSnapRange);        
         SolidCharacters[(int)Character].SetActive(true);
         GetComponent<Rigidbody>().mass = Mass;
         GetComponent<Rigidbody>().centerOfMass = CenterofGravity;
         this.gameObject.transform.GetChild(1).GetComponent<Joust>().Strength = Strength;//The joust
 
+        if(SpeedLimiter < 1)
+        {
+            SpeedLimiter = 1;
+        }
+        if(RotationSnapRange < 1)
+        {
+            RotationSnapRange = 1;
+        }
 
         InitController();
 

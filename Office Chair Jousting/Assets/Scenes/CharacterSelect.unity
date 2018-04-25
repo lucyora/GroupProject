@@ -7318,12 +7318,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -7739,6 +7739,7 @@ MonoBehaviour:
   - {fileID: 1141970251}
   - {fileID: 1178718398}
   - {fileID: 1737450153}
+  playerName: {fileID: 1280918113}
   panel: {fileID: 1091815840}
   charpanel: {fileID: 1091815841}
   readyPanel: {fileID: 31304808}
@@ -8858,6 +8859,7 @@ MonoBehaviour:
   - {fileID: 1938405000}
   - {fileID: 857587755}
   - {fileID: 1188530114}
+  playerName: {fileID: 1035111551}
   panel: {fileID: 1240099135}
   charpanel: {fileID: 1240099136}
   readyPanel: {fileID: 1066539638}
@@ -9211,12 +9213,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -10944,6 +10946,7 @@ MonoBehaviour:
   - {fileID: 458439812}
   - {fileID: 1221103167}
   - {fileID: 1290863855}
+  playerName: {fileID: 1560565500}
   panel: {fileID: 1438657984}
   charpanel: {fileID: 1438657985}
   readyPanel: {fileID: 517387549}
@@ -11821,12 +11824,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -14081,12 +14084,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -16548,6 +16551,7 @@ MonoBehaviour:
   - {fileID: 656676917}
   - {fileID: 1925701108}
   - {fileID: 1611365039}
+  playerName: {fileID: 1779050381}
   panel: {fileID: 2046064891}
   charpanel: {fileID: 2046064892}
   readyPanel: {fileID: 449019395}

@@ -28,6 +28,7 @@ public class CharacterSelect : MonoBehaviour {
     public Sprite[] sprite;
     public Sprite[] powersprite;
     public Slider[] slider;
+    public Text playerName;
     public GameObject panel;
     public RectTransform charpanel;
     public GameObject readyPanel;
@@ -458,37 +459,42 @@ public class CharacterSelect : MonoBehaviour {
     //charcter stats to display
     void character1Stats()
     {
+        playerName.text = "Jenny";
         strength = 25;
-        speed = 75;
-        stability = 45;
+        speed = 50;
+        stability = 50;
         image.sprite = sprite[0];
     }
     void character2Stats()
     {
+        playerName.text = "Steve";
         strength = 85;
-        speed = 20;
-        stability = 7;
+        speed = 70;
+        stability = 50;
         image.sprite = sprite[1];
     }
     void character3Stats()
     {
-        strength = 52;
-        speed = 98;
-        stability = 10;
+        playerName.text = "Judith";
+        strength = 70;
+        speed = 25;
+        stability = 50;
         image.sprite = sprite[2];
     }
     void character4Stats()
     {
-        strength = 10;
-        speed = 86;
-        stability = 45;
+        playerName.text = "Bubba";
+        strength = 75;
+        speed = 10;
+        stability = 75;
         image.sprite = sprite[3];
     }
     void character5Stats()
     {
+        playerName.text = "Harry Copper";
         strength = 25;
-        speed = 32;
-        stability = 87;
+        speed = 5;
+        stability = 90;
         image.sprite = sprite[4];
     }
 
