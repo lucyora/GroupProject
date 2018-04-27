@@ -28,7 +28,7 @@ public class HUD_Manager : MonoBehaviour
     public TextMeshProUGUI OttomanScoreHUD;
     public TextMeshProUGUI[] LeaderboardHUD;
     public Image[] playerImage;
-    public Sprite[] playerSprite = new Sprite[5];
+    public Sprite[] playerSprite = new Sprite[4];
 
     private int[] isplayer;
 
@@ -42,6 +42,11 @@ public class HUD_Manager : MonoBehaviour
     public GameObject gameOverCanvas;
     public GameObject PauseMenu;
     //public GameObject Testplayer;
+
+    float ps1;
+    float ps2;
+    float ps3;
+    float ps4;
 
 
 
@@ -91,6 +96,11 @@ public class HUD_Manager : MonoBehaviour
     }
     void Update ()
     {
+        ps1 = gamemanager.score[0];
+        ps2 = gamemanager.score[1];
+        ps3 = gamemanager.score[2];
+        ps4 = gamemanager.score[3];
+
         startTime = Time.timeSinceLevelLoad;
         if (gamemanager.GameMode == GameManager.gamemode.TeamDeathMatch)
         {
@@ -104,6 +114,7 @@ public class HUD_Manager : MonoBehaviour
         {
             gameHUD[2].gameObject.SetActive(true);
         }
+
         //Timer
         TimeLeft = TimeLeft - Time.deltaTime;
 
@@ -153,6 +164,9 @@ public class HUD_Manager : MonoBehaviour
         call = 1000000000;
         //TimeLeft = 0;
         Time.timeScale = 1;
+
+        
+
         switch (textrng)
         {
             case 0:
@@ -176,12 +190,6 @@ public class HUD_Manager : MonoBehaviour
     }
     void ScoreUpdateHUD()
     {
-        //Temporary scores setting
-        float ps1 = gamemanager.score[0];
-        float ps2 = gamemanager.score[1];
-        float ps3 = gamemanager.score[2];
-        float ps4 = gamemanager.score[3];
-
         PlayerScoresHUD[0].gameObject.SetActive(true);
         PlayerScoresHUD[1].gameObject.SetActive(true);
         PlayerScoresHUD[2].gameObject.SetActive(true);
@@ -192,6 +200,31 @@ public class HUD_Manager : MonoBehaviour
         PlayerScoresHUD[2].text = "Score : " + ps3;
         PlayerScoresHUD[3].text = "Score : " + ps4;
 
+        if (ps1 == ps2 || ps2 == ps3 || ps3 == ps4 || ps4 == ps1 || ps4 == ps2 || ps3 == ps1)
+        {
+            winnerTXT.text = "Looks like a TIE here";
+        }
+        if (ps1 > ps2 && ps1 > ps3 && ps1 > ps4)
+        {
+            winnerTXT.text = "Player 1 won free trip to Hawaii \n and will be working remotely";
+        }
+        if (ps2 > ps1 && ps2 > ps3 && ps2 > ps4)
+        {
+            winnerTXT.text = "Player 2 got promotion \n without getting actual raise";
+        }
+        if (ps3 > ps1 && ps3 > ps2 && ps3 > ps4)
+        {
+            winnerTXT.text = "Player 3 won coffee machine \n for the staff";
+        }
+        if (ps4 > ps1 && ps4 > ps2 && ps4 > ps3)
+        {
+            winnerTXT.text = "Player 4 won unpaid vacation \n for three months";
+        }
+        if (ps1 == 0 && ps2 == 0 && ps3 == 0 && ps4 == 0)
+        {
+            winnerTXT.text = "No winners, \n now get back to work";
+        }
+
     }
     void TeamScroeUpdate()
     {
@@ -200,28 +233,35 @@ public class HUD_Manager : MonoBehaviour
 
         TeamScoresHUD[0].text = "Score: " + team1;
         TeamScoresHUD[1].text = "Score: " + team2;
+
+        if (team1 > team2)
+        {
+            winnerTXT.text = "Team 1 won the match";
+        }
+        else
+        {
+            winnerTXT.text = "Team 2 won the match";
+        }
     }
 
 
     public void InitHudTxt()
     {
         gameHUD[0].gameObject.SetActive(true);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < 4; j++)
             {
                 if (PlayerPrefs.GetInt("Character" + (i + 1)) == j)
                 {
                     playerImage[i].sprite = playerSprite[j];
                 }
             }
-        }
-        for(int i = 0; i< 4; i++)
-        {
-            if (isplayer[i] == 1)
+            if(isplayer[i] == 1 )
             {
+                Debug.Log("Connected, Player hud active" + i);
                 PlayerHUD[i].gameObject.SetActive(true);
-            }
+            }  
         }
     }
 }
