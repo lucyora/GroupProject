@@ -67,8 +67,6 @@ public class Player : Player_Raycast {
         CharacterStats stats = new CharacterStats(Character);
         Strength += (powerup.Strength + stats.Strength);
         SpeedLimiter = (stats.SpeedLimiter + powerup.Speed);
-        Debug.Log("Power speed Value: " + powerup.Speed);
-        Debug.Log("Character speed Value: " + stats.SpeedLimiter);
         Gender = stats.Gender;
        // SpeedLimiter -= powerup.Speed;
         RotationSnapRange += (powerup.Stability + stats.RotationSnapRange);        

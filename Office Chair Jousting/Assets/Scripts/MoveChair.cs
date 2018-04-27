@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveChair : MonoBehaviour {
-    private Rigidbody rb;
+   // private Rigidbody rb;
     //public Transform Wheel1;
     //public Transform Wheel2;
     //public Transform Wheel3;
@@ -17,7 +17,7 @@ public class MoveChair : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        rb = GetComponent<Rigidbody>();
+    //    rb = GetComponent<Rigidbody>();
         speed = 10.0f;
 	}
 	

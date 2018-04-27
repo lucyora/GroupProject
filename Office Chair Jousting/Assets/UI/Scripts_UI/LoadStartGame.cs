@@ -25,7 +25,6 @@ public class LoadStartGame : MonoBehaviour {
     public void Quit()
     {
         Application.Quit();
-        Debug.Log("Quit");
     } 
 
 }

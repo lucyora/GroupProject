@@ -17,9 +17,7 @@ public class AI : Player
 	public float AttackDistance = 15.0f; // determines when the AI Will start attacking
 	public float speed;
 	float timer = 0.0f;
-	private NavMeshAgent nav;
     public int index = 0;
-    Animator animator;
     bool ai_Attack;
 
 	// Use this for initialization
@@ -29,12 +27,10 @@ public class AI : Player
 		Current_Player = current_player.AI;
 		// CurrentState = aiState.MOVETO;
 
-		nav = GetComponent<NavMeshAgent>();
 		isAlive = true;
 	}
 	void Start()
 	{
-        animator = GetComponent<Animator>();
         ai_Attack = false;
 
         gamemanager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();

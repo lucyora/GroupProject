@@ -51,7 +51,6 @@ public class MapSelect : MonoBehaviour {
             controlDelay += Time.deltaTime;
             if (controlDelay >= 0.5)
             {
-                Debug.Log("Music");
 //				SoundManager.instance.selectSound.Play();
 				MoveNav(2);
                 controlDelay = 0;

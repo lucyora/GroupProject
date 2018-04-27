@@ -259,7 +259,6 @@ public class HUD_Manager : MonoBehaviour
             }
             if(isplayer[i] == 1 )
             {
-                Debug.Log("Connected, Player hud active" + i);
                 PlayerHUD[i].gameObject.SetActive(true);
             }  
         }

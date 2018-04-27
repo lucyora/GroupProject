@@ -28,7 +28,6 @@ public class Pt_death : MonoBehaviour
 
         if (player.isAlive == false && bPt_switch == true)
         {
-            Debug.Log("death_ef on");
             triggerDeath();
         }
     }

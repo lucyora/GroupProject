@@ -143,27 +143,21 @@ public class GameManager : MonoBehaviour
             TotalPlayerCount += 1;
         }
 
-        //This is set in the inspector is this script is in debug mode
-        //       if (!DebugMode)
-        //     {
-        Debug.Log("The saved PlayerPref for GamemMode Is: " + PlayerPrefs.GetInt("GameMode"));
-            switch (PlayerPrefs.GetInt("GameMode"))
-            {
-                case 0:
-                    GameMode = gamemode.TeamDeathMatch;
-                    break;
-                case 1:
-                    GameMode = gamemode.DeathMatch;
-                    break;
-                case 2:
-                    GameMode = gamemode.OttomanEmpire;
-                    break;
-                case 4:
-                    GameMode = gamemode.LastManSitting;
-                    break;
- //           }
-
-        }
+         switch (PlayerPrefs.GetInt("GameMode"))
+         {
+             case 0:
+                 GameMode = gamemode.TeamDeathMatch;
+                 break;
+             case 1:
+                 GameMode = gamemode.DeathMatch;
+                 break;
+             case 2:
+                 GameMode = gamemode.OttomanEmpire;
+                 break;
+             case 4:
+                 GameMode = gamemode.LastManSitting;
+                 break;
+         }
         InvokeRepeating("DeathWatch", 0.01f, 1.0f);//Watching for player deaths
     }
 
@@ -172,10 +166,6 @@ public class GameManager : MonoBehaviour
     {
         bool allplayersdead = true;
         int index = 0;
-		if (PlayerIndicator.Length == 0)
-        {
-            Debug.LogError("Player Indicators aren't in the game manager. Please fill the array in");
-        }
         foreach (GameObject Player in PlayerList)
         {
             if (Player.GetComponent<Player>().isAlive)
@@ -201,7 +191,6 @@ public class GameManager : MonoBehaviour
             {
                 PlayerIndicator[index].transform.position = new Vector3(1000, 1000, 1000);
             }
-            Debug.Log("index is "+index);
             index++;
         }
 
