@@ -1371,6 +1371,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cde2c75929997ee4c8d39a32ed28a3e7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1006331320 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1878613221655648, guid: cde2c75929997ee4c8d39a32ed28a3e7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1006331319}
 --- !u!1 &1009707875 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 495047ede9be2e64d87c7ca7d5018fc6, type: 3}
@@ -1615,7 +1620,7 @@ Prefab:
         type: 2}
       propertyPath: HudManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1006331320}
     - target: {fileID: 114386767899987646, guid: 7150e91944ffe134dad0b28465be3aa0,
         type: 2}
       propertyPath: GameMode
@@ -1867,6 +1872,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1433945900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1433945901}
+  - component: {fileID: 1433945903}
+  - component: {fileID: 1433945902}
+  m_Layer: 0
+  m_Name: DeathPlane (6)
+  m_TagString: DeathPlane
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1433945901
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433945900}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -7.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1718519276}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1433945902
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433945900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1433945903
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1433945900}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1496171753 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1357194583814756, guid: 0e06c8dc9a8a6084d922c3dbea1f6875,
@@ -2178,6 +2232,7 @@ Transform:
   - {fileID: 1623674167}
   - {fileID: 570871690}
   - {fileID: 997890167}
+  - {fileID: 1433945901}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

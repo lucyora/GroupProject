@@ -142,22 +142,24 @@ public class GameManager : MonoBehaviour
             SpawnPlayer(3);
             TotalPlayerCount += 1;
         }
-
-         switch (PlayerPrefs.GetInt("GameMode"))
-         {
-             case 0:
-                 GameMode = gamemode.TeamDeathMatch;
-                 break;
-             case 1:
-                 GameMode = gamemode.DeathMatch;
-                 break;
-             case 2:
-                 GameMode = gamemode.OttomanEmpire;
-                 break;
-             case 4:
-                 GameMode = gamemode.LastManSitting;
-                 break;
-         }
+        if (!DebugMode)
+        {
+            switch (PlayerPrefs.GetInt("GameMode"))
+            {
+                case 0:
+                    GameMode = gamemode.TeamDeathMatch;
+                    break;
+                case 1:
+                    GameMode = gamemode.DeathMatch;
+                    break;
+                case 2:
+                    GameMode = gamemode.OttomanEmpire;
+                    break;
+                case 4:
+                    GameMode = gamemode.LastManSitting;
+                    break;
+            }
+        }
         InvokeRepeating("DeathWatch", 0.01f, 1.0f);//Watching for player deaths
     }
 
@@ -174,14 +176,12 @@ public class GameManager : MonoBehaviour
             }
 
             //Pausing the game
-            if (Input.GetButtonDown("JoyStart0"))
+            if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
             {
-                if (Input.GetButtonDown(Player.GetComponent<Player>().SelectedP_Start))
-                {
-                    GameisPaused = !GameisPaused;
-                    HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
-                }
+                GameisPaused = !GameisPaused;
+                HudManager.GetComponent<HUD_Manager>().PauseEvent(GameisPaused);
             }
+            
             //
             if (GameMode != gamemode.TeamDeathMatch && Player.GetComponent<Player>().isAlive)
             {

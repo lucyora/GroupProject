@@ -248,19 +248,16 @@ public class HUD_Manager : MonoBehaviour
     public void InitHudTxt()
     {
         gameHUD[0].gameObject.SetActive(true);
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < gamemanager.TotalPlayerCount; i++)
         {
-            for (int j = 0; j < 4; j++)
+           for (int j = 0; j < gamemanager.TotalPlayerCount; j++)
             {
                 if (PlayerPrefs.GetInt("Character" + (i + 1)) == j)
                 {
                     playerImage[i].sprite = playerSprite[j];
                 }
             }
-            if(isplayer[i] == 1 )
-            {
-                PlayerHUD[i].gameObject.SetActive(true);
-            }  
+            PlayerHUD[i].gameObject.SetActive(true);
         }
     }
 }
